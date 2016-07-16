@@ -19,17 +19,18 @@ public class EmailDAO {
 		return em.createQuery("from email e").getResultList();
 
 	}
-	 @Transactional
-		public void add(Email email) {
-		 Email newEmail = em.merge(email);
-			em.persist(newEmail);
-			em.close();
-		}
-	
-	 @Transactional
-		public void delete(int id) {
-		  Email email = em.find(Email.class, id);
-		  em.remove(email);
-		  em.close();
-		}
+
+	@Transactional
+	public void add(Email email) {
+		Email newEmail = em.merge(email);
+		em.persist(newEmail);
+		em.close();
+	}
+
+	@Transactional
+	public void delete(int id) {
+		Email email = em.find(Email.class, id);
+		em.remove(email);
+		em.close();
+	}
 }

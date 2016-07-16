@@ -20,58 +20,56 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import sender.domain.Email;
 import sender.service.EmailService;
 
-
 @Controller
 @RequestMapping("/email")
 public class EmailController {
 
 	EmailService service = new EmailService();
-	
-    @Autowired
-    @Qualifier("emailValidator")
-    private Validator validator;
-    
-    @InitBinder
-    private void initBinder(WebDataBinder binder) {
-        binder.setValidator(validator);
-    }
-	
+
+	@Autowired
+	@Qualifier("emailValidator")
+	private Validator validator;
+
+	@InitBinder
+	private void initBinder(WebDataBinder binder) {
+		binder.setValidator(validator);
+	}
+
 	@RequestMapping(method = RequestMethod.GET)
-	public String initForm(Model model){
+	public String initForm(Model model) {
 		Email email = new Email();
 		model.addAttribute("email", email);
-		
-		
-		List <String> addressBook = service.showAllEmails();
+
+		List<String> addressBook = service.showAllEmails();
 		model.addAttribute("addressBook", addressBook);
-		
+
 		return "email";
 	}
-	
+
 	@RequestMapping(method = RequestMethod.POST)
-	public String submitForm(
-		Model model, @Validated Email email, BindingResult result, HttpServletRequest req) {
-	
+	public String submitForm(Model model, @Validated Email email,
+			BindingResult result, HttpServletRequest req) {
+
 		String page = "email";
 		String redirect = "redirect:";
-		List <String> addressBook = service.showAllEmails();
+		List<String> addressBook = service.showAllEmails();
 		model.addAttribute("addressBook", addressBook);
-		
-		if (req.getParameter("delete") != null){
+
+		if (req.getParameter("delete") != null) {
 			String address = req.getParameter("notUseful");
 			service.deleteByAddress(address);
 			page = redirect;
 		}
-			
-		if(!result.hasErrors()) {
+
+		if (!result.hasErrors()) {
 			String newAddress = req.getParameter("address");
-			try{
-			service.addEmail(newAddress); 
-			}catch(JpaSystemException e){
+			try {
+				service.addEmail(newAddress);
+			} catch (JpaSystemException e) {
 				return redirect;
 			}
 			page = redirect;
-		}	
+		}
 		return page;
 	}
 

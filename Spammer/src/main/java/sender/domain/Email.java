@@ -12,7 +12,7 @@ public class Email {
 	@Id
 	@Column(name = "id")
 	private int id;
-	
+
 	@Column(name = "email")
 	private String address;
 
