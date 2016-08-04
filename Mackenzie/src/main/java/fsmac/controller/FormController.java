@@ -84,7 +84,7 @@ public class FormController {
 				   
 		model.addAttribute("form", form);
 		model.addAttribute("questions", questions);
-		String returnVal = "successOrder";
+		String returnVal = "success";
 		if (result.hasErrors()) {
 			initModelList(model);
 			returnVal = "form";

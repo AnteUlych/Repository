@@ -6,58 +6,61 @@
 <head>
 
 <style>
+card {
+	position: relative;
+	left: 180px;
+	padding-right: 870px;
+	padding-bottom: 520px;
+	background-color: #FFFFC5;
+	box-shadow: 10px 10px 5px grey;
+}
 
 div {
-    width: 800px;
-    
+	width: 800px;
 }
 
 position {
-    position: relative;
-    left: 200px;
-   
+	position: relative;
+	left: 200px;
 }
 
-click{
-    position: relative;
-    left: 750px;
-   
+click {
+	position: relative;
+	left: 750px;
 }
-
-
 </style>
 
 </head>
 
 <body>
-<position>
-	<h2 style="text-indent: 200px">Оценка сервиса компании FSM</h2>
+	<card></card>
+	<position>
+	<h2 style="text-indent: 200px; color: red;">Оценка сервиса
+		компании FSM</h2>
 	<br />
-	<div>
-Мы признательны Вам за доверие, оказанное нашей компании, и хотим улучшить наш сервис. 
-Просим Вас ответить на вопросы нашей анкеты с помощью оценки, используя 10-бальную шкалу.
-Спасибо!
-</div>
+	<div>Мы признательны Вам за доверие, оказанное нашей компании, и
+		хотим улучшить наш сервис. Просим Вас ответить на вопросы нашей анкеты
+		с помощью оценки, используя 10-бальную шкалу. Спасибо!</div>
 	<br />
 	<form:form method="POST" commandName="form">
 		<table>
-		
+
 			<tr>
-				<td colspan="20">Введите Ваше ФИО: <td><form:input
-						path="name" /> <form:errors path="name"
+				<td colspan="20">Введите Ваше ФИО:
+				<td><form:input path="name" /> <form:errors path="name"
 						cssStyle="color: #ff0000;" /></td>
 
 			</tr>
 			<tr>
-				<td colspan="20">Введите название Вашей компании: <td><form:input
-						path="company" /> <form:errors path="company"
+				<td colspan="20">Введите название Вашей компании:
+				<td><form:input path="company" /> <form:errors path="company"
 						cssStyle="color: #ff0000;" /></td>
-		
+
 			</tr>
-			</table>
-			<br />
-						
-        <table>
+		</table>
+		<br />
+
+		<table>
 			<tr>
 				<td>1. ${questions.get(0)}
 				<td><form:radiobuttons path="rate1" items="${rate1}" /> <form:errors
@@ -110,13 +113,11 @@ click{
 						path="rate10" cssStyle="color: #ff0000;" /></td>
 			</tr>
 
-</table>
+		</table>
 		<br />
-			
-				<click>
-				<input  type="submit" name="submit" value="отправить" >
-			</click>
-	</form:form>
-</position>
+
+		<click> <input type="submit" name="submit" value="отправить">
+		</click>
+	</form:form> </position>
 </body>
 </html>
