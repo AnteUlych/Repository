@@ -9,6 +9,7 @@
 	</bean>
 
     <bean id="formValidator" class="fsmac.validator.FormValidator" />
+    <bean id="rateValidator" class="fsmac.validator.RateValidator" />
     
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
