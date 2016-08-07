@@ -2,6 +2,7 @@ package fsmac.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -21,7 +22,7 @@ import fsmac.model.Rate;
 @RequestMapping("/rate.htm")
 public class RateController {
 	
-
+private static final int DIFFERENCE = 150; //magic number for demo version need to be changed
     @Autowired
     @Qualifier("rateValidator")
     private Validator validator;
@@ -49,23 +50,25 @@ public class RateController {
 			returnVal = "rate";
 		} else {
 		
-			//!
-			initModelList(model);//!!!
-			returnVal = "rate";///!!
+			initModelList(model);
+			returnVal = "rate";
 			
-			String consolidateRate = "work";
-			String separateRate = "work";
-			String odessaRate = "work";
+			int randomRate = calculateRate();
+			
+			String consolidateRate = ""+randomRate;
+			String separateRate = ""+(randomRate+DIFFERENCE);
+			String odessaRate = ""+(randomRate-DIFFERENCE);
 			
 			model.addAttribute("rate", rate);
 			
 			model.addAttribute("consolidateRate", consolidateRate);
 			model.addAttribute("separateRate", separateRate);
 			model.addAttribute("odessaRate", odessaRate);
-			//!
+			
 		}		
 		return returnVal;
 	}
+
 
 	private void initModelList(Model model) {
 		List<String> weight = new ArrayList<String>();
@@ -109,5 +112,12 @@ public class RateController {
 		model.addAttribute("volume", volume);
 		model.addAttribute("port", port);
 		model.addAttribute("city", city);
+	}
+	
+
+	private int calculateRate() {//method for demo version need to be changed
+		Random rand = new Random();
+		int  randomResult = rand.nextInt(1500) + 500; //magic numbers for demo version need to be changed
+		return randomResult;
 	}
 }
