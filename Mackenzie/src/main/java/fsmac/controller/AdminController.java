@@ -12,7 +12,7 @@ import fsmac.service.QuestionnaireService;
 
 
 @Controller
-@RequestMapping("/admin.htm")
+@RequestMapping("/admin")
 public class AdminController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String openForm(Model model) {

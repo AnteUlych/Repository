@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import fsmac.model.Rate;
 
 @Controller
-@RequestMapping("/rate.htm")
+@RequestMapping("/rate")
 public class RateController {
 	
 private static final int DIFFERENCE = 150; //magic number for demo version need to be changed

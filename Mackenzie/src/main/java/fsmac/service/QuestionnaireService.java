@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+
 import fsmac.dao.QuestionnaireDAO;
 import fsmac.model.Form;
 import fsmac.model.Questionnaire;
@@ -45,6 +46,7 @@ public class QuestionnaireService {
 		questionnaire.setRegistration(new Date());
 
 		dao.add(questionnaire);
+
 	}
 
 	private int translateRateToNumber(String rate) {

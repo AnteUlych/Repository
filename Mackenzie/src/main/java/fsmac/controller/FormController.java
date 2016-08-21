@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpRequest;
+import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -28,7 +29,7 @@ import fsmac.service.FormService;
 import fsmac.service.QuestionnaireService;
 
 @Controller
-@RequestMapping("/form.htm")
+@RequestMapping("/form")
 public class FormController {
 	
 	FormService formService = new FormService();
@@ -91,7 +92,11 @@ public class FormController {
 		} else {
 			model.addAttribute("form", form);
 			QuestionnaireService qs = new QuestionnaireService();
+			try{
 			qs.addQuestionnaire(form);
+			}catch(JpaSystemException e){
+				return returnVal;	
+			}
 
 		}
 		return returnVal;
