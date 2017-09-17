@@ -12,6 +12,8 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
 
+  <!--<context:component-scan base-package="bird" /> -->
+
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" />
@@ -27,7 +29,7 @@
 	<bean id="emf"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="bird" />
+		<property name="packagesToScan" value="bird" /> <!-- ! -->
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="showSql" value="false" />
@@ -39,7 +41,7 @@
 
 	<bean
 		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
-	<context:component-scan base-package="a1s.learn" />
+	 <context:component-scan base-package="a1s.learn" /><!---->
 
 	<bean id="clientDao" class="bird.dao.ClientDAO" />
 	<bean id="cargoDao" class="bird.dao.CargoDAO" />

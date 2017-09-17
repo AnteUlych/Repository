@@ -1,14 +1,27 @@
 package bird.helper;
 
+import java.util.List;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import bird.expediter.Expediter;
+import bird.model.Route;
+import bird.service.RouteService;
+
 public class Helper {
 
-	public static void main(String[] args) {
+	public static void help() /**main(String[] args)*/ {
 		
+Expediter s = new Expediter();
+        int helloNumber = s.giveAnumber();
+        
+        System.out.println(helloNumber);
 		/**
 		ApplicationContext ctx = (ApplicationContext) new ClassPathXmlApplicationContext(
 				"spring.xml");
 		RouteService s = (RouteService) ctx.getBean("routeService");
-			
+
 		//s.deleteReview(3);
 		List<Route> r = s.getAllRouteByCargoId(9);
 		for (Route c : r) {
