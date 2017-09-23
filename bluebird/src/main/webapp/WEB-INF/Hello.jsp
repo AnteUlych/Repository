@@ -6,6 +6,8 @@
 <body>
 
     ${hello}
+    ${var2}
+  
 
 </body>
 </html>

@@ -19,7 +19,7 @@ public class CargoDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<Cargo> getAllActiveCargo() {
-		return em.createQuery("from Cargo where active = '1'").getResultList();
+		return em.createQuery("from Cargo where active = '1' order by id desc").getResultList();
 	}
 
 	public Cargo getCargoBy(int id) {
@@ -36,7 +36,7 @@ public class CargoDAO {
 	@SuppressWarnings("unchecked")
 	public List<Cargo> getAllActiveCargosByClient(String client) {
 		return em.createQuery(
-				"from Cargo where client = '" + client + "' and active = '1'")
+				"from Cargo where client = '" + client + "' and active = '1' order by id desc")
 				.getResultList();
 	}
 

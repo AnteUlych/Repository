@@ -6,17 +6,26 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import bird.expediter.Expediter;
+import bird.model.Cargo;
 import bird.model.Route;
 import bird.service.RouteService;
 
 public class Helper {
 
-	public static void help() /**main(String[] args)*/ {
+	public static void help()/**  main(String[] args)*/{
 		
 Expediter s = new Expediter();
-        int helloNumber = s.giveAnumber();
+
+System.out.println(s.getNewestCargo(1));
         
-        System.out.println(helloNumber);
+//List<Cargo> li = s.getActiveCargoesByClient(1);
+//for (Cargo c : li) {
+//	System.out.println(c.getId()+". "+ c.getDescription());
+	//List<Route> r = s.getRoutebyCargoId(c.getId());
+	//for(Route ro:r){
+	//	System.out.println(" "+ro.getLatitude());
+	//}
+	
 		/**
 		ApplicationContext ctx = (ApplicationContext) new ClassPathXmlApplicationContext(
 				"spring.xml");

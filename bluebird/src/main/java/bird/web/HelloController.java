@@ -1,27 +1,26 @@
 package bird.web;
 
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import bird.expediter.Expediter;
-
-
 
 @Controller
 @RequestMapping("/hello")
 public class HelloController {
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String showQuote(ModelMap model) {
+	public String showQuote(ModelMap model, HttpServletRequest request) {
 
-		Expediter s = new Expediter();
-		
-        int helloNumber = s.giveAnumber();
-     
-		model.addAttribute("hello", helloNumber);
+		HttpSession session = request.getSession();
+		String var1 = (String) session.getAttribute("clientID");
+		String var2 = (String) session.getAttribute("cargoID");
+		model.addAttribute("hello", var1);
+		model.addAttribute("var2", var2);
 		return "Hello";
 
 	}
