@@ -16,18 +16,16 @@ ${cargo.description}
 <c:forEach items="${waybill}" var="way">
 ${way.longitude}
  <br>
+ 
 </c:forEach>
 
-
-<!--  
-<form method="Post">
-<c:forEach items="${cargoes}" var="cargo" varStatus="step">
-	<input name="message${step.index}" type="hidden" value="${cargo.id}"/>
-	<input type="submit" name="submit${step.index}" value="${cargo.description}"/>
-  </c:forEach>
-</form>
-	-->
-
+<form method="POST">
+	<c:forEach items="${cargoes}" var="cargo" varStatus="step">
+	<input type="hidden" name="cargoid${step.index}" value="${cargo.id}" />
+${cargo.id} <input type="submit" class="btn btn-link" name="find${step.index}" value="${cargo.description}">
+<br>
+</c:forEach>
+	</form>
 
 </body>
 </html>

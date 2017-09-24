@@ -16,12 +16,10 @@ import bird.expediter.Expediter;
 import bird.model.Cargo;
 import bird.model.Route;
 
-
 @Controller
-@RequestMapping("/cabinet")
-public class ClientController {
-	
-	Expediter monitoring = new Expediter();	
+@RequestMapping("/gsp")
+public class ClientCatcherController {
+Expediter monitoring = new Expediter();	
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showQuote(ModelMap model, HttpServletRequest request) {
@@ -68,7 +66,7 @@ public class ClientController {
 			session.setAttribute("cargoID",cargoID+"");
 			session.setAttribute("clientID",clientId);
 			try {
-				response.sendRedirect("/bluebird/gsp");
+				response.sendRedirect("/bluebird/cabinet");
 				return forward;
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -78,9 +76,5 @@ public class ClientController {
 		
 		return forward;
 	}
-
 		
 	}
-	
-
-

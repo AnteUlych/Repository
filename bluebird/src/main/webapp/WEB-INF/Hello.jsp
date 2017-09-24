@@ -5,7 +5,7 @@
 </head>
 <body>
 
-    ${hello}
+  ${hello}
     ${var2}
   
 

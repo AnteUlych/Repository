@@ -17,6 +17,7 @@ public class HelloController {
 	public String showQuote(ModelMap model, HttpServletRequest request) {
 
 		HttpSession session = request.getSession();
+		//session.setAttribute("cargoID","8");
 		String var1 = (String) session.getAttribute("clientID");
 		String var2 = (String) session.getAttribute("cargoID");
 		model.addAttribute("hello", var1);
