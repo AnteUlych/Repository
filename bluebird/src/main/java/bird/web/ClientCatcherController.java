@@ -42,6 +42,11 @@ Expediter monitoring = new Expediter();
         
 		model.addAttribute("cargoes", cargoes);
 		model.addAttribute("waybill", waybill);
+		
+		model.addAttribute("needComment", monitoring.isCargoCommentExists(cargoID));
+		
+		model.addAttribute("lastUpdate", monitoring.getTimeOfLastUpdateByClient(clientID));
+		model.addAttribute("totalCargoes", monitoring.getTotalCargoesByClient(clientID));
 			
 	return "Cabinet";
 	}
@@ -72,6 +77,14 @@ Expediter monitoring = new Expediter();
 				e.printStackTrace();
 			}
 		}
+		}
+		if (request.getParameter("comment") != null) {
+			try {
+				response.sendRedirect("/bluebird/hello");
+				return forward;
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		return forward;

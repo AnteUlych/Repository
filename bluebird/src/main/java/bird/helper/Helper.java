@@ -16,7 +16,8 @@ public class Helper {
 		
 Expediter s = new Expediter();
 
-System.out.println(s.getNewestCargo(1));
+System.out.println(s.getTimeOfLastUpdateByClient(1));
+System.out.println(s.getTotalCargoesByClient(1));
         
 //List<Cargo> li = s.getActiveCargoesByClient(1);
 //for (Cargo c : li) {

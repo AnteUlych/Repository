@@ -36,7 +36,7 @@ public class ClientController {
 		
 		if(cargoID == 0){
 			cargoID = monitoring.getNewestCargo(clientID);
-			session.setAttribute("cargoID",cargoID);
+			session.setAttribute("cargoID",cargoID+"");
 		}
 		
 		List<Cargo> cargoes = monitoring.getActiveCargoesByClient(clientID);
@@ -44,7 +44,12 @@ public class ClientController {
         
 		model.addAttribute("cargoes", cargoes);
 		model.addAttribute("waybill", waybill);
+		
+		model.addAttribute("needComment", monitoring.isCargoCommentExists(cargoID));
 			
+		model.addAttribute("lastUpdate", monitoring.getTimeOfLastUpdateByClient(clientID));
+		model.addAttribute("totalCargoes", monitoring.getTotalCargoesByClient(clientID));
+		
 	return "Cabinet";
 	}
 	
@@ -54,6 +59,7 @@ public class ClientController {
 		HttpSession session = request.getSession();
 		
 		String clientId = (String) session.getAttribute("clientID");
+		String cargoId = (String) session.getAttribute("cargoID"); //!
 		int clientID = Integer.parseInt(clientId);
 		
 		List<Cargo> cargoes = monitoring.getActiveCargoesByClient(clientID);
@@ -75,6 +81,16 @@ public class ClientController {
 			}
 		}
 		}
+		//!
+		if (request.getParameter("comment") != null) {
+			try {
+				response.sendRedirect("/bluebird/hello");
+				return forward;
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		//!
 		
 		return forward;
 	}
