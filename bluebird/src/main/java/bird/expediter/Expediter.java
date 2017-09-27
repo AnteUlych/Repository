@@ -108,5 +108,15 @@ public class Expediter {
 		return cargoes.size()+"";
 	}
 	
+	public String getSimplInformationByCargoId(int id){
+		CargoService kundendienst = (CargoService) ctx.getBean("cargoService");
+		return kundendienst.getCargoBy(id).getDescription();
+	}
+	
+	public void addComment(int cargoId, int rate, String comment){
+		ReviewService service = (ReviewService) ctx.getBean("reviewService");
+		service.addReview(cargoId, comment, rate);
+	}
+	
 	
 }

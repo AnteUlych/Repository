@@ -66,7 +66,7 @@ public class ClientController {
           
 		model.addAttribute("cargoes", cargoes);
 		
-		String forward = "Hello";
+		String forward = "notion";
 		
 		for(Cargo c:cargoes){		
 		if (request.getParameter("find"+cargoes.indexOf(c)) != null) {
@@ -75,6 +75,7 @@ public class ClientController {
 			session.setAttribute("clientID",clientId);
 			try {
 				response.sendRedirect("/bluebird/gsp");
+				forward = "Cabinet";
 				return forward;
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -84,7 +85,7 @@ public class ClientController {
 		//!
 		if (request.getParameter("comment") != null) {
 			try {
-				response.sendRedirect("/bluebird/hello");
+				response.sendRedirect("/bluebird/notion");
 				return forward;
 			} catch (IOException e) {
 				e.printStackTrace();

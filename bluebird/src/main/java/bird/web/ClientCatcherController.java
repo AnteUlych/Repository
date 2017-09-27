@@ -63,7 +63,7 @@ Expediter monitoring = new Expediter();
           
 		model.addAttribute("cargoes", cargoes);
 		
-		String forward = "Hello";
+		String forward = "notion";
 		
 		for(Cargo c:cargoes){		
 		if (request.getParameter("find"+cargoes.indexOf(c)) != null) {
@@ -72,6 +72,7 @@ Expediter monitoring = new Expediter();
 			session.setAttribute("clientID",clientId);
 			try {
 				response.sendRedirect("/bluebird/cabinet");
+				forward = "Cabinet";
 				return forward;
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -80,7 +81,7 @@ Expediter monitoring = new Expediter();
 		}
 		if (request.getParameter("comment") != null) {
 			try {
-				response.sendRedirect("/bluebird/hello");
+				response.sendRedirect("/bluebird/notion");
 				return forward;
 			} catch (IOException e) {
 				e.printStackTrace();
