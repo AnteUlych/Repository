@@ -12,12 +12,12 @@ import bird.service.RouteService;
 
 public class Helper {
 
-	public static void help()/**  main(String[] args)*/{
+	public static void help()/*  main(String[] args)**/{
 		
 Expediter s = new Expediter();
 
-System.out.println(s.getTimeOfLastUpdateByClient(1));
-System.out.println(s.getTotalCargoesByClient(1));
+System.out.println(s.getRouteBy(14));
+
         
 //List<Cargo> li = s.getActiveCargoesByClient(1);
 //for (Cargo c : li) {

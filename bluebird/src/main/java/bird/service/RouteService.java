@@ -41,4 +41,8 @@ public class RouteService {
 		
 		dao.persist(route);
 	}
+
+	public Route getRouteBy(int id) {
+		return dao.getRouteBy(id);
+	}
 }

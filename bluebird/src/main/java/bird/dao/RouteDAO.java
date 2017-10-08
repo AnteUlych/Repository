@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +24,11 @@ public class RouteDAO {
 				.createQuery(
 						"from Route where cargoId = '" + cargoID
 								+ "' order by id desc").getResultList();
+	}
+	
+	public Route getRouteBy(int id) {
+		Query query = em.createQuery("from Route where id = '" + id + "'");
+		return (Route) query.getSingleResult();
 	}
 
 	@Transactional

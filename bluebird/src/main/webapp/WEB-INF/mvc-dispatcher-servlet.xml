@@ -12,6 +12,8 @@
 		<property name="basename" value="validation" />
 	</bean>
 <bean id="passwordValidator" class="bird.web.validator.PasswordValidator" />
+<bean id="freightValidator" class="bird.web.validator.FreightValidator" />
+<bean id="customerValidator" class="bird.web.validator.CustomerValidator" />
 <!-- validator -->
 
 	<bean

@@ -2,6 +2,7 @@ package bird.expediter;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -118,5 +119,52 @@ public class Expediter {
 		service.addReview(cargoId, comment, rate);
 	}
 	
-	
+	public List<String> getListofClients(){
+			ClientService service = (ClientService) ctx.getBean("clientService");
+			List<String> clients = new ArrayList<String>();
+			List<Client> customers = service.getAllClients();
+			for(Client client:customers){
+				clients.add(client.getCompany());
+			}
+			return clients;			
+	}
+	public void addCargo(String client, String description) {
+		CargoService kundendienst = (CargoService) ctx.getBean("cargoService");
+		kundendienst.addCargo(client, description);
+	}
+	 public void addClient(String company, String name, String email, String phone, String login, String password){
+		 ClientService service = (ClientService) ctx.getBean("clientService");
+		 service.addClient(company, name, email, phone, login, password);
+	 }
+	 
+	 public List<Cargo> getAllActivaCargoes(){
+		 CargoService kundendienst = (CargoService) ctx.getBean("cargoService");
+		 return kundendienst.getAllActiveCargo();
+	 }
+	 public void addRoute(int cargoID, double longitude, double latitude, String status){
+		 RouteService routeService = (RouteService)ctx.getBean("routeService");
+		 routeService.addRoute(cargoID, longitude, latitude, status);
+	 }
+	 public Cargo getCargoBy(int id) {
+		 CargoService kundendienst = (CargoService) ctx.getBean("cargoService");
+		 return kundendienst.getCargoBy(id);
+	 }
+	 public Route getRouteBy(int id) {
+		 RouteService service = (RouteService)ctx.getBean("routeService");
+		 return service.getRouteBy(id);
+	 }
+	 
+		public void editRoute(int id, double longitude, double latitude, String status) {
+			RouteService service = (RouteService)ctx.getBean("routeService");
+			service.editRoute(id, longitude, latitude, status);
+		}
+		
+	 public boolean isDouble(String str) {
+	        try {
+	            Double.parseDouble(str);
+	            return true;
+	        } catch (NumberFormatException e) {
+	            return false;
+	        }
+	    }
 }
