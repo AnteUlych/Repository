@@ -9,16 +9,18 @@ import bird.expediter.Expediter;
 import bird.model.Cargo;
 import bird.model.Route;
 import bird.service.RouteService;
+import bird.web.model.Mark;
 
 public class Helper {
 
-	public static void help()/*  main(String[] args)**/{
+	public static void help()  /**main(String[] args)*/{
 		
 Expediter s = new Expediter();
-
-System.out.println(s.getRouteBy(14));
-
+List <Mark> tests = s.getAllComments();
         
+for (Mark m : tests) {
+	System.out.println(m.getCargo()+ " "+m.getTime()+" "+m.getComment());
+}
 //List<Cargo> li = s.getActiveCargoesByClient(1);
 //for (Cargo c : li) {
 //	System.out.println(c.getId()+". "+ c.getDescription());

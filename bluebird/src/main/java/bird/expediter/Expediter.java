@@ -18,6 +18,7 @@ import bird.service.CargoService;
 import bird.service.ClientService;
 import bird.service.ReviewService;
 import bird.service.RouteService;
+import bird.web.model.Mark;
 import bird.model.Cargo;
 
 public class Expediter {
@@ -157,6 +158,45 @@ public class Expediter {
 		public void editRoute(int id, double longitude, double latitude, String status) {
 			RouteService service = (RouteService)ctx.getBean("routeService");
 			service.editRoute(id, longitude, latitude, status);
+		}
+		
+		public List<Mark> getAllComments(){
+			
+			ReviewService service = (ReviewService) ctx.getBean("reviewService");
+			CargoService kundendienst = (CargoService) ctx.getBean("cargoService");
+			
+			List <Review> reviews = service.getAllReviews();
+			List<Mark> comments = new ArrayList<Mark>();
+			
+			DateFormat df = new SimpleDateFormat("HH:mm:ss MM/dd/yyyy");
+			
+			for(Review review:reviews){
+				
+				String client = kundendienst.getCargoBy(review.getCargoId()).getClient();
+				String cargo = kundendienst.getCargoBy(review.getCargoId()).getDescription();
+				String time = df.format(review.getTime());
+				String comment = review.getComment();
+				int rate = review.getRate();
+				
+				Mark mark = new Mark();
+				
+				mark.setCargo(cargo);
+				mark.setClient(client);
+				mark.setComment(comment);
+				mark.setRate(rate);
+				mark.setTime(time);
+				
+				comments.add(mark);
+			}
+			
+			return comments;
+		}
+		
+		public int getRatebyMark(int mark){
+			ReviewService service = (ReviewService) ctx.getBean("reviewService");
+			
+			int rate = service.getCountByRate(mark);
+			return rate;
 		}
 		
 	 public boolean isDouble(String str) {
