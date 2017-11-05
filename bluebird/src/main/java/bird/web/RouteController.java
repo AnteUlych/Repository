@@ -33,17 +33,24 @@ public class RouteController {
 	@RequestMapping(value = "route/{id}", method = RequestMethod.POST)
 	public String selectRoute(@PathVariable("id") String id,
 			HttpServletRequest req, HttpServletRequest resp, ModelMap model) {
-		
+
 		Cargo cargo = monitoring.getCargoBy(Integer.parseInt(id));
 		List<Route> route = monitoring.getRoutebyCargoId(Integer.parseInt(id));
 		model.addAttribute("route", route);
 		model.addAttribute("cargo", cargo);
-		
+
 		int cargoID = Integer.parseInt(id);
 		String longitude = req.getParameter("longitude");
 		String latitude = req.getParameter("latitude");
 		String status = req.getParameter("status");
-
+	
+			String finish = (String)req.getParameter("finish");
+		
+		if ("on".equals(finish)) {
+			monitoring.finishCargo(cargoID);
+			return "ok";
+		}
+	
 		if (!longitude.equals(null) && !latitude.equals(null)
 				&& !status.equals(null) && !longitude.equals("")
 				&& !latitude.equals("") && !status.equals("")
@@ -52,7 +59,7 @@ public class RouteController {
 
 			monitoring.addRoute(cargoID, Double.parseDouble(longitude),
 					Double.parseDouble(latitude), status);
-			
+
 			return "ok";
 		}
 

@@ -41,6 +41,9 @@ public class CargoService {
 	public void editCargo(int id, String client, String description, int active) {
 		dao.editCargo(id, client, description, active);
 	}
+	public void finishCargo(int id) {
+		dao.finishCargo(id);
+	}
 
 	public void deleteCargo(int id) {
 		dao.deleteCargo(id);

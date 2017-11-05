@@ -150,6 +150,12 @@ public class Expediter {
 		 CargoService kundendienst = (CargoService) ctx.getBean("cargoService");
 		 return kundendienst.getCargoBy(id);
 	 }
+	 
+	 public void finishCargo(int id) {
+		 CargoService kundendienst = (CargoService) ctx.getBean("cargoService");
+		 kundendienst.finishCargo(id);
+		}
+	 
 	 public Route getRouteBy(int id) {
 		 RouteService service = (RouteService)ctx.getBean("routeService");
 		 return service.getRouteBy(id);

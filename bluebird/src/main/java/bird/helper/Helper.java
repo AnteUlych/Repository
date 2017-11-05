@@ -13,14 +13,18 @@ import bird.web.model.Mark;
 
 public class Helper {
 
-	public static void help()  /**main(String[] args)*/{
+	public static void help() /** main(String[] args)*/{
 		
 Expediter s = new Expediter();
+s.finishCargo(9);
+System.out.println("ok");
+/**
 List <Mark> tests = s.getAllComments();
         
 for (Mark m : tests) {
 	System.out.println(m.getCargo()+ " "+m.getTime()+" "+m.getComment());
 }
+*/
 //List<Cargo> li = s.getActiveCargoesByClient(1);
 //for (Cargo c : li) {
 //	System.out.println(c.getId()+". "+ c.getDescription());

@@ -12,16 +12,15 @@
 <body>
 
 <h1>${cargo.description}</h1>
-
-<h1>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h1>
-
+<br>
   <form method="post">
 	
 longitude: <input name="longitude"  value="">
 latitude: <input name="latitude"  value="">
 status: <input name="status"  value="">	
 <input type="submit" name="add" value="add">	
-
+<br>
+<input type = "checkbox" name = "finish" /> finish route
 </form>
 
 <c:forEach items="${route}" var="information">

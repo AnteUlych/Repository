@@ -68,4 +68,14 @@ public class CargoDAO {
 		em.remove(transaction);
 		em.close();
 	}
+	@Transactional
+	public void finishCargo(int id) {
+		
+		Cargo cargo = (Cargo) em.find(Cargo.class, id);
+		cargo.setActive(0);
+		Cargo transaction = em.merge(cargo);
+		em.persist(transaction);
+		em.close();
+		
+	}
 }
