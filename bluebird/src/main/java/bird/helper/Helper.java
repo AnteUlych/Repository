@@ -13,11 +13,12 @@ import bird.web.model.Mark;
 
 public class Helper {
 
-	public static void help() /** main(String[] args)*/{
+	public static void  help() /**  main(String[] args)*/{
 		
 Expediter s = new Expediter();
-s.finishCargo(9);
-System.out.println("ok");
+
+
+
 /**
 List <Mark> tests = s.getAllComments();
         

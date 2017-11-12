@@ -1,6 +1,8 @@
 package bird.web;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -38,17 +40,25 @@ public class ClientController {
 			cargoID = monitoring.getNewestCargo(clientID);
 			session.setAttribute("cargoID",cargoID+"");
 		}
-		
+		Cargo actualCargo = monitoring.getCargoBy(cargoID);
+		DateFormat eddformat = new SimpleDateFormat("dd/MM/yyyy");
+		String generalInformation = actualCargo.getDescription()+"; estimated delivery date: "+eddformat.format(actualCargo.getDelivery());
 		List<Cargo> cargoes = monitoring.getActiveCargoesByClient(clientID);
         List<Route> waybill = monitoring.getRoutebyCargoId(cargoID);
-        
+        String way = monitoring.getStatisticForMap(cargoID);
+        //String way ="[['<center>10:00 24/10/2017</center><center>XX 1111 XX</center>', 51.508742,-0.120850,],['<center>10:00 25/10/2017</center><center>XX 1111 XX</center>', 52.395715,4.888916,],['<center>10:00 26/10/2017</center><center>XX 1111 XX</center>', 52.340748, 20.478142,]]"; 
+        model.addAttribute("client", actualCargo.getClient());
+        model.addAttribute("generalInformation", generalInformation);
 		model.addAttribute("cargoes", cargoes);
 		model.addAttribute("waybill", waybill);
+		
+		model.addAttribute("way", way);
 		
 		model.addAttribute("needComment", monitoring.isCargoCommentExists(cargoID));
 			
 		model.addAttribute("lastUpdate", monitoring.getTimeOfLastUpdateByClient(clientID));
 		model.addAttribute("totalCargoes", monitoring.getTotalCargoesByClient(clientID));
+		
 		
 	return "Cabinet";
 	}
@@ -59,7 +69,7 @@ public class ClientController {
 		HttpSession session = request.getSession();
 		
 		String clientId = (String) session.getAttribute("clientID");
-		String cargoId = (String) session.getAttribute("cargoID"); //!
+		String cargoId = (String) session.getAttribute("cargoID"); 
 		int clientID = Integer.parseInt(clientId);
 		
 		List<Cargo> cargoes = monitoring.getActiveCargoesByClient(clientID);

@@ -205,6 +205,23 @@ public class Expediter {
 			return rate;
 		}
 		
+		public String getStatisticForMap(int cargoID){
+			
+			List<Route> route = this.getRoutebyCargoId(cargoID);
+			String waybill = "[";
+			DateFormat df = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
+			for(Route way:route){
+				
+				String time = "'<center>"+df.format(way.getTime())+"</center><center>";
+				String status = way.getStatus()+"</center>'";
+				waybill=waybill+"["+time+status+", "+way.getLongitude()+", "+way.getLatitude()+"],";	
+			}
+			waybill =  waybill.substring(0, waybill.length()-1) + "]";;
+			return waybill;
+		}
+		
+
+		
 	 public boolean isDouble(String str) {
 	        try {
 	            Double.parseDouble(str);
