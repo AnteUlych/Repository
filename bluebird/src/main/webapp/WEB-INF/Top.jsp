@@ -3,23 +3,48 @@
 <html>
 <head>
 <title>bluebird</title>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+</style>
 </head>
 <body>
-
+ Total transportations - ${allActiveCargoes}
+	<br><br>
+<table>
+  <tr>
+ <th>Marks</th><th>Clients</th>
+ </tr>
+ <tr>
+	<td>never again</td><td>${mark1}</td>
+	 </tr>
+ <tr>
+	 <td>bad servise</td><td>${mark2}</td>
+	 </tr>
+ <tr>
+	 <td>so-so</td><td>${mark3}</td>
+	 </tr>
+ <tr>
+	 <td>good service</td><td>${mark4}</td>
+	 </tr>
+ <tr>
+	 <td>excellent service</td><td>${mark5}</td>
+	 </tr>
+</table>
+	<br>
+	<br>
+	<a href="/bluebird/top/allReviews">reviews</a>
+	<br><br>
 	<c:forEach items="${active}" var="cargo">
 		${cargo.client} - ${cargo.description};
 		<br>
 	</c:forEach>
-	<br> Total transportations - ${allActiveCargoes}
-	<br> Marks:
-	<br> never again - ${mark1}
-	<br> bad servise - ${mark2}
-	<br> so-so - ${mark3}
-	<br> good service - ${mark4}
-	<br> excellent service - ${mark5}
-	<br>
-	<br>
-	<a href="/bluebird/top/allReviews">reviews</a>
 	<br>
 
 </body>

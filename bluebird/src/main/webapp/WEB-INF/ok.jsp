@@ -1,12 +1,25 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
+<link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet" />
 <head>
 <title>ok</title>
+<style>
+div.info {
+    position: relative;
+    top: 200 ;
+}
+
+</style>
 </head>
 
 <body>
-ok
-<a href="/bluebird/console">back</a>
-
+<div class="w3-bar w3-light-grey">
+<div class="w3-bar-item">
+	
+</div>
+</div>
+<div class="info">
+<center><a href="/bluebird/console">Information successfully saved. Press text to continue.</a></center>
+</div>
 </body>
 </html>

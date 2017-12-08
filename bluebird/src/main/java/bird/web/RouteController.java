@@ -15,8 +15,10 @@ import bird.model.Cargo;
 import bird.model.Route;
 
 @Controller
+//@RequestMapping("/route/{id}")
 public class RouteController {
-
+	
+	
 	Expediter monitoring = new Expediter();
 
 	@RequestMapping(value = "route/{id}", method = RequestMethod.GET)
@@ -24,8 +26,10 @@ public class RouteController {
 
 		Cargo cargo = monitoring.getCargoBy(Integer.parseInt(id));
 		List<Route> route = monitoring.getRoutebyCargoId(Integer.parseInt(id));
+		String way = monitoring.getStatisticForMap(Integer.parseInt(id));//is way work?
 		model.addAttribute("route", route);
 		model.addAttribute("cargo", cargo);
+		model.addAttribute("way", way);
 
 		return "Route";
 	}
@@ -36,9 +40,10 @@ public class RouteController {
 
 		Cargo cargo = monitoring.getCargoBy(Integer.parseInt(id));
 		List<Route> route = monitoring.getRoutebyCargoId(Integer.parseInt(id));
+		String way = monitoring.getStatisticForMap(Integer.parseInt(id));//is way work?
 		model.addAttribute("route", route);
 		model.addAttribute("cargo", cargo);
-
+		model.addAttribute("way", way);
 		int cargoID = Integer.parseInt(id);
 		String longitude = req.getParameter("longitude");
 		String latitude = req.getParameter("latitude");
