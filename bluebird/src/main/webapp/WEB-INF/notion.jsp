@@ -4,8 +4,32 @@
 <html>
 <link href="resources/css/w3.css" rel="stylesheet" />
 <head>
-<title>Comment</title>
+<title>UPLG</title>
  <style type="text/css">
+ 
+ /*Andrii*/
+.container {
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 1000px;
+}
+
+header {
+	height: 100px;
+	width: 100%;
+}
+header logo {
+	position: absolute;
+	left: 50%;
+	top: 0;
+	-webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+/*Andrii*/
+
 .generalblock{
 background: rgba(255,255,255,1);
 background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
@@ -26,11 +50,10 @@ border: 0px solid #000000;
 box-shadow: 2px 4px 5px -1px rgba(0,0,0,0.75);
 
 font-weight:bold;
-position: absolute;
-left: 200;
-top:60;
-width: 1000px;
-height: 470px;
+
+position: relative;
+	width: 100%;
+	height: 470px;
  }
  
  logo{
@@ -40,11 +63,7 @@ height: 470px;
 	}
  
 
- 	bottomimage{
-		position:absolute;
-		bottom: 0;
-		width:99%;
-	}
+ 
 	<!--!-->
 	body {
  
@@ -119,7 +138,7 @@ buttonblock{
 	 position: absolute;
   top:270;	
          left: 400;
-<!--
+
 .upbutton {
   display: inline-block;
   padding: 10px 25px;
@@ -140,7 +159,7 @@ buttonblock{
 .upbutton:active {
   background-color: #c2d6d6;
  
-} -->
+} 
 	<!--!-->
    </style>
 
@@ -149,9 +168,13 @@ buttonblock{
 <body>
 
 <!-- for TomCat -->
-<img class="displayed" src="<c:url value="/resources/images/up.jpg" />" alt="up" width="100%">
-<logo><img class="displayed" src="<c:url value="/resources/images/logo.jpg" />" alt="logo"></logo>
-<bottomimage><img class="displayed" src="<c:url value="/resources/images/down.jpg" />" alt="down" width="98.8%"></bottomimage>
+<header>
+	<logo><img class="displayed" src="<c:url value="/resources/images/logo.jpg" />" alt="logo"></logo>
+</header>
+<!--  Andrii-->
+<section id=cabinet">
+	<div class="container">
+	<!-- / Andrii-->
 <!-- fot TomCat -->
 <!--!-->
 <div class="generalblock">
@@ -197,5 +220,9 @@ buttonblock{
 	</buttonblock>	
 	</form:form>
 </div>
+<!--  Andrii-->
+	</div>
+</section>
+<!-- / Andrii-->
 </body>
 </html>

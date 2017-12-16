@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-<title>bluebird</title>
+<title>UPLG</title>
 <style>
 table, th, td {
     border: 1px solid black;

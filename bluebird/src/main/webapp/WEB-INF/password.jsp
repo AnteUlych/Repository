@@ -4,25 +4,43 @@
 <html>
 <link href="resources/css/w3.css" rel="stylesheet" />
 <head>
-<title>Cabinet</title>
+<title>UPLG</title>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYtYZUPx_nyCWCUjmVN6RxSeD7fAA4dzo&callback=myMap"> 
           type="text/javascript"></script>
 <style type="text/css">
 
- logo{
-		position: relative;		
-         left: 60px; 
-	}
+logo {
+	position: relative;		
+	left: 60px; 
+}
 
-.generalblock{
+.container {
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 214px;
+}
 
-font-weight:bold;
-position: absolute;
-left: 550;
-top:160;
-width: 400px;
-height: 270px;
- }
+header {
+	height: 100px;
+	width: 100%;
+}
+header logo {
+	position: absolute;
+	left: 50%;
+	top: 0;
+	-webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.generalblock {
+	font-weight:bold;
+	padding-top: 120px;
+	width: 100%;
+	height: 270px;
+}
  
 .upbutton {
 	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -81,6 +99,10 @@ bottomimage{
 	<img class="displayed" src="<c:url value="/resources/images/up.jpg" />" alt="up" width="100%">
 
 <bottomimage><img class="displayed" src="<c:url value="/resources/images/down.jpg" />" alt="down" width="98.8%"></bottomimage>
+
+<section id=cabinet">
+	<div class="container">
+	
 <div class="generalblock">
 	<form:form method="POST" commandName="password">
 
@@ -108,6 +130,14 @@ bottomimage{
 			<tr>
 		</table>
 	</form:form>
+
 </div>
+
+<!--  Andrii-->
+	</div>
+</section>
+<!-- / Andrii-->
+
+
 </body>
 </html>		

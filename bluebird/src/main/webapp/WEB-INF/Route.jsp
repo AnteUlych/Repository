@@ -4,7 +4,7 @@
 <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet" />
 <head>
     
-<title>Route</title>
+<title>UPLG</title>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYtYZUPx_nyCWCUjmVN6RxSeD7fAA4dzo&callback=myMap"> 
           type="text/javascript"></script>
  <style>
