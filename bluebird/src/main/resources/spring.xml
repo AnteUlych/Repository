@@ -24,6 +24,12 @@
 		<property name="url" value="jdbc:mysql://localhost:3306/bluebird" />
 		<property name="username" value="root" />
 		<property name="password" value="root" />
+		
+		<!-- 14.01.2018 - fixing bug - HTTP Status 500 - Request processing failed; -->
+		<property name="validationQuery" value="SELECT 1"/>
+        <property name="testOnBorrow" value="true"/>
+		<!-- 23:44 -->
+		
 	</bean>
 
 	<bean id="emf"

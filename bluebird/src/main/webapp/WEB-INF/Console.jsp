@@ -3,7 +3,7 @@
 <html>
 <link href="resources/css/w3.css" rel="stylesheet" />
 <head>
-<title>Spring MVC form submission</title>
+<title>CS</title>
 </head>
 
 <body>
