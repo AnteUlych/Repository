@@ -9,10 +9,11 @@
           type="text/javascript"></script>
 <style type="text/css">
 
-logo {
-	position: relative;		
-	left: 60px; 
+body {
+    background-image: url("<c:url value="/resources/images/tracing.jpg" />");
+background-size: cover;
 }
+
 
 .container {
 	padding-right: 15px;
@@ -86,19 +87,15 @@ width:169px;
 	
 }
 
-bottomimage{
-		position:absolute;
-		bottom: 0;
-		width:99%;
-	}
+
 </style>
 </head>
 
 <body>
 
-	<img class="displayed" src="<c:url value="/resources/images/up.jpg" />" alt="up" width="100%">
 
-<bottomimage><img class="displayed" src="<c:url value="/resources/images/down.jpg" />" alt="down" width="98.8%"></bottomimage>
+
+
 
 <section id=cabinet">
 	<div class="container">
@@ -108,7 +105,17 @@ bottomimage{
 
 		<table>
 		<tr>
-		<td><logo><img class="displayed" src="<c:url value="/resources/images/logo.jpg" />" alt="logo"></logo></td>
+		<td>&nbsp;</td>
+		</tr>	<tr>
+		<td>&nbsp;</td>
+		</tr>	<tr>
+		<td>&nbsp;</td>
+		</tr>	<tr>
+		<td>&nbsp;</td>
+		</tr>	<tr>
+		<td>&nbsp;</td>
+		</tr>	<tr>
+		<td>&nbsp;</td>
 		</tr>
 		
 		<tr>

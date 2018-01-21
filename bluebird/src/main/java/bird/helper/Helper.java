@@ -6,18 +6,20 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import bird.expediter.Expediter;
+import bird.model.Access;
 import bird.model.Cargo;
 import bird.model.Route;
+import bird.service.AccessService;
+import bird.service.ReviewService;
 import bird.service.RouteService;
 import bird.web.model.Mark;
 
 public class Helper {
 
-	public static void  help() /**  main(String[] args)*/{
+	public static void   help() /**main(String[] args)*/ {
 		
 Expediter s = new Expediter();
-
-
+System.out.println(s.isAccessAvailable("93.74.66.23"));
 
 /**
 List <Mark> tests = s.getAllComments();

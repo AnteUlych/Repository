@@ -22,8 +22,12 @@ public class RouteController {
 	Expediter monitoring = new Expediter();
 
 	@RequestMapping(value = "route/{id}", method = RequestMethod.GET)
-	public String selectRoute(@PathVariable("id") String id, ModelMap model) {
+	public String selectRoute(@PathVariable("id") String id, ModelMap model,HttpServletRequest request) {
 
+		 if(!monitoring.isAccessAvailable(request.getRemoteAddr())){
+			 return "denied";
+		 }
+		 
 		Cargo cargo = monitoring.getCargoBy(Integer.parseInt(id));
 		List<Route> route = monitoring.getRoutebyCargoId(Integer.parseInt(id));
 		String way = monitoring.getStatisticForMap(Integer.parseInt(id));//is way work?

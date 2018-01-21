@@ -40,7 +40,7 @@ Expediter monitoring = new Expediter();
 		}
 		Cargo actualCargo = monitoring.getCargoBy(cargoID);
 		DateFormat eddformat = new SimpleDateFormat("dd/MM/yyyy");
-		String generalInformation = actualCargo.getDescription()+"; estimated delivery date: "+eddformat.format(actualCargo.getDelivery());
+		String generalInformation = actualCargo.getDescription();//+"; estimated delivery date: "+eddformat.format(actualCargo.getDelivery());
 		List<Cargo> cargoes = monitoring.getActiveCargoesByClient(clientID);
         List<Route> waybill = monitoring.getRoutebyCargoId(cargoID);
         String way = monitoring.getStatisticForMap(cargoID);

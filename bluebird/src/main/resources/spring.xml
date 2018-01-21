@@ -54,11 +54,13 @@
 	<bean id="visitorDao" class="bird.dao.VisitorDAO" />
 	<bean id="reviewDao" class="bird.dao.ReviewDAO" />
 	<bean id="routeDao" class="bird.dao.RouteDAO" />
+	<bean id="accessDao" class="bird.dao.AccessDAO" />
 
 	<bean id="clientService" class="bird.service.ClientService" />
 	<bean id="cargoService" class="bird.service.CargoService" />
 	<bean id="visitorService" class="bird.service.VisitorService" />
 	<bean id="reviewService" class="bird.service.ReviewService" />
 	<bean id="routeService" class="bird.service.RouteService" />
+	<bean id="accessService" class="bird.service.AccessService" />
 
 </beans>

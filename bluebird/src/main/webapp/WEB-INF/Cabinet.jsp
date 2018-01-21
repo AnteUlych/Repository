@@ -9,7 +9,10 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYtYZUPx_nyCWCUjmVN6RxSeD7fAA4dzo&callback=myMap"> 
           type="text/javascript"></script>
   <style type="text/css">
-
+body {
+    background-image: url("<c:url value="/resources/images/tracing.jpg" />");
+background-size: cover;
+}
 /*Andrii*/
 .container {
 	padding-right: 15px;
@@ -56,6 +59,9 @@ header logo {
 	position: relative;
 	width: 100%;
 	height: 470px;
+	/*top correction*/
+	top:150;
+	
 }
 
 generalsector{
@@ -126,11 +132,7 @@ width:169px;
 	top:1px;
 	
 }
- 	bottomimage{
-		position:absolute;
-		bottom: 0;
-		width:99%;
-	}
+
    </style>
 </head>
 <body>
@@ -142,9 +144,7 @@ width:169px;
 
 for TomCat
 -->
-<header>
-	<logo><img class="displayed" src="<c:url value="/resources/images/logo.jpg" />" alt="logo"></logo>
-</header>
+
 <!--  Andrii-->
 <section id=cabinet">
 	<div class="container">

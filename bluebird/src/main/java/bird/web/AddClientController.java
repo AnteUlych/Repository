@@ -2,6 +2,7 @@ package bird.web;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,9 @@ import bird.web.model.Freight;
 @Controller
 @RequestMapping("/addClient")
 public class AddClientController {
-
+	
+	Expediter monitoring = new Expediter();
+	
 	@Autowired
 	@Qualifier("customerValidator")
 	private Validator validator;
@@ -36,7 +39,11 @@ public class AddClientController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String initForm(Model model) {
+	public String initForm(Model model, HttpServletRequest request) {
+		
+		 if(!monitoring.isAccessAvailable(request.getRemoteAddr())){
+			 return "denied";
+		 }
 		Customer customer = new Customer();
 		model.addAttribute("customer", customer);
 

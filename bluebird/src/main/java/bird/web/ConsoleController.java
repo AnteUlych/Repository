@@ -3,6 +3,7 @@ package bird.web;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,12 @@ public class ConsoleController {
 	 
 	
 	 @RequestMapping(method = RequestMethod.GET)
-		public String initForm(Model model) {
+		public String initForm(Model model, HttpServletRequest request) {
+		 
+		 if(!monitoring.isAccessAvailable(request.getRemoteAddr())){
+			 return "denied";
+		 }
+		 
 			Freight freight = new Freight();
 			List <Cargo> active = monitoring.getAllActivaCargoes();
 			model.addAttribute("active", active);

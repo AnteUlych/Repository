@@ -17,8 +17,12 @@ public class EditRouteController {
 	Expediter monitoring = new Expediter();
 	
 	@RequestMapping(value = "editRoute/{id}", method = RequestMethod.GET)
-	public String selectRoute(@PathVariable("id") String id, ModelMap model) {
+	public String selectRoute(@PathVariable("id") String id, ModelMap model,HttpServletRequest request) {
 
+		 if(!monitoring.isAccessAvailable(request.getRemoteAddr())){
+			 return "denied";
+		 }
+		 
 		Route cargo = monitoring.getRouteBy(Integer.parseInt(id));
 		model.addAttribute("cargo", cargo);
 

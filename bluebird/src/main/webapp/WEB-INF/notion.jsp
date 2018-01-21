@@ -7,6 +7,11 @@
 <title>UPLG</title>
  <style type="text/css">
  
+ body {
+    background-image: url("<c:url value="/resources/images/tracing.jpg" />");
+background-size: cover;
+}
+ 
  /*Andrii*/
 .container {
 	padding-right: 15px;
@@ -54,21 +59,12 @@ font-weight:bold;
 position: relative;
 	width: 100%;
 	height: 470px;
+	/*top correction*/
+	top:150;
  }
  
- logo{
-		position:absolute;
-		 top:80;	
-         left: 50; 
-	}
  
 
- 
-	<!--!-->
-	body {
- 
-  color: #0066cc;
-}
 
 .mark {
   position: absolute;
@@ -130,13 +126,13 @@ label::before {
 textblock{
 	 position: absolute;
   top:120;	
-         left: 300;
+         left: 70;
 }
 .resizedTextbox {width: 370px; height: 100px }
 
 buttonblock{
 	 position: absolute;
-  top:270;	
+  top:350;	
          left: 400;
 
 .upbutton {
@@ -168,9 +164,7 @@ buttonblock{
 <body>
 
 <!-- for TomCat -->
-<header>
-	<logo><img class="displayed" src="<c:url value="/resources/images/logo.jpg" />" alt="logo"></logo>
-</header>
+
 <!--  Andrii-->
 <section id=cabinet">
 	<div class="container">
@@ -208,7 +202,7 @@ buttonblock{
 				 -->
 				   <!-- </form>-->
 			<textblock>
-			<textarea name="opinion" cols="40" rows="5" maxlength="190"></textarea>
+			<textarea name="opinion" cols="80" rows="10" maxlength="190"></textarea>
 			</textblock>
                 <!--<textblock><input name="opinion" placeholder="text" value="" class="resizedTextbox"></textblock>-->
           <!-- <input type="submit" class="upbutton" name="submit" value="send">-->
