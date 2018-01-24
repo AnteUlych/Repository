@@ -10,7 +10,7 @@
 <div class="w3-bar-item">
 
 	</div>
-  <a href="/bluebird/top" class="w3-button w3-right">back</a>
+  <a href="/tracing/top" class="w3-button w3-right">back</a>
 
 
 </div>

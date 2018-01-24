@@ -59,7 +59,7 @@ public class PasswordController {
 			session.setAttribute("clientID",userID);
 			session.setAttribute("cargoID",cargoID);
 			try {
-				response.sendRedirect("/bluebird/cabinet");
+				response.sendRedirect("/tracing/cabinet");
 				//response.sendRedirect("/bluebird/hello");
 			} catch (IOException e) {
 				e.printStackTrace();

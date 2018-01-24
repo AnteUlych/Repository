@@ -68,7 +68,7 @@ public class ConsoleController {
 				Expediter monitoring = new Expediter();
 				monitoring.addCargo(freight.getClient(), freight.getDescription());
 				try {
-					response.sendRedirect("/bluebird/console");
+					response.sendRedirect("/tracing/console");
 					return returnVal;
 				} catch (IOException e) {
 					e.printStackTrace();

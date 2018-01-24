@@ -73,7 +73,7 @@ public class CommentController {
 			monitoring.addComment(cargoID, cargoRate, opinion);
 			}
 			try {
-				response.sendRedirect("/bluebird/cabinet");
+				response.sendRedirect("/tracing/cabinet");
 				return inReturn;
 			} catch (IOException e) {
 
@@ -86,7 +86,7 @@ public class CommentController {
 	} catch (NullPointerException e) {
 
 		try {
-			response.sendRedirect("/bluebird/cabinet");
+			response.sendRedirect("/tracing/cabinet");
 			return "Cabinet";
 		} catch (IOException e1) {
 			e.printStackTrace();

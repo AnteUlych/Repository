@@ -10,6 +10,7 @@
  body {
     background-image: url("<c:url value="/resources/images/tracing.jpg" />");
 background-size: cover;
+background-repeat: no-repeat;
 }
  
  /*Andrii*/
@@ -56,11 +57,11 @@ box-shadow: 2px 4px 5px -1px rgba(0,0,0,0.75);
 
 font-weight:bold;
 
-position: relative;
-	width: 100%;
+position: fixed;
+	width: 990px;
 	height: 470px;
 	/*top correction*/
-	top:150;
+	top:25%;
  }
  
  
@@ -182,15 +183,16 @@ buttonblock{
 				<!--<form>-->
 				
 				<div class="mark">
-  
+                 <input type="radio" name="rate" id="rb1" value="1" />
+                 <label for="rb1">1</label>
                  <input type="radio" name="rate" id="rb2" value="2" />
-                 <label for="rb2">bad</label>
+                 <label for="rb2">2</label>
                  <input type="radio" name="rate" id="rb3" value="3" />
-                 <label for="rb3">so-so</label>
+                 <label for="rb3">3</label>
 				 <input type="radio" name="rate" id="rb4" value="4" />
-                 <label for="rb4">good</label>
+                 <label for="rb4">4</label>
 				 <input type="radio" name="rate" id="rb5" value="5" />
-                 <label for="rb5">excellent</label>
+                 <label for="rb5">5</label>
   
                  </div>
 				 <!--

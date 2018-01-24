@@ -39,7 +39,7 @@ td {
 </table>
 	<br>
 	<br>
-	<a href="/bluebird/top/allReviews">reviews</a>
+	<a href="/tracing/top/allReviews">reviews</a>
 	<br><br>
 	<c:forEach items="${active}" var="cargo">
 		${cargo.client} - ${cargo.description};

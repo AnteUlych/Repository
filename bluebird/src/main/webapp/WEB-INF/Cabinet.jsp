@@ -12,6 +12,7 @@
 body {
     background-image: url("<c:url value="/resources/images/tracing.jpg" />");
 background-size: cover;
+background-repeat: no-repeat;
 }
 /*Andrii*/
 .container {
@@ -56,11 +57,11 @@ header logo {
 	box-shadow: 2px 4px 5px -1px rgba(0,0,0,0.75);
 
 	font-weight:bold;
-	position: relative;
-	width: 100%;
+	position: fixed;
+	width: 990px;
 	height: 470px;
 	/*top correction*/
-	top:150;
+	top:25%;
 	
 }
 

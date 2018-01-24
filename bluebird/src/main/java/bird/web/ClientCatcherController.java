@@ -81,7 +81,7 @@ Expediter monitoring = new Expediter();
 			session.setAttribute("cargoID",cargoID+"");
 			session.setAttribute("clientID",clientId);
 			try {
-				response.sendRedirect("/bluebird/gsp");
+				response.sendRedirect("/tracing/gsp");
 				forward = "Cabinet";
 				return forward;
 			} catch (IOException e) {
@@ -92,7 +92,7 @@ Expediter monitoring = new Expediter();
 		//!
 		if (request.getParameter("comment") != null) {
 			try {
-				response.sendRedirect("/bluebird/notion");
+				response.sendRedirect("/tracing/notion");
 				return forward;
 			} catch (IOException e) {
 				e.printStackTrace();

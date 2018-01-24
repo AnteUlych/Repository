@@ -19,7 +19,7 @@ div.info {
 </div>
 </div>
 <div class="info">
-<center><a href="/bluebird/console">Information successfully saved. Press text to continue.</a></center>
+<center><a href="/tracing/console">Information successfully saved. Press text to continue.</a></center>
 </div>
 </body>
 </html>

@@ -12,6 +12,7 @@
 body {
     background-image: url("<c:url value="/resources/images/tracing.jpg" />");
 background-size: cover;
+background-repeat: no-repeat;
 }
 
 

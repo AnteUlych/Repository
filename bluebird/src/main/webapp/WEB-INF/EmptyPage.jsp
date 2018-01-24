@@ -28,7 +28,7 @@ box-shadow: 2px 4px 5px -1px rgba(0,0,0,0.75);
 font-weight:bold;
 position: absolute;
 left: 200;
-top:60;
+top:200;
 width: 1000px;
 height: 470px;
  }

@@ -90,7 +90,7 @@ var locations = ${way};
 <td>${information.longitude}</td>
 <td>${information.latitude}</td>
 <td>${information.status}</td>
-<td><a href="/bluebird/editRoute/${information.id}">edit</a><t/d>
+<td><a href="/tracing/editRoute/${information.id}">edit</a><t/d>
 </tr>
 <br>
 
