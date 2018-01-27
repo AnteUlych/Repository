@@ -9,6 +9,7 @@ import bird.expediter.Expediter;
 import bird.model.Access;
 import bird.model.Cargo;
 import bird.model.Route;
+import bird.model.Visitor;
 import bird.service.AccessService;
 import bird.service.ReviewService;
 import bird.service.RouteService;
@@ -19,7 +20,11 @@ public class Helper {
 	public static void   help() /**main(String[] args)*/ {
 		
 Expediter s = new Expediter();
-System.out.println(s.isAccessAvailable("93.74.66.23"));
+List <Visitor> tests =s.getAllVisitors();
+for (Visitor m : tests) {
+	System.out.println(m.getCompany());
+}
+System.out.println(",,,^._.^,,,");
 
 /**
 List <Mark> tests = s.getAllComments();

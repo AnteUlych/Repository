@@ -157,7 +157,7 @@ for TomCat
 		<generalsector>
 		${client} <br> 
 		Last update: ${lastUpdate} <br> 
-		Total cargoes: ${totalCargoes} 
+		Total delivered cargoes by company: ${totalCargoes} 
 		</generalsector>
 
 		<mapsector>

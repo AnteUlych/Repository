@@ -15,11 +15,13 @@ import bird.model.Access;
 import bird.model.Client;
 import bird.model.Review;
 import bird.model.Route;
+import bird.model.Visitor;
 import bird.service.AccessService;
 import bird.service.CargoService;
 import bird.service.ClientService;
 import bird.service.ReviewService;
 import bird.service.RouteService;
+import bird.service.VisitorService;
 import bird.web.model.Mark;
 import bird.model.Cargo;
 
@@ -36,13 +38,13 @@ public class Expediter {
 	}
 
 	public boolean isAccessAvailable(String guest) {
-		
+
 		AccessService as = (AccessService) ctx.getBean("accessService");
-		List <Access> wall = as.getAllAccess();
-		
+		List<Access> wall = as.getAllAccess();
+
 		for (Access hole : wall) {
-			
-			if(hole.getIp().equals(guest)){
+
+			if (hole.getIp().equals(guest)) {
 				return true;
 			}
 		}
@@ -257,5 +259,24 @@ public class Expediter {
 		} catch (NumberFormatException e) {
 			return false;
 		}
+	}
+
+	public void saveVisit(int id) {
+
+		ClientService service = (ClientService) ctx.getBean("clientService");
+		VisitorService kundendienst = (VisitorService) ctx
+				.getBean("visitorService");
+
+		String company = service.getClientBy(id).getCompany();
+		kundendienst.addVisitor(company);
+
+	}
+
+	public List<Visitor> getAllVisitors() {
+
+		VisitorService kundendienst = (VisitorService) ctx
+				.getBean("visitorService");
+		return kundendienst.getAllVisitors();
+
 	}
 }

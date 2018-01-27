@@ -176,7 +176,7 @@ buttonblock{
 
 <!--!-->
 <br>
-<center>${route}</center>
+<center>Please tell us about transportation ${route}, so we make our service better:</center>
 	<form:form method="POST">
 				
 				

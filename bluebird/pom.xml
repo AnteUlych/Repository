@@ -15,7 +15,7 @@
 	</properties>
 
 	<build>
-		<finalName>bluebird</finalName>
+		<finalName>tracing</finalName>
 	</build>
 
 	<dependencies>

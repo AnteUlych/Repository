@@ -39,7 +39,8 @@ td {
 </table>
 	<br>
 	<br>
-	<a href="/tracing/top/allReviews">reviews</a>
+	<a href="/tracing/top/allReviews">reviews</a><br>
+	<a href="/tracing/top/allVisitors">visitors</a>
 	<br><br>
 	<c:forEach items="${active}" var="cargo">
 		${cargo.client} - ${cargo.description};

@@ -18,7 +18,7 @@ public class VisitorDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<Visitor> getAllVisitors() {
-		return em.createQuery("from Visitor").getResultList();
+		return em.createQuery("from Visitor order by id desc").getResultList();
 	}
 
 	@Transactional

@@ -53,6 +53,10 @@ public class PasswordController {
 			
 			Expediter dataBase = new Expediter();
 			int id = dataBase.getIdOfClientBy(password.getLogin(), password.getPassword());
+			//save visitor
+			Expediter visiter = new Expediter();
+			visiter.saveVisit(id);
+			
 			String userID = id+"";
 			String cargoID = "0";
 			HttpSession session = request.getSession();
@@ -60,7 +64,7 @@ public class PasswordController {
 			session.setAttribute("cargoID",cargoID);
 			try {
 				response.sendRedirect("/tracing/cabinet");
-				//response.sendRedirect("/bluebird/hello");
+				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
