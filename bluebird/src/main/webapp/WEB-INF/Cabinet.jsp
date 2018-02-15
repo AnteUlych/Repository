@@ -113,7 +113,7 @@ commentsector{
 	font-weight:bold;
 	height:35px;
 	line-height:38px;
-width:169px;
+width:230px;
 	text-decoration:none;
 	text-align:center;
 	text-shadow:0px 1px 0px #ffffff;
@@ -246,7 +246,7 @@ for TomCat
 		-->
 		</cargosector>
 		<commentsector>
-				Help us make our service<br /> better. Leave Your mark: 
+				Help us make our service better. Leave Your mark: 
 				
 				<br />
 				<input type="submit" class="upbutton" name="comment" value="opinion">

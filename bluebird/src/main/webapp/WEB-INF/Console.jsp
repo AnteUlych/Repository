@@ -12,7 +12,7 @@
 <div class="w3-bar-item">
 <form:form method="POST" commandName="freight">
 		Enter description:
-				<form:input path="description" maxlength="21" />
+				<form:input path="description" maxlength="29" />
 				<form:errors path="description" cssStyle="color: #ff0000;"/>
 			
 				Please select client:
