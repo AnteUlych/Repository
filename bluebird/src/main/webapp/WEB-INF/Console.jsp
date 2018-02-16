@@ -44,14 +44,17 @@
         <th>Number</th>
         <th>Client</th>
         <th>Description</th>
+        <th>Update</th>
       </tr>
     </thead>
+        <c:set var="update" value="${updates}" />
 		<c:forEach items="${active}" var="cargo" varStatus="theCount">
 
                   <tr>
       <td>${theCount.count}</td>
       <td> ${cargo.client}</td>
       <td><a href="route/${cargo.id}">${cargo.description}</a></td>
+      <td> ${update[theCount.index]}</td>
     </tr> 
 		</c:forEach>
 		</table>

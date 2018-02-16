@@ -80,6 +80,18 @@ public class Expediter {
 		RouteService service = (RouteService) ctx.getBean("routeService");
 		return service.getAllRouteByCargoId(cargoID);
 	}
+	public String getLastUpdateByCargoId(int cargoID) {
+		RouteService service = (RouteService) ctx.getBean("routeService");
+		try {
+		List<Route> route = service.getAllRouteByCargoId(cargoID);
+		Date lastDate = route.get(0).getTime();
+		DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		String update = df.format(lastDate);
+		return update;
+		}catch (IndexOutOfBoundsException e) {
+			return "";
+		}
+	}
 
 	public int getNewestCargo(int id) {
 

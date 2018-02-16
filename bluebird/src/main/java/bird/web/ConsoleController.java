@@ -1,6 +1,8 @@
 package bird.web;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -48,15 +50,33 @@ public class ConsoleController {
 		 
 			Freight freight = new Freight();
 			List <Cargo> active = monitoring.getAllActivaCargoes();
+		
+			List <String> updates = getUpdates(active); 
+			model.addAttribute("updates", updates);
+
 			model.addAttribute("active", active);
 			model.addAttribute("freight", freight);
 			initModelList(model);
 			return "Console";
 		}
 
+		private List<String> getUpdates(List<Cargo> active) {
+		List <String> updates = new ArrayList();
+		for(Cargo freight:active){
+			String lastUpdate = monitoring.getLastUpdateByCargoId(freight.getId());
+			updates.add(lastUpdate);
+		}
+		return updates;
+	}
+
+
 		@RequestMapping(method = RequestMethod.POST)
 		public String submitForm(Model model, @Validated Freight freight, BindingResult result, HttpServletResponse response) {
 			List <Cargo> active = monitoring.getAllActivaCargoes();
+			
+			List <String> updates = getUpdates(active); 
+			model.addAttribute("updates", updates);
+	
 			model.addAttribute("active", active);
 			model.addAttribute("freight", freight);
 			String returnVal = "Console";
