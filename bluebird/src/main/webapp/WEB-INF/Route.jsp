@@ -36,7 +36,7 @@ div.signbut {
 	
 <input name="longitude"  value="" placeholder="longitude"><br>
 <input name="latitude"  value="" placeholder="latitude"><br>
-<input name="status"  value="" placeholder="status"><br>	
+<input name="status"  value="${lastStatus}" placeholder="${lastStatus}" ><br>	
 
 <br>
 <input type = "checkbox" name = "finish" /> finish route  <input type="submit" class="w3-button w3-white w3-border w3-circle"  name="add" value="+">	      

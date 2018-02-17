@@ -98,6 +98,17 @@ public class Expediter {
 			return "";
 		}
 	}
+	
+	public String getLastStatusByCargoId(int cargoID) {
+		RouteService service = (RouteService) ctx.getBean("routeService");
+		try {
+		List<Route> route = service.getAllRouteByCargoId(cargoID);
+		String status = route.get(0).getStatus();
+		return status;
+		}catch (IndexOutOfBoundsException e) {
+			return "";
+		}
+	}
 
 	public int getNewestCargo(int id) {
 

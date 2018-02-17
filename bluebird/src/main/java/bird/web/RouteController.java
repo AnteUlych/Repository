@@ -30,7 +30,10 @@ public class RouteController {
 		 
 		Cargo cargo = monitoring.getCargoBy(Integer.parseInt(id));
 		List<Route> route = monitoring.getRoutebyCargoId(Integer.parseInt(id));
-		String way = monitoring.getStatisticForMap(Integer.parseInt(id));//is way work?
+		String way = monitoring.getStatisticForMap(Integer.parseInt(id));
+		String lastStatus = monitoring.getLastStatusByCargoId(Integer.parseInt(id));
+		
+		model.addAttribute("lastStatus", lastStatus);
 		model.addAttribute("route", route);
 		model.addAttribute("cargo", cargo);
 		model.addAttribute("way", way);
@@ -44,7 +47,10 @@ public class RouteController {
 
 		Cargo cargo = monitoring.getCargoBy(Integer.parseInt(id));
 		List<Route> route = monitoring.getRoutebyCargoId(Integer.parseInt(id));
-		String way = monitoring.getStatisticForMap(Integer.parseInt(id));//is way work?
+		String way = monitoring.getStatisticForMap(Integer.parseInt(id));
+        String lastStatus = monitoring.getLastStatusByCargoId(Integer.parseInt(id));
+		
+		model.addAttribute("lastStatus", lastStatus);
 		model.addAttribute("route", route);
 		model.addAttribute("cargo", cargo);
 		model.addAttribute("way", way);
