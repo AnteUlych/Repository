@@ -80,6 +80,12 @@ public class Expediter {
 		RouteService service = (RouteService) ctx.getBean("routeService");
 		return service.getAllRouteByCargoId(cargoID);
 	}
+	
+	public void deleteRoute(int id){
+		RouteService service = (RouteService) ctx.getBean("routeService");
+		service.deleteRoute(id);
+	}
+	
 	public String getLastUpdateByCargoId(int cargoID) {
 		RouteService service = (RouteService) ctx.getBean("routeService");
 		try {

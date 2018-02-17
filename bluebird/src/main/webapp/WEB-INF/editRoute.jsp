@@ -11,9 +11,10 @@ div.sign {
     position: relative;
     top: 100 ;
 }
-div.signbut {
+
+div.deletebut {
     position: relative;
-    left: 250 ;
+    left: 90 ;
 }
 </style>
 </head>
@@ -50,11 +51,18 @@ div.signbut {
 </tr>
 </table>
 	<br>
-	<div class="signbut">
-<input type="submit" class="w3-button w3-white w3-border w3-circle" name="edit" value="+">	
+	<div class="deletebut">
+	<input type="submit" class="w3-button w3-white w3-border w3-circle" name="edit" value="delete">
+	&nbsp
+	&nbsp
+	&nbsp
+	&nbsp
+	&nbsp
+	<input type="submit" class="w3-button w3-white w3-border w3-circle" name="edit" value="edit">	
 	</div>
-
+	
 </form>
+
 </div>
 <div class="w3-col" style="width:20%">
 </div>
