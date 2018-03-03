@@ -1,5 +1,6 @@
 package bird.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -56,6 +57,17 @@ public class CargoDAO {
 		cargo.setClient(client);
 		cargo.setDescription(description);
 
+		Cargo transaction = em.merge(cargo);
+		em.persist(transaction);
+		em.close();
+	}
+	
+	@Transactional
+	public void editDeliveryDateForCargo(int id, Date delivery) { 
+
+		Cargo cargo = (Cargo) em.find(Cargo.class, id);
+
+		cargo.setDelivery(delivery);
 		Cargo transaction = em.merge(cargo);
 		em.persist(transaction);
 		em.close();

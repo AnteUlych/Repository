@@ -156,8 +156,9 @@ for TomCat
 
 		<generalsector>
 		${client} <br> 
-		Last update: ${lastUpdate} <br> 
-		Total delivered cargoes by company: ${totalCargoes} 
+		Estimated delivery date: ${ETD} <br> 
+		Last update: ${lastUpdate} 
+	
 		</generalsector>
 
 		<mapsector>

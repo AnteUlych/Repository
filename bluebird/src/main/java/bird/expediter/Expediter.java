@@ -120,6 +120,11 @@ public class Expediter {
 
 		return cargoes.get(0).getId();
 	}
+	
+	public void editDeliveryDateForCargo(int id, String deliveryDate) {
+		CargoService kundendienst = (CargoService) ctx.getBean("cargoService");
+		kundendienst.editDeliveryDateForCargo(id, deliveryDate);
+	}
 
 	public boolean isCargoCommentExists(int cargoId) {
 		ReviewService service = (ReviewService) ctx.getBean("reviewService");

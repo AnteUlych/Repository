@@ -49,13 +49,13 @@ Expediter monitoring = new Expediter();
         model.addAttribute("generalInformation", generalInformation);
 		model.addAttribute("cargoes", cargoes);
 		model.addAttribute("waybill", waybill);
-		
+		model.addAttribute("ETD", new SimpleDateFormat("dd/MM/yyyy").format(actualCargo.getDelivery()));
 		model.addAttribute("way", way);
 		
 		model.addAttribute("needComment", monitoring.isCargoCommentExists(cargoID));
 			
 		model.addAttribute("lastUpdate", monitoring.getTimeOfLastUpdateByClient(clientID));
-		model.addAttribute("totalCargoes", monitoring.getTotalCargoesByClient(clientID));
+	//	model.addAttribute("totalCargoes", monitoring.getTotalCargoesByClient(clientID));
 		
 	return "Cabinet";
 	}

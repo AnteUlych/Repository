@@ -17,9 +17,12 @@ import bird.web.model.Mark;
 
 public class Helper {
 
-	public static void   help() /**main(String[] args)*/ {
+	public static void  help() /** main(String[] args)*/ {
 		
 Expediter s = new Expediter();
+s.editDeliveryDateForCargo(16, "2001-01-10");
+System.out.println(",,,^._.^,,,");
+/**
 List <Visitor> tests =s.getAllVisitors();
 for (Visitor m : tests) {
 	System.out.println(m.getCompany());

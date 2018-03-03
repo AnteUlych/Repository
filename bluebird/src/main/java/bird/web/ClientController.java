@@ -57,6 +57,7 @@ public class ClientController {
 			model.addAttribute("generalInformation", generalInformation);
 			model.addAttribute("cargoes", cargoes);
 			model.addAttribute("waybill", waybill);
+			model.addAttribute("ETD", new SimpleDateFormat("dd/MM/yyyy").format(actualCargo.getDelivery()));
 
 			model.addAttribute("way", way);
 
@@ -65,8 +66,8 @@ public class ClientController {
 
 			model.addAttribute("lastUpdate",
 					monitoring.getTimeOfLastUpdateByClient(clientID));
-			model.addAttribute("totalCargoes",
-					monitoring.getTotalCargoesByClient(clientID));
+		//	model.addAttribute("totalCargoes",
+		//			monitoring.getTotalCargoesByClient(clientID));
 
 		} catch (IndexOutOfBoundsException ioobe) {
 			return "EmptyPage";

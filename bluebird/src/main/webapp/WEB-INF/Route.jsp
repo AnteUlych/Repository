@@ -37,7 +37,8 @@ div.signbut {
 <input name="longitude"  value="" placeholder="longitude"><br>
 <input name="latitude"  value="" placeholder="latitude"><br>
 <input name="status"  value="${lastStatus}" placeholder="${lastStatus}" ><br>	
-
+ETD <input type="date" name="ETD" value="${time}"><br>
+	
 <br>
 <input type = "checkbox" name = "finish" /> finish route  <input type="submit" class="w3-button w3-white w3-border w3-circle"  name="add" value="+">	      
 
@@ -90,7 +91,7 @@ var locations = ${way};
 <td>${information.longitude}</td>
 <td>${information.latitude}</td>
 <td>${information.status}</td>
-<td><a href="/tracing/editRoute/${information.id}">edit</a><t/d>
+<td><a href="/tracing/editRoute/${information.id}">edit</a><td>
 </tr>
 <br>
 

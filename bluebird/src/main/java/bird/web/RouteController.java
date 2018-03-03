@@ -1,5 +1,8 @@
 package bird.web;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,9 +40,12 @@ public class RouteController {
 		model.addAttribute("route", route);
 		model.addAttribute("cargo", cargo);
 		model.addAttribute("way", way);
+		model.addAttribute("time", detCargoDate(cargo));
 
 		return "Route";
 	}
+
+
 
 	@RequestMapping(value = "route/{id}", method = RequestMethod.POST)
 	public String selectRoute(@PathVariable("id") String id,
@@ -54,24 +60,29 @@ public class RouteController {
 		model.addAttribute("route", route);
 		model.addAttribute("cargo", cargo);
 		model.addAttribute("way", way);
+		model.addAttribute("time", detCargoDate(cargo));
+		
 		int cargoID = Integer.parseInt(id);
 		String longitude = req.getParameter("longitude");
 		String latitude = req.getParameter("latitude");
 		String status = req.getParameter("status");
-	
+		
+		String ETD = req.getParameter("ETD");
+		
+		
 			String finish = (String)req.getParameter("finish");
 		
 		if ("on".equals(finish)) {
 			monitoring.finishCargo(cargoID);
 			return "ok";
 		}
-	
+		
 		if (!longitude.equals(null) && !latitude.equals(null)
 				&& !status.equals(null) && !longitude.equals("")
 				&& !latitude.equals("") && !status.equals("")
 				&& monitoring.isDouble(longitude)
 				&& monitoring.isDouble(latitude)) {
-
+			monitoring.editDeliveryDateForCargo(cargoID, ETD);
 			monitoring.addRoute(cargoID, Double.parseDouble(longitude),
 					Double.parseDouble(latitude), status);
 
@@ -79,6 +90,14 @@ public class RouteController {
 		}
 
 		return "redirect:" + id;
+	}
+	
+	private String detCargoDate(Cargo cargo) {
+		
+		Date delivery = cargo.getDelivery();
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
+		return df.format(delivery);
 	}
 
 }
