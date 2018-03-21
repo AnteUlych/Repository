@@ -10,6 +10,8 @@ public class MainCoon {
 		
 		snooper.snoop();
 		//cycle is here
+		
+		//+mail with error
 
 	}
 

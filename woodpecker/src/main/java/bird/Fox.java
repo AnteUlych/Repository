@@ -2,9 +2,12 @@ package bird;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
@@ -42,9 +45,48 @@ public class Fox {
 			System.out.println("Status - failed simulation.");
 		}else{
 			System.out.println("Status - succeed simulation.");
+			makeStatistic();
 		}
-		//hide(); //turn on letter
+		
+		hide(); 
 
+	}
+
+	private void makeStatistic() {
+		File file = new File(Order.STATISTIC);
+		if(!file.exists()){
+			try (PrintWriter out = new PrintWriter(Order.STATISTIC)) {
+			    out.println("0");
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+
+		}
+		
+		int number = 0;
+		
+		try(BufferedReader br = new BufferedReader(new FileReader(Order.STATISTIC))) {
+		    StringBuilder sb = new StringBuilder();
+		    String line = br.readLine();
+
+		    while (line != null) {
+		        sb.append(line);
+		        line = br.readLine();
+		    }
+		    String statistic = sb.toString();
+		    number = Integer.parseInt(statistic);
+		    number++;
+		    
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+		try (PrintWriter out = new PrintWriter(Order.STATISTIC)) {
+		    out.println(number);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	private void hide() {
