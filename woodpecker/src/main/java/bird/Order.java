@@ -2,6 +2,7 @@ package bird;
 
 public class Order {
 	
+	final static String PROJECT_NAME = "test name";
 	final static String WORD = "международніе перевозки";
 	final static String TARGET = "asstra";
 	final static String[] STROLL = {"industry-solutions", "cooperation", "solutions", "cpecialnye-gruzy"};

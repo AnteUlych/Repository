@@ -4,15 +4,15 @@ public class MainCoon {
 
 	public static void main(String[] args) {
 
-		
+		try{
+		for(;;){
 		Fox snooper = new Fox();
-		//cycle is here
-		
 		snooper.snoop();
-		//cycle is here
-		
-		//+mail with error
-
+		}
+		}catch(Exception word){
+			Sparrow bird = new Sparrow();
+			bird.fly(word);
+		}
 	}
 
 }
