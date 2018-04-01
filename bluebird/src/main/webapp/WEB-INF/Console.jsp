@@ -25,8 +25,11 @@
 				<input type="submit" name="submit" value="Add" class="w3-button">
 			
 	</form:form>
+	
 	</div>
-  <a href="addClient" class="w3-button w3-right">add new client</a>
+	<a href="addClient" class="w3-button w3-right">add new client</a>
+	<a href="monitoring" class="w3-button w3-right">monitoring</a>
+  
 
 
 </div>

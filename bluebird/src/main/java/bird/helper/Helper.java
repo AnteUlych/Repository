@@ -8,6 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import bird.expediter.Expediter;
 import bird.model.Access;
 import bird.model.Cargo;
+import bird.model.Client;
 import bird.model.Route;
 import bird.model.Visitor;
 import bird.service.AccessService;
@@ -18,9 +19,16 @@ import bird.web.model.Mark;
 public class Helper {
 
 	public static void  help() /** main(String[] args)*/ {
-		
+/**		
 Expediter s = new Expediter();
-s.editDeliveryDateForCargo(16, "2001-01-10");
+
+List <Cargo> cargoes = s.getAllActivaCargoes();
+for(Cargo freight:cargoes){
+	Client client = s.getClientOfCargo(freight.getClient()) ;
+	Route route = s.getLastRoute(freight.getId());
+	
+	System.out.println(client.getCompany()+"/"+freight.getDescription()+"/"+route.getLongitude());
+}
 System.out.println(",,,^._.^,,,");
 /**
 List <Visitor> tests =s.getAllVisitors();

@@ -313,4 +313,26 @@ public class Expediter {
 		return kundendienst.getAllVisitors();
 
 	}
+
+	public Client getClientOfCargo(String client) {
+		ClientService service = (ClientService) ctx.getBean("clientService");
+		List<Client> customers = service.getAllClients();
+		for(Client customer:customers){
+			if(customer.getCompany().equals(client)){
+				return customer;
+			}
+		}
+		return null;
+	}
+
+	public Route getLastRoute(int cargoId) {
+		RouteService service = (RouteService) ctx.getBean("routeService");
+		try {
+		List<Route> route = service.getAllRouteByCargoId(cargoId);
+		Route lastRoute = route.get(0);
+		return lastRoute;
+		}catch (IndexOutOfBoundsException e) {
+			return null;
+		}
+	}
 }
