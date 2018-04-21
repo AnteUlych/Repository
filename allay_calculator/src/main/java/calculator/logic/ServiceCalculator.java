@@ -27,13 +27,13 @@ public class ServiceCalculator {
 	}
 	public int getSeaRate(){
 		String [] way = route.split(separator);
-		int rate = Integer.parseInt(way[1])+Integer.parseInt(way[4]);
+		int rate = Integer.parseInt(way[1])*volume+Integer.parseInt(way[4])*volume;
 		return rate;	
 	}
 	
 public int getRailRate(){	
 		String [] way = route.split(separator);
-		int rate = Integer.parseInt(way[7])+Integer.parseInt(way[4]);
+		int rate = Integer.parseInt(way[7])*volume+Integer.parseInt(way[4])*volume;
 		return rate;	
 	}
 

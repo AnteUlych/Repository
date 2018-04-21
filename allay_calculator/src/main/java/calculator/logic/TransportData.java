@@ -178,7 +178,7 @@ public class TransportData {
 
 		List<String> data = new ArrayList<String>();
 
-		data.add("Kiev|100|5");
+		data.add("Kyiv|100|5");
 		data.add("Cherkasy|100|5");
 		data.add("Chernihiv|102|7");
 		data.add("Chernivtsi|150|4");
