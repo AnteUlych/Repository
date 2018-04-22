@@ -20,19 +20,19 @@ import calculator.model.Route;
 @Controller
 @RequestMapping("/result")
 public class ResultServlet {
-	
+	/**
 	String waybill;
 	int seaRate;
 	int seaTime;
 	int railRate;
 	int railTime;
-	
+	*/
 	@RequestMapping(method = RequestMethod.GET)
 	public String calculate(ModelMap model, HttpServletRequest request) {
 
 		HttpSession session = request.getSession();
 		Route route = (Route) session.getAttribute("route");
-		session.removeAttribute("route");
+		//session.removeAttribute("route");
 		
 		String way = new TransportData().createTheRoute(route.getPort(), route.getDestination());
 		int volume = Integer.parseInt(route.getVolume());
@@ -64,6 +64,30 @@ public class ResultServlet {
 	@RequestMapping(method = RequestMethod.POST)
 	public String calculate(Model model, HttpServletRequest request, HttpServletResponse response) {
 		
+		HttpSession session = request.getSession();
+		Route route = (Route) session.getAttribute("route");
+		//session.removeAttribute("route");
+		
+		String way = new TransportData().createTheRoute(route.getPort(), route.getDestination());
+		int volume = Integer.parseInt(route.getVolume());
+		int weight = Integer.parseInt(route.getWeight());
+		ServiceCalculator service = new ServiceCalculator(way, volume, weight);
+		
+		String waybill = service.getWay();
+		int seaRate = service.getSeaRate();
+		int seaTime = service.getSeaTime();
+		
+		boolean rail = service.isRailRatePossible();
+		
+			int railRate = 0;
+			int railTime = 0;
+			
+			if(rail){
+				railRate = service.getRailRate();
+				railTime = service.getRailTime();
+			}
+		
+		//?
 		String booking = request.getParameter("booking");
 		Order order = new Order();
 		order.setWay(waybill);
@@ -77,7 +101,7 @@ public class ResultServlet {
 			order.setPrice(railRate);
 			order.setTime(railTime);
 		}
-		 HttpSession session = request.getSession();
+		 //HttpSession session = request.getSession();
 		 session.setAttribute("order",order);
 		 try {
 			response.sendRedirect("/lcl/order");
