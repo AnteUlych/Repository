@@ -44,6 +44,7 @@ public class OrderServlet {
 		
 		HttpSession session = request.getSession();
 		order = (Order) session.getAttribute("order");
+		String date = request.getParameter("date");
 		
 		 String requestEnc = "ISO-8859-1";
 		   String clientEnc = request.getParameter("charset");
@@ -76,7 +77,7 @@ public class OrderServlet {
 				} catch (UnsupportedEncodingException e) {
 					e.printStackTrace();
 				}
-
+        order.setDate(date);
 		order.setCompany(company);
 		order.setMail(mail);
 		order.setName(name);

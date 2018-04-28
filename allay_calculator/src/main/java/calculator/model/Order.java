@@ -10,6 +10,7 @@ public class Order {
 	private String company;
 	private String phone;
 	private String mail;
+	private String date;
 	
 	public String getWay() {
 		return way;
@@ -58,6 +59,12 @@ public class Order {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
 	}
 	
 

@@ -9,14 +9,20 @@
 <body>
 <form method="post">
 	${waybill}<br>
-	${seaRate}<br>
-	${seaTime}<br>
+	LCL:
+	lcl tariff - ${seaRate} USD;<br>
+	Delivery date - ${seaTime} days;<br>
 	<input type="submit"  name="booking" value="sea">
 	<div ng-show="${rail}">
-    ${railRate}<br>
-	${railTime}<br>
+	Rail:
+    Rail tariff - ${railRate} USD;<br>
+	Delivery date - ${railTime} days;<br>
 	<input type="submit"  name="booking" value="rail">
 </div>
+<br>
+- the rate is calculated for a consolidated non-dangerous cargo;<br>
+- payment is possible in UAH, USD and EUR;<br>
+- delivery for warehouse of Client.
 	<br>
 </form>	
 	

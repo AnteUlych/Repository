@@ -4,14 +4,16 @@
 </head>
 <body>
 
-	${transport}
-	<br> ${way}
-	<br> ${time}
-	<br> ${price}
+	${transport} delivery;<br>
+	${way};
+	Tariff - ${price} USD;<br>
+	Transit time -  ${time} days;<br>
+	<br> 
 	<br>
 
 	<form method="post">
-
+	
+        <input type="date" name="date"><br> 
 		<input name="name" placeholder="name" value=""><br> 
 		<input name="company" placeholder="company" value=""><br> 
 		<input name="mail" placeholder="mail" value=""><br> 
