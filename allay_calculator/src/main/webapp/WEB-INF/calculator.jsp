@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
 <html>
@@ -75,21 +75,26 @@
 						<div class="resp-tabs-container">
 							<div class="tab-1 resp-tab-content">
 								<div class="w3l-sign-in">
-									<form action="#" method="post" class="agile_form">
+									<form:form method="POST" class="agile_form" commandName="route">
 										<!-- <input type="text" placeholder="Your Name" name="name" class="name agileits" required=""/>
 										<input placeholder="Date" class="date" id="datepicker" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required=""/> -->
 										
 										<div class="list_agileits_w3layouts">
 											<div class="section_class_agileits sec-left">
 									
-											<select>														
+											<!--  <select>	-->
+											<form:select path="port">	
+											  <form:option value="" label="FOB (port of loading)" />
+					                          <form:option value="Buenos Aires" label="Buenos Aires, Argentina" />
+					                          <form:option value="Rio Grande, Brasil" label="Rio de Janeiro, Brasil" />	
+					  								<!-- 				
 												<option value="0">FOB (port of loading)</option>
 												<option value="Buenos Aires, Argentina">Buenos Aires, Argentina</option>
-												<option value="Rosario, Argentina">Rosario, Argentina</option>
+												<option value="Rosario, Argentina">Rosario, Argentina</option>	
 												<option value="Betim, Brasil">Betim, Brasil</option>
 												<option value="Curitiba, Brasil">Curitiba, Brasil</option>
 												<option value="Itajai, Brasil">Itajai, Brasil</option>
-												<option value="Porto Alegro, Brasi">Porto Alegro, Brasil</option>
+												<option value="Porto Alegro, Brasil">Porto Alegro, Brasil</option>
 												<option value="Rio de Janeiro, Brasil">Rio de Janeiro, Brasil</option>
 												<option value="Rio Grande, Brasil">Rio Grande, Brasil</option>
 												<option value="Santos, Brasil">Santos, Brasil</option>
@@ -123,10 +128,20 @@
 												<option value="Portland, USA">Portland, USA</option>
 												<option value="San Francisco, USA">San Francisco, USA</option>
 												<option value="Seattle, USA">Seattle, USA</option>
-											  </select>
+												 -->
+											  </form:select>
 											</div>
 											<div class="section_class_agileits sec-right">
-											  <select>
+											
+											   <form:select path="destination">		
+											   	  
+					                          <form:option value="" label="City of destination" />
+				                           	  <form:option value="Kyiv" label="Kyiv" />
+					                           <form:option value="Lviv" label="Lviv" />
+					                           	  
+	                                           </form:select>
+											<!--  
+											   <select>
 												<option value="0">FOT (city of destination)</option>
 												<option value="Kiev">Kiev, UA</option>
 												<option value="Cherkasy‎">Cherkasy‎, UA</option>
@@ -152,12 +167,20 @@
 												<option value="Zhytomyr">Zhytomyr, UA</option>
 											
 											  </select>
+											  -->  
 											</div>	
 											<div class="clear"></div>
 										</div>	
 										
 										<div class="list_agileits_w3layouts">
 											<div class="section_class_agileits sec-left">
+											
+											 <form:select path="volume">			  
+				          	                 <form:option value="" label="Volume, cbm" />
+					                         <form:option value="1" label="1-2 cbm" />
+					                         <form:option value="2" label="2-3 cbm" />	  
+	                                         </form:select>
+											<!--  
 											 <select>
 												<option value="0">Volume (cbm)</option>
 												<option value="1">less 1.0 cbm</option>
@@ -175,9 +198,16 @@
 												<option value="7">6.5-7.0 cbm</option>
 												<option value="7">7.0-7.5 cbm</option>
 												<option value="8">7.5-8.0 cbm</option>
-											 </select>
+											 </select>-->
 											</div>	
 											<div class="section_class_agileits sec-right">
+											
+											 <form:select path="weight">			  
+					                         <form:option value="" label="Weight, t" />
+					                         <form:option value="1" label="0.5-1.0 t" />
+				                         	 <form:option value="2" label="1.0-1.5t" />	  
+	                                         </form:select>
+											<!--  
 											  <select>
 												<option value="0">Weight (t)</option>
 												<option value="1">less 0.5 t</option>
@@ -197,6 +227,7 @@
 												<option value="7">7.0-7.5 t</option>
 												<option value="8">7.5-8.0 t</option>
 											 </select>
+											 -->
 											</div>
 											<div class="clear"></div>
 										
@@ -205,17 +236,24 @@
 										<div class="submit">
 										  <input type="submit" value="calculate">
 										</div> 
-									</form>	
+									</form:form>	
 								</div>
 							</div>
 							
 							<div class="tab-1 resp-tab-content">
 								<div class="register agileits">
-								<form action="#" method="post" class="agile_form">
+								<!--<form action="#" method="post" class="agile_form">-->
+								<form:form method="POST" class="agile_form" commandName="route">
 										<!--<input type="text" placeholder="Your Name" name="name" class="name agileits" required=""/>-->
 										<div class="list_agileits_w3layouts">
 											<div class="section_class_agileits sec-left">
-											  <select>
+											
+											<form:select path="port">	
+											  <form:option value="" label="FOB (port of loading)" />
+					                          <form:option value="Singapore, Singapore" label="Singapore, Singapore" />
+					                          <form:option value="Shanghai, China" label="Shanghai, China" />	
+					                          </form:select>
+											 <!-- <select>
 												<option value="0">FOB (port of loading)</option>
 												<option value="Singapore, Singapore">Singapore, Singapore</option>
 												<option value="Beijing City, China">Beijing City, China</option>
@@ -263,7 +301,7 @@
 												<option value="Ho Chi Minh City, Vietnam">Ho Chi Minh City, Vietnam</option>
 												<option value="Danang, Vietnam">Danang, Vietnam</option>
 		
-											  </select>
+											  </select> --> 
 											</div>
 											
 											<div class="clear"></div>
@@ -302,7 +340,15 @@
 											<div class="clear"></div>
 										</div>		-->		
 										<div class="section_class_agileits sec-right">
-											  <select>
+										
+										 <form:select path="destination">		
+											   	  
+					                          <form:option value="" label="City of destination" />
+				                           	  <form:option value="Kyiv" label="Kyiv" />
+					                          <form:option value="Lviv" label="Lviv" />
+					                           	  
+	                                     </form:select>
+											<!--    <select>
 												<option value="0">FOT (city of destination)</option>
 												<option value="Kiev">Kiev, UA</option>
 												<option value="Cherkasy‎">Cherkasy‎, UA</option>
@@ -327,13 +373,19 @@
 												<option value="Zaporizhia‎">Zaporizhia‎, UA</option>
 												<option value="Zhytomyr">Zhytomyr, UA</option>
 											
-											  </select>
+											  </select>-->
 											</div>	
 											<div class="clear"></div>
 										</div>	
 										<div class="list_agileits_w3layouts">
 											<div class="section_class_agileits sec-left">
-											 <select>
+											
+											<form:select path="volume">			  
+				          	                 <form:option value="" label="Volume, cbm" />
+					                         <form:option value="1" label="1-2 cbm" />
+					                         <form:option value="2" label="2-3 cbm" />	  
+	                                         </form:select>
+										<!--  	 <select>
 												<option value="0">Volume (cbm)</option>
 												<option value="1">less 1.0 cbm</option>
 												<option value="1">1.0-1.5 cbm</option>
@@ -350,9 +402,16 @@
 												<option value="7">6.5-7.0 cbm</option>
 												<option value="7">7.0-7.5 cbm</option>
 												<option value="8">7.5-8.0 cbm</option>
-											 </select>
+											 </select>-->
 											</div>	
 											<div class="section_class_agileits sec-right">
+											
+											 <form:select path="weight">			  
+					                         <form:option value="" label="Weight, t" />
+					                         <form:option value="1" label="0.5-1.0 t" />
+				                         	 <form:option value="2" label="1.0-1.5t" />	  
+	                                         </form:select>
+	                                         <!--  
 											  <select>
 												<option value="0">Weight (t)</option>
 												<option value="1">less 0.5 t</option>
@@ -371,7 +430,7 @@
 												<option value="7">6.5-7.0 t</option>
 												<option value="7">7.0-7.5 t</option>
 												<option value="8">7.5-8.0 t</option>
-											 </select>
+											 </select>-->
 											</div>
 											<div class="clear"></div>
 										
@@ -380,12 +439,13 @@
 										<div class="submit">
 										  <input type="submit" value="calculate">
 										</div>   
-									</form>	
+									</form:form>	
 								</div>
 							</div>
 							<div class="tab-1 resp-tab-content gallery-images">
 								<div class="wthree-subscribe">	
-									<form action="#" method="post" class="agile_form">
+								<form:form method="POST" class="agile_form" commandName="route">
+									<!--<form action="#" method="post" class="agile_form">-->
 									<!--	<input type="text" placeholder="Your Name" name="name" class="name agileits" required=""/>
 										<input type="text" placeholder="Going to landmark" name="name" class="name agileits" required=""/>
 										
@@ -409,7 +469,14 @@
 										</div> -->
 										<div class="list_agileits_w3layouts">
 											<div class="section_class_agileits sec-left">
-									
+											
+											<form:select path="port">	
+											  <form:option value="" label="FOB (port of loading)" />
+					                          <form:option value="Chittagong, Bangladesh" label="Chittagong, Bangladesh" />
+					                          <form:option value="Nhava Sheva, India" label="Nhava Sheva, India" />	
+					                          </form:select>
+					                          
+									<!--  
 											<select>														
 												<option value="0">FOB (port of loading)</option>
 												<option value="Chittagong, Bangladesh">Chittagong, Bangladesh</option>
@@ -427,8 +494,19 @@
 												<option value="Karachi, Pakistan">Karachi, Pakistan</option>
 												<option value="Colombo, Sri Lanka">Colombo, Sri Lanka</option>
 											  </select>
+											  -->
 											</div>
+											
 											<div class="section_class_agileits sec-right">
+											
+											 <form:select path="destination">		
+											   	  
+					                          <form:option value="" label="City of destination" />
+				                           	  <form:option value="Kyiv" label="Kyiv" />
+					                          <form:option value="Lviv" label="Lviv" />
+					                           	  
+	                                     </form:select>
+	                                     <!--  
 											  <select>
 												<option value="0">FOT (city of destination)</option>
 												<option value="Kiev">Kiev, UA</option>
@@ -455,11 +533,19 @@
 												<option value="Zhytomyr">Zhytomyr, UA</option>
 											
 											  </select>
+											  -->
 											</div>	
 											<div class="clear"></div>
 										</div>	
 										<div class="list_agileits_w3layouts">
 											<div class="section_class_agileits sec-left">
+											
+											<form:select path="volume">			  
+				          	                 <form:option value="" label="Volume, cbm" />
+					                         <form:option value="1" label="1-2 cbm" />
+					                         <form:option value="2" label="2-3 cbm" />	  
+	                                         </form:select>
+	                                         <!--  
 											 <select>
 												<option value="0">Volume (cbm)</option>
 												<option value="1">less 1.0 cbm</option>
@@ -477,9 +563,16 @@
 												<option value="7">6.5-7.0 cbm</option>
 												<option value="7">7.0-7.5 cbm</option>
 												<option value="8">7.5-8.0 cbm</option>
-											 </select>
+											 </select> -->
 											</div>	
 											<div class="section_class_agileits sec-right">
+											
+											 <form:select path="weight">			  
+					                         <form:option value="" label="Weight, t" />
+					                         <form:option value="1" label="0.5-1.0 t" />
+				                         	 <form:option value="2" label="1.0-1.5t" />	  
+	                                         </form:select>
+											<!--  
 											  <select>
 												<option value="0">Weight (t)</option>
 												<option value="1">less 0.5 t</option>
@@ -498,7 +591,7 @@
 												<option value="7">6.5-7.0 t</option>
 												<option value="7">7.0-7.5 t</option>
 												<option value="8">7.5-8.0 t</option>
-											 </select>
+											 </select>-->
 											</div>
 											<div class="clear"></div>
 										
@@ -506,12 +599,13 @@
 										<div class="submit">
 										  <input type="submit" value="calculate">
 										</div> 
-									</form>
+									</form:form>
 								</div>
 							</div>
 							<div class="tab-1 resp-tab-content">
 								<div class="agileinfo-recover">
-								<form action="#" method="post" class="agile_form">
+								<form:form method="POST" class="agile_form" commandName="route">
+							<!--  	<form action="#" method="post" class="agile_form">-->
 										<!--<input type="text" placeholder="Your Name" name="name" class="name agileits" required=""/>
 										<input type="text" placeholder="Picking up" name="name" class="name agileits" required=""/>
 										<input type="text" placeholder="Dropping off" name="name" class="name agileits" required=""/>
@@ -536,6 +630,12 @@
 										<div class="list_agileits_w3layouts">
 											<div class="section_class_agileits sec-left">
 									
+									          <form:select path="port">	
+											  <form:option value="" label="FOB (port of loading)" />
+					                          <form:option value="Alexandria, Egypt" label="Alexandria, Egypt" />
+					                          <form:option value="Jebel Ali, UAE" label="Jebel Ali, UAE" />	
+					                          </form:select>
+					                       <!--   
 											<select>														
 												<option value="0">FOB (port of loading)</option>
 												<option value="Alexandria, Egypt">Alexandria, Egypt</option>
@@ -546,10 +646,18 @@
 												<option value="Cape Town, South Afric">Cape Town, South Africa</option>
 												<option value="Durban, South Africa">Durban, South Africa</option>
 												<option value="Johannesburg, South Africa">Johannesburg, South Africa</option>
-											  </select>
+											  </select>-->  
 											</div>
 											<div class="section_class_agileits sec-right">
-											  <select>
+											
+											<form:select path="destination">		
+											   	  
+					                          <form:option value="" label="City of destination" />
+				                           	  <form:option value="Kyiv" label="Kyiv" />
+					                          <form:option value="Lviv" label="Lviv" />
+					                           	  
+	                                     </form:select>
+											  <!-- <select>
 												<option value="0">FOT (city of destination)</option>
 												<option value="Kiev">Kiev, UA</option>
 												<option value="Cherkasy‎">Cherkasy‎, UA</option>
@@ -573,12 +681,19 @@
 												<option value="Vinnytsia‎">Vinnytsia‎, UA</option>
 												<option value="Zaporizhia‎">Zaporizhia‎, UA</option>
 												<option value="Zhytomyr">Zhytomyr, UA</option>
-											  </select>
+											  </select> -->
 											</div>	
 											<div class="clear"></div>
 										</div>	
 										<div class="list_agileits_w3layouts">
 											<div class="section_class_agileits sec-left">
+											
+											<form:select path="volume">			  
+				          	                 <form:option value="" label="Volume, cbm" />
+					                         <form:option value="1" label="1-2 cbm" />
+					                         <form:option value="2" label="2-3 cbm" />	  
+	                                         </form:select>
+	                                         <!--  
 											 <select>
 												<option value="0">Volume (cbm)</option>
 												<option value="1">less 1.0 cbm</option>
@@ -596,9 +711,16 @@
 												<option value="7">6.5-7.0 cbm</option>
 												<option value="7">7.0-7.5 cbm</option>
 												<option value="8">7.5-8.0 cbm</option>
-											 </select>
+											 </select>-->
 											</div>	
 											<div class="section_class_agileits sec-right">
+											
+											 <form:select path="weight">			  
+					                         <form:option value="" label="Weight, t" />
+					                         <form:option value="1" label="0.5-1.0 t" />
+				                         	 <form:option value="2" label="1.0-1.5t" />	  
+	                                         </form:select>
+	                                         <!-- 
 											  <select>
 												<option value="0">Weight (t)</option>
 												<option value="1">less 0.5 t</option>
@@ -617,7 +739,7 @@
 												<option value="7">6.5-7.0 t</option>
 												<option value="7">7.0-7.5 t</option>
 												<option value="8">7.5-8.0 t</option>
-											 </select>
+											 </select> -->
 											</div>
 											<div class="clear"></div>
 										
@@ -625,12 +747,13 @@
 										<div class="submit">
 										  <input type="submit" value="calculate">
 										</div> 
-									</form>
+									</form:form>
 								</div>
 							</div>
 							<div class="tab-1 resp-tab-content">
 								<div class="agile-send-mail">
-								<form action="#" method="post" class="agile_form">
+								<form:form method="POST" class="agile_form" commandName="route">
+							<!-- 	<form action="#" method="post" class="agile_form"> -->
 										<!--<input type="text" placeholder="Your Name" name="name" class="name agileits" required=""/>
 										<input type="text" placeholder="Going to" name="name" class="name agileits" required=""/>
 										<input placeholder="Select date" class="date" id="datepicker7" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required=""/>
@@ -649,9 +772,15 @@
 										<div class="submit">
 										  <input type="submit" value="search">
 										</div>-->
-				<div class="list_agileits_w3layouts">
+			                             	<div class="list_agileits_w3layouts">
 											<div class="section_class_agileits sec-left">
 									
+							      		      <form:select path="port">	
+											  <form:option value="" label="FOB (port of loading)" />
+					                          <form:option value="Sydney, Australia" label="Sydney, Australia" />
+					                          <form:option value="Auckland, New Zealand" label="Auckland, New Zealand" />	
+					                          </form:select>
+					                          <!--  
 											<select>														
 												<option value="0">FOB (port of loading)</option>
 												<option value="Adelaide, Australia">Adelaide, Australia</option>
@@ -661,10 +790,18 @@
 												<option value="Sydney, Australia">Sydney, Australia</option>
 												<option value="Auckland, New Zealand">Auckland, New Zealand</option>
 												<option value="Lyttelton, New Zealand">Lyttelton, New Zealand</option>
-											  </select>
+											  </select>-->
 											</div>
 											<div class="section_class_agileits sec-right">
-											  <select>
+											
+											<form:select path="destination">		
+											   	  
+					                          <form:option value="" label="City of destination" />
+				                           	  <form:option value="Kyiv" label="Kyiv" />
+					                          <form:option value="Lviv" label="Lviv" />
+					                           	  
+	                                     </form:select>
+											<!--   <select>
 												<option value="0">FOT (city of destination)</option>
 												<option value="Kiev">Kiev, UA</option>
 												<option value="Cherkasy‎">Cherkasy‎, UA</option>
@@ -689,12 +826,19 @@
 												<option value="Zaporizhia‎">Zaporizhia‎, UA</option>
 												<option value="Zhytomyr">Zhytomyr, UA</option>
 											
-											  </select>
+											  </select> -->
 											</div>	
 											<div class="clear"></div>
 										</div>	
 									<div class="list_agileits_w3layouts">
 											<div class="section_class_agileits sec-left">
+											
+											<form:select path="volume">			  
+				          	                 <form:option value="" label="Volume, cbm" />
+					                         <form:option value="1" label="1-2 cbm" />
+					                         <form:option value="2" label="2-3 cbm" />	  
+	                                         </form:select>
+	                                         <!--  
 											 <select>
 												<option value="0">Volume (cbm)</option>
 												<option value="1">less 1.0 cbm</option>
@@ -712,10 +856,15 @@
 												<option value="7">6.5-7.0 cbm</option>
 												<option value="7">7.0-7.5 cbm</option>
 												<option value="8">7.5-8.0 cbm</option>
-											 </select>
+											 </select>-->
 											</div>	
 											<div class="section_class_agileits sec-right">
-											  <select>
+											 <form:select path="weight">			  
+					                         <form:option value="" label="Weight, t" />
+					                         <form:option value="1" label="0.5-1.0 t" />
+				                         	 <form:option value="2" label="1.0-1.5t" />	  
+	                                         </form:select>
+											<!--  <select>
 												<option value="0">Weight (t)</option>
 												<option value="1">less 0.5 t</option>
 											    <option value="1">0.5-1.0 t</option>
@@ -733,7 +882,7 @@
 												<option value="7">6.5-7.0 t</option>
 												<option value="7">7.0-7.5 t</option>
 												<option value="8">7.5-8.0 t</option>
-											 </select>
+											 </select> --> 
 											</div>
 											<div class="clear"></div>
 										
@@ -741,7 +890,7 @@
 										<div class="submit">
 										  <input type="submit" value="calculate">
 										</div> 										
-									</form>
+									</form:form>
 							</div>
 							</div>
 						</div>
