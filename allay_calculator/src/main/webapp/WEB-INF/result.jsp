@@ -98,7 +98,7 @@ whitecolour{
 									 </whitecolour>
 									 
 									<div class="submit">
-	                                <br><input type="submit"  name="booking" value="booking via LCL"><br><br>
+	                                <br><input type="submit"  name="booking" value="Booking via LCL"><br><br>
 									</div>
 	                                <element hiding = ${rail}>
 									
@@ -108,7 +108,7 @@ whitecolour{
 									</whitecolour>
 									
 									<div class="submit">
-	                                <br><input type="submit" name="booking" value="booking via Rail"><br>
+	                                <br><input type="submit" name="booking" value="Booking via Rail"><br>
 									</div>
                                     </element>
 									<whitecolour>

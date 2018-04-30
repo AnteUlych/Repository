@@ -93,11 +93,11 @@ public class ResultServlet {
 		order.setWay(waybill);
 		order.setTransport(booking);
 		
-		if(booking.equals("booking via LCL")){
+		if(booking.equals("Booking via LCL")){
 			order.setPrice(seaRate);
 			order.setTime(seaTime);
 		}
-		if(booking.equals("booking via Rail")){
+		if(booking.equals("Booking via Rail")){
 			order.setPrice(railRate);
 			order.setTime(railTime);
 		}
