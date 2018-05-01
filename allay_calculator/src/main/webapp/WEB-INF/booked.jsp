@@ -27,9 +27,7 @@
 whitecolour{
     color: white;
 }
-[hiding="false"]{
-	visibility: collapse;
-}
+
 </style>
 </head>
 <body>
@@ -87,39 +85,15 @@ whitecolour{
 							
 								<div class="w3l-sign-in">
 									
-								<form method="post">
-								<whitecolour>
-	                                ${waybill}<br>
-									<br>
-	                              
-	                                LCL tariff - ${seaRate} USD;<br>
-	                                Delivery date - ${seaTime} days;<br>
-									
-									 </whitecolour>
-									 
-									<div class="submit">
-	                                <br><input type="submit"  name="booking" value="Booking via LCL"><br><br>
-									</div>
-	                                <element hiding = ${rail}>
-									
-	                                <whitecolour>
-                                    Rail tariff - ${railRate} USD;<br>
-	                                Delivery date - ${railTime} days;<br>
-									</whitecolour>
-									
-									<div class="submit">
-	                                <br><input type="submit" name="booking" value="Booking via Rail"><br>
-									</div>
-                                    </element>
-									<whitecolour>
-                                    <br>
-                                    - the rate is calculated for a consolidated non-dangerous cargo;<br>
-                                    - payment is possible in UAH, USD and EUR;<br>
-                                    - delivery for warehouse of Client.
-                                	<br>
-									</whitecolour>
-                                    </form>	
-									<br>
+							   	     <whitecolour>
+	                              <br>
+	                                     Thanks for using our service!<br><br> In 20 minutes our manager connect with You to confirm booking.
+									     
+                                         <br><br><br><br><br><br><br>
+										 Visit our <a href="http://uplg.com.ua/">website</a>
+										 <br><br><br><br><br><br><br><br><br><br>
+										 
+                                         </whitecolour>
 									<div class="submit" >
 	                                <br><input type="submit" style="background-color:transparent; border: 2px solid #e7e7e7"  name="reset" value="Reset"  onclick="window.location='/lcl/calculator';"><br>
 									</div>
