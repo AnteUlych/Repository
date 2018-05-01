@@ -40,7 +40,7 @@ whitecolour{
 
 			<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 				<script src="<c:url value="resources/js/easyResponsiveTabs.js"/>" type="text/javascript"></script>
-				<script type="text/javascript">
+				<!--<script type="text/javascript">
 					$(document).ready(function () {
 						$('#horizontalTab').easyResponsiveTabs({
 							type: 'default', //Types: default, vertical, accordion
@@ -62,7 +62,7 @@ whitecolour{
 							fit: true
 						});
 					});
-				</script>
+				</script>-->
 
 				<div class="tabs">
 
@@ -79,9 +79,9 @@ whitecolour{
 					<div class="tab-right">
 					
 						
-						<div class="resp-tabs-container">
+						<!--<div class="resp-tabs-container">-->
 						
-							<div class="tab-1 resp-tab-content">
+							<!--<div class="tab-1 resp-tab-content">-->
 							
 								<div class="w3l-sign-in">
 									
@@ -115,7 +115,7 @@ whitecolour{
 	                                <br><input type="submit" style="background-color:transparent; border: 2px solid #e7e7e7"  name="reset" value="Reset"  onclick="window.location='/lcl/calculator';"><br>
 									</div>
 								</div>
-							</div>
+							<!--</div>-->
 							
 							<!--<div class="tab-1 resp-tab-content">
 								<div class="register agileits">
@@ -148,7 +148,7 @@ whitecolour{
 							</div>
 							</div> 
 							-->
-						</div>
+						<!--</div>-->
 					</div>
 					<div class="clear"></div>
 				</div>
