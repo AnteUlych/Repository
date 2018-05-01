@@ -2,8 +2,6 @@ package calculator.web;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -37,6 +35,10 @@ public class CalculatorServlet {
 		 
 		 HttpSession session = request.getSession();
 		 session.setAttribute("route",route);
+		 		 
+		 if(route.getDestination().equals("")||route.getPort().equals("")||route.getVolume().equals("")||route.getWeight().equals("")){
+			 return "calculator"; 
+		 }
 	
 		 try {
 			response.sendRedirect("/lcl/result");
