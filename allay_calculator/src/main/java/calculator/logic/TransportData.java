@@ -49,7 +49,7 @@ public class TransportData {
 		data.add("Shunde, China|120|32");
 		data.add("Yantian, China|95|28");
 		data.add("Xiamen, China|105|35");
-		data.add("Xingang/Tianjin, China|99|30");
+		data.add("Xingang / Tianjin, China|99|30");
 		data.add("Zhongshan, China|115|30");
 		data.add("Zhuhai, China|115|43");
 		data.add("Belawan, Indonesia|141|32");
@@ -109,7 +109,7 @@ public class TransportData {
 		data.add("Rio Grande, Brasil|109|26");
 		data.add("Santos, Brasil|106|17");
 		data.add("Valparaiso, Chile|140|27");
-		data.add("Calla, Peru|124|30");
+		data.add("Callao, Peru|124|30");
 		data.add("Asuncion, Paraguay|65|25");
 		data.add("Montevideo, Uruguay|50|34");
 		data.add("Alexandria, Egypt|94|25");
