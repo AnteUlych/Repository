@@ -12,6 +12,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import calculator.logic.Mail;
 import calculator.logic.ServiceCalculator;
 import calculator.logic.TransportData;
 import calculator.model.Order;
@@ -83,7 +84,8 @@ public class OrderServlet {
 		order.setName(name);
 		order.setPhone(phone);
 		
-		//send method!!!
+		Mail sender = new Mail();
+		sender.send(order);
 
 		return "booked";
 	}

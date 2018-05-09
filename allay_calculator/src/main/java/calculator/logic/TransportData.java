@@ -203,4 +203,167 @@ public class TransportData {
 	
 		return data;
 	}
+	
+	public List<String> getDestinations(){
+		List<String> data = new ArrayList<String>();
+	
+		data.add("Kyiv");
+		data.add("Cherkasy");
+		data.add("Chernihiv");
+		data.add("Chernivtsi");
+		data.add("Dnipro");
+		data.add("Ivano-Frankivsk");
+		data.add("Kharkiv");
+		data.add("Kherson");
+		data.add("Khmelnytskyi");
+		data.add("Kropyvnytskyi");
+		data.add("Lutsk");
+		data.add("Lviv");
+		data.add("Mykolaiv");
+		data.add("Odessa");
+		data.add("Poltava");
+		data.add("Rivne");
+		data.add("Sumy");
+		data.add("Ternopil");
+		data.add("Uzhhorod");
+		data.add("Vinnytsia");
+		data.add("Zaporizhia");
+		data.add("Zhytomyr");
+		
+		return data;
+	}
+	public List<String> getEastAsiaPorts(){
+		List<String> data = new ArrayList<String>();
+		
+		data.add("Beijing City, China");
+		data.add("Dalian, China");
+		data.add("Foshan, China");
+		data.add("Fuzhou, China");
+		data.add("Guangzhou, China");
+		data.add("Hong Kong, China");
+		data.add("Huangpu, China");
+		data.add("Jiangmen, China");
+		data.add("Ningbo, China");
+		data.add("Qingdao, China");
+		data.add("Shanghai, China");
+		data.add("Shantou, China");
+		data.add("Shenzhen, China");
+		data.add("Shunde, China");
+		data.add("Yantian, China");
+		data.add("Xiamen, China");
+		data.add("Xingang / Tianjin, China");
+		data.add("Zhongshan, China");
+		data.add("Zhuhai, China");
+		data.add("Belawan, Indonesia");
+		data.add("Jakarta, Indonesia");
+		data.add("Semarang, Indonesia");
+		data.add("Surabaya, Indonesia");
+		data.add("Kobe, Japan");
+		data.add("Nagoya, Japan");
+		data.add("Osaka, Japan");
+		data.add("Tokyo, Japan");
+		data.add("Yokohama, Japan");
+		data.add("Busan, Korea");
+		data.add("Inchon, Korea");
+		data.add("Port Kelang, Malaysia");
+		data.add("Pasir Gudang, Malaysia");
+		data.add("Penang, Malaysia");
+		data.add("Port Louis, Mauritius");
+		data.add("Yangon, Mynamar");
+		data.add("Cebu, Philipines");
+		data.add("Manila, Philipines");
+		data.add("Singapore, Singapore");
+		data.add("Kaohsiung, Taiwan");
+		data.add("Keelung, Taiwan");
+		data.add("Taichung, Taiwan");
+		data.add("Bangkok, Thailand");
+		data.add("Haiphong, Vietnam");
+		data.add("Ho Chi Minh City, Vietnam");
+		data.add("Danang, Vietnam");
+		
+		return data;
+	}
+	
+	public List<String> getSouthAsiaPorts(){
+		List<String> data = new ArrayList<String>();
+		
+		data.add("Chittagong, Bangladesh");
+		data.add("Ahmedabad, India");
+		data.add("Bangalore, India");
+		data.add("Baroda, India");
+		data.add("Calcutta, India");
+		data.add("Chennai, India");
+		data.add("Cochin, India");
+		data.add("Hyderabad, India");
+		data.add("Mumbai, India");
+		data.add("Delhi, India");
+		data.add("Nhava Sheva, India");
+		data.add("Tuticorin, India");
+		data.add("Karachi, Pakistan");
+		data.add("Colombo, Sri Lanka");
+		
+		return data;
+	}
+	
+	public List<String> getAfricaPorts(){
+		List<String> data = new ArrayList<String>();
+		
+		data.add("Alexandria, Egypt");
+		data.add("Ashdod, Israel");
+		data.add("Haifa, Israel");
+		data.add("Dubai, UAE");
+		data.add("Jebel Ali, UAE");
+		data.add("Cape Town, South Africa");
+		data.add("Durban, South Africa");
+		data.add("Johannesburg, South Africa");
+		
+		return data;
+	}
+	
+	public List<String> getOcaniaPorts(){
+		List<String> data = new ArrayList<String>();
+		
+		data.add("Adelaide, Australia");
+		data.add("Brisbane, Australia");
+		data.add("Fremantle, Australia");
+		data.add("Melbourne, Australia");
+		data.add("Sydney, Australia");
+		data.add("Auckland, New Zealand");
+		data.add("Lyttelton, New Zealand");
+		
+		return data;
+	}
+	
+	public List<String> getAmericansPorts(){
+		List<String> data = new ArrayList<String>();
+		
+		data.add("Montreal, Canada");
+		data.add("Toronto, Canada");
+		data.add("Vancouver, Canada");
+		data.add("Altamira, Mexico");
+		data.add("Mexico City, Mexico");
+		data.add("Vera Cruz, Mexico");
+		data.add("Atlanta, USA");
+		data.add("Baltimore, USA");
+		data.add("Boston, USA");
+		data.add("Charleston, USA");
+		data.add("Charlotte, USA");
+		data.add("Chicago, USA");
+		data.add("Cleveland, USA");
+		data.add("Dallas, USA");
+		data.add("Detroit, USA");
+		data.add("Houston, USA");
+		data.add("Los Angeles, USA");
+		data.add("Memphis, USA");
+		data.add("Miami, USA");
+		data.add("New Orleans, USA");
+		data.add("New York, USA");
+		data.add("Norfolk, USA");
+		data.add("Philadelphia, USA");
+		data.add("Portland, USA");
+		data.add("San Francisco, USA");
+		data.add("Seattle, USA");
+
+		return data;
+	}
 }

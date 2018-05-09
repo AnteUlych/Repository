@@ -68,11 +68,11 @@ whitecolour{
 
 					<div class="tab-left">
 						<ul class="resp-tabs-list">
-							<li class="resp-tab-item"><i class="fa fa-plane" aria-hidden="true"></i>America</li>
-							<li class="resp-tab-item"><i class="fa fa-university" aria-hidden="true"></i>China & Eastern Asia</li>
-							<li class="resp-tab-item"><i class="fa fa-suitcase" aria-hidden="true"></i>India & Southern Asia</li>
-							<li class="resp-tab-item"><i class="fa fa-car" aria-hidden="true"></i>Africa & Middle East</li>
-							<li class="resp-tab-item"><i class="fa fa-ship" aria-hidden="true"></i>Australia & NZ</li>
+			       	        <li class="resp-tab-item"><i class="fa fa-globe" aria-hidden="true"></i>America</li>
+							<li class="resp-tab-item"><i class="fa fa-industry" aria-hidden="true"></i>China & Eastern Asia</li>
+							<li class="resp-tab-item"><i class="fa fa-university" aria-hidden="true"></i>India & Southern Asia</li>
+							<li class="resp-tab-item"><i class="fa fa-diamond" aria-hidden="true"></i>Africa & Middle East</li>
+							<li class="resp-tab-item"><i class="fa fa-leaf" aria-hidden="true"></i>Australia & NZ</li>
 						</ul>
 					</div>
 
@@ -156,7 +156,7 @@ whitecolour{
 		</div>
 	</div>
 	<div class="footer">
-		<p> &copy; 2017 Travel Packages Widget. All Rights Reserved .</p>
+		<p> &copy; 2017 Developed by <a href="https://www.facebook.com/profile.php?id=100009594527667">Anton Ulytskyi</a></p>
 	</div>
 	<!--start-date-piker-->
 		<link rel="stylesheet" href="<c:url value="resources/css/jquery-ui.css" />" />
