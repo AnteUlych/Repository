@@ -29,20 +29,26 @@ public class RequestController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String submitForm(Model model, Request request, HttpServletRequest servletRequest) {
 		
-		String submit = servletRequest.getParameter("submit");
 		String nextPage = "form";
+		
+		String submit = servletRequest.getParameter("submit");
 		
 		model.addAttribute("request", request);
 		initModelList(model);
+		
+		if(request.getClient().equals("")||request.getAddress().equals("")||request.getQuantity().equals("")){
+			return nextPage;
+		}
 		
 		BeltService service = new BeltService();
 		String price = service.getPrice(request.getAddress(), request.getQuantity());
 		String delivery = service.getDeliveryDate(request.getAddress(), request.getPickup());
 		
-		model.addAttribute("price", price);
+	
+		model.addAttribute("price", "transportation freight - " + price);
 		model.addAttribute("delivery", delivery);
 		
-		if (submit.equals("Order"))	{
+		if (submit.equals("Booking")&&!delivery.equals("select the pick-up date"))	{
 			nextPage = "order";
 		}
 		return nextPage;
@@ -72,8 +78,8 @@ public class RequestController {
 		model.addAttribute("clients", clients);
 		
 		List<String> documents = new ArrayList<String>();
-		documents.add("EX-1");
-		documents.add("EUR1");
+		documents.add("EX-1 - 45 EUR ");
+		documents.add("EUR1 - 55 EUR ");
 		model.addAttribute("documents", documents);
 		
 		addresses = null;

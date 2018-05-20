@@ -7,10 +7,12 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class BeltService {
 	
@@ -71,7 +73,7 @@ public class BeltService {
 		String time = course[timeToWH];
 		int deliveryToWH = Integer.parseInt(time);
 		
-		 DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 		 Calendar freightPickUp = Calendar.getInstance();
 		 freightPickUp.setTime(df.parse(pickUpDate));
 		 freightPickUp.add(Calendar.DATE, deliveryToWH);
@@ -79,16 +81,15 @@ public class BeltService {
 		 Date deliveryDate = freightPickUp.getTime();
 		 LocalDate deliveryLocalDate = deliveryDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 		 LocalDate monday = deliveryLocalDate.with(TemporalAdjusters.next(DayOfWeek.MONDAY));
-		 
-		 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		 String delivery = monday.format(formatter);  
-		 
-		 return delivery;
+		
+		 String destination =
+		     DateFormat.getDateInstance(SimpleDateFormat.MEDIUM, new Locale("en")).format(Date.from(monday.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+		 return "in Kyiv at " + destination;
 		 
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return "select the pick-up date";
 	}
 
 }
