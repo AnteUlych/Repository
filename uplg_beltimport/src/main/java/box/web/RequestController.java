@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import box.logic.BeltService;
 import box.logic.DataBase;
+import box.mail.Sender;
 
 @Controller
 @RequestMapping("/")
@@ -48,7 +49,11 @@ public class RequestController {
 		model.addAttribute("price", "transportation freight - " + price);
 		model.addAttribute("delivery", delivery);
 		
-		if (submit.equals("Booking")&&!delivery.equals("select the pick-up date"))	{
+		if (submit.equals("Booking")&&!delivery.contains("select"))	{
+			
+		//	Sender bird = new Sender();
+		//	bird.order();
+			
 			nextPage = "order";
 		}
 		return nextPage;
