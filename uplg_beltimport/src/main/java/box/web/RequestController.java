@@ -51,8 +51,8 @@ public class RequestController {
 		
 		if (submit.equals("Booking")&&!delivery.contains("select"))	{
 			
-		//	Sender bird = new Sender();
-		//	bird.order();
+			Sender bird = new Sender();
+			bird.sendOrder(request, price, delivery);
 			
 			nextPage = "order";
 		}
