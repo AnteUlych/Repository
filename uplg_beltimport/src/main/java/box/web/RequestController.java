@@ -18,11 +18,15 @@ import box.mail.Sender;
 @RequestMapping("/")
 public class RequestController {
 	
+	String permission = "disabled";
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public String initForm(Model model) {
 		Request request = new Request();
 		
 		model.addAttribute("request", request);
+		model.addAttribute("permission", permission);
+		
 		initModelList(model);
 		return "form";
 	}
@@ -45,6 +49,11 @@ public class RequestController {
 		String price = service.getPrice(request.getAddress(), request.getQuantity());
 		String delivery = service.getDeliveryDate(request.getAddress(), request.getPickup());
 		
+		if(delivery.contains("at")){
+			permission = "";
+		}
+		
+		model.addAttribute("permission", permission);
 	
 		model.addAttribute("price", "transportation freight - " + price);
 		model.addAttribute("delivery", delivery);

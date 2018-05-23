@@ -179,7 +179,7 @@
 					<tr>
 					<td><input type="submit" style="width: 200px;" name="submit" value="Calculate"></td>
 	               <!-- <input type="reset" value="Reset">-->
-					<td><input type="submit" style="width: 200px; float: right;" name="submit" value="Booking"></td>
+					<td><input type="submit" style="width: 200px; float: right;" name="submit" value="Booking" ${permission}></td>
 					</tr>
         	        </table>
 					

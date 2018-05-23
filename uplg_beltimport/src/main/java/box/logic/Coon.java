@@ -12,14 +12,14 @@ public class Coon {
 		
 		Request request = new Request();
 		
-		request.setAddress("London, UK");
+		request.setAddress("70026, Modugno, IT");
 		request.setClient("Oksana");
 		
 		System.out.println(request.getClient());
 		
 		List<String> documents = new ArrayList<String>();
 		documents.add("EX-1 - 45 EUR ");
-	
+		documents.add("EUR1 - 55 EUR ");
 		
 		request.setDocumentation(documents);
 		request.setPickup("01/01/2017");

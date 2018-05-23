@@ -19,8 +19,8 @@ import box.web.Request;
 
 public class Sender {
 
-	final String username = "lksc00001@gmail.com";
-	final String password = "xzxzzxzxcaa";
+	final String username = "uplg.monitoring@gmail.com";
+	final String password = "Klug0506";
 
 	String responsible = ", anton.ulych@gmail.com, satoru@i.ua";
 	String subject = "beltimport order: ";
@@ -34,11 +34,14 @@ public class Sender {
 		String clientMail = getMailOfClient(request.getClient());
 
 		Properties props = new Properties();
+		
+	
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
 		props.put("mail.smtp.host", "smtp.gmail.com");
 		props.put("mail.smtp.port", "587");
 		props.put("mail.debug", "false");
+		
 		Session session = Session.getInstance(props, new Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication(username, password);
@@ -72,25 +75,41 @@ public class Sender {
 	}
 
 	private String addHtmlContent(Request request, String price, String delivery) {
+	
 		String EX1 = "";
 		String EUR1 = "";
+		/**
 		String total = price.replaceAll(" eur", "");
 		int totalPrice = Integer.parseInt(total);
 
+		*/
+		
 		List<String> docs = request.getDocumentation();
 
 		for (String doc : docs) {
 			if (doc.contains("EX-1")) {
 				EX1 = addEX1;
-				totalPrice = totalPrice + EX1cost;
+				//totalPrice = totalPrice + EX1cost;
 			}
 			if (doc.contains("EUR1")) {
 				EUR1 = addEUR1;
-				totalPrice = totalPrice + EUR1cost;
+				//totalPrice = totalPrice + EUR1cost;
 			}
 
 		}
-
+		
+		String text1 = "</style></head><body><h2>Order for "
+				+ request.getPickup()
+				+ ".</h2><p>"
+				+ request.getClient()
+				+ ", thank You for choosing our service.<br>Our manager will connect with You in 20 minutes for confirmation.</p><table><tr><th>Service</th><th>Cost</th></tr><tr><td>"
+				+ request.getAddress() + " - Kyiv, UA, "
+				+ request.getQuantity() + " e/p</td><td>"
+				+ price + "</td></tr>" + EX1 + EUR1
+				
+				+ "</table><p>" + delivery
+				+ "<br><br> Best Regards,<br>UPLG Team</p></body></html>";
+		/**
 		String text = "</style></head><body><h2>Order for "
 				+ request.getPickup()
 				+ ".</h2><p>"
@@ -102,7 +121,11 @@ public class Sender {
 				+ "<tr><td>Total:</td><td>" + totalPrice + " eur</td></tr>"
 				+ "</table><p>" + delivery
 				+ "<br><br> Best Regards,<br>UPLG Team</p></body></html>";
-		return text;
+			*/
+		return text1;
+		
+		
+	//	return "<h2>Order for</h2>";
 	}
 
 	private String getMailOfClient(String client) {
@@ -119,6 +142,7 @@ public class Sender {
 		}
 
 		return "";
+		
 	}
 	
 	private String getContactOfClient(String client) {
