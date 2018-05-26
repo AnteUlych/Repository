@@ -16,6 +16,7 @@ public class Coon {
 		request.setClient("Oksana");
 		
 		System.out.println(request.getClient());
+		System.out.println(new BeltService().getDeliveryDate("Istambul, TR", "05/19/2018"));
 		
 		List<String> documents = new ArrayList<String>();
 		documents.add("EX-1 - 45 EUR ");
@@ -28,9 +29,9 @@ public class Coon {
 		String price = "150 eur";
 		String delivery = "at Kyiv 1 February, 2018";
 		
-		Sender bird = new Sender();
+		//Sender bird = new Sender();
 		
-		bird.sendOrder(request, price, delivery);
+		//bird.sendOrder(request, price, delivery);
 	}
 
 }

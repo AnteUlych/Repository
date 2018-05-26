@@ -49,7 +49,7 @@ public class RequestController {
 		String price = service.getPrice(request.getAddress(), request.getQuantity());
 		String delivery = service.getDeliveryDate(request.getAddress(), request.getPickup());
 		
-		if(delivery.contains("at")){
+		if(delivery.contains("on")){
 			permission = "";
 		}
 		

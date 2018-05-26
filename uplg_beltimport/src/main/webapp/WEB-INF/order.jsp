@@ -50,7 +50,7 @@
 				<li><span>.</span>Prices includes delivery to WH at Kyiv</li>
 				<li><span>.</span>Prices are valid only for Beltinport Ltd.</li>
 			</ul>
-			<p>- Your logistic is our goal.</p>
+			<p>- Your logistics is our goal.</p>
 		</div>
 		<div class="book-appointment">
 			<h2>Order</h2>

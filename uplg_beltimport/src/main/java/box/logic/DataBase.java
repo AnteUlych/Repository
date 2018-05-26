@@ -170,8 +170,11 @@ public class DataBase {
 	public List<String> getClients() {
 
 		List<String> clients = new ArrayList<String>();
+		
+		clients.add("Alla");
 		clients.add("Natalia");
 		clients.add("Oksana");
+		
 		return clients;
 
 	}
@@ -179,8 +182,10 @@ public class DataBase {
 	public List<String> getClientsBase() {
 
 		List<String> clients = new ArrayList<String>();
+		clients.add("Alla, +380506473151, satoru@i.ua");
 		clients.add("Natalia, +380506473151, satoru@i.ua");
 		clients.add("Oksana, +380506471414, anton.ulych@gmail.com");
+		
 		return clients;
 
 	}

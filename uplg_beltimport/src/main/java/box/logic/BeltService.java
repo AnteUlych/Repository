@@ -52,6 +52,10 @@ public class BeltService {
 		String [] course = direction.split(separator);
 		String price = course[number];
 		
+		if(address.contains("Ulucak")||address.contains("Istambul")||address.contains("Bolgesi")){
+			return price + " USD";
+		}
+		
 		return price + " euro";
 	}
 	
@@ -80,11 +84,12 @@ public class BeltService {
 		 
 		 Date deliveryDate = freightPickUp.getTime();
 		 LocalDate deliveryLocalDate = deliveryDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-		 LocalDate monday = deliveryLocalDate.with(TemporalAdjusters.next(DayOfWeek.MONDAY));
-		
+		 LocalDate friday = deliveryLocalDate.with(TemporalAdjusters.next(DayOfWeek.FRIDAY));
+		 LocalDate monday = friday.with(TemporalAdjusters.next(DayOfWeek.MONDAY));
+		 
 		 String destination =
 		     DateFormat.getDateInstance(SimpleDateFormat.MEDIUM, new Locale("en")).format(Date.from(monday.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-		 return "in Kyiv at " + destination;
+		 return "in Kyiv on " + destination;
 		 
 		} catch (ParseException e) {
 			e.printStackTrace();

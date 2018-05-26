@@ -50,7 +50,7 @@
 				<li><span>.</span>Prices includes delivery to WH at Kyiv</li>
 				<li><span>.</span>Prices are valid only for Beltinport Ltd.</li>
 			</ul>
-			<p>- Your logistic is our goal.</p>
+			<p>- Your logistics is our goal.</p>
 		</div>
 		<div class="book-appointment">
 			<h2>Personal Details</h2>
@@ -175,13 +175,12 @@
 						<div class="clear"></div>
 					</div>
 					
-					<table style="width:100%">
-					<tr>
-					<td><input type="submit" style="width: 200px;" name="submit" value="Calculate"></td>
+					
+					
+					<input type="submit" style="width: 200px;" name="submit" value="Calculate">
 	               <!-- <input type="reset" value="Reset">-->
-					<td><input type="submit" style="width: 200px; float: right;" name="submit" value="Booking" ${permission}></td>
-					</tr>
-        	        </table>
+					<input type="submit" style="width: 200px; float: right;" name="submit" value="Booking" ${permission}>
+				
 					
 					<div class="clear"></div>
 				</form:form>
