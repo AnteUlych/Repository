@@ -22,7 +22,7 @@ public class Sender {
 	final String username = "uplg.monitoring@gmail.com";
 	final String password = "Klug0506";
 
-	String responsible = ", anton.ulych@gmail.com, satoru@i.ua";
+	String responsible = ", anna@uplg.com.ua, ua@uplg.com.ua";
 	String subject = "beltimport order: ";
 	String addEX1 = "<tr><td>EX1</td><td>45 eur</td></tr>";
 	String addEUR1 = "<tr><td>EUR1</td><td>55 eur</td></tr>";

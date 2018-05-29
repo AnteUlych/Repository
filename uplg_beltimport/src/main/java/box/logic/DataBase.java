@@ -182,9 +182,9 @@ public class DataBase {
 	public List<String> getClientsBase() {
 
 		List<String> clients = new ArrayList<String>();
-		clients.add("Alla, +380506473151, satoru@i.ua");
-		clients.add("Natalia, +380506473151, satoru@i.ua");
-		clients.add("Oksana, +380506471414, anton.ulych@gmail.com");
+		clients.add("Alla, +380979300060, a.pochtovaya@beltimport.ua");
+		clients.add("Natalia, +380631867623, n.iakymiv@beltimport.ua");
+		clients.add("Oksana, +380930876008, o.arshulik@beltimport.ua");
 		
 		return clients;
 
