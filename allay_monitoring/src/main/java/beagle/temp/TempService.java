@@ -10,7 +10,7 @@ import beagle.model.Client;
 public class TempService {
 
 public Booking getBookingByKey(String key){
-	
+	if(key.equals("booking1")){
 	Booking booking = new Booking();
 	
 	booking.setDelivery("3/06/2018");
@@ -23,6 +23,8 @@ public Booking getBookingByKey(String key){
 	booking.setUpdate("1/06/2018");
 	
 	return booking;
+	}
+	return null;
 }
 
 public Client getClientByKey(String key){
