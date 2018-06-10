@@ -3,6 +3,7 @@ package beagle.model;
 public class Booking {
 	
 	private int id;
+	private String company;
 	private String route;
 	private double longitude;
 	private double latitude;
@@ -58,6 +59,12 @@ public class Booking {
 	}
 	public void setUpdate(String update) {
 		this.update = update;
+	}
+	public String getCompany() {
+		return company;
+	}
+	public void setCompany(String company) {
+		this.company = company;
 	}
 
 }

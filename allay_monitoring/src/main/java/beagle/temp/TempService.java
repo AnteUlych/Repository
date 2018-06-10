@@ -9,10 +9,44 @@ import beagle.model.Client;
 
 public class TempService {
 
+	public List <Booking> getAllBookings(){
+		
+		Booking booking1 = new Booking();
+		
+		booking1.setCompany("Ace of Chemicals, Ltd");
+		booking1.setDelivery("3/06/2018");
+		booking1.setId(0);
+		booking1.setKey("booking1");
+		booking1.setLatitude(59.911964);
+		booking1.setLongitude(10.755234);
+		booking1.setRoute("Oslo - Wismar");
+		booking1.setStatus("Oslo loading");
+		booking1.setUpdate("1/06/2018");
+		
+	    Booking booking2 = new Booking();
+		
+	    booking2.setCompany("Ace of Chemicals, Ltd");
+		booking2.setDelivery("4/06/2018");
+		booking2.setId(1);
+		booking2.setKey("booking2");
+		booking2.setLatitude(55.725058);
+		booking2.setLongitude(12.426556);
+		booking2.setRoute("Herlev - Lutsk");
+		booking2.setStatus("SD 123");
+		booking2.setUpdate("1/06/2018");
+		
+		ArrayList<Booking>  bookings = new ArrayList<Booking>();
+		bookings.add(booking1);
+		bookings.add(booking2);
+		
+		return bookings;
+	}
+	
 public Booking getBookingByKey(String key){
 	if(key.equals("booking1")){
 	Booking booking = new Booking();
 	
+	booking.setCompany("Ace of Chemicals, Ltd");
 	booking.setDelivery("3/06/2018");
 	booking.setId(0);
 	booking.setKey("booking1");
@@ -24,6 +58,22 @@ public Booking getBookingByKey(String key){
 	
 	return booking;
 	}
+	
+	if(key.equals("booking2")){
+		Booking booking2 = new Booking();
+		
+		booking2.setCompany("Ace of Chemicals, Ltd");
+		booking2.setDelivery("4/06/2018");
+		booking2.setId(1);
+		booking2.setKey("booking2");
+		booking2.setLatitude(55.725058);
+		booking2.setLongitude(12.426556);
+		booking2.setRoute("Herlev - Lutsk");
+		booking2.setStatus("SD 123");
+		booking2.setUpdate("1/06/2018");
+		
+		return booking2;
+		}
 	return null;
 }
 
@@ -45,6 +95,7 @@ public List<Booking> getAllBookingsByCompany(String company){
 	
 Booking booking1 = new Booking();
 	
+booking1.setCompany("Ace of Chemicals, Ltd");
 	booking1.setDelivery("3/06/2018");
 	booking1.setId(0);
 	booking1.setKey("booking1");
@@ -55,9 +106,9 @@ Booking booking1 = new Booking();
 	booking1.setUpdate("1/06/2018");
 	
 Booking booking2 = new Booking();
-	
+booking2.setCompany("Ace of Chemicals, Ltd");
 	booking2.setDelivery("4/06/2018");
-	booking2.setId(0);
+	booking2.setId(1);
 	booking2.setKey("booking2");
 	booking2.setLatitude(55.725058);
 	booking2.setLongitude(12.426556);

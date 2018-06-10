@@ -10,17 +10,17 @@ public class SimpleTest {
 	public static void main(String[] args) {
 		
 		TempService test = new TempService();
-		
+		/**
 		Booking booking = test.getBookingByKey("booking1");
 		System.out.println(booking.getRoute());
 		
 		Client client = test.getClientByKey("booking1");
 		System.out.println(client.getManager() + " serve for " + client.getCompany());
-		
-		List <Booking> bookings = test.getAllBookingsByCompany(client.getCompany());
+		*/
+		List <Booking> bookings = test.getAllBookings();
 		
 		for(Booking situation:bookings){
-			System.out.println(situation.getStatus());
+			System.out.println(situation.getStatus()+", "+situation.getCompany());
 		}
 		
 		
