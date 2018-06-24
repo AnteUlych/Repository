@@ -1,5 +1,6 @@
 package beagle.temp;
 
+import java.util.Date;
 import java.util.List;
 
 import beagle.dispatcher.Service;
@@ -13,10 +14,8 @@ public class SimpleTest {
 
 		Service service = new Service();
 
-		
-		Booking booking = service.getBookingByKey("789456123");
 
-		System.out.println(booking.getDelivery());
+		System.out.println(service.createKey());
 		
 
 	}

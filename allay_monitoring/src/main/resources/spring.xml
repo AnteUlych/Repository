@@ -51,8 +51,9 @@
 
 	<bean id="clientDao" class="beagle.dao.ClientDAO" />
 	<bean id="bookingDao" class="beagle.dao.BookingDAO" />
+	<bean id="accessDao" class="beagle.dao.AccessDAO" />
 
 	<bean id="clientService" class="beagle.service.ClientService" />
 	<bean id="bookingService" class="beagle.service.BookingService" />
-	
+	<bean id="accessService" class="beagle.service.AccessService" />
 </beans>
