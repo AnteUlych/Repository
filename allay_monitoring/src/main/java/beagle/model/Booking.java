@@ -1,15 +1,32 @@
 package beagle.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "booking")
 public class Booking {
 	
+	@Id
+	@Column
 	private int id;
+	@Column
 	private String company;
+	@Column
 	private String route;
+	@Column
 	private double longitude;
+	@Column
 	private double latitude;
+	@Column
 	private String status;
+	@Column
 	private String delivery;
+	@Column(name = "`update`")
 	private String update;
+	@Column(name = "`key`")
 	private String key;
 	
 	public int getId() {

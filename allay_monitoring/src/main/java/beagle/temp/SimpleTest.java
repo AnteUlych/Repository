@@ -2,29 +2,21 @@ package beagle.temp;
 
 import java.util.List;
 
+import beagle.dispatcher.Service;
 import beagle.model.Booking;
 import beagle.model.Client;
+
 
 public class SimpleTest {
 
 	public static void main(String[] args) {
+
+		Service service = new Service();
+
 		
-		TempService test = new TempService();
-		/**
-		Booking booking = test.getBookingByKey("booking1");
-		System.out.println(booking.getRoute());
-		
-		Client client = test.getClientByKey("booking1");
-		System.out.println(client.getManager() + " serve for " + client.getCompany());
-		*/
-		List <Booking> bookings = test.getAllBookings();
-		
-		for(Booking situation:bookings){
-			System.out.println(situation.getStatus()+", "+situation.getCompany());
-		}
-		
-		
-		
+		Booking booking = service.getBookingByKey("789456123");
+
+		System.out.println(booking.getDelivery());
 		
 
 	}
