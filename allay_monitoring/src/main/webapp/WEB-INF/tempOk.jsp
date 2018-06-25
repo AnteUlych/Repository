@@ -7,7 +7,7 @@
 
 <body>
 
-${booking.longitude} - ${booking.status}
+OK
 
 </body>
 </html>

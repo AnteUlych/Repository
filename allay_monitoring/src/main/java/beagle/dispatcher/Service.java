@@ -15,6 +15,7 @@ import beagle.model.Client;
 import beagle.service.AccessService;
 import beagle.service.BookingService;
 import beagle.service.ClientService;
+import beagle.service.ManagerService;
 
 public class Service {
 
@@ -70,6 +71,10 @@ public class Service {
 			return key;
 		}
 		
+	}
+	public List<String> getAllManagers() {	
+		ManagerService managerService = (ManagerService) ctx.getBean("managerService");
+		return managerService.getAllClients();
 	}
 	public boolean getAccess(String requestIp){
 		AccessService accessService = (AccessService) ctx.getBean("accessService");

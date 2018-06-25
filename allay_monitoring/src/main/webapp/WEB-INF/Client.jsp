@@ -29,7 +29,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <ol class="breadcrumb" data-aos="zoom-in">
-                    <li><a href="http://uplg.com.ua/">Home</a></li>
+                    <li class="active">${booking.company}</li>
                     <li class="active">${booking.route}</li>
                 </ol>
             </div>
