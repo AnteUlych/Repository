@@ -49,6 +49,17 @@ public class Service {
 	public List<Booking> getAllBookingsByClient(String company){
 		return bookingService.getAllBookingsByClient(company);
 	}
+	public boolean isKeyExist(String key){
+		List<Booking> bookings = bookingService.getAllBookings();
+		for(;;){
+			for(Booking existingBooking:bookings){
+				if(existingBooking.getKey().equals(key)){
+					return true;
+				}
+			}
+			return false;
+		}
+	}
 	public Booking getBookingByKey(String key) {
 		return bookingService.getBookingByKey(key);
 	}

@@ -50,33 +50,34 @@
 		<div class="col-md-12">
 		<br><br><br>
 			<h3 class="text-center" data-aos="flip-up">Add Route</h3>
-			<form action="" method="post" name="sentMessage" id="contactForm" novalidate>
+			<form method="post" >
                 <div class="control-group form-group" data-aos="flip-up">
                     <div class="controls">
                         <label>Route:</label>
-                        <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter Route.">
+                        <input type="text" name="route" class="form-control" id="name" required data-validation-required-message="Please enter Route.">
                         <p class="help-block"></p>
                     </div>
                 </div>
 				<div class="control-group form-group" data-aos="flip-up">
                     <div class="controls">
                         <label>Company:</label><br>
-                        <input type="radio" name="company"  required data-validation-required-message="Please select company."> <label>Company1</label><br>
-						<input type="radio" name="company"  required data-validation-required-message="Please select company."> <label>Company2</label><br>
+                         <c:forEach items="${clients}" var="customer" varStatus="step">
+                       <input type="radio" name="client" required data-validation-required-message="Please select manager" value ="${customer}"> <label>${customer}</label><br>
+		             </c:forEach>
                         <p class="help-block"></p>
                     </div>
                 </div>
                 <div class="control-group form-group" data-aos="flip-up">
                     <div class="controls">
                         <label>Delivery Date:</label>
-                        <input type="date" class="form-control" id="name" required data-validation-required-message="Please enter ETD.">
+                        <input type="date" name="delivery" class="form-control" id="name" required data-validation-required-message="Please enter ETD.">
                     </div>
                 </div>
 			
 				
                 <div id="success"></div>
                 <!-- For success/fail messages -->
-                <button type="submit" class="btn btn-primary" data-aos="flip-up">Add Route</button>
+                <button type="submit" class="btn btn-primary" data-aos="flip-up">Add Booking</button>
             </form>
 		</div>
 	</div>
@@ -98,7 +99,7 @@
 <script src="<c:url value="resources/js/aos2.js"/>"></script>
 <!-- js for contact form -->
 <script src="<c:url value="resources/js/jqBootstrapValidation.js"/>"></script>
-<script src="<c:url value="resources/js/contact_me.js"/>"></script>
+
 <!-- //js for contact form -->		
 <!-- /js files -->
 </body>

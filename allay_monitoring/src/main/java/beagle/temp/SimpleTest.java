@@ -13,10 +13,9 @@ public class SimpleTest {
 	public static void main(String[] args) {
 
 		Service service = new Service();
-		List<String> m = service.getAllManagers();
-        for(String ma:m){
-		System.out.println(ma);
-        }
+		
+		System.out.println(service.isKeyExist("123456789"));
+       
 	}
 
 }

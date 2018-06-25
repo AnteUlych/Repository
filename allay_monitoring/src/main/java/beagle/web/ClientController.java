@@ -21,7 +21,9 @@ public class ClientController {
 	public String openClientController(@PathVariable("key") String key, ModelMap model) {
 		
         Service service = new Service();
-		
+		if(!service.isKeyExist(key)){
+			return "tempOk";
+		}
 		Booking booking = service.getBookingByKey(key);
 		List <Booking> bookings = service.getAllBookingsByClient(booking.getCompany());
 		
