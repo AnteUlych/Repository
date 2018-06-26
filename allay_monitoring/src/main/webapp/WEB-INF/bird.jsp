@@ -47,6 +47,7 @@
 <section class="inner-w3ls">
 </section>
 <!-- /header section -->
+<form method="post" >
 <section class="schedule-w3layouts">
 	<div class="container">
 		<h3 class="text-center" data-aos="zoom-in">Send Monitoring</h3>
@@ -54,6 +55,7 @@
 			<table class="table">
 				<thead>
 					<tr>
+					    <th><h4>#</h4></th>
 						<th><h4>Company</h4></th>
 						<th><h4>Route</h4></th>
 						<th><h4>Status</h4></th>
@@ -62,29 +64,28 @@
 						
 					</tr>
 				</thead>
+				
 				<tbody>
-					<tr class="">
-						<td><input type="checkbox" name="company"  required data-validation-required-message="Please select company." checked> <label>Company1</label></td>
-						<td>France - Berlin</td>
-						   <td>AS 234 XX</td>
-						    <td>2 Juny, 2018</label></td>
-							 <td>12/06/2018 10:55</label></td>
-					</tr>      
-					<tr class="">
-						  <td><input type="checkbox" name="company"  required data-validation-required-message="Please select company." checked> <label>Company2</label></td>
-                        <td>Oslo - Madrid</td>
-                        <td>reloading</td>
-                        <td>5 Juny, 2018</td>
-                        <td>12/06/2018 10:55</td>
-					</tr>
+				<c:forEach items="${bookings}" var="booking" varStatus="theCount">
+					<tr>
+						<td><input type="checkbox" name="${theCount.count}" checked></td>
+						<td>${booking.company}</td>
+						<td>${booking.route}</td>
+						   <td>${booking.status}</td>
+						    <td>${booking.delivery}</td>
+							 <td><label>${booking.update}</label></td>
+					</tr> 
+					</c:forEach>  
 				</tbody>
+				
 			</table>
-			 <button type="submit" class="btn btn-primary" data-aos="flip-up">Add Client</button>
+			 <button type="submit" class="btn btn-primary">Send Monitoring</button>
 		</div>	
 	</div>	
 	
 		
 </section>	
+</form>
 <section class="results-w3ls">
 	
 </section>	
@@ -106,7 +107,7 @@
 <script src="<c:url value="resources/js/aos2.js"/>"></script>
 <!-- js for contact form -->
 <script src="<c:url value="resources/js/jqBootstrapValidation.js"/>"></script>
-<script src="<c:url value="resources/js/contact_me.js"/>"></script>
+
 <!-- //js for contact form -->		
 <!-- /js files -->
 </body>

@@ -7,7 +7,7 @@
 
 <body>
 
-${number}
+ok
 
 </body>
 </html>
