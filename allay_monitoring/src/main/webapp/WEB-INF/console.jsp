@@ -17,6 +17,12 @@
 <link href="<c:url value="resources/css/colorfulTab.min.css"/>" rel="stylesheet" type="text/css" media="all" />
 <link href="<c:url value="resources/css/style.css"/>" rel="stylesheet" type="text/css" media="all" />
 <!-- /css -->
+<style>
+
+th, td {
+    padding: 5px;
+}
+</style>
 </head>
 <body>
 <!-- navigation -->
@@ -70,7 +76,7 @@
 				
 				<c:forEach items="${bookings}" var="booking" varStatus="theCount">
 
-			<tr class="info">
+			<tr class="${tableStatus[theCount.index]}">
 				<td>${theCount.count}</td>
 				<td>${booking.company}</td>
 				<td>${managers[theCount.index]}</td>
@@ -111,14 +117,20 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-				ETD:<input type = "date" name="etd${theCount.count}" value="${deliveries[theCount.index]}">
-				longitude:<input type = "number" name="longitude${theCount.count}" placeholder= "${bookings[theCount.index].longitude}"  value= "${bookings[theCount.index].longitude}">
-				latitude:<input type = "number" name="latitude${theCount.count}" placeholder= "${bookings[theCount.index].longitude}" value=  "${bookings[theCount.index].latitude}">
-				status:<input type = "text" name="status${theCount.count}" placeholder= "${bookings[theCount.index].longitude}" value= "${bookings[theCount.index].status}">
-				<input type = "checkbox" name="close${theCount.count}">close booking
-	
-					<!--  <button type="submit" name = "submit" value="${theCount.count}" class="btn btn-default" data-dismiss="modal">${theCount.count}</button>-->
-					<input type="submit" name = "submit" value="${theCount.count}">
+				<table>
+				<tr>
+				<td>longitude:<input type = "number" step=any name="longitude${theCount.count}" placeholder= "${bookings[theCount.index].longitude}"  value= "${bookings[theCount.index].longitude}"></td>
+				<td>latitude:<input type = "number" step=any name="latitude${theCount.count}" placeholder= "${bookings[theCount.index].longitude}" value=  "${bookings[theCount.index].latitude}"></td>
+				<td>ETD:<input type = "date" name="etd${theCount.count}" value="${deliveries[theCount.index]}"></td>
+				</tr>
+				<tr>
+				<td>status:<input type = "text" name="status${theCount.count}" placeholder= "${bookings[theCount.index].longitude}" value= "${bookings[theCount.index].status}"></td>
+				<td><input type = "checkbox" name="close${theCount.count}">close booking</td>
+				</tr>
+				</table>
+			
+					<button type="submit" name = "submit" value="${theCount.count}" class="btn btn-default" >Add</button>
+					<!--<input type="submit" name = "submit"  value="${theCount.count}">-->
 				</div>	
 			</div><!-- /.modal-content -->	
 		</div><!-- /.modal-dialog -->

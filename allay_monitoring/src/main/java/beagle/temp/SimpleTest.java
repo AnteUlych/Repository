@@ -12,11 +12,11 @@ public class SimpleTest {
 
 	public static void main(String[] args) {
 
-		//Service service = new Service();
-		//List<Booking> bookings = service.getAllBookings();
-		String text = "12.5";
-		System.out.println(Double.parseDouble(text)+1);
-		
+		Service service = new Service();
+		List<String> updates = service.getAllUpdatesStatusOfBookings();
+		for(String u:updates){
+		System.out.println(u);
+		}
 	}
 
 }

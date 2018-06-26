@@ -58,6 +58,42 @@ public class Service {
 		}
 		return managers;
 	}
+	public List<String> getAllUpdatesStatusOfBookings(){
+		List<Booking> bookings = bookingService.getAllBookings();
+		List<String> updates = new ArrayList();
+		for(Booking booking:bookings){
+			
+			String timeStatus = getTimeStatus(booking);
+			updates.add(timeStatus);
+			}
+		
+		return updates; 
+	}
+	public String getTimeStatus(Booking booking){
+		
+     	long oldMonitoring = 3; //hours
+		String status = booking.getUpdate();
+		if(status.equals("")){
+			return "danger";
+		}
+		SimpleDateFormat format = new SimpleDateFormat("d.MM.yyyy HH:mm:ss");
+		Date now = new Date();
+		Date monitoring = null;
+		try {
+		   
+		    monitoring = format.parse(status);
+		} catch (ParseException e) {
+		    e.printStackTrace();
+		}    
+		
+		long diff = now.getTime() - monitoring.getTime();
+		long diffHours = diff / (60 * 60 * 1000); //in hours
+		if(diffHours<oldMonitoring){
+			return "info";
+		}
+		return "";
+		
+	}
 	public List<String> getAllWebDeliveryDates(){
 		List<Booking> bookings = bookingService.getAllBookings();
 		List<String> dates = new ArrayList();

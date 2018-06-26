@@ -45,8 +45,8 @@ public class AddRouteController {
 	    booking.setDelivery(delivery);
 	    booking.setRoute(route);
 	    booking.setKey(service.createKey());
+	    booking.setUpdate("");
 	    
-
 	    service.addBooking(booking);
 	    
 		return "tempOk";

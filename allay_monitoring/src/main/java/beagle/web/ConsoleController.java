@@ -27,9 +27,12 @@ public class ConsoleController {
 		List <Booking> bookings = service.getAllBookings();
 		List <String> managers = service.getAllManagersOfBookings();
 		List <String> deliveries = service.getAllWebDeliveryDates();
+		List <String> tableStatus = service.getAllUpdatesStatusOfBookings();
+		
 		model.addAttribute("bookings", bookings);
 		model.addAttribute("managers", managers);
 		model.addAttribute("deliveries", deliveries);
+		model.addAttribute("tableStatus", tableStatus);
 		
 		return "console";
 	}
