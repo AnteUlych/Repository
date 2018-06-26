@@ -48,6 +48,7 @@
    
 </section>
 <!-- /header section -->
+
 <section class="schedule-w3layouts">
 	<div class="container">
 		<h3 class="text-center" data-aos="zoom-in">Monitoring Settings</h3>
@@ -57,6 +58,7 @@
 					<tr>
 						<th><h4>#</h4></th>
 						<th><h4>Company</h4></th>
+						<th><h4>Manager</h4></th>
 						<th><h4>Route</h4></th>
 						<th><h4>Status</h4></th>
 						<th><h4>Delivery</h4></th>
@@ -71,7 +73,8 @@
 			<tr class="info">
 				<td>${theCount.count}</td>
 				<td>${booking.company}</td>
-			<td>${booking.route}</td>
+				<td>${managers[theCount.index]}</td>
+			    <td>${booking.route}</td>
 		
 				<td><a data-toggle="modal"  href="#map${theCount.count}"  class="map-link" title="Click" ><i class="fa fa-map-marker" aria-hidden="true"></i>${booking.status}</a></td>
 				<td>${booking.delivery}</td>
@@ -85,6 +88,7 @@
 			</table>
 		</div>	
 	</div>	
+	<form method="post" >
 	<c:forEach items="${bookings}" var="booking" varStatus="theCount">
 	<div class="modal fade" id="map${theCount.count}"   role="dialog" aria-labelledby="map${theCount.count}"  aria-hidden="true">
 		<div class="modal-dialog modal-lg">
@@ -93,7 +97,7 @@
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				  
 					<h4 class="modal-title">  
-	                ${bookings[theCount.index].route}.  ${bookings[theCount.index].delivery}
+	                ${bookings[theCount.index].route}
 					</h4>
 					
 					
@@ -107,18 +111,19 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-				ETD: <input type = "date" placeholder = "text">
-				<input type = "number"   placeholder = "${bookings[theCount.index].longitude}">
-				<input type = "number" placeholder = "${bookings[theCount.index].latitude}">
-				<input type = "text" placeholder = "${bookings[theCount.index].status}">
-				<input type = "checkbox" >
+				ETD:<input type = "date" name="etd${theCount.count}" value="${deliveries[theCount.index]}">
+				longitude:<input type = "number" name="longitude${theCount.count}" placeholder= "${bookings[theCount.index].longitude}"  value= "${bookings[theCount.index].longitude}">
+				latitude:<input type = "number" name="latitude${theCount.count}" placeholder= "${bookings[theCount.index].longitude}" value=  "${bookings[theCount.index].latitude}">
+				status:<input type = "text" name="status${theCount.count}" placeholder= "${bookings[theCount.index].longitude}" value= "${bookings[theCount.index].status}">
+				<input type = "checkbox" name="close${theCount.count}">close booking
 	
-					<button type="button" name = "submit${theCount.count}" class="btn btn-default" data-dismiss="modal">Close${theCount.count}</button>
+					<!--  <button type="submit" name = "submit" value="${theCount.count}" class="btn btn-default" data-dismiss="modal">${theCount.count}</button>-->
+					<input type="submit" name = "submit" value="${theCount.count}">
 				</div>	
 			</div><!-- /.modal-content -->	
 		</div><!-- /.modal-dialog -->
 </c:forEach>
-
+</form>
 						  <script>
 
               function myMap() {
@@ -143,6 +148,7 @@
 
 
 
+
 <section class="results-w3ls">
 	
 </section>	
@@ -152,6 +158,7 @@
 		<p class="text-center">&copy; 2017 Developed for UPLG</p>
 	</div>	
 </section>
+
 <!-- last section -->	
 <!-- back to top -->
 <!-- /back to top -->

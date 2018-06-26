@@ -3,6 +3,7 @@ package beagle.dispatcher;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -49,6 +50,22 @@ public class Service {
 	public List<Booking> getAllBookingsByClient(String company){
 		return bookingService.getAllBookingsByClient(company);
 	}
+	public List<String> getAllManagersOfBookings(){
+		List<Booking> bookings = bookingService.getAllBookings();
+		List<String> managers = new ArrayList();
+		for(Booking booking:bookings){
+			managers.add(clientService.getClientByCompany(booking.getCompany()).getManager());
+		}
+		return managers;
+	}
+	public List<String> getAllWebDeliveryDates(){
+		List<Booking> bookings = bookingService.getAllBookings();
+		List<String> dates = new ArrayList();
+		for(Booking booking:bookings){
+			dates.add(translateStringDateToWeb(booking.getDelivery()));
+		}
+		return dates;
+	}
 	public boolean isKeyExist(String key){
 		List<Booking> bookings = bookingService.getAllBookings();
 		for(;;){
@@ -70,7 +87,7 @@ public class Service {
 		Random rand = new Random();
 		List<Booking> bookings = bookingService.getAllBookings();
 
-		int  code = rand.nextInt(9999999) + 1000000;
+		int  code = rand.nextInt(max) + min;
 		String key = code+"";
 	
 		for(;;){
@@ -100,6 +117,17 @@ public class Service {
 		try {
 		Date date = format.parse(delivery);
 		DateFormat df = new SimpleDateFormat("d.MM.yyyy");       
+	    return df.format(date);	
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return "";
+	}
+	public String translateStringDateToWeb(String delivery){
+		DateFormat format = new SimpleDateFormat("d.MM.yyyy");
+		try {
+		Date date = format.parse(delivery);
+		DateFormat df = new SimpleDateFormat("yyyy-MM-d");       
 	    return df.format(date);	
 		} catch (ParseException e) {
 			e.printStackTrace();

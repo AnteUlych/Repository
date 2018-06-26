@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import beagle.dispatcher.Service;
 import beagle.model.Booking;
-import beagle.model.Client;
-import beagle.temp.TempService;
+
 
 @Controller
 @RequestMapping("/{key}")

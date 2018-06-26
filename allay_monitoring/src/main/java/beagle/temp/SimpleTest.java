@@ -12,10 +12,11 @@ public class SimpleTest {
 
 	public static void main(String[] args) {
 
-		Service service = new Service();
+		//Service service = new Service();
+		//List<Booking> bookings = service.getAllBookings();
+		String text = "12.5";
+		System.out.println(Double.parseDouble(text)+1);
 		
-		System.out.println(service.isKeyExist("123456789"));
-       
 	}
 
 }
