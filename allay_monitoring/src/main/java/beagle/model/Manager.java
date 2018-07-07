@@ -16,8 +16,6 @@ public class Manager {
 	@Column
 	private String phone;
 	@Column
-	private String skype;
-	@Column
 	private String mail;
 	
 	public int getId() {
@@ -43,12 +41,6 @@ public class Manager {
 	}
 	public void setMail(String mail) {
 		this.mail = mail;
-	}
-	public String getSkype() {
-		return skype;
-	}
-	public void setSkype(String skype) {
-		this.skype = skype;
 	}
 	
 }

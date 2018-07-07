@@ -9,6 +9,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import beagle.model.Booking;
 import beagle.model.Client;
 
 
@@ -21,6 +22,18 @@ public class ClientDAO {
 	@SuppressWarnings("unchecked")
 	public List<Client> getAllClients() {
 		return em.createQuery("from Client").getResultList();
+	}
+	
+	@Transactional
+	public void editManager(int id, String manager) {
+
+		Client client = (Client) em.find(Client.class, id);
+		
+	    client.setManager(manager);
+
+		Client transaction = em.merge(client);
+		em.persist(transaction);
+		em.close();
 	}
 	
 	public Client getClientByCompany(String company) {

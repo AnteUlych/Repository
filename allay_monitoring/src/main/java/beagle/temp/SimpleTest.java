@@ -13,10 +13,11 @@ public class SimpleTest {
 	public static void main(String[] args) {
 
 		Service service = new Service();
-		List<String> updates = service.getAllUpdatesStatusOfBookings();
-		for(String u:updates){
-		System.out.println(u);
-		}
+		System.out.println(service.getManagerByName("Inna").getPhone());
+		//List<String> updates = service.getAllManagers();
+		//for(String u:updates){
+		//System.out.println(u);
+		//}
 	}
 
 }

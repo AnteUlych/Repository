@@ -13,6 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import beagle.model.Booking;
 import beagle.model.Client;
+import beagle.model.Manager;
 import beagle.service.AccessService;
 import beagle.service.BookingService;
 import beagle.service.ClientService;
@@ -34,6 +35,10 @@ public class Service {
 	}
 	public void addClient(Client client) {
 		clientService.addClient(client);
+	}
+	
+	public void editClientManager(int id, String manager) {
+		clientService.editManager(id, manager);
 	}
 	public void addBooking(Booking booking) {
 		bookingService.addBooking(booking);
@@ -58,6 +63,35 @@ public class Service {
 		}
 		return managers;
 	}
+	
+	public void addManager(String name, String mail, String phone){
+		
+		Manager manager = new Manager();
+		
+		manager.setMail(mail);
+		manager.setName(name);
+		manager.setPhone(phone);
+		
+		ManagerService managerService = (ManagerService) ctx.getBean("managerService");
+		managerService.addManager(manager);
+	
+	}
+	
+	public void deleteManager(int id) {
+		ManagerService managerService = (ManagerService) ctx.getBean("managerService");
+		managerService.deleteManager(id);
+	}
+	
+	public void editManager(int id, String mail, String phone) {
+		ManagerService managerService = (ManagerService) ctx.getBean("managerService");
+		managerService.editManager(id, mail, phone);
+	}
+	
+	public Manager getManagerByName(String name) {
+		ManagerService managerService = (ManagerService) ctx.getBean("managerService");
+		return managerService.getManagerByName(name);
+	}
+	
 	public List<String> getAllUpdatesStatusOfBookings(){
 		List<Booking> bookings = bookingService.getAllBookings();
 		List<String> updates = new ArrayList();
@@ -136,9 +170,20 @@ public class Service {
 		}
 		
 	}
+	
+	public boolean isManagerHasClient(String manager){
+		List<Client> clients = clientService.getAllClientsInfo();
+		for(Client client:clients){
+			if(client.getManager().equals(manager)){
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public List<String> getAllManagers() {	
 		ManagerService managerService = (ManagerService) ctx.getBean("managerService");
-		return managerService.getAllClients();
+		return managerService.getAllManagers();
 	}
 	public boolean getAccess(String requestIp){
 		AccessService accessService = (AccessService) ctx.getBean("accessService");
