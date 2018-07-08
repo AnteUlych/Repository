@@ -31,6 +31,10 @@ public class ManagerService {
 		return names;
 	}
 	
+	public List<Manager> getAllManagersInfo() {	
+		return dao.getAllManagers();
+	}
+	
 	public void deleteManager(int id) {
 		dao.deleteManager(id);	
 	}

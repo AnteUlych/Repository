@@ -63,6 +63,10 @@ public class Service {
 		}
 		return managers;
 	}
+	public List<Manager> getAllManagersInfo() {	
+		ManagerService managerService = (ManagerService) ctx.getBean("managerService");
+		return managerService.getAllManagersInfo();
+	}
 	
 	public void addManager(String name, String mail, String phone){
 		
