@@ -1,4 +1,5 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +13,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="//fonts.googleapis.com/css?family=Comfortaa:300,400,700" rel="stylesheet">
 <!-- /fonts -->
 <!-- css -->
-<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
-<link href='css/aos.css' rel='stylesheet prefetch' type="text/css" media="all" />
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="<c:url value="resources/css/bootstrap.min.css"/>" rel="stylesheet" type="text/css" media="all" />
+<link href="<c:url value="resources/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css" media="all" />
+<link href='<c:url value='resources/css/aos.css'/>' rel='stylesheet prefetch' type="text/css" media="all" />
+<link href="<c:url value="resources/css/style.css"/>" rel="stylesheet" type="text/css" media="all" />
 <!-- /css -->
 </head>
 <body>
@@ -56,17 +57,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <section class="schedule-w3layouts">
 	<div class="container">
 		<h3 class="text-center" data-aos="zoom-in">Change Client`s Manager</h3>
+		<form method="post">
 		<div class="table-responsive" data-aos="flip-down">   
 			<table class="table">
 				<thead>
 					<tr>
 				    	<th><h4>Client</h4></th>
-						<th><h4>Anton</h4></th>
+				    	<c:forEach items="${managers}" var="manager">
+				    	<th><h4>${manager}</h4></th>
+					<!--  	<th><h4>Anton</h4></th>
 						<th><h4>Inna</h4></th>
-						<th><h4>Natasha</h4></th>
+						<th><h4>Natasha</h4></th> -->
+						</c:forEach>
 					</tr>
 				</thead>
 				<tbody>
+				 
+				<c:forEach items="${clients}" var="client">
+				    <tr>
+						<td>${client.company}</td>
+						
+						<c:forEach items="${managers}" var="manager">
+				    	<td><input type="radio" name="${client.company}" value="${manager}" <c:if test="${client.manager==manager}">checked</c:if>></td>
+						</c:forEach>
+						
+						<!--  
+						<td><input type="radio" name="${client}" value="${client}"></td>
+						<td><input type="radio" name="${client}" value="${client}"></td>
+						<td><input type="radio" name="${client}" value="${client}" checked></td>
+						-->
+					</tr> 
+				</c:forEach>
+				
+				<!--  
 					<tr>
 						<td>M&M`s</td>
 						<td><input type="radio" name="clent1" value="male"></td>
@@ -91,17 +114,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<td><input type="radio" name="clent4" value="male"checked></td>
 						<td><input type="radio" name="clent4" value="male"></td>
 					</tr> 
-					
-				</tbody>
-			
-			</table>
-		
-				
-               
-               
+					-->
+				</tbody>			
+			</table>            
 			
 		</div>
-		 <button type="submit" class="btn btn-primary" data-aos="flip-up" style="float: right;">Edit</button>
+		 <button type="submit" class="btn btn-primary" data-aos="flip-up" style="float: right;">Change</button>
+		 </form>
 	</div>	
 	
 </section>	
@@ -132,14 +151,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <a href="#0" class="cd-top">Top</a>
 <!-- /back to top -->
 <!-- js files -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/SmoothScroll.min.js"></script>
-<script src="js/top.js"></script> 
-<script src="js/modernizr.min.js"></script>
-<script src="js/index.js"></script>
-<script src='js/aos.js'></script>
-<script src="js/aos2.js"></script>
+<script src="<c:url value="resources/js/jquery.min.js"/>"></script>
+<script src="<c:url value="resources/js/bootstrap.min.js"/>"></script>
+<script src="<c:url value="resources/js/SmoothScroll.min.js"/>"></script>
+<script src="<c:url value="resources/js/top.js"/>"></script> 
+<script src="<c:url value="resources/js/modernizr.min.js"/>"></script>
+<script src="<c:url value="resources/js/index.js"/>"></script>
+<script src='<c:url value='resources/js/aos.js'/>'></script>
+<script src="<c:url value="resources/js/aos2.js"/>"></script>
 <!-- /js files -->
 </body>
 </html>	

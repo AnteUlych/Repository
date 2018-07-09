@@ -30,6 +30,9 @@ public class Service {
 	public List<String> getAllClients() {	
 		return clientService.getAllClients();
 	}
+	public List<Client> getAllClientsInfo() {	
+		return clientService.getAllClientsInfo();
+	}
 	public Client getClientByCompany(String company){
 		return clientService.getClientByCompany(company);
 	}
