@@ -19,9 +19,10 @@ public class ClientController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String openClientController(@PathVariable("key") String key, ModelMap model) {
 		
+		try{
         Service service = new Service();
 		if(!service.isKeyExist(key)){
-			return "tempOk";
+			return "noBooking";
 		}
 		Booking booking = service.getBookingByKey(key);
 		List <Booking> bookings = service.getAllBookingsByClient(booking.getCompany());
@@ -30,6 +31,9 @@ public class ClientController {
 		model.addAttribute("bookings", bookings);
 
 		return "Client";
+		}catch(Exception e){
+			return "exception";
+		}
 	}
 
 }
