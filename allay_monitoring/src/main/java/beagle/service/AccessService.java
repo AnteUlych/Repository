@@ -19,7 +19,6 @@ public class AccessService {
 
 		List<Access> access = dao.getAccessList();
 		
-
 		for (Access code : access) {
 			if(code.getIp().equals(requestIp)){
 				return true;

@@ -19,10 +19,14 @@ import beagle.model.Client;
 public class EditManagerClientConsole {
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String initForm(Model model) {
+	public String initForm(Model model, HttpServletRequest req) {
 
 		Service service = new Service();
 
+		if(!service.isAccess(req.getRemoteAddr())){
+			 return "denied";
+		 }
+		
 		List<String> managers = service.getAllManagers();
 		List<Client> clients = service.getAllClientsInfo();
 

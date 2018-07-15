@@ -31,6 +31,11 @@ public class EditManagerConsole {
 		String name = (String) session.getAttribute("name");
 		//String name = "Anton";
 		Service service = new Service();
+		
+		if(!service.isAccess(request.getRemoteAddr())){
+			 return "denied";
+		 }
+		
         Manager manager = service.getManagerByName(name);
 		
         String permissionToDelete = "";

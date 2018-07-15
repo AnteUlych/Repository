@@ -192,7 +192,7 @@ public class Service {
 		ManagerService managerService = (ManagerService) ctx.getBean("managerService");
 		return managerService.getAllManagers();
 	}
-	public boolean getAccess(String requestIp){
+	public boolean isAccess(String requestIp){
 		AccessService accessService = (AccessService) ctx.getBean("accessService");
 		return accessService.getAccessConfirmation(requestIp);
 	}

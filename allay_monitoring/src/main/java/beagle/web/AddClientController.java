@@ -1,8 +1,10 @@
 package beagle.web;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +21,13 @@ import beagle.model.Client;
 public class AddClientController {
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String initForm(Model model) {
+	public String initForm(Model model, HttpServletRequest req) {
+		
+		Service service = new Service();
+		
+		if(!service.isAccess(req.getRemoteAddr())){
+			 return "denied";
+		 }
 		
 		initModelList(model);
 
@@ -27,7 +35,8 @@ public class AddClientController {
 		return "addClient";
 	}
 	@RequestMapping(method = RequestMethod.POST)
-	public String submitForm(HttpServletRequest req) {
+	public String submitForm(HttpServletRequest req,
+			HttpServletResponse res) {
 		
 		String companyClient = req.getParameter("companyClient");
 		String nameClient = req.getParameter("nameClient");
@@ -51,7 +60,13 @@ public class AddClientController {
 	    Service service = new Service();
 	    service.addClient(newClient);
 	    
-		return "tempOk";
+	    try {
+			res.sendRedirect("/monitoring/console");
+			return "console";
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return "console";
 	}
 
 

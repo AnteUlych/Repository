@@ -33,10 +33,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav slide-nav">
-			    <li><a href="index.html">Console</a></li>
-				<li><a href="index.html">New Client</a></li>
-				<li><a href="about.html">New Route</a></li>
-				<li><a href="news.html">Monitoring</a></li>
+		    <li><a href="console">Console</a></li>
+				<li><a href="addClient">New Client</a></li>
+				<li><a href="addRoute">New Route</a></li>
 			</ul>
         </div><!--/.nav-collapse -->
 		

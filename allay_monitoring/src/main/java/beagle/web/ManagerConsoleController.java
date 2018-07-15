@@ -21,9 +21,14 @@ import beagle.model.Manager;
 public class ManagerConsoleController {
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String initForm(Model model) {
+	public String initForm(Model model, HttpServletRequest req) {
 		
 		Service service = new Service();
+		
+		if(!service.isAccess(req.getRemoteAddr())){
+			 return "denied";
+		 }
+		
         List<Manager> managers = service.getAllManagersInfo();
 		
 		model.addAttribute("managers", managers);

@@ -21,9 +21,14 @@ import beagle.model.Booking;
 public class ConsoleController {
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public String initForm(Model model) {
+	public String initForm(Model model, HttpServletRequest req) {
 		
 		Service service = new Service();
+		
+		if(!service.isAccess(req.getRemoteAddr())){
+			 return "denied";
+		 }
+		
 		List <Booking> bookings = service.getAllBookings();
 		List <String> managers = service.getAllManagersOfBookings();
 		List <String> deliveries = service.getAllWebDeliveryDates();

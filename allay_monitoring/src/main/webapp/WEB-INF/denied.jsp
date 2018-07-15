@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Send Monitoring</title>
+<title>UPLG</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -17,7 +17,13 @@
 <link href='<c:url value='resources/css/aos.css'/>' rel='stylesheet prefetch' type="text/css" media="all" />
 <link href="<c:url value="resources/css/style.css"/>" rel="stylesheet" type="text/css" media="all" />
 <!-- /css -->
-
+<style>
+#copyright {
+    position: absolute;
+    bottom: 0;
+	width: 100%;
+}
+</style>
 </head>
 <body>
 <!-- navigation -->
@@ -32,63 +38,33 @@
 			</button>
 		
         </div>
- 
-		
+     
+	
     </div>
 </nav>
 <!-- /navigation --> 
-<section class="inner-w3ls">
+<!-- Page Content -->
+<!-- header section -->
+<section class="contact-w3ls">	
+    <!-- Contact Form -->
+	<div class="container">	
+		<div class="col-md-12">
+		<br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<h3 class="text-center" data-aos="flip-up">Access denied!</h3>
+			
+		</div>
+	</div>
 </section>
-<!-- /header section -->
-<form method="post" >
-<section class="schedule-w3layouts">
-	<div class="container">
-		<h3 class="text-center" data-aos="zoom-in">Send Monitoring</h3>
-		<div class="table-responsive" data-aos="flip-down">   
-			<table class="table">
-				<thead>
-					<tr>
-					    <th><h4>#</h4></th>
-						<th><h4>Company</h4></th>
-						<th><h4>Route</h4></th>
-						<th><h4>Status</h4></th>
-						<th><h4>Delivery</h4></th>
-						<th><h4>Update</h4></th>
-						
-					</tr>
-				</thead>
-				
-				<tbody>
-				<c:forEach items="${bookings}" var="booking" varStatus="theCount">
-					<tr>
-						<td><input type="checkbox" name="${theCount.count}" checked></td>
-						<td>${booking.company}</td>
-						<td>${booking.route}</td>
-						   <td>${booking.status}</td>
-						    <td>${booking.delivery}</td>
-							 <td><label>${booking.update}</label></td>
-					</tr> 
-					</c:forEach>  
-				</tbody>
-				
-			</table>
-			 <button type="submit" class="btn btn-primary">Send Monitoring</button>
-		</div>	
-	</div>	
-	
-		
-</section>	
-</form>
-<section class="results-w3ls">
-	
-</section>	
+<div id="copyright">
 <section class="last-w3layouts">
 	<div class="container">
-		
-		<p class="text-center">&copy; 2017 Developed for UPLG</p>
+	
+		<p class="text-center">&copy; 2017 Developed by <a href="https://www.facebook.com/profile.php?id=100009594527667">Anton Ulytskyi</a></p>
 	</div>	
 </section>
-<!-- last section -->
+</div>	
+<!-- last section -->	
+
 <!-- js files -->
 <script src="<c:url value="resources/js/jquery.min.js"/>"></script>
 <script src="<c:url value="resources/js/bootstrap.min.js"/>"></script>
@@ -98,10 +74,6 @@
 <script src="<c:url value="resources/js/index.js"/>"></script>
 <script src='<c:url value='resources/js/aos.js'/>'></script>
 <script src="<c:url value="resources/js/aos2.js"/>"></script>
-<!-- js for contact form -->
-<script src="<c:url value="resources/js/jqBootstrapValidation.js"/>"></script>
-
-<!-- //js for contact form -->		
 <!-- /js files -->
 </body>
-</html>		
+</html>	

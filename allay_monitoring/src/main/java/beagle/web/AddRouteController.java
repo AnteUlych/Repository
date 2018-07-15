@@ -1,9 +1,11 @@
 package beagle.web;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,15 +21,22 @@ import beagle.model.Booking;
 public class AddRouteController {
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String initForm(Model model) {
+	public String initForm(Model model, HttpServletRequest req) {
 		
+		Service service = new Service();
+		
+		 if(!service.isAccess(req.getRemoteAddr())){
+			 return "denied";
+		 }
+		 
 		initModelList(model);
 		
 		return "addRoute";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String submitForm(HttpServletRequest req) {
+	public String submitForm(HttpServletRequest req,
+			HttpServletResponse res) {
 		
 		Service service = new Service();
 		
@@ -49,7 +58,13 @@ public class AddRouteController {
 	    
 	    service.addBooking(booking);
 	    
-		return "tempOk";
+	    try {
+			res.sendRedirect("/monitoring/console");
+			return "console";
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return "console";
 	}
 	
 
