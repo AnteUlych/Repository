@@ -4,7 +4,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
@@ -51,17 +53,27 @@ public class Sender {
 	final String password = "Klug0506";
 
 	//String client = "satoru@i.ua";
+
 	
-	String file = "C:/Users/Ante/Desktop/joke/map.jpg";
-	String logo = "C:/Users/Ante/Desktop/joke/logo.png";
-	String compass = "C:/Users/Ante/Desktop/joke/side2.png";
+	
+	//String file = "C:/Users/Ante/Desktop/joke/map.jpg";
+	//String logo = "C:/Users/Ante/Desktop/joke/logo.png";
+	//String compass = "C:/Users/Ante/Desktop/joke/side2.png";
+	
+	String file = "map.jpg";
+	String logo = "logo.png";
+	String compass = "side2.png";
 	
 	String googlemapBeginning = "https://maps.googleapis.com/maps/api/staticmap?zoom=6&size=580x221&sensor=false&maptype=roadmap&markers=color:red|";
 	String googlemapMiddle = ",";
 	String googlemapEnd = "&key=AIzaSyB9JP_ayj71orucQyQnfyX9j9VOtNs-Jd8";
 
 	public void sendMonitoring() {
-
+	
+		//delete
+		//System.out.println(getWay("coon.jpg"));
+		
+		//delete
 		try {
 			createMap();
 			send();
@@ -73,11 +85,12 @@ public class Sender {
 	
 	private void createMap() throws IOException{
 		
+		
 		String map = googlemapBeginning + longitude
 				+ googlemapMiddle + latitude + googlemapEnd;
 		URL url = new URL(map);
 		InputStream is = url.openStream();
-		OutputStream os = new FileOutputStream(file);
+		OutputStream os = new FileOutputStream(getWay(file));
 
 		byte[] b = new byte[2048];
 		int length;
@@ -250,19 +263,19 @@ public class Sender {
 			multipart.addBodyPart(messageBodyPart);
 			
 			messageBodyPart = new MimeBodyPart();
-			DataSource fds = new FileDataSource(file);		
+			DataSource fds = new FileDataSource(getWay(file));		
 			messageBodyPart.setDataHandler(new DataHandler(fds));
 			messageBodyPart.setHeader("Content-ID", "<image>");
 			multipart.addBodyPart(messageBodyPart);
 			
 			messageBodyPart = new MimeBodyPart();
-			DataSource fdsLogo = new FileDataSource(logo);		
+			DataSource fdsLogo = new FileDataSource(getWay(logo));		
 			messageBodyPart.setDataHandler(new DataHandler(fdsLogo));
 			messageBodyPart.setHeader("Content-ID", "<picture>");
 			multipart.addBodyPart(messageBodyPart);
 			
 			messageBodyPart = new MimeBodyPart();
-			DataSource fdsCompass = new FileDataSource(compass);		
+			DataSource fdsCompass = new FileDataSource(getWay(compass));		
 			messageBodyPart.setDataHandler(new DataHandler(fdsCompass));
 			messageBodyPart.setHeader("Content-ID", "<compass>");
 			multipart.addBodyPart(messageBodyPart);
@@ -275,6 +288,25 @@ public class Sender {
 			throw new RuntimeException(e);
 		}
 
+	}
+	
+	private String getWay(String name){
+		try {
+			String path = this.getClass().getClassLoader().getResource("").getPath();
+			String fullPath;
+			
+				fullPath = URLDecoder.decode(path, "UTF-8");
+		
+			String pathArr[] = fullPath.split("WEB-INF/classes/");
+			//System.out.println(fullPath);
+			String way = pathArr[0].substring(1)+"resources/images/"+name;
+			//System.out.println(way);
+			return way;
+			} catch (UnsupportedEncodingException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		return null;
 	}
 
 }

@@ -67,7 +67,8 @@ public class BirdController {
 			return "console";
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		
 		return "console";
 	}
+}
 }
