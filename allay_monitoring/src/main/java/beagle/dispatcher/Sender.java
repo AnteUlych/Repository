@@ -128,7 +128,7 @@ public class Sender {
 				+ "middle;' width='150'>                           "
 				+ "<div class='contentEditableContainer contentTextEditable'> "
 				+ "<div class='contentEditable' style='text-align: right;'> "
-				+ "<a target='_blank' href=\"http://uplg.info/"+key+"\" class='link1' >" //Link
+				+ "<a target='_blank' href=\"http://uplg.info/monitoring/"+key+"\" class='link1' >" //Link
 				+ "Show all information</a>                             "
 				+ "</div> "
 				+ "</div>"
@@ -164,7 +164,7 @@ public class Sender {
 				+ "<div class='contentEditable' > "
 				+ " <p>Dear "+name+",<br> The dislocation of Your freight "       //name
 				+ "You can see on the <a target='_blank' "
-				+ "href=\"http://uplg.info/"+key+"\" class='link4' style='color:#27A1E5;' >map</a>.</p>" //link
+				+ "href=\"http://uplg.info/monitoring/"+key+"\" class='link4' style='color:#27A1E5;' >map</a>.</p>" //link
 				+ "</div>  </div>  </td>  </tr> <tr>"
 				+ "<td height='24'></td></tr>  </table></td>       "
 				+ "<td valign=\"top\" width=\"40\">&nbsp;</td>     </tr>   "
