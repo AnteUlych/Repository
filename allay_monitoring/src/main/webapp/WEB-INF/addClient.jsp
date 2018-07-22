@@ -37,11 +37,11 @@
 				<li><a href="addClient">New Client</a></li>
 				<li><a href="addRoute">New Route</a></li>
 			</ul>
-        </div><!--/.nav-collapse -->
+        </div>
 		
     </div>
 </nav>
-<!-- /navigation --> 
+
 
 <section class="contact-w3ls">	
     <!-- Contact Form -->
@@ -113,7 +113,7 @@
 <script src="<c:url value="resources/js/aos2.js"/>"></script>
 <!-- js for contact form -->
 <script src="<c:url value="resources/js/jqBootstrapValidation.js"/>"></script>
-<!--<script src="<c:url value="resources/js/contact_me.js"/>"></script>-->
+
 <!-- //js for contact form -->		
 <!-- /js files -->
 </body>

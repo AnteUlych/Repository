@@ -6,8 +6,7 @@
 <title>Manager Console</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Bike Race Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
+
 <!-- fonts -->
 <link href="//fonts.googleapis.com/css?family=Michroma" rel="stylesheet">
 <link href="//fonts.googleapis.com/css?family=Comfortaa:300,400,700" rel="stylesheet">
@@ -86,8 +85,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- Comment -->
             
 			
-		</div><! --/col-lg-8 -->
-	 	<! -- SIDEBAR -->
+		</div><!--/col-lg-8 -->
+	 	<!-- SIDEBAR -->
 	 	 <form method="post">
 		<div class="col-lg-4" data-aos="flip-right">
 		 	<h4 class="post-w3ls">Edit / Delete</h4>

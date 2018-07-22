@@ -14,11 +14,11 @@ public class ManagerService {
 
 	@Autowired
 	private ManagerDAO dao;
-	
+
 	public void addManager(Manager manager) {
 		dao.persist(manager);
 	}
-	
+
 	public List<String> getAllManagers() {
 
 		List<Manager> managers = dao.getAllManagers();
@@ -30,19 +30,19 @@ public class ManagerService {
 
 		return names;
 	}
-	
-	public List<Manager> getAllManagersInfo() {	
+
+	public List<Manager> getAllManagersInfo() {
 		return dao.getAllManagers();
 	}
-	
+
 	public void deleteManager(int id) {
-		dao.deleteManager(id);	
+		dao.deleteManager(id);
 	}
-	
+
 	public void editManager(int id, String mail, String phone) {
 		dao.editManager(id, mail, phone);
 	}
-	
+
 	public Manager getManagerByName(String name) {
 		return dao.getManagerByName(name);
 	}

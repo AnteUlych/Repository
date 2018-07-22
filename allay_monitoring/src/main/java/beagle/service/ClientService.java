@@ -14,11 +14,11 @@ public class ClientService {
 
 	@Autowired
 	private ClientDAO dao;
-	
+
 	public List<Client> getAllClientsInfo() {
 		return dao.getAllClients();
 	}
-	
+
 	public void editManager(int id, String manager) {
 		dao.editManager(id, manager);
 	}

@@ -6,7 +6,7 @@
 <title>Monitoring</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="monitoring"/>
+
 <!-- fonts -->
 <link href="//fonts.googleapis.com/css?family=Michroma"   rel="stylesheet">
 <link href="//fonts.googleapis.com/css?family=Comfortaa:300,400,700" rel="stylesheet">
@@ -100,9 +100,7 @@
 	</div>	
 </section>
 <!-- last section -->
-<!-- back to top -->
-<a href="#0" class="cd-top">Top</a>
-<!-- /back to top -->	
+
 <!-- js files -->
 <script src="<c:url value="resources/js/jquery.min.js"/>"></script>
 <script src="<c:url value="resources/js/bootstrap.min.js"/>"></script>

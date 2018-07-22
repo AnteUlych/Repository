@@ -25,11 +25,11 @@ public class BirdController {
 	public String initForm(Model model, HttpServletRequest req) {
 
 		Service service = new Service();
-		
-		if(!service.isAccess(req.getRemoteAddr())){
-			 return "denied";
-		 }
-		
+
+		if (!service.isAccess(req.getRemoteAddr())) {
+			return "denied";
+		}
+
 		List<Booking> bookings = service.getAllBookings();
 		model.addAttribute("bookings", bookings);
 
@@ -58,7 +58,7 @@ public class BirdController {
 						booking.getStatus(), booking.getDelivery(),
 						booking.getUpdate());
 				mail.sendMonitoring();
-				// System.out.println(booking.getUpdate());//delete
+
 			}
 		}
 
@@ -67,8 +67,8 @@ public class BirdController {
 			return "console";
 		} catch (IOException e) {
 			e.printStackTrace();
-		
-		return "console";
+
+			return "console";
+		}
 	}
-}
 }

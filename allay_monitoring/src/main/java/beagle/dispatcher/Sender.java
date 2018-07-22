@@ -54,8 +54,6 @@ public class Sender {
 
 	//String client = "satoru@i.ua";
 
-	
-	
 	//String file = "C:/Users/Ante/Desktop/joke/map.jpg";
 	//String logo = "C:/Users/Ante/Desktop/joke/logo.png";
 	//String compass = "C:/Users/Ante/Desktop/joke/side2.png";
@@ -70,10 +68,6 @@ public class Sender {
 
 	public void sendMonitoring() {
 	
-		//delete
-		//System.out.println(getWay("coon.jpg"));
-		
-		//delete
 		try {
 			createMap();
 			send();
@@ -298,12 +292,10 @@ public class Sender {
 				fullPath = URLDecoder.decode(path, "UTF-8");
 		
 			String pathArr[] = fullPath.split("WEB-INF/classes/");
-			//System.out.println(fullPath);
 			String way = pathArr[0].substring(1)+"resources/images/"+name;
-			//System.out.println(way);
+			
 			return way;
 			} catch (UnsupportedEncodingException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		return null;

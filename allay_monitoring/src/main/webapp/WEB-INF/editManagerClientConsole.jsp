@@ -3,11 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Bike Race A Sports Category Flat Bootstrap Responsive  Website Template | Blogpost </title>
+<title>Clients</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Bike Race Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
+
 <!-- fonts -->
 <link href="//fonts.googleapis.com/css?family=Michroma" rel="stylesheet">
 <link href="//fonts.googleapis.com/css?family=Comfortaa:300,400,700" rel="stylesheet">
@@ -81,40 +80,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				    	<td><input type="radio" name="${client.company}" value="${manager}" <c:if test="${client.manager==manager}">checked</c:if>></td>
 						</c:forEach>
 						
-						<!--  
-						<td><input type="radio" name="${client}" value="${client}"></td>
-						<td><input type="radio" name="${client}" value="${client}"></td>
-						<td><input type="radio" name="${client}" value="${client}" checked></td>
-						-->
+					
 					</tr> 
 				</c:forEach>
 				
-				<!--  
-					<tr>
-						<td>M&M`s</td>
-						<td><input type="radio" name="clent1" value="male"></td>
-						<td><input type="radio" name="clent1" value="male"></td>
-						<td><input type="radio" name="clent1" value="male" checked></td>
-					</tr>      
-					<tr>
-						<td>Bounty</td>
-						<td><input type="radio" name="clent2" value="male" checked></td>
-						<td><input type="radio" name="clent2" value="male"></td>
-						<td><input type="radio" name="clent2" value="male" ></td>
-					</tr> 
-					<tr>
-						<td>Snikers</td>
-						<td><input type="radio" name="clent3" value="male"></td>
-						<td><input type="radio" name="clent3" value="male"></td>
-						<td><input type="radio" name="clent3" value="male" checked></td>
-					</tr> 
-					<tr>
-						<td>Mars</td>
-						<td><input type="radio" name="clent4" value="male"></td>
-						<td><input type="radio" name="clent4" value="male"checked></td>
-						<td><input type="radio" name="clent4" value="male"></td>
-					</tr> 
-					-->
+			
 				</tbody>			
 			</table>            
 			
@@ -147,9 +117,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>	
 </section>
 <!-- last section -->	
-<!-- back to top -->
-<a href="#0" class="cd-top">Top</a>
-<!-- /back to top -->
+
 <!-- js files -->
 <script src="<c:url value="resources/js/jquery.min.js"/>"></script>
 <script src="<c:url value="resources/js/bootstrap.min.js"/>"></script>

@@ -1,7 +1,6 @@
 package beagle.web;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,34 +21,34 @@ public class ManagerConsoleController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String initForm(Model model, HttpServletRequest req) {
-		
+
 		Service service = new Service();
-		
-		if(!service.isAccess(req.getRemoteAddr())){
-			 return "denied";
-		 }
-		
-        List<Manager> managers = service.getAllManagersInfo();
-		
+
+		if (!service.isAccess(req.getRemoteAddr())) {
+			return "denied";
+		}
+
+		List<Manager> managers = service.getAllManagersInfo();
+
 		model.addAttribute("managers", managers);
-	
-		
+
 		return "managerConsole";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String submitForm(Model model,HttpServletRequest req, HttpServletResponse res) {
-		
+	public String submitForm(Model model, HttpServletRequest req,
+			HttpServletResponse res) {
+
 		Service service = new Service();
-		
+
 		String edit = req.getParameter("edit");
 		List<String> managers = service.getAllManagers();
-		
-		for(String manager:managers){
-			if(edit.equals(manager)){
+
+		for (String manager : managers) {
+			if (edit.equals(manager)) {
 				HttpSession session = req.getSession();
-				session.setAttribute("name",manager);
-				
+				session.setAttribute("name", manager);
+
 				try {
 					res.sendRedirect("/monitoring/editManagerConsole");
 					return "editManagerConsole";
@@ -58,20 +57,19 @@ public class ManagerConsoleController {
 				}
 			}
 		}
-		
-	String name = req.getParameter("name");
-	String mail = req.getParameter("mail");	    	
-	String phone = req.getParameter("phone");
-	
-	
-	service.addManager(name, mail, phone);
-		    
-		    	try {
-					res.sendRedirect("/monitoring/managerConsole");
-					return "console";
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+
+		String name = req.getParameter("name");
+		String mail = req.getParameter("mail");
+		String phone = req.getParameter("phone");
+
+		service.addManager(name, mail, phone);
+
+		try {
+			res.sendRedirect("/monitoring/managerConsole");
+			return "console";
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return "managerConsole";
 	}
 }

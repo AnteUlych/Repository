@@ -85,9 +85,7 @@
 	</div>	
 </section>
 <!-- last section -->	
-<!-- back to top -->
 
-<!-- /back to top -->
 <!-- js files -->
 <script src="<c:url value="resources/js/jquery.min.js"/>"></script>
 <script src="<c:url value="resources/js/bootstrap.min.js"/>"></script>

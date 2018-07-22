@@ -11,15 +11,13 @@ import beagle.model.Access;
 
 @Repository
 public class AccessDAO {
-	
+
 	@PersistenceContext
 	private EntityManager em;
-	
 
 	@SuppressWarnings("unchecked")
 	public List<Access> getAccessList() {
 		return em.createQuery("from Access").getResultList();
 	}
-	
 
 }

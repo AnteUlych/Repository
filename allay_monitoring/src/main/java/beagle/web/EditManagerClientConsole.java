@@ -23,10 +23,10 @@ public class EditManagerClientConsole {
 
 		Service service = new Service();
 
-		if(!service.isAccess(req.getRemoteAddr())){
-			 return "denied";
-		 }
-		
+		if (!service.isAccess(req.getRemoteAddr())) {
+			return "denied";
+		}
+
 		List<String> managers = service.getAllManagers();
 		List<Client> clients = service.getAllClientsInfo();
 
