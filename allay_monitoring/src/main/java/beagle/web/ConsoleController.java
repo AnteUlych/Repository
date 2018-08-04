@@ -67,7 +67,11 @@ public class ConsoleController {
 			}
 		}
 		Booking adjustment = new Booking();
+	    if(!service.translateStringToNormalStringDate(etd).equals("")){
 		adjustment.setDelivery(service.translateStringToNormalStringDate(etd));
+	    }else{
+	    	adjustment.setDelivery(bookings.get(number - 1).getDelivery());
+	    }
 		adjustment.setLongitude(Double.parseDouble(longitude));
 		adjustment.setLatitude(Double.parseDouble(latitude));
 		adjustment.setStatus(status);

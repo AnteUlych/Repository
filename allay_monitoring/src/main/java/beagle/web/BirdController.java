@@ -47,7 +47,7 @@ public class BirdController {
 			String bird = (String) req.getParameter(index + "");
 			if ("on".equals(bird)) {
 				Booking booking = bookings.get(index - 1);
-				// method sender
+				if((booking.getLongitude()!=0)&&(booking.getLatitude()!=0)){
 				Client client = service
 						.getClientByCompany(booking.getCompany());
 				Manager manager = service.getManagerByName(client.getManager());
@@ -58,7 +58,7 @@ public class BirdController {
 						booking.getStatus(), booking.getDelivery(),
 						booking.getUpdate());
 				mail.sendMonitoring();
-
+				}
 			}
 		}
 

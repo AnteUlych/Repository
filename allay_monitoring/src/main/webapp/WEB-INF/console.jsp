@@ -1,7 +1,9 @@
+<%@ page session="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
+<link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet" />
 <head>
 <title>Monitoring</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -76,7 +78,7 @@ th, td {
 				
 				<c:forEach items="${bookings}" var="booking" varStatus="theCount">
 
-			<tr class="${tableStatus[theCount.index]}">
+			<tr class="${tableStatus[theCount.index]}" style="color: black;">
 				<td>${theCount.count}</td>
 				<td>${booking.company}</td>
 				<td>${managers[theCount.index]}</td>
@@ -103,7 +105,7 @@ th, td {
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				  
 					<h4 class="modal-title">  
-	                ${bookings[theCount.index].route}
+	                ${bookings[theCount.index].route} ${bookings[theCount.index].delivery}
 					</h4>
 					
 					
@@ -121,7 +123,7 @@ th, td {
 				<tr>
 				<td>longitude:<input type = "number" step=any name="longitude${theCount.count}" placeholder= "${bookings[theCount.index].longitude}"  value= "${bookings[theCount.index].longitude}"></td>
 				<td>latitude:<input type = "number" step=any name="latitude${theCount.count}" placeholder= "${bookings[theCount.index].longitude}" value=  "${bookings[theCount.index].latitude}"></td>
-				<td>ETD:<input type = "date" name="etd${theCount.count}" value="${deliveries[theCount.index]}"></td>
+				<td>ETD:<input type = "date" name="etd${theCount.count}" placeholder="${deliveries[theCount.index]}" value="${deliveries[theCount.index]}"></td>
 				</tr>
 				<tr>
 				<td>status:<input type = "text" name="status${theCount.count}" placeholder= "${bookings[theCount.index].longitude}" value= "${bookings[theCount.index].status}"></td>

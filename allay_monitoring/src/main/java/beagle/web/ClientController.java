@@ -21,7 +21,7 @@ public class ClientController {
 
 		try {
 			Service service = new Service();
-			if (!service.isKeyExist(key)) {
+			if (!service.isKeyExist(key)||((service.getBookingByKey(key).getLatitude()==0)&&(service.getBookingByKey(key).getLongitude()==0))) {
 				return "noBooking";
 			}
 			Booking booking = service.getBookingByKey(key);
