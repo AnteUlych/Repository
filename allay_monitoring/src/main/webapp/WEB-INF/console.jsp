@@ -24,6 +24,9 @@
 th, td {
     padding: 5px;
 }
+input[type=text] {
+    color: black;
+}
 </style>
 </head>
 <body>
