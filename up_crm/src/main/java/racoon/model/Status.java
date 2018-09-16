@@ -16,13 +16,11 @@ public class Status {
 	@Column
 	private int clientId;
 	@Column
-	private String last;
-	@Column
 	private String answer;
 	@Column
 	private String funnel;
 	@Column
-	private String nexttime;
+	private Date lasttime;
 
 	public int getId() {
 		return id;
@@ -58,22 +56,13 @@ public class Status {
 		this.funnel = funnel;
 	}
 
-
-
-	public String getLast() {
-		return last;
+	public Date getLasttime() {
+		return lasttime;
 	}
 
-	public void setLast(String last) {
-		this.last = last;
+	public void setLasttime(Date lasttime) {
+		this.lasttime = lasttime;
 	}
 
-	public String getNexttime() {
-		return nexttime;
-	}
-
-	public void setNexttime(String nexttime) {
-		this.nexttime = nexttime;
-	}
 
 }

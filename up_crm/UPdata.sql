@@ -151,10 +151,9 @@ CREATE TABLE `status` (
   `clientId` int(11) NOT NULL,
   `answer` varchar(300) NOT NULL,
   `funnel` varchar(45) NOT NULL,
-  `last` varchar(45) NOT NULL,
-  `nexttime` varchar(45) NOT NULL,
+  `lasttime` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,4 +178,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-09-16 19:08:01
+-- Dump completed on 2018-09-16 22:04:10
