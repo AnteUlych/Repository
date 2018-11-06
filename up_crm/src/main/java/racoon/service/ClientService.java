@@ -1,5 +1,7 @@
 package racoon.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +19,14 @@ public class ClientService {
 
 	public void addClient(Client client) {
 		dao.persist(client);
+	}
+	
+	public List<Client> getAllClientsByManager(String manager){
+		return dao.getAllClientsByManager(manager);
+	}
+	
+	public Client getClientById(int id){
+		return dao.getClientById(id);
 	}
 
 }

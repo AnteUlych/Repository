@@ -1,5 +1,7 @@
 package racoon.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -21,6 +23,11 @@ public class RequestDAO {
 		Request transaction = em.merge(request);
 		em.persist(transaction);
 		em.close();
+	}
+	@SuppressWarnings("unchecked")
+	public List<Request> getAllRequestsByType(String type) {
+		return em.createQuery("from Request where type = '" + type + "'")
+				.getResultList();
 	}
 
 }

@@ -1,5 +1,8 @@
 package racoon.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,5 +19,9 @@ public class ManagerService {
 	
 	public void addManager(Manager manager) {
 		dao.persist(manager);
+	}
+	
+	public Manager getManagersByCode(int code) {
+		return dao.getManagersByCode(code);		
 	}
 }

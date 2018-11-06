@@ -29,7 +29,12 @@ public class Client {
 	@Column
 	private String manager;
 	@Column
-	private Date creating;
+	private String nextcall;
+	@Column
+	private String funnel;
+	@Column
+	private String answer;
+	
 	
 	public int getId() {
 		return id;
@@ -74,16 +79,29 @@ public class Client {
 	public void setManager(String manager) {
 		this.manager = manager;
 	}
-	public Date getCreating() {
-		return creating;
-	}
-	public void setCreating(Date creating) {
-		this.creating = creating;
-	}
+
 	public String getPerson() {
 		return person;
 	}
 	public void setPerson(String person) {
 		this.person = person;
+	}
+	public String getNextcall() {
+		return nextcall;
+	}
+	public void setNextcall(String nextcall) {
+		this.nextcall = nextcall;
+	}
+	public String getFunnel() {
+		return funnel;
+	}
+	public void setFunnel(String funnel) {
+		this.funnel = funnel;
+	}
+	public String getAnswer() {
+		return answer;
+	}
+	public void setAnswer(String answer) {
+		this.answer = answer;
 	}
 }

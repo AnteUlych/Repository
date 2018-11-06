@@ -20,5 +20,7 @@ public class StatusDAO {
 		em.persist(transaction);
 		em.close();
 	}
+	
+	
 
 }
