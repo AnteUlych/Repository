@@ -1,4 +1,3 @@
-
 <!DOCTYPE html >
 <html>
 <head>
@@ -6,9 +5,6 @@
 </head>
 
 <body>
-	<h2>password is successful!</h2>
-
-	<h2>ok</h2>
-
+	ok
 </body>
 </html>

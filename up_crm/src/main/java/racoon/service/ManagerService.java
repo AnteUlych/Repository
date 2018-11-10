@@ -24,4 +24,12 @@ public class ManagerService {
 	public Manager getManagersByCode(int code) {
 		return dao.getManagersByCode(code);		
 	}
+	
+	public int getManagersPasswordByCode(int id) {
+		return dao.getManagersById(id).getCode();		
+	}
+	
+	public String getManagersNameById(int id) {
+		return dao.getManagersById(id).getName();		
+	}
 }

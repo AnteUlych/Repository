@@ -19,7 +19,7 @@ public class Proposition {
 	@Column
 	private String rate;
 	@Column
-	private String Delivery;
+	private String delivery;
 	@Column
 	private String  description;
 	@Column
@@ -52,10 +52,10 @@ public class Proposition {
 		this.rate = rate;
 	}
 	public String getDelivery() {
-		return Delivery;
+		return delivery;
 	}
 	public void setDelivery(String delivery) {
-		Delivery = delivery;
+		this.delivery = delivery;
 	}
 	public String getDescription() {
 		return description;

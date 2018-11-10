@@ -24,11 +24,88 @@ public class Encoder {
 	ManagerService managerService = (ManagerService) ctx
 			.getBean("managerService");
 
-	public List<Request> getRequestsByServiceFromCodeConsole(String code){
+	public int getIdOfManagerFromRequestsPage(String code) {
 		
+		String separateCode[] = code.split("_");
+		
+		int daysCode = Integer.parseInt(separateCode[0]);
+
+		Calendar c = Calendar.getInstance();
+		c.setTime(new Date());
+		int trueDay = c.get(Calendar.DAY_OF_WEEK);
+
+		if (daysCode != trueDay) {
+			return 0;
+		}
+		
+		return Integer.parseInt(separateCode[1]);
+	}
+	
+
+	public int getIdOfRequestFromRequestsPage(String code) {
+	String separateCode[] = code.split("_");
+		
+		int daysCode = Integer.parseInt(separateCode[0]);
+
+		Calendar c = Calendar.getInstance();
+		c.setTime(new Date());
+		int trueDay = c.get(Calendar.DAY_OF_WEEK);
+
+		if (daysCode != trueDay) {
+			return 0;
+		}
+		
+		return Integer.parseInt(separateCode[2]);
+	}
+
+	public int todayDay() {
+		Calendar c = Calendar.getInstance();
+		c.setTime(new Date());
+		return c.get(Calendar.DAY_OF_WEEK);
+	}
+
+	public String encodeServiceCode(String code) {
+
+		Constants constantBase = new Constants();
+		List<String> services = constantBase.getAllServices();
+		for (String changes : services) {
+			code = code.replace(changes, "");
+		}
+
+		return code;
+	}
+
+	public Manager getFullInfoByManagerByCode(String code) {
+
+		String firstPart = code.substring(0, 1);
+		String secondPart = code.substring(1, 5);
+
+		int daysCode = Integer.parseInt(firstPart);
+
+		Calendar c = Calendar.getInstance();
+		c.setTime(new Date());
+		int trueDay = c.get(Calendar.DAY_OF_WEEK);
+
+		if (daysCode != trueDay) {
+			return null;
+		}
+
+		int managerCode = Integer.parseInt(secondPart);
+		Manager manager;
+		try {
+			manager = managerService.getManagersByCode(managerCode);
+
+		} catch (NoResultException e) {
+			return null;
+		}
+		return manager;
+	}
+
+	public List<Request> getRequestsByServiceFromCodeConsole(String code) {
+
 		RequestService requestService = (RequestService) ctx
 				.getBean("requestService");
-		
+
 		String firstPart = code.substring(0, 1);
 		String deleteCode = code.substring(0, 5);
 
@@ -41,13 +118,13 @@ public class Encoder {
 		if (daysCode != trueDay) {
 			return null;
 		}
-		
+
 		String type = code.replaceAll(deleteCode, "");
 		return requestService.getAllRequestsByType(type);
 	}
-	
-	public Client getClientByIdCodeFromConsole(String code){
-		
+
+	public Client getClientByIdCodeFromConsole(String code) {
+
 		ClientService clientService = (ClientService) ctx
 				.getBean("clientService");
 
@@ -55,7 +132,7 @@ public class Encoder {
 		String deleteCode = code.substring(0, 5);
 
 		int id = Integer.parseInt(code.replaceAll(deleteCode, ""));
-		
+
 		int daysCode = Integer.parseInt(firstPart);
 
 		Calendar c = Calendar.getInstance();
@@ -67,34 +144,55 @@ public class Encoder {
 		}
 
 		return clientService.getClientById(id);
-		
+
 	}
-	public String getAccess(String password){
+
+	public String getAccess(String password) {
 		try {
-		Calendar c = Calendar.getInstance();
-		c.setTime(new Date());
-		int trueDay = c.get(Calendar.DAY_OF_WEEK);
-		try {
-		String manager = getManagerByCode(trueDay+password);
-		return manager;
-		} catch (NoResultException e) {
-			return "denied";
-		}
+			Calendar c = Calendar.getInstance();
+			c.setTime(new Date());
+			int trueDay = c.get(Calendar.DAY_OF_WEEK);
+			try {
+				String manager = getManagerByCode(trueDay + password);
+				return manager;
+			} catch (NoResultException e) {
+				return "denied";
+			}
 		} catch (Exception e1) {
 			return "denied";
 		}
-		
+
 	}
-	 public String encode(String code){
-		 
-		    Calendar c = Calendar.getInstance();
-			c.setTime(new Date());
-			int trueDay = c.get(Calendar.DAY_OF_WEEK);
-			String firstPartofCode = trueDay + "";
-			String encode = firstPartofCode + code;
-		 
-		 return encode;
-	 }
+
+	public String encode(String code) {
+
+		Calendar c = Calendar.getInstance();
+		c.setTime(new Date());
+		int trueDay = c.get(Calendar.DAY_OF_WEEK);
+		String firstPartofCode = trueDay + "";
+		String encode = firstPartofCode + code;
+
+		return encode;
+	}
+	
+	public String getPasswordById(int id){
+		
+		int password = managerService.getManagersPasswordByCode(id);
+		String code = password+"";
+		return code;
+	}
+	
+	public String getCodePasswordById(int id){
+		
+		int password = managerService.getManagersPasswordByCode(id);
+		String encode = encode(password+"");
+		return encode;
+	}
+
+	public String getManagerNameById(int id) {
+		String name = managerService.getManagersNameById(id);
+		return name;
+	}
 	
 	public String getManagerByCode(String code) {
 
@@ -124,7 +222,6 @@ public class Encoder {
 		return result;
 	}
 
-	
 	public int giveCodeToManger() {
 
 		Random random = new Random();
@@ -143,6 +240,5 @@ public class Encoder {
 		}
 
 	}
-	
 
 }

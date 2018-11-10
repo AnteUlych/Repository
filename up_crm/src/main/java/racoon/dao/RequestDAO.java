@@ -4,10 +4,12 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import racoon.model.Proposition;
 import racoon.model.Request;
 
 
@@ -28,6 +30,23 @@ public class RequestDAO {
 	public List<Request> getAllRequestsByType(String type) {
 		return em.createQuery("from Request where type = '" + type + "'")
 				.getResultList();
+	}
+	
+	public Request getRequestById(int id) {
+		Query query = em.createQuery("from Request where id = '" + id + "'");
+		return (Request) query.getSingleResult();
+	}
+	
+	@Transactional
+	public void setResultRequest(int id, String result) {
+
+		Request request = (Request) em.find(Request.class, id);
+
+		request.setResult(result);
+
+		Request transaction = em.merge(request);
+		em.persist(transaction);
+		em.close();
 	}
 
 }

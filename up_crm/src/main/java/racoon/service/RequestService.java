@@ -21,7 +21,15 @@ public class RequestService {
 		dao.persist(request);
 	}
 	
+	public Request getRequestById(int id) {
+		return dao.getRequestById(id);
+	}
+	
 	public List<Request> getAllRequestsByType(String type){
 		return dao.getAllRequestsByType(type);
+	}
+	
+	public void setResultRequest(int id, String result) {
+		dao.setResultRequest(id, result);
 	}
 }

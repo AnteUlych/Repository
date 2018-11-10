@@ -29,5 +29,10 @@ public class ManagerDAO {
 				+ "'");
 		return (Manager) query.getSingleResult();
 	}
-
+	
+	public Manager getManagersById(int id) {
+		Query query = em.createQuery("from Manager where id = '" + id
+				+ "'");
+		return (Manager) query.getSingleResult();
+	}
 }
