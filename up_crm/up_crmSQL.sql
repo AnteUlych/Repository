@@ -31,12 +31,14 @@ CREATE TABLE `client` (
   `mail` varchar(45) DEFAULT NULL,
   `category` varchar(45) NOT NULL,
   `manager` varchar(45) NOT NULL,
-  `creating` datetime NOT NULL,
+  `nextcall` datetime NOT NULL,
+  `funnel` varchar(45) NOT NULL,
+  `answer` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `company_UNIQUE` (`company`),
   UNIQUE KEY `code_UNIQUE` (`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +47,7 @@ CREATE TABLE `client` (
 
 LOCK TABLES `client` WRITE;
 /*!40000 ALTER TABLE `client` DISABLE KEYS */;
-INSERT INTO `client` VALUES (1,'Axe Chemicals','301','3852121','12121','qw@i.ua','A','Anton','2018-09-15 14:54:23');
+INSERT INTO `client` VALUES (1,'Axe Chemicals','301','3852121','12121','qw@i.ua','A','Marina','2018-09-15 14:54:23','cold','договориться о встрече'),(3,'King Candee','201','5454545','Smith','iii@ua','B','Marina','2018-11-21 00:00:00','interest','hhh'),(4,'Queen Cookies','101','545454','Нельсон','satoru@i.ua','В','Anton','2018-08-14 14:54:23','cold','не интересно'),(5,'10th','405','545454','Смит','satoru@i.ua','В','Anton','2018-08-13 14:54:23','cold','позвонить позже'),(6,'fresco','212340','506473151','Mieszko Zlatnevski','anton.ulych@gmail.com','B','Marina','2018-11-08 00:00:00','interest','good');
 /*!40000 ALTER TABLE `client` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -73,7 +75,7 @@ CREATE TABLE `manager` (
 
 LOCK TABLES `manager` WRITE;
 /*!40000 ALTER TABLE `manager` DISABLE KEYS */;
-INSERT INTO `manager` VALUES (1,'Anton','satoru@i.ua',1,1234),(2,'Marina','satoru@i.ua',2,1234),(3,'Julia','satoru@i.ua',2,1234);
+INSERT INTO `manager` VALUES (1,'Anton','satoru@i.ua',1,1235),(2,'Marina','satoru@i.ua',2,1234),(3,'Julia','satoru@i.ua',2,1236);
 /*!40000 ALTER TABLE `manager` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -95,7 +97,7 @@ CREATE TABLE `proposition` (
   `result` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,6 +106,7 @@ CREATE TABLE `proposition` (
 
 LOCK TABLES `proposition` WRITE;
 /*!40000 ALTER TABLE `proposition` DISABLE KEYS */;
+INSERT INTO `proposition` VALUES (4,2,'2018-11-07 15:56:42','450','2 week','by wh','Pasha','not interesting'),(17,2,'2018-11-07 15:56:42','330','3 week','by wh','Pasha','not interesting'),(18,2,'2018-11-07 15:56:42','360','21/05','by wh','Lesha','not interesting'),(19,2,'2018-11-10 14:19:53','202','after tomorrow','direct','Marina','booking');
 /*!40000 ALTER TABLE `proposition` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -127,7 +130,7 @@ CREATE TABLE `request` (
   `result` varchar(45) NOT NULL,
   `type` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -136,6 +139,7 @@ CREATE TABLE `request` (
 
 LOCK TABLES `request` WRITE;
 /*!40000 ALTER TABLE `request` DISABLE KEYS */;
+INSERT INTO `request` VALUES (1,'King Candee','Berlin, DE - Kyiv, UA, 2 pallets','2018-11-06 09:47:11','Anton','1000*500*600','230 kg','none','25 october','waiting','truck'),(2,'Axe Chemicals','Milano, It - Kyiv, UA, 20t','2018-11-06 09:46:11','Anton','FTL','20t','+5C','request','booking','truck'),(3,'Axe Chemicals','Ternopil, UA - Kyiv, UA','2018-11-07 09:46:11','Anton','120*25*45','45 kg',NULL,'26 october','waiting','truck'),(4,'King Candee','Ky - IF','2018-11-10 16:12:25','Marina','1200*800','300 kg','fast','23.06','waiting','truck'),(5,'Axe Chemicals','LV-IF','2018-11-10 16:23:31','Marina','1200*800','5t','fast','21/05','waiting','truck');
 /*!40000 ALTER TABLE `request` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,7 +157,7 @@ CREATE TABLE `status` (
   `funnel` varchar(45) NOT NULL,
   `lasttime` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,6 +166,7 @@ CREATE TABLE `status` (
 
 LOCK TABLES `status` WRITE;
 /*!40000 ALTER TABLE `status` DISABLE KEYS */;
+INSERT INTO `status` VALUES (9,1,'good prices','cold','2018-11-06 09:39:42'),(10,1,'call me later','cold','2018-11-06 09:40:57'),(11,3,'хорошая цена','cold','2018-11-06 09:40:57'),(12,1,'норм так','cold','2018-11-06 09:40:57'),(13,3,'hhh','calculation','2018-11-12 11:16:10'),(14,3,'asa','interest','2018-11-12 11:17:15'),(15,3,'asa','interest','2018-11-12 11:17:21'),(16,3,'hhh','cold','2018-11-12 11:17:56'),(17,3,'121','partner','2018-11-12 11:18:17'),(18,3,'','interest','2018-11-12 11:43:26'),(19,3,'hhh','interest','2018-11-12 11:43:40'),(20,6,'good','interest','2018-11-08 00:00:00');
 /*!40000 ALTER TABLE `status` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,4 +183,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-09-16 22:04:10
+-- Dump completed on 2018-11-12 22:02:16

@@ -1,13 +1,6 @@
 package temp;
 
-
-import java.util.List;
-
-import racoon.logic.BaseController;
 import racoon.logic.Encoder;
-import racoon.model.Client;
-import racoon.model.Proposition;
-import racoon.model.Request;
 
 public class Test {
 
@@ -19,12 +12,10 @@ public class Test {
 			System.out.println(p.getDelivery());
 		}
 		*/
+
+		Encoder e = new Encoder();
 		
-		Encoder encode = new Encoder();
-		String password = encode.getPasswordById(1);
-		
-		System.out.println(password);
-		System.out.println(encode.getAccess(password));
+		System.out.println(e.isCodeCompanyExist("10"));
 		
 	}
 

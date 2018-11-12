@@ -12,31 +12,36 @@ import org.springframework.transaction.annotation.Transactional;
 import racoon.model.Proposition;
 import racoon.model.Request;
 
-
-
 @Repository
 public class RequestDAO {
-	
+
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Transactional
 	public void persist(Request request) {
 		Request transaction = em.merge(request);
 		em.persist(transaction);
 		em.close();
 	}
+
 	@SuppressWarnings("unchecked")
 	public List<Request> getAllRequestsByType(String type) {
 		return em.createQuery("from Request where type = '" + type + "'")
 				.getResultList();
 	}
-	
+
+	@SuppressWarnings("unchecked")
+	public List<Request> getAllRequestsByCompany(String company) {
+		return em.createQuery("from Request where company = '" + company + "'")
+				.getResultList();
+	}
+
 	public Request getRequestById(int id) {
 		Query query = em.createQuery("from Request where id = '" + id + "'");
 		return (Request) query.getSingleResult();
 	}
-	
+
 	@Transactional
 	public void setResultRequest(int id, String result) {
 

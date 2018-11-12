@@ -15,19 +15,19 @@ public class PropositionService {
 
 	@Autowired
 	private PropositionDAO dao;
-	
+
 	public void addProposition(Proposition proposition) {
 		dao.persist(proposition);
 	}
-	
+
 	public List<Proposition> getAllPropositionsByRequest(int idRequest) {
 		return dao.getAllPropositionsByRequest(idRequest);
 	}
-	
-	public void deleteProposition(int id){
+
+	public void deleteProposition(int id) {
 		dao.deleteProposition(id);
 	}
-	
+
 	public void desideProposition(int id, String result) {
 		dao.desideProposition(id, result);
 	}

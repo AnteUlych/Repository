@@ -16,8 +16,10 @@
 </c:forEach>
 
 <br>
+<a href="/crm/check/${privateCode}0">check client</a><br>
 <br>
-
+<a href="/crm/addClient/${privateCode}0">add client</a><br>
+<br>
 <c:forEach items="${services}" var="service">
 <a href="/crm/service/${privateCode}${service}">${service}</a><br>
 </c:forEach>

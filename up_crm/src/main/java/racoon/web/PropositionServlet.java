@@ -21,25 +21,27 @@ import racoon.model.Request;
 
 @Controller
 public class PropositionServlet {
-	
+
 	@RequestMapping(value = "/proposition/{code}", method = RequestMethod.GET)
-	public String selectProposition(@PathVariable("code") String code, ModelMap model) {
+	public String selectProposition(@PathVariable("code") String code,
+			ModelMap model) {
 
 		Encoder encoder = new Encoder();
-		
+
 		int managerId = encoder.getIdOfManagerFromRequestsPage(code);
 		int requestId = encoder.getIdOfRequestFromRequestsPage(code);
-		
+
 		BaseController base = new BaseController();
 		Request request = base.getRequestById(requestId);
-		
+
 		Constants constantBase = new Constants();
-		List <String> services = constantBase.getAllServices();
-		
+		List<String> services = constantBase.getAllServices();
+
 		model.addAttribute("services", services);
-		model.addAttribute("privateCode", encoder.getCodePasswordById(managerId));		
+		model.addAttribute("privateCode",
+				encoder.getCodePasswordById(managerId));
 		model.addAttribute("managerId", managerId);
-	
+
 		model.addAttribute("company", request.getCompany());
 		model.addAttribute("creating", request.getCreating());
 		model.addAttribute("manager", request.getManager());
@@ -50,29 +52,29 @@ public class PropositionServlet {
 		model.addAttribute("size", request.getSize());
 		model.addAttribute("weight", request.getWeight());
 		model.addAttribute("requestId", request.getId());
-		
-		
+
 		return "proposition";
 	}
+
 	@RequestMapping(value = "/proposition/{code}", method = RequestMethod.POST)
-	public String postProposition(@PathVariable("code") String code, ModelMap model, 
-			HttpServletRequest req, HttpServletResponse resp){
-		
-        Encoder encoder = new Encoder();
-		
+	public String postProposition(@PathVariable("code") String code,
+			ModelMap model, HttpServletRequest req, HttpServletResponse resp) {
+
+		Encoder encoder = new Encoder();
+
 		int managerId = encoder.getIdOfManagerFromRequestsPage(code);
 		int requestId = encoder.getIdOfRequestFromRequestsPage(code);
-		
+
 		BaseController base = new BaseController();
-		
+
 		String rate = req.getParameter("rate");
 		String delivery = req.getParameter("delivery");
 		String description = req.getParameter("description");
-		
+
 		Constants constants = new Constants();
-		
+
 		Proposition proposition = new Proposition();
-			
+
 		proposition.setRequestId(requestId);
 		proposition.setAnswer(new Date());
 		proposition.setRate(rate);
@@ -80,13 +82,14 @@ public class PropositionServlet {
 		proposition.setDescription(description);
 		proposition.setManager(encoder.getManagerNameById(managerId));
 		proposition.setResult(constants.RESULT_WAITING);
-		
+
 		base.addProposition(proposition);
-		
+
 		int today = encoder.todayDay();
-		
+
 		try {
-			resp.sendRedirect("/crm/request/"+today+"_"+managerId+"_"+requestId);
+			resp.sendRedirect("/crm/request/" + today + "_" + managerId + "_"
+					+ requestId);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

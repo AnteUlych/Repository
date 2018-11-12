@@ -1,5 +1,8 @@
 package racoon.logic;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -24,10 +27,20 @@ public class Encoder {
 	ManagerService managerService = (ManagerService) ctx
 			.getBean("managerService");
 
+	public Date makeStringtoDate(String date) {
+		try {
+			DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			return format.parse(date);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 	public int getIdOfManagerFromRequestsPage(String code) {
-		
+
 		String separateCode[] = code.split("_");
-		
+
 		int daysCode = Integer.parseInt(separateCode[0]);
 
 		Calendar c = Calendar.getInstance();
@@ -37,14 +50,13 @@ public class Encoder {
 		if (daysCode != trueDay) {
 			return 0;
 		}
-		
+
 		return Integer.parseInt(separateCode[1]);
 	}
-	
 
 	public int getIdOfRequestFromRequestsPage(String code) {
-	String separateCode[] = code.split("_");
-		
+		String separateCode[] = code.split("_");
+
 		int daysCode = Integer.parseInt(separateCode[0]);
 
 		Calendar c = Calendar.getInstance();
@@ -54,7 +66,7 @@ public class Encoder {
 		if (daysCode != trueDay) {
 			return 0;
 		}
-		
+
 		return Integer.parseInt(separateCode[2]);
 	}
 
@@ -174,18 +186,18 @@ public class Encoder {
 
 		return encode;
 	}
-	
-	public String getPasswordById(int id){
-		
+
+	public String getPasswordById(int id) {
+
 		int password = managerService.getManagersPasswordByCode(id);
-		String code = password+"";
+		String code = password + "";
 		return code;
 	}
-	
-	public String getCodePasswordById(int id){
-		
+
+	public String getCodePasswordById(int id) {
+
 		int password = managerService.getManagersPasswordByCode(id);
-		String encode = encode(password+"");
+		String encode = encode(password + "");
 		return encode;
 	}
 
@@ -193,7 +205,7 @@ public class Encoder {
 		String name = managerService.getManagersNameById(id);
 		return name;
 	}
-	
+
 	public String getManagerByCode(String code) {
 
 		String result = "denied";
@@ -239,6 +251,17 @@ public class Encoder {
 
 		}
 
+	}
+
+	public boolean isCodeCompanyExist(String cod) {
+		try {
+			ClientService clientService = (ClientService) ctx
+					.getBean("clientService");
+			Client client = clientService.getClientByCode(cod);
+			return true;
+		} catch (NoResultException e) {
+			return false;
+		}
 	}
 
 }

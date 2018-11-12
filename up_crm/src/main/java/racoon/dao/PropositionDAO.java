@@ -10,26 +10,26 @@ import org.springframework.transaction.annotation.Transactional;
 
 import racoon.model.Proposition;
 
-
 @Repository
 public class PropositionDAO {
-	
+
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Transactional
 	public void persist(Proposition proposition) {
 		Proposition transaction = em.merge(proposition);
 		em.persist(transaction);
 		em.close();
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public List<Proposition> getAllPropositionsByRequest(int idRequest) {
-		return em.createQuery("from Proposition where requestId = '" + idRequest + "'")
+		return em.createQuery(
+				"from Proposition where requestId = '" + idRequest + "'")
 				.getResultList();
 	}
-	
+
 	@Transactional
 	public void deleteProposition(int id) {
 		Proposition proposition = (Proposition) em.find(Proposition.class, id);
@@ -37,7 +37,7 @@ public class PropositionDAO {
 		em.remove(transaction);
 		em.close();
 	}
-	
+
 	@Transactional
 	public void desideProposition(int id, String result) {
 
@@ -49,7 +49,5 @@ public class PropositionDAO {
 		em.persist(transaction);
 		em.close();
 	}
-	
-	
 
 }

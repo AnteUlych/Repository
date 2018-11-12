@@ -16,23 +16,22 @@ public class ManagerDAO {
 
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Transactional
 	public void persist(Manager manager) {
 		Manager transaction = em.merge(manager);
 		em.persist(transaction);
 		em.close();
 	}
-	
+
 	public Manager getManagersByCode(int code) {
-		Query query = em.createQuery("from Manager where code = '" + code
-				+ "'");
+		Query query = em
+				.createQuery("from Manager where code = '" + code + "'");
 		return (Manager) query.getSingleResult();
 	}
-	
+
 	public Manager getManagersById(int id) {
-		Query query = em.createQuery("from Manager where id = '" + id
-				+ "'");
+		Query query = em.createQuery("from Manager where id = '" + id + "'");
 		return (Manager) query.getSingleResult();
 	}
 }

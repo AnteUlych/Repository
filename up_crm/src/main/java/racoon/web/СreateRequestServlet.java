@@ -23,81 +23,84 @@ import racoon.model.Request;
 public class ÑreateRequestServlet {
 
 	@RequestMapping(value = "/createRequest/{code}", method = RequestMethod.GET)
-	public String selectService(@PathVariable("code") String code, ModelMap model) {
-		
-        Encoder encoder = new Encoder();
+	public String selectService(@PathVariable("code") String code,
+			ModelMap model) {
+
+		Encoder encoder = new Encoder();
 		int managerId = encoder.getIdOfManagerFromRequestsPage(code);
 		String manager = encoder.getManagerNameById(managerId);
 		int today = encoder.todayDay();
-		
+
 		BaseController base = new BaseController();
-		List <String> companies = base.getAllClientsByManager(manager);
-		
+		List<String> companies = base.getAllClientsByManager(manager);
+
 		Constants constants = new Constants();
-		List <String> services = constants.getAllServices();
-		
+		List<String> services = constants.getAllServices();
+
 		model.addAttribute("companies", companies);
-		model.addAttribute("privateCode", encoder.getCodePasswordById(managerId));
+		model.addAttribute("privateCode",
+				encoder.getCodePasswordById(managerId));
 		model.addAttribute("today", today);
 		model.addAttribute("services", services);
-		
+
 		return "createRequest";
 	}
-	
+
 	@RequestMapping(value = "/createRequest/{code}", method = RequestMethod.POST)
-	public String postProposition(@PathVariable("code") String code, ModelMap model, 
-			HttpServletRequest req, HttpServletResponse resp){
-		
-		   Encoder encoder = new Encoder();
-			int managerId = encoder.getIdOfManagerFromRequestsPage(code);
-			String manager = encoder.getManagerNameById(managerId);
-			int today = encoder.todayDay();
-			
-			BaseController base = new BaseController();
-			List <String> companies = base.getAllClientsByManager(manager);
-			
-			Constants constants = new Constants();
-			List <String> services = constants.getAllServices();
-			
-			model.addAttribute("companies", companies);
-			model.addAttribute("privateCode", encoder.getCodePasswordById(managerId));
-			model.addAttribute("today", today);
-			model.addAttribute("services", services);
-			
-			String route = req.getParameter("route");
-			String size = req.getParameter("size");
-			String weight = req.getParameter("weight");
-			String other = req.getParameter("other");
-			String readiness = req.getParameter("readiness");
-			String client = req.getParameter("client");
-			String service = req.getParameter("service");
-			
-			Request request = new Request();
-			
-			request.setCompany(client);
-			request.setRoute(route);
-			request.setCreating(new Date());
-			request.setManager(manager);
-			request.setSize(size);
-			request.setWeight(weight);
-			request.setOther(other);
-			request.setReadiness(readiness);
-			request.setType(service);
-			request.setResult(constants.RESULT_WAITING);
-			
-			base.addRequest(request);
-			
-			String password = encoder.getPasswordById(managerId);
-			String isAccess = encoder.getAccess(password);
-			
-			 HttpSession session = req.getSession();
-			 session.setAttribute("code",password);
-			 session.setAttribute("manager",isAccess);
-			 try {
-					resp.sendRedirect("/crm/clients");
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			return "createRequest";
+	public String postProposition(@PathVariable("code") String code,
+			ModelMap model, HttpServletRequest req, HttpServletResponse resp) {
+
+		Encoder encoder = new Encoder();
+		int managerId = encoder.getIdOfManagerFromRequestsPage(code);
+		String manager = encoder.getManagerNameById(managerId);
+		int today = encoder.todayDay();
+
+		BaseController base = new BaseController();
+		List<String> companies = base.getAllClientsByManager(manager);
+
+		Constants constants = new Constants();
+		List<String> services = constants.getAllServices();
+
+		model.addAttribute("companies", companies);
+		model.addAttribute("privateCode",
+				encoder.getCodePasswordById(managerId));
+		model.addAttribute("today", today);
+		model.addAttribute("services", services);
+
+		String route = req.getParameter("route");
+		String size = req.getParameter("size");
+		String weight = req.getParameter("weight");
+		String other = req.getParameter("other");
+		String readiness = req.getParameter("readiness");
+		String client = req.getParameter("client");
+		String service = req.getParameter("service");
+
+		Request request = new Request();
+
+		request.setCompany(client);
+		request.setRoute(route);
+		request.setCreating(new Date());
+		request.setManager(manager);
+		request.setSize(size);
+		request.setWeight(weight);
+		request.setOther(other);
+		request.setReadiness(readiness);
+		request.setType(service);
+		request.setResult(constants.RESULT_WAITING);
+
+		base.addRequest(request);
+
+		String password = encoder.getPasswordById(managerId);
+		String isAccess = encoder.getAccess(password);
+
+		HttpSession session = req.getSession();
+		session.setAttribute("code", password);
+		session.setAttribute("manager", isAccess);
+		try {
+			resp.sendRedirect("/crm/clients");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return "createRequest";
 	}
 }

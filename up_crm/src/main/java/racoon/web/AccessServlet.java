@@ -21,20 +21,21 @@ public class AccessServlet {
 	public String showForm(ModelMap model) {
 		return "login";
 	}
-	
+
 	@RequestMapping(method = RequestMethod.POST)
-	public String submitForm(HttpServletRequest request, HttpServletResponse response) {
-		
-	Encoder enigma = new Encoder();
-	String code = request.getParameter("password");
-	String isAccess = enigma.getAccess(code);
-	if(isAccess.equals("denied")){
-		return "login";
-	}
-	 HttpSession session = request.getSession();
-	 session.setAttribute("code",code);
-	 session.setAttribute("manager",isAccess);
-	 try {
+	public String submitForm(HttpServletRequest request,
+			HttpServletResponse response) {
+
+		Encoder enigma = new Encoder();
+		String code = request.getParameter("password");
+		String isAccess = enigma.getAccess(code);
+		if (isAccess.equals("denied")) {
+			return "login";
+		}
+		HttpSession session = request.getSession();
+		session.setAttribute("code", code);
+		session.setAttribute("manager", isAccess);
+		try {
 			response.sendRedirect("/crm/clients");
 		} catch (IOException e) {
 			e.printStackTrace();
