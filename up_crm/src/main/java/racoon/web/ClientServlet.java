@@ -116,7 +116,7 @@ public class ClientServlet {
 		model.addAttribute("code", client.getCode());
 
 		model.addAttribute("nextPage", code);
-
+/**
 		if (req.getParameter("back") != null) {
 			String password = manager.getCode() + "";
 			String isAccess = encoder.getAccess(password);
@@ -131,6 +131,7 @@ public class ClientServlet {
 
 			return "ok";
 		}
+		*/
 
 		String fun = req.getParameter("fun");
 		String nextcall = req.getParameter("nextcall");
@@ -147,6 +148,17 @@ public class ClientServlet {
 			base.addStatus(status);
 			base.editClientStatus(client.getId(), comment,
 					encoder.makeStringtoDate(nextcall), fun);
+			//fix
+			String password = manager.getCode() + "";
+			String isAccess = encoder.getAccess(password);
+			HttpSession session = req.getSession();
+			session.setAttribute("code", password);
+			session.setAttribute("manager", isAccess);
+			try {
+				resp.sendRedirect("/crm/clients");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		return "client";
 	}
