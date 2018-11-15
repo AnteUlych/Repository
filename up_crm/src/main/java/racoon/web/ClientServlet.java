@@ -32,8 +32,15 @@ public class ClientServlet {
 
 		Client client = encoder.getClientByIdCodeFromConsole(code);
 		Manager manager = encoder.getFullInfoByManagerByCode(code);
-		// make disabled button
+		
+		// disabled button
+		String mayIClick = "disabled";
+		if(client.getManager().equals(manager.getName())){
+			mayIClick = "";
+		}
 
+		model.addAttribute("mayIClick", mayIClick);
+		
 		BaseController base = new BaseController();
 		List<Request> requests = base.getAllRequestsByCompany(client
 				.getCompany());
@@ -45,6 +52,8 @@ public class ClientServlet {
 		Constants constantBase = new Constants();
 		List<String> services = constantBase.getAllServices();
 
+		
+		
 		model.addAttribute("managerId", manager.getId());
 		model.addAttribute("today", encoder.todayDay());
 

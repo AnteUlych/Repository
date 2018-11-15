@@ -1,7 +1,6 @@
 package racoon.web;
 
 import java.io.IOException;
-
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +18,6 @@ import racoon.logic.Constants;
 import racoon.logic.Encoder;
 import racoon.model.Client;
 import racoon.model.Manager;
-
 import racoon.model.Status;
 
 @Controller
@@ -56,21 +54,6 @@ public class addClient {
 
 		Manager manager = encoder.getFullInfoByManagerByCode(code);
 
-		if (req.getParameter("back") != null) {
-			String password = manager.getCode() + "";
-			String isAccess = encoder.getAccess(password);
-			HttpSession session = req.getSession();
-			session.setAttribute("code", password);
-			session.setAttribute("manager", isAccess);
-			try {
-				resp.sendRedirect("/crm/clients");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
-			return "ok";
-		}
-
 		Constants constantBase = new Constants();
 		List<String> services = constantBase.getAllServices();
 		List<String> categories = constantBase.getAllCategories();
@@ -106,15 +89,11 @@ public class addClient {
 
 		BaseController base = new BaseController();
 
-		if (cod != null && company != null && mail != null && person != null
-				&& phone != null && cat != null && fun != null
-				&& nextcall != null && comment != null) {
-
 			Client client = new Client();
 
 			client.setAnswer(comment);
 			client.setCategory(cat);
-			client.setCode(code);
+			client.setCode(cod);
 			client.setCompany(company);
 			client.setFunnel(fun);
 			client.setMail(mail);
@@ -126,9 +105,10 @@ public class addClient {
 			base.addClient(client);
 
 			Status status = new Status();
-
+	
+			
 			status.setAnswer(comment);
-			status.setClientId(base.getClientByCode(code).getId());
+			status.setClientId(base.getClientByCode(cod).getId());
 			status.setFunnel(fun);
 			status.setLasttime(encoder.makeStringtoDate(nextcall));
 
@@ -146,7 +126,6 @@ public class addClient {
 			}
 
 			return "ok";
-		}
-		return "addClient";
+
 	}
 }

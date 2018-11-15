@@ -27,13 +27,15 @@ public class RequestDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<Request> getAllRequestsByType(String type) {
-		return em.createQuery("from Request where type = '" + type + "'")
+		// max result of requests 250
+		int max = 250;
+		return em.createQuery("from Request where type = '" + type + "' order by id desc").setMaxResults(max)
 				.getResultList();
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Request> getAllRequestsByCompany(String company) {
-		return em.createQuery("from Request where company = '" + company + "'")
+		return em.createQuery("from Request where company = '" + company + "' order by id desc")
 				.getResultList();
 	}
 

@@ -26,7 +26,7 @@ public class PropositionDAO {
 	@SuppressWarnings("unchecked")
 	public List<Proposition> getAllPropositionsByRequest(int idRequest) {
 		return em.createQuery(
-				"from Proposition where requestId = '" + idRequest + "'")
+				"from Proposition where requestId = '" + idRequest + "' order by id desc")
 				.getResultList();
 	}
 

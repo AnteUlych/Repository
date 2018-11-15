@@ -1,6 +1,11 @@
 package racoon.web;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -30,6 +35,10 @@ public class RequestsServlet {
 		List<String> services = constantBase.getAllServices();
 		String privateCode = encoder.encodeServiceCode(code);
 
+		List<String> colours = encoder.getTableColour(requests);
+		
+		model.addAttribute("colours", colours);
+		
 		model.addAttribute("privateCode", privateCode);
 		model.addAttribute("services", services);
 		model.addAttribute("requests", requests);
@@ -37,5 +46,49 @@ public class RequestsServlet {
 		model.addAttribute("today", encoder.todayDay());
 
 		return "requests";
+	}
+	@RequestMapping(value = "/service/{code}", method = RequestMethod.POST)
+	public String goToClients(@PathVariable("code") String code,
+			ModelMap model, HttpServletRequest req, HttpServletResponse resp) {
+		
+		Encoder encoder = new Encoder();
+
+		Manager manager = encoder.getFullInfoByManagerByCode(code);
+
+		if (req.getParameter("back") != null) {
+			String password = manager.getCode() + "";
+			String isAccess = encoder.getAccess(password);
+			HttpSession session = req.getSession();
+			session.setAttribute("code", password);
+			session.setAttribute("manager", isAccess);
+			try {
+				resp.sendRedirect("/crm/clients");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			return "ok";
+		}
+
+     /**
+		Encoder encoder = new Encoder();
+
+		List<Request> requests = encoder
+				.getRequestsByServiceFromCodeConsole(code);
+		Manager manager = encoder.getFullInfoByManagerByCode(code);
+
+		Constants constantBase = new Constants();
+		List<String> services = constantBase.getAllServices();
+		String privateCode = encoder.encodeServiceCode(code);
+
+		model.addAttribute("privateCode", privateCode);
+		model.addAttribute("services", services);
+		model.addAttribute("requests", requests);
+		model.addAttribute("id", manager.getId());
+		model.addAttribute("today", encoder.todayDay());
+
+		return "requests";
+		*/
+		return "ok";
 	}
 }

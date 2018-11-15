@@ -3,6 +3,7 @@ package racoon.logic;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -15,6 +16,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import racoon.model.Client;
 import racoon.model.Manager;
+import racoon.model.Proposition;
 import racoon.model.Request;
 import racoon.service.ClientService;
 import racoon.service.ManagerService;
@@ -27,6 +29,36 @@ public class Encoder {
 	ManagerService managerService = (ManagerService) ctx
 			.getBean("managerService");
 
+public List<String> getTableTaboo(List<Proposition> proposition, String manager){
+		
+		List<String> taboo = new ArrayList();
+		
+		for(Proposition propose:proposition){
+		if(propose.getManager().equals(manager)){
+			taboo.add("");
+		}else{
+			taboo.add("disabled");
+		}
+		}
+		return taboo;
+	}
+	public List<String> getTableColour(List<Request> requests){
+		
+		List<String> colours = new ArrayList();
+		Constants constant = new Constants();
+		
+		for(Request request:requests){
+			if(request.getResult().equals(constant.RESULT_BOOKING)){
+				colours.add("w3-green");
+			}else if(request.getResult().equals(constant.RESULT_NOT_INTERESTING)){
+				colours.add("w3-red");
+			}else{
+				colours.add("");
+			}
+		}
+		return colours;
+	}
+	
 	public Date makeStringtoDate(String date) {
 		try {
 			DateFormat format = new SimpleDateFormat("yyyy-MM-dd");

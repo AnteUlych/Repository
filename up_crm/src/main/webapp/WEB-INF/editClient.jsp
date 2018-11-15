@@ -54,7 +54,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		             </c:forEach>
 					 <br>
 	 
-    <button type="submit" class="w3-button w3-green w3-third" name="add" value="add">Edit</button>
+    <button type="submit" class="w3-button w3-green w3-third" name="add" value="add" ${mayIClick}>Edit</button>
     </form>
 	<br>
 	<br>

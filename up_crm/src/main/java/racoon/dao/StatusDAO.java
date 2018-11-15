@@ -26,7 +26,7 @@ public class StatusDAO {
 	@SuppressWarnings("unchecked")
 	public List<Status> getAllStatusByCompanyId(int clientId) {
 		return em
-				.createQuery("from Status where clientId = '" + clientId + "'")
+				.createQuery("from Status where clientId = '" + clientId + "' order by id desc")
 				.getResultList();
 	}
 

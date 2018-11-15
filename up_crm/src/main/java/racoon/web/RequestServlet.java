@@ -27,12 +27,27 @@ public class RequestServlet {
 
 		int managerId = encoder.getIdOfManagerFromRequestsPage(code);
 		int requestId = encoder.getIdOfRequestFromRequestsPage(code);
+		
+		
+				
 		int today = encoder.todayDay();
 
 		BaseController base = new BaseController();
 		Request request = base.getRequestById(requestId);
 		List<Proposition> propositions = base
 				.getAllPropositionsByRequest(requestId);
+		
+		// disabled button
+		String manager = encoder.getManagerNameById(managerId);
+		List<String> taboo = encoder.getTableTaboo(propositions, manager);
+		model.addAttribute("taboo", taboo);
+		
+		String mayIClick = "disabled";
+		if(request.getManager().equals(encoder.getManagerNameById(managerId))){
+			mayIClick = "";
+		}
+		
+		model.addAttribute("mayIClick", mayIClick);
 
 		Constants constantBase = new Constants();
 		List<String> services = constantBase.getAllServices();

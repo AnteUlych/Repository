@@ -62,7 +62,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
 	
 	<form method="post">
-	<c:forEach items="${propositions}" var="proposition">
+	<c:forEach items="${propositions}" var="proposition" varStatus="theCount">
 
 <tr>
 <td>${proposition.id}</td>
@@ -74,8 +74,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <td>${proposition.result}</td>
 
 
-<td><button type="submit" class="w3-button w3-red" name="delete${proposition.id}" value="cancel${proposition.id}">delete</td>
-<td><button type="submit" class="w3-button w3-green " name="confirm${proposition.id}" value="confirm">confirm</td>
+<td><button type="submit" class="w3-button w3-red" name="delete${proposition.id}" value="cancel${proposition.id}" ${taboo[theCount.index]}>delete</td>
+<td><button type="submit" class="w3-button w3-green " name="confirm${proposition.id}" value="confirm" ${mayIClick}>confirm</td>
 
 </tr>
 <br>
@@ -84,7 +84,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </table>
 <br>
 
-<button type="submit"class="w3-button w3-red w3-third" type="submit"  name="cancel" value="cancel">Cancel
+<button type="submit"class="w3-button w3-red w3-third" type="submit"  name="cancel" value="cancel" ${mayIClick}>Cancel
 </form>
 
   </div>

@@ -60,8 +60,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		             </c:forEach>
 		             <br>
 					 
-      <p>Next Call:<input class="w3-input w3-border" type="date" required name="naxtcall"></p>
-     <input class="w3-input w3-border" type="text" placeholder="Comment" required name="comment"></p>
+      <p>Next Call:<input class="w3-input w3-border" type="date" required name="nextcall"></p>
+     <p> <input class="w3-input w3-border" type="text" placeholder="Comment" required name="comment"></p>
 	 
     <button type="submit" class="w3-button w3-green w3-third" name="add" value="add">Add Client</button>
     </form>

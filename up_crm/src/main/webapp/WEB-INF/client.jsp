@@ -40,11 +40,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
  <div class="w3-container" id="contact">
-    <h2>company</h2>
-	Category: A<br>
-	Manager: Manager<br>
-    <i class="fa fa-phone" style="width:30px"></i> +00 151515<br>
-    <i class="fa fa-envelope" style="width:30px"> </i>mail@mail.com<br>
+    <h2>${company}</h2>
+	Category: ${category}<br>
+	Manager: ${person}<br>
+    <i class="fa fa-phone" style="width:30px"></i>${phone}<br>
+    <i class="fa fa-envelope" style="width:30px"> </i>${mail}<br>
     <p></p>
     <form method="post">
       <p><input class="w3-input w3-border" type="text" placeholder="Comment" required  name="comment"></p>
@@ -56,7 +56,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		             </c:forEach>
 		             <br>
 					 
-    <button type="submit" class="w3-button w3-green w3-third" name="add" value="add">Add Information</button>
+    <button type="submit" class="w3-button w3-green w3-third" name="add" value="add" ${mayIClick}>Add Information</button>
 	<br>
     </form>
   </div>

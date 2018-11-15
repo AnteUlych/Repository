@@ -32,6 +32,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <br>
 <a href="/crm/createRequest/${today}_${id}_0" class="w3-bar-item w3-button w3-padding">add request</a>
 <br>
+<form method="post">
+<button type="submit" class="w3-button w3-white" name="back" value="back">back
+</form>
   </div>
 </nav>
 
@@ -51,8 +54,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-container">
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
 	
-	<c:forEach items="${requests}" var="request">
-<tr>	
+	<c:forEach items="${requests}" var="request" varStatus="theCount">
+<tr class="${colours[theCount.index]}">	
 <td>${request.id}</td>
 <td>${request.creating}</td>
 <td>${request.readiness}</td>

@@ -31,6 +31,14 @@ public class EditClientServlet {
 
 		Constants constantBase = new Constants();
 		List<String> services = constantBase.getAllServices();
+		
+		// disabled button
+		String mayIClick = "disabled";
+		if(client.getManager().equals(manager.getName())){
+			mayIClick = "";
+		}
+
+		model.addAttribute("mayIClick", mayIClick);
 
 		model.addAttribute("services", services);
 		model.addAttribute("privateCode",
