@@ -47,7 +47,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <i class="fa fa-envelope" style="width:30px"> </i>${mail}<br>
     <p></p>
     <form method="post">
-      <p><input class="w3-input w3-border" type="text" placeholder="Comment" required  name="comment"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Comment" maxlength="215" required  name="comment"></p>
       <p>Next Call:<input class="w3-input w3-border" type="date" required  name="nextcall"></p>
      
 	  Funnel:<br>

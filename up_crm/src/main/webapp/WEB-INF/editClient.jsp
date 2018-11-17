@@ -43,10 +43,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
     <p></p>
     <form method="post">
-      <p><input class="w3-input w3-border" type="text" name="company" placeholder="${company}" value="${company}" required></p>
-	  <p><input class="w3-input w3-border" type="text" name="mail" placeholder="${mail}" value="${mail}" required></p>
-	  <p><input class="w3-input w3-border" type="text" name="person" placeholder="${person}" value="${person}" required></p>
-	  <p><input class="w3-input w3-border" type="text" name="phone" placeholder="${phone}" value="${phone}" required></p>
+      <p><input class="w3-input w3-border" type="text" name="company" maxlength="50" placeholder="${company}" value="${company}" required></p>
+	  <p><input class="w3-input w3-border" type="text" name="mail" maxlength="70" placeholder="${mail}" value="${mail}" required></p>
+	  <p><input class="w3-input w3-border" type="text" name="person" maxlength="30" placeholder="${person}" value="${person}" required></p>
+	  <p><input class="w3-input w3-border" type="text" name="phone" maxlength="50" placeholder="${phone}" value="${phone}" required></p>
 	  <br>
 	   Category:<br>
 				 <c:forEach items="${categories}" var="cat" varStatus="step">

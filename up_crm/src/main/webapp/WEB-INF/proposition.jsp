@@ -56,9 +56,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
     <p></p>
     <form method="post">
-      <p><input class="w3-input w3-border" type="text" placeholder="Rate" required name="rate"></p>
-	  <p><input class="w3-input w3-border" type="text" placeholder="Delivery" required name="delivery"></p>
-	  <p><input class="w3-input w3-border" type="text" placeholder="Description" required name="description"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Rate" maxlength="20" required name="rate"></p>
+	  <p><input class="w3-input w3-border" type="text" placeholder="Delivery" maxlength="30" required name="delivery"></p>
+	  <p><input class="w3-input w3-border" type="text" placeholder="Description" maxlength="215" required name="description"></p>
 	  
 		             <br>
 					 

@@ -43,11 +43,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
     <p></p>
     <form method="post">
-      <p><input class="w3-input w3-border" type="text" placeholder="Company" required name="company"></p>
-	  <p><input class="w3-input w3-border" type="text" placeholder="Company code" required name="cod"></p>
-	  <p><input class="w3-input w3-border" type="text" placeholder="Mail" required name="mail"></p>
-	  <p><input class="w3-input w3-border" type="text" placeholder="Manager" required name="person"></p>
-	  <p><input class="w3-input w3-border" type="text" placeholder="Phone" required name="phone"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Company" maxlength="50" required name="company"></p>
+	  <p><input class="w3-input w3-border" type="text" placeholder="Company code" maxlength="20" required name="cod"></p>
+	  <p><input class="w3-input w3-border" type="text" placeholder="Mail" required maxlength="70" name="mail"></p>
+	  <p><input class="w3-input w3-border" type="text" placeholder="Manager" required maxlength="30" name="person"></p>
+	  <p><input class="w3-input w3-border" type="text" placeholder="Phone" required maxlength="30" name="phone"></p>
 	  <br>
 	   Category:<br>
 				 <c:forEach items="${categories}" var="cat" varStatus="step">
@@ -61,7 +61,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		             <br>
 					 
       <p>Next Call:<input class="w3-input w3-border" type="date" required name="nextcall"></p>
-     <p> <input class="w3-input w3-border" type="text" placeholder="Comment" required name="comment"></p>
+     <p> <input class="w3-input w3-border" type="text" placeholder="Comment" maxlength="215" required name="comment"></p>
 	 
     <button type="submit" class="w3-button w3-green w3-third" name="add" value="add">Add Client</button>
     </form>
