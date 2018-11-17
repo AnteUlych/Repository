@@ -21,60 +21,60 @@ public class BaseController {
 
 	ApplicationContext ctx = (ApplicationContext) new ClassPathXmlApplicationContext(
 			"spring.xml");
+	ClientService clientService = (ClientService) ctx
+			.getBean("clientService");
+	StatusService statusService = (StatusService) ctx
+			.getBean("statusService");
+	RequestService requestService = (RequestService) ctx
+			.getBean("requestService");
+	PropositionService propositionService = (PropositionService) ctx
+			.getBean("propositionService");
+	
 
 	public Client getClientByCode(String code) {
-		ClientService clientService = (ClientService) ctx
-				.getBean("clientService");
+		
 		return clientService.getClientByCode(code);
 	}
 
 	public void addStatus(Status status) {
-		StatusService statusService = (StatusService) ctx
-				.getBean("statusService");
+		
 		statusService.addStatus(status);
 	}
 
 	public List<Status> getAllStatusByCompanyId(int clientId) {
-		StatusService statusService = (StatusService) ctx
-				.getBean("statusService");
+	
 		return statusService.getAllStatusByCompanyId(clientId);
 	}
 
 	public List<Request> getAllRequestsByCompany(String company) {
-		RequestService requestService = (RequestService) ctx
-				.getBean("requestService");
+		
 		return requestService.getAllRequestsByCompany(company);
 	}
 
 	public void addRequest(Request request) {
-		RequestService requestService = (RequestService) ctx
-				.getBean("requestService");
+	
 		requestService.addRequest(request);
 	}
 
 	public void addProposition(Proposition proposition) {
-		PropositionService propositionService = (PropositionService) ctx
-				.getBean("propositionService");
+		
 		propositionService.addProposition(proposition);
 	}
 
 	public void editClient(int id, String company, String phone, String person,
 			String category, String mail) {
-		ClientService clientService = (ClientService) ctx
-				.getBean("clientService");
+		
 		clientService.editClient(id, company, phone, person, category, mail);
 	}
 
 	public void editClientStatus(int id, String answer, Date nextcall,
 			String funnel) {
-		ClientService clientService = (ClientService) ctx
-				.getBean("clientService");
+		
 		clientService.editClientStatus(id, answer, nextcall, funnel);
 	}
 
 	public List<String> getAllClientsByManager(String manager) {
-		ClientService clientService = (ClientService) ctx
-				.getBean("clientService");
+	
 		List<Client> clients = clientService.getAllClientsByManager(manager);
 		List<String> companies = new ArrayList();
 
@@ -88,39 +88,32 @@ public class BaseController {
 	}
 
 	public List<Client> getClientsByManager(String manager) {
-		ClientService clientService = (ClientService) ctx
-				.getBean("clientService");
+		
 		return clientService.getAllClientsByManager(manager);
 	}
 
 	public void addClient(Client client) {
-		ClientService clientService = (ClientService) ctx
-				.getBean("clientService");
+		
 		clientService.addClient(client);
 	}
 
 	public Request getRequestById(int id) {
-		RequestService requestService = (RequestService) ctx
-				.getBean("requestService");
+		
 		return requestService.getRequestById(id);
 	}
 
 	public List<Proposition> getAllPropositionsByRequest(int idRequest) {
-		PropositionService propositionService = (PropositionService) ctx
-				.getBean("propositionService");
+		
 		return propositionService.getAllPropositionsByRequest(idRequest);
 	}
 
 	public void deleteProposition(int id) {
-		PropositionService propositionService = (PropositionService) ctx
-				.getBean("propositionService");
+		
 		propositionService.deleteProposition(id);
 	}
 
 	public void confirmProposition(int propositionId, int requestId) {
 
-		PropositionService propositionService = (PropositionService) ctx
-				.getBean("propositionService");
 		List<Proposition> propositions = propositionService
 				.getAllPropositionsByRequest(requestId);
 		Constants desigion = new Constants();
@@ -134,16 +127,13 @@ public class BaseController {
 						desigion.RESULT_NOT_INTERESTING);
 			}
 		}
-		RequestService requestService = (RequestService) ctx
-				.getBean("requestService");
+	
 		requestService.setResultRequest(requestId, desigion.RESULT_BOOKING);
 
 	}
 
 	public void cancelProposition(int requestId) {
 
-		PropositionService propositionService = (PropositionService) ctx
-				.getBean("propositionService");
 		List<Proposition> propositions = propositionService
 				.getAllPropositionsByRequest(requestId);
 		Constants desigion = new Constants();
@@ -152,8 +142,7 @@ public class BaseController {
 			propositionService.desideProposition(deal.getId(),
 					desigion.RESULT_NOT_INTERESTING);
 		}
-		RequestService requestService = (RequestService) ctx
-				.getBean("requestService");
+	
 		requestService.setResultRequest(requestId,
 				desigion.RESULT_NOT_INTERESTING);
 

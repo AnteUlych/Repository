@@ -28,6 +28,10 @@ public class Encoder {
 			"spring.xml");
 	ManagerService managerService = (ManagerService) ctx
 			.getBean("managerService");
+	RequestService requestService = (RequestService) ctx
+			.getBean("requestService");
+	ClientService clientService = (ClientService) ctx
+			.getBean("clientService");
 
 public List<String> getTableTaboo(List<Proposition> proposition, String manager){
 		
@@ -147,8 +151,7 @@ public List<String> getTableTaboo(List<Proposition> proposition, String manager)
 
 	public List<Request> getRequestsByServiceFromCodeConsole(String code) {
 
-		RequestService requestService = (RequestService) ctx
-				.getBean("requestService");
+	
 
 		String firstPart = code.substring(0, 1);
 		String deleteCode = code.substring(0, 5);
@@ -287,8 +290,7 @@ public List<String> getTableTaboo(List<Proposition> proposition, String manager)
 
 	public boolean isCodeCompanyExist(String cod) {
 		try {
-			ClientService clientService = (ClientService) ctx
-					.getBean("clientService");
+			
 			Client client = clientService.getClientByCode(cod);
 			return true;
 		} catch (NoResultException e) {
