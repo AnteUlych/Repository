@@ -84,6 +84,11 @@ public class PropositionServlet {
 		proposition.setResult(constants.RESULT_WAITING);
 
 		base.addProposition(proposition);
+		
+		Request request = base.getRequestById(requestId);
+		if(request.getResult().equals(constants.RESULT_EMPTY)){
+			base.startTradeForRequest(requestId, constants.RESULT_WAITING);
+		}
 
 		int today = encoder.todayDay();
 

@@ -86,7 +86,7 @@ public class ÑreateRequestServlet {
 		request.setOther(other);
 		request.setReadiness(readiness);
 		request.setType(service);
-		request.setResult(constants.RESULT_WAITING);
+		request.setResult(constants.RESULT_EMPTY);
 
 		base.addRequest(request);
 

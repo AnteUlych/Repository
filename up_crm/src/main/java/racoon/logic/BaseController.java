@@ -59,6 +59,7 @@ public class BaseController {
 	public void addProposition(Proposition proposition) {
 		
 		propositionService.addProposition(proposition);
+		
 	}
 
 	public void editClient(int id, String company, String phone, String person,
@@ -130,6 +131,11 @@ public class BaseController {
 	
 		requestService.setResultRequest(requestId, desigion.RESULT_BOOKING);
 
+	}
+	
+	public void startTradeForRequest( int requestId, String status){
+		Constants constant = new Constants();
+		requestService.setResultRequest(requestId, constant.RESULT_WAITING);
 	}
 
 	public void cancelProposition(int requestId) {

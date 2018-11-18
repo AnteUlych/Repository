@@ -56,8 +56,10 @@ public List<String> getTableTaboo(List<Proposition> proposition, String manager)
 				colours.add("w3-green");
 			}else if(request.getResult().equals(constant.RESULT_NOT_INTERESTING)){
 				colours.add("w3-red");
-			}else{
+			}else if(request.getResult().equals(constant.RESULT_WAITING)){
 				colours.add("");
+			}else{
+				colours.add("w3-yellow");
 			}
 		}
 		return colours;
