@@ -16,7 +16,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <!-- Top container -->
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i> &nbsp;Menu</button>
-  <span class="w3-bar-item w3-right">UP Logistic Groupe </span>
+  <span class="w3-bar-item w3-right">UP Logistics Group </span>
 </div>
 
 <!-- Sidebar/menu -->
@@ -44,7 +44,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <p></p>
     <form method="post">
       <p><input class="w3-input w3-border" type="text" placeholder="Route" maxlength="100" required name="route"></p>
-	  <p><input class="w3-input w3-border" type="text" placeholder="Freight Size" maxlength="30" required name="size"></p>
+	  <p><input class="w3-input w3-border" type="text" placeholder="Freight Size" maxlength="140" required name="size"></p>
 	  <p><input class="w3-input w3-border" type="text" placeholder="Weight" maxlength="14" required name="weight"></p>
 	  <p><input class="w3-input w3-border" type="text" placeholder="Other" maxlength="215" required name="other"></p>
 	  <p><input class="w3-input w3-border" type="text" placeholder="Time to pick up" maxlength="20" required name="readiness"></p>

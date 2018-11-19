@@ -27,8 +27,8 @@ public class RequestDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<Request> getAllRequestsByType(String type) {
-		// max result of requests 250
-		int max = 250;
+		// max result of requests 500
+		int max = 500;
 		return em.createQuery("from Request where type = '" + type + "' order by id desc").setMaxResults(max)
 				.getResultList();
 	}

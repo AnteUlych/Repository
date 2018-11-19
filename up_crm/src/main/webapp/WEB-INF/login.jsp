@@ -36,7 +36,7 @@
 	<h1>
 		<span>C</span>ustomer  
 		<span>R</span>elationship
-		<span>M</span>anagemen
+		<span>M</span>anagement
 	</h1>
 	<!-- //title -->
 	<!-- content -->

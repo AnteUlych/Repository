@@ -14,9 +14,8 @@ public class Constants {
 
 		List<String> services = new ArrayList();
 
-		services.add("truck");
-		services.add("conteiner");
-		services.add("avia");
+		services.add("AUTO");
+		services.add("SAR");
 
 		return services;
 	}

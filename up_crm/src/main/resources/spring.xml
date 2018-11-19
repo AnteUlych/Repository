@@ -25,12 +25,14 @@
 		<property name="password" value="root" />
 		<!-- 11/08/2018 -->
         <property name="initialSize" value="10" />
+        
        <!--  <property name="maxActive" value="15" />
           <property name="maxWait" value="5000" />-->
           <!-- <property name="maxIdle" value="1" />-->
+          
         <!-- 17.11.2018--> 
-      <property name="maxWait" value="5000" />
-        <property name="maxActive" value="15" />
+        <property name="maxWait" value="5000" />
+        <property name="maxActive" value="1500" /> <!-- 19.11.2018--> 
         <property name="maxIdle" value="1" />
        
 		
