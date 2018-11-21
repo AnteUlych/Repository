@@ -26,13 +26,16 @@ public class ÑreateRequestServlet {
 	public String selectService(@PathVariable("code") String code,
 			ModelMap model) {
 
-		Encoder encoder = new Encoder();
+		//Encoder encoder = new Encoder();
+		BaseController encoder = new BaseController();
+		
 		int managerId = encoder.getIdOfManagerFromRequestsPage(code);
 		String manager = encoder.getManagerNameById(managerId);
 		int today = encoder.todayDay();
 
-		BaseController base = new BaseController();
-		List<String> companies = base.getAllClientsByManager(manager);
+		//BaseController base = new BaseController();
+		//List<String> companies = base.getAllClientsByManager(manager);
+		List<String> companies = encoder.getAllClientsByManager(manager);
 
 		Constants constants = new Constants();
 		List<String> services = constants.getAllServices();
@@ -50,13 +53,16 @@ public class ÑreateRequestServlet {
 	public String postProposition(@PathVariable("code") String code,
 			ModelMap model, HttpServletRequest req, HttpServletResponse resp) {
 
-		Encoder encoder = new Encoder();
+		//Encoder encoder = new Encoder();
+		BaseController encoder = new BaseController();
+				
 		int managerId = encoder.getIdOfManagerFromRequestsPage(code);
 		String manager = encoder.getManagerNameById(managerId);
 		int today = encoder.todayDay();
 
-		BaseController base = new BaseController();
-		List<String> companies = base.getAllClientsByManager(manager);
+		//BaseController base = new BaseController();
+		//List<String> companies = base.getAllClientsByManager(manager);
+		List<String> companies = encoder.getAllClientsByManager(manager);
 
 		Constants constants = new Constants();
 		List<String> services = constants.getAllServices();
@@ -88,7 +94,8 @@ public class ÑreateRequestServlet {
 		request.setType(service);
 		request.setResult(constants.RESULT_EMPTY);
 
-		base.addRequest(request);
+		//base.addRequest(request);
+		encoder.addRequest(request);
 
 		String password = encoder.getPasswordById(managerId);
 		String isAccess = encoder.getAccess(password);

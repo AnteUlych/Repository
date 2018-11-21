@@ -26,7 +26,8 @@ public class CheckClient {
 	@RequestMapping(value = "/check/{code}", method = RequestMethod.GET)
 	public String selectClient(@PathVariable("code") String code, ModelMap model) {
 
-		Encoder encoder = new Encoder();
+	//	Encoder encoder = new Encoder();
+		BaseController encoder = new BaseController();
 
 		Manager manager = encoder.getFullInfoByManagerByCode(code);
 		// make disabled button
@@ -50,7 +51,8 @@ public class CheckClient {
 	public String postProposition(@PathVariable("code") String code,
 			ModelMap model, HttpServletRequest req, HttpServletResponse resp) {
 
-		Encoder encoder = new Encoder();
+//		Encoder encoder = new Encoder();
+			BaseController encoder = new BaseController();
 
 		Manager manager = encoder.getFullInfoByManagerByCode(code);
 
@@ -74,8 +76,9 @@ public class CheckClient {
 
 		String cod = req.getParameter("cod");
 		try {
-			BaseController base = new BaseController();
-			Client client = base.getClientByCode(cod);
+			//BaseController base = new BaseController();
+		//	Client client = base.getClientByCode(cod);
+			Client client = encoder.getClientByCode(cod);
 
 			model.addAttribute("clientId", client.getId());
 			model.addAttribute("company", client.getCompany());

@@ -26,13 +26,15 @@ public class PropositionServlet {
 	public String selectProposition(@PathVariable("code") String code,
 			ModelMap model) {
 
-		Encoder encoder = new Encoder();
+		//Encoder encoder = new Encoder();
+		BaseController encoder = new BaseController();
 
 		int managerId = encoder.getIdOfManagerFromRequestsPage(code);
 		int requestId = encoder.getIdOfRequestFromRequestsPage(code);
 
-		BaseController base = new BaseController();
-		Request request = base.getRequestById(requestId);
+		//BaseController base = new BaseController();
+		//Request request = base.getRequestById(requestId);
+		Request request = encoder.getRequestById(requestId);
 
 		Constants constantBase = new Constants();
 		List<String> services = constantBase.getAllServices();
@@ -60,12 +62,13 @@ public class PropositionServlet {
 	public String postProposition(@PathVariable("code") String code,
 			ModelMap model, HttpServletRequest req, HttpServletResponse resp) {
 
-		Encoder encoder = new Encoder();
+		//Encoder encoder = new Encoder();
+		BaseController encoder = new BaseController();
 
 		int managerId = encoder.getIdOfManagerFromRequestsPage(code);
 		int requestId = encoder.getIdOfRequestFromRequestsPage(code);
 
-		BaseController base = new BaseController();
+		//BaseController base = new BaseController();
 
 		String rate = req.getParameter("rate");
 		String delivery = req.getParameter("delivery");
@@ -83,15 +86,23 @@ public class PropositionServlet {
 		proposition.setManager(encoder.getManagerNameById(managerId));
 		proposition.setResult(constants.RESULT_WAITING);
 
-		base.addProposition(proposition);
-		
+		//base.addProposition(proposition);
+		encoder.addProposition(proposition);
+		/**
 		Request request = base.getRequestById(requestId);
 		if(request.getResult().equals(constants.RESULT_EMPTY)){
 			base.startTradeForRequest(requestId, constants.RESULT_WAITING);
 		}
 
 		int today = encoder.todayDay();
+*/
+		Request request = encoder.getRequestById(requestId);
+		if(request.getResult().equals(constants.RESULT_EMPTY)){
+			encoder.startTradeForRequest(requestId, constants.RESULT_WAITING);
+		}
 
+		int today = encoder.todayDay();
+		
 		try {
 			resp.sendRedirect("/crm/request/" + today + "_" + managerId + "_"
 					+ requestId);

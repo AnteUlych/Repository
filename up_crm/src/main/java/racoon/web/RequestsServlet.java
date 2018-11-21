@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import racoon.logic.BaseController;
 import racoon.logic.Constants;
 import racoon.logic.Encoder;
 import racoon.model.Manager;
@@ -25,7 +26,8 @@ public class RequestsServlet {
 	public String selectService(@PathVariable("code") String code,
 			ModelMap model) {
 
-		Encoder encoder = new Encoder();
+	//	Encoder encoder = new Encoder();
+		BaseController encoder = new BaseController();
 
 		List<Request> requests = encoder
 				.getRequestsByServiceFromCodeConsole(code);
@@ -51,7 +53,8 @@ public class RequestsServlet {
 	public String goToClients(@PathVariable("code") String code,
 			ModelMap model, HttpServletRequest req, HttpServletResponse resp) {
 		
-		Encoder encoder = new Encoder();
+//		Encoder encoder = new Encoder();
+			BaseController encoder = new BaseController();
 
 		Manager manager = encoder.getFullInfoByManagerByCode(code);
 

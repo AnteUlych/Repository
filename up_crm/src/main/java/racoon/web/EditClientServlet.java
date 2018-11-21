@@ -24,7 +24,8 @@ public class EditClientServlet {
 	@RequestMapping(value = "/editClient/{code}", method = RequestMethod.GET)
 	public String selectClient(@PathVariable("code") String code, ModelMap model) {
 
-		Encoder encoder = new Encoder();
+		//Encoder encoder = new Encoder();
+		BaseController encoder = new BaseController();
 
 		Client client = encoder.getClientByIdCodeFromConsole(code);
 		Manager manager = encoder.getFullInfoByManagerByCode(code);
@@ -57,7 +58,8 @@ public class EditClientServlet {
 	public String postProposition(@PathVariable("code") String code,
 			ModelMap model, HttpServletRequest req, HttpServletResponse resp) {
 
-		Encoder encoder = new Encoder();
+		//Encoder encoder = new Encoder();
+		BaseController encoder = new BaseController();
 
 		Client client = encoder.getClientByIdCodeFromConsole(code);
 		Manager manager = encoder.getFullInfoByManagerByCode(code);

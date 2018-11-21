@@ -23,7 +23,7 @@ import racoon.service.ManagerService;
 import racoon.service.RequestService;
 
 public class Encoder {
-
+/**
 	ApplicationContext ctx = (ApplicationContext) new ClassPathXmlApplicationContext(
 			"spring.xml");
 	ManagerService managerService = (ManagerService) ctx
@@ -298,6 +298,7 @@ public List<String> getTableTaboo(List<Proposition> proposition, String manager)
 		} catch (NoResultException e) {
 			return false;
 		}
+		
 	}
-
+*/
 }

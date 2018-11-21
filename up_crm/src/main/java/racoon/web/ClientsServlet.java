@@ -26,11 +26,13 @@ public class ClientsServlet {
 		String code = (String) session.getAttribute("code");
 		String manager = (String) session.getAttribute("manager");
 
-		Encoder encoder = new Encoder();
+		//Encoder encoder = new Encoder();
+		BaseController encoder = new BaseController();
 		String privateCode = encoder.encode(code);
 
-		BaseController base = new BaseController();
-		List<Client> clients = base.getClientsByManager(manager);
+		//BaseController base = new BaseController();
+		//List<Client> clients = base.getClientsByManager(manager);
+		List<Client> clients = encoder.getClientsByManager(manager);
 
 		Constants constantBase = new Constants();
 		List<String> services = constantBase.getAllServices();

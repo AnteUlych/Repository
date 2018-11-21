@@ -25,7 +25,8 @@ public class addClient {
 	@RequestMapping(value = "/addClient/{code}", method = RequestMethod.GET)
 	public String selectClient(@PathVariable("code") String code, ModelMap model) {
 
-		Encoder encoder = new Encoder();
+		//Encoder encoder = new Encoder();
+		BaseController encoder = new BaseController();
 
 		Manager manager = encoder.getFullInfoByManagerByCode(code);
 
@@ -50,7 +51,8 @@ public class addClient {
 	public String postProposition(@PathVariable("code") String code,
 			ModelMap model, HttpServletRequest req, HttpServletResponse resp) {
 
-		Encoder encoder = new Encoder();
+		//Encoder encoder = new Encoder();
+		BaseController encoder = new BaseController();
 
 		Manager manager = encoder.getFullInfoByManagerByCode(code);
 
@@ -87,7 +89,7 @@ public class addClient {
 			return "ok";
 		}
 
-		BaseController base = new BaseController();
+		//BaseController base = new BaseController();
 
 			Client client = new Client();
 
@@ -102,17 +104,21 @@ public class addClient {
 			client.setPerson(person);
 			client.setPhone(phone);
 
-			base.addClient(client);
+			//base.addClient(client);
+			encoder.addClient(client);
 
 			Status status = new Status();
 	
 			
 			status.setAnswer(comment);
-			status.setClientId(base.getClientByCode(cod).getId());
+			//status.setClientId(base.getClientByCode(cod).getId());
+			status.setClientId(encoder.getClientByCode(cod).getId());
+			
 			status.setFunnel(fun);
 			status.setLasttime(encoder.makeStringtoDate(nextcall));
 
-			base.addStatus(status);
+			//base.addStatus(status);
+			encoder.addStatus(status);
 
 			String password = manager.getCode() + "";
 			String isAccess = encoder.getAccess(password);

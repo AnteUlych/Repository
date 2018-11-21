@@ -11,7 +11,7 @@ import racoon.model.Request;
 public class Test {
 
 	public static void main(String[] args)  {
-		
+		/**
 		Encoder e = new Encoder();
 		String code = "512355";
 		Client client = e.getClientByIdCodeFromConsole(code);
@@ -23,6 +23,7 @@ public class Test {
 			mayIClick = "";
 		}
 		System.out.println(mayIClick);
+		*/
 	}
 
 }

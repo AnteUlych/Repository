@@ -28,7 +28,8 @@ public class ClientServlet {
 	@RequestMapping(value = "/client/{code}", method = RequestMethod.GET)
 	public String selectClient(@PathVariable("code") String code, ModelMap model) {
 
-		Encoder encoder = new Encoder();
+		//Encoder encoder = new Encoder();
+		BaseController encoder = new BaseController();
 
 		Client client = encoder.getClientByIdCodeFromConsole(code);
 		Manager manager = encoder.getFullInfoByManagerByCode(code);
@@ -41,10 +42,15 @@ public class ClientServlet {
 
 		model.addAttribute("mayIClick", mayIClick);
 		
-		BaseController base = new BaseController();
-		List<Request> requests = base.getAllRequestsByCompany(client
+		//BaseController base = new BaseController();
+		
+		//List<Request> requests = base.getAllRequestsByCompany(client
+		//		.getCompany());
+		//List<Status> statuses = base.getAllStatusByCompanyId(client.getId());
+		
+		List<Request> requests = encoder.getAllRequestsByCompany(client
 				.getCompany());
-		List<Status> statuses = base.getAllStatusByCompanyId(client.getId());
+		List<Status> statuses = encoder.getAllStatusByCompanyId(client.getId());
 
 		Constants constants = new Constants();
 		List<String> funnels = constants.getAllFunnel();
@@ -85,16 +91,21 @@ public class ClientServlet {
 	public String postProposition(@PathVariable("code") String code,
 			ModelMap model, HttpServletRequest req, HttpServletResponse resp) {
 
-		Encoder encoder = new Encoder();
+		//Encoder encoder = new Encoder();
+		BaseController encoder = new BaseController();
 
 		Client client = encoder.getClientByIdCodeFromConsole(code);
 		Manager manager = encoder.getFullInfoByManagerByCode(code);
 		// make disabled button
 
-		BaseController base = new BaseController();
-		List<Request> requests = base.getAllRequestsByCompany(client
+		//BaseController base = new BaseController();
+		//List<Request> requests = base.getAllRequestsByCompany(client
+		//		.getCompany());
+		//List<Status> statuses = base.getAllStatusByCompanyId(client.getId());
+		
+		List<Request> requests = encoder.getAllRequestsByCompany(client
 				.getCompany());
-		List<Status> statuses = base.getAllStatusByCompanyId(client.getId());
+		List<Status> statuses = encoder.getAllStatusByCompanyId(client.getId());
 
 		Constants constants = new Constants();
 		List<String> funnels = constants.getAllFunnel();
@@ -154,8 +165,8 @@ public class ClientServlet {
 			status.setLasttime(new Date());
 			status.setClientId(client.getId());
 
-			base.addStatus(status);
-			base.editClientStatus(client.getId(), comment,
+			encoder.addStatus(status);
+			encoder.editClientStatus(client.getId(), comment,
 					encoder.makeStringtoDate(nextcall), fun);
 			//fix
 			String password = manager.getCode() + "";

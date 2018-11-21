@@ -11,6 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import racoon.logic.BaseController;
 import racoon.logic.Encoder;
 
 @Controller
@@ -26,7 +27,9 @@ public class AccessServlet {
 	public String submitForm(HttpServletRequest request,
 			HttpServletResponse response) {
 
-		Encoder enigma = new Encoder();
+		//Encoder enigma = new Encoder();
+		BaseController enigma = new BaseController();
+		
 		String code = request.getParameter("password");
 		String isAccess = enigma.getAccess(code);
 		if (isAccess.equals("denied")) {
