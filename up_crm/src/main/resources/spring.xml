@@ -24,17 +24,13 @@
 		<property name="username" value="root" />
 		<property name="password" value="root" />
 		<!-- 11/08/2018 -->
-         <!-- <property name="initialSize" value="10" />-->
-         <!-- <property name="maxActive" value="15" /> -->
-        <!-- <property name="maxWait" value="5000" />-->
-        <!-- <property name="maxIdle" value="1" />-->
-         <property name="maxActive" value="3000" />
-          <property name="maxWait" value="500" />
-          <property name="maxIdle" value="10" />
-          <property name="minIdle" value="0" />
-          
+        <property name="initialSize" value="10" />
+        <property name="maxActive" value="150" /> 
+        <property name="maxWait" value="5000" />
+        <property name="maxIdle" value="1" />
+       
 
-		
+          		
 		<!-- 14.01.2018 - fixing bug - HTTP Status 500 - Request processing failed; -->
 		<property name="validationQuery" value="SELECT 1"/>
         <property name="testOnBorrow" value="true"/>

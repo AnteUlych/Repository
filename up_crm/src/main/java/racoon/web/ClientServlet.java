@@ -83,6 +83,8 @@ public class ClientServlet {
 		model.addAttribute("code", client.getCode());
 
 		model.addAttribute("nextPage", code);
+		
+		encoder.closeConnection();
 
 		return "client";
 	}
@@ -175,11 +177,13 @@ public class ClientServlet {
 			session.setAttribute("code", password);
 			session.setAttribute("manager", isAccess);
 			try {
+				encoder.closeConnection();
 				resp.sendRedirect("/crm/clients");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
+		encoder.closeConnection();
 		return "client";
 	}
 }

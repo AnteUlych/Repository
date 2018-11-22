@@ -75,6 +75,8 @@ public class RequestServlet {
 		model.addAttribute("weight", request.getWeight());
 		model.addAttribute("requestId", request.getId());
 
+		encoder.closeConnection();
+		
 		return "request";
 	}
 
@@ -120,12 +122,14 @@ public class RequestServlet {
 			if (req.getParameter("delete" + deal.getId()) != null) {
 				//base.deleteProposition(deal.getId());
 				encoder.deleteProposition(deal.getId());
+				encoder.closeConnection();
 				return "redirect:";
 			}
 
 			if (req.getParameter("confirm" + deal.getId()) != null) {
 				//base.confirmProposition(deal.getId(), requestId);
 				encoder.confirmProposition(deal.getId(), requestId);
+				encoder.closeConnection();
 				return "redirect:";
 			}
 
@@ -133,9 +137,10 @@ public class RequestServlet {
 		if (req.getParameter("cancel") != null) {
 			//base.cancelProposition(requestId);
 			encoder.cancelProposition(requestId);
+			encoder.closeConnection();
 			return "redirect:";
 		}
-
+		encoder.closeConnection();
 		return "request";
 	}
 }

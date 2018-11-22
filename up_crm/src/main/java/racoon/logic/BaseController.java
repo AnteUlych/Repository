@@ -13,6 +13,7 @@ import java.util.Random;
 import javax.persistence.NoResultException;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import racoon.model.Client;
@@ -41,6 +42,12 @@ public class BaseController {
 	ManagerService managerService = (ManagerService) ctx
 			.getBean("managerService");
 
+	//22.11
+	public void closeConnection(){
+		((AbstractApplicationContext) ctx).close();
+	}
+	//22.11
+	
 	public Client getClientByCode(String code) {
 		
 		return clientService.getClientByCode(code);

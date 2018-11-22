@@ -55,6 +55,8 @@ public class PropositionServlet {
 		model.addAttribute("weight", request.getWeight());
 		model.addAttribute("requestId", request.getId());
 
+		encoder.closeConnection();
+		
 		return "proposition";
 	}
 
@@ -102,7 +104,7 @@ public class PropositionServlet {
 		}
 
 		int today = encoder.todayDay();
-		
+		encoder.closeConnection();
 		try {
 			resp.sendRedirect("/crm/request/" + today + "_" + managerId + "_"
 					+ requestId);

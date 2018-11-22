@@ -47,6 +47,8 @@ public class RequestsServlet {
 		model.addAttribute("id", manager.getId());
 		model.addAttribute("today", encoder.todayDay());
 
+		encoder.closeConnection();
+		
 		return "requests";
 	}
 	@RequestMapping(value = "/service/{code}", method = RequestMethod.POST)
@@ -69,7 +71,7 @@ public class RequestsServlet {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
+			encoder.closeConnection();
 			return "ok";
 		}
 
@@ -92,6 +94,7 @@ public class RequestsServlet {
 
 		return "requests";
 		*/
+		encoder.closeConnection();
 		return "ok";
 	}
 }

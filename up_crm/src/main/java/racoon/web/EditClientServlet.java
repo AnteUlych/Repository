@@ -51,6 +51,8 @@ public class EditClientServlet {
 		model.addAttribute("person", client.getPerson());
 		model.addAttribute("phone", client.getPhone());
 
+		encoder.closeConnection();
+		
 		return "editClient";
 	}
 
@@ -87,6 +89,7 @@ public class EditClientServlet {
 		base.editClient(client.getId(), company, phone, person, category, mail);
 
 		try {
+			encoder.closeConnection();
 			resp.sendRedirect("/crm/client/" + code);
 		} catch (IOException e) {
 			e.printStackTrace();

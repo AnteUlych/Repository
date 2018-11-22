@@ -43,6 +43,7 @@ public class addClient {
 		model.addAttribute("privateCode",
 				encoder.getCodePasswordById(manager.getId()));
 
+		encoder.closeConnection();
 		return "addClient";
 
 	}
@@ -81,6 +82,7 @@ public class addClient {
 
 		if (encoder.isCodeCompanyExist(cod)) {
 			try {
+				encoder.closeConnection();
 				resp.sendRedirect("/crm/check/" + code);
 			} catch (IOException e1) {
 				e1.printStackTrace();
@@ -122,6 +124,9 @@ public class addClient {
 
 			String password = manager.getCode() + "";
 			String isAccess = encoder.getAccess(password);
+			
+			encoder.closeConnection();
+			
 			HttpSession session = req.getSession();
 			session.setAttribute("code", password);
 			session.setAttribute("manager", isAccess);

@@ -42,6 +42,8 @@ public class ClientsServlet {
 		model.addAttribute("privateCode", privateCode);
 		model.addAttribute("clients", clients);
 
+		encoder.closeConnection();
+		
 		return "clients";
 
 	}

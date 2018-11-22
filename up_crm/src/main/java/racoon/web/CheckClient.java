@@ -43,6 +43,8 @@ public class CheckClient {
 
 		model.addAttribute("nextPage", code);
 
+		encoder.closeConnection();
+		
 		return "check";
 
 	}
@@ -63,6 +65,7 @@ public class CheckClient {
 			session.setAttribute("code", password);
 			session.setAttribute("manager", isAccess);
 			try {
+				encoder.closeConnection();
 				resp.sendRedirect("/crm/clients");
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -94,6 +97,7 @@ public class CheckClient {
 
 		} catch (NoResultException e) {
 			try {
+				encoder.closeConnection();
 				resp.sendRedirect("/crm/check/" + code);
 			} catch (IOException e1) {
 				e.printStackTrace();
@@ -101,7 +105,7 @@ public class CheckClient {
 
 			return "ok";
 		}
-
+		encoder.closeConnection();
 		return "check";
 	}
 }

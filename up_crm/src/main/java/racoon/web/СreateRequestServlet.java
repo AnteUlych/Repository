@@ -46,6 +46,8 @@ public class ÑreateRequestServlet {
 		model.addAttribute("today", today);
 		model.addAttribute("services", services);
 
+		encoder.closeConnection();
+		
 		return "createRequest";
 	}
 
@@ -104,6 +106,7 @@ public class ÑreateRequestServlet {
 		session.setAttribute("code", password);
 		session.setAttribute("manager", isAccess);
 		try {
+			encoder.closeConnection();
 			resp.sendRedirect("/crm/clients");
 		} catch (IOException e) {
 			e.printStackTrace();

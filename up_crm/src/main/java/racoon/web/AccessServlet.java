@@ -32,6 +32,9 @@ public class AccessServlet {
 		
 		String code = request.getParameter("password");
 		String isAccess = enigma.getAccess(code);
+		
+		enigma.closeConnection();
+		
 		if (isAccess.equals("denied")) {
 			return "login";
 		}
@@ -43,6 +46,7 @@ public class AccessServlet {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 		return "ok";
 	}
 }
