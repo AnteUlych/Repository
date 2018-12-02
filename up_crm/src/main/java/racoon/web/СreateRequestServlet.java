@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import racoon.logic.BaseController;
 import racoon.logic.Constants;
 import racoon.logic.Encoder;
+import racoon.logic.Sender;
 import racoon.model.Request;
 
 @Controller
@@ -28,7 +29,7 @@ public class ÑreateRequestServlet {
 
 		//Encoder encoder = new Encoder();
 		BaseController encoder = new BaseController();
-		
+try{		
 		int managerId = encoder.getIdOfManagerFromRequestsPage(code);
 		String manager = encoder.getManagerNameById(managerId);
 		int today = encoder.todayDay();
@@ -49,6 +50,10 @@ public class ÑreateRequestServlet {
 		encoder.closeConnection();
 		
 		return "createRequest";
+	}catch(NullPointerException e){
+		encoder.closeConnection();
+		return "exception";
+	}
 	}
 
 	@RequestMapping(value = "/createRequest/{code}", method = RequestMethod.POST)
@@ -98,7 +103,14 @@ public class ÑreateRequestServlet {
 
 		//base.addRequest(request);
 		encoder.addRequest(request);
-
+		
+		//mail namager
+			
+		Sender bird = new Sender();
+        bird.sendToDepartment("new request was added from "+manager , "http://uplg.info/crm/login", constants.getDepartmentMail(service));
+		
+		//end mail namager
+		
 		String password = encoder.getPasswordById(managerId);
 		String isAccess = encoder.getAccess(password);
 

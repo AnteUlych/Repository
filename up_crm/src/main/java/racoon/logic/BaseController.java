@@ -31,10 +31,8 @@ public class BaseController {
 
 	ApplicationContext ctx = (ApplicationContext) new ClassPathXmlApplicationContext(
 			"spring.xml");
-	ClientService clientService = (ClientService) ctx
-			.getBean("clientService");
-	StatusService statusService = (StatusService) ctx
-			.getBean("statusService");
+	ClientService clientService = (ClientService) ctx.getBean("clientService");
+	StatusService statusService = (StatusService) ctx.getBean("statusService");
 	RequestService requestService = (RequestService) ctx
 			.getBean("requestService");
 	PropositionService propositionService = (PropositionService) ctx
@@ -42,57 +40,69 @@ public class BaseController {
 	ManagerService managerService = (ManagerService) ctx
 			.getBean("managerService");
 
-	//22.11
-	public void closeConnection(){
+	// 22.11
+	public void closeConnection() {
 		((AbstractApplicationContext) ctx).close();
 	}
-	//22.11
+
+	// 22.11
 	
-	public Client getClientByCode(String code) {
+	public List<String> getDatesForClientsInNormalFormat(List<Client> clients){
+		List<String> dates = new ArrayList();
+		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		//String reportDate = df.format(today);
+		for(Client c:clients){
+			dates.add(df.format(c.getNextcall()));
+		}
 		
+		return dates;
+	}
+
+	public Client getClientByCode(String code) {
+
 		return clientService.getClientByCode(code);
 	}
 
 	public void addStatus(Status status) {
-		
+
 		statusService.addStatus(status);
 	}
 
 	public List<Status> getAllStatusByCompanyId(int clientId) {
-	
+
 		return statusService.getAllStatusByCompanyId(clientId);
 	}
 
 	public List<Request> getAllRequestsByCompany(String company) {
-		
+
 		return requestService.getAllRequestsByCompany(company);
 	}
 
 	public void addRequest(Request request) {
-	
+
 		requestService.addRequest(request);
 	}
 
 	public void addProposition(Proposition proposition) {
-		
+
 		propositionService.addProposition(proposition);
-		
+
 	}
 
 	public void editClient(int id, String company, String phone, String person,
 			String category, String mail) {
-		
+
 		clientService.editClient(id, company, phone, person, category, mail);
 	}
 
 	public void editClientStatus(int id, String answer, Date nextcall,
 			String funnel) {
-		
+
 		clientService.editClientStatus(id, answer, nextcall, funnel);
 	}
 
 	public List<String> getAllClientsByManager(String manager) {
-	
+
 		List<Client> clients = clientService.getAllClientsByManager(manager);
 		List<String> companies = new ArrayList();
 
@@ -106,27 +116,27 @@ public class BaseController {
 	}
 
 	public List<Client> getClientsByManager(String manager) {
-		
+
 		return clientService.getAllClientsByManager(manager);
 	}
 
 	public void addClient(Client client) {
-		
+
 		clientService.addClient(client);
 	}
 
 	public Request getRequestById(int id) {
-		
+
 		return requestService.getRequestById(id);
 	}
 
 	public List<Proposition> getAllPropositionsByRequest(int idRequest) {
-		
+
 		return propositionService.getAllPropositionsByRequest(idRequest);
 	}
 
 	public void deleteProposition(int id) {
-		
+
 		propositionService.deleteProposition(id);
 	}
 
@@ -145,17 +155,17 @@ public class BaseController {
 						desigion.RESULT_NOT_INTERESTING);
 			}
 		}
-	
+
 		requestService.setResultRequest(requestId, desigion.RESULT_BOOKING);
 
 	}
-	
-	public void startTradeForRequest( int requestId, String status){
+
+	public void startTradeForRequest(int requestId, String status) {
 		Constants constant = new Constants();
 		requestService.setResultRequest(requestId, constant.RESULT_WAITING);
 	}
 
-	public void cancelProposition(int requestId) {
+	public void cancelProposition(int requestId, String answer) {
 
 		List<Proposition> propositions = propositionService
 				.getAllPropositionsByRequest(requestId);
@@ -165,46 +175,49 @@ public class BaseController {
 			propositionService.desideProposition(deal.getId(),
 					desigion.RESULT_NOT_INTERESTING);
 		}
-	
-		requestService.setResultRequest(requestId,
-				desigion.RESULT_NOT_INTERESTING);
+		if (answer.equals("")) {
+			answer = desigion.RESULT_NOT_INTERESTING;
+		}
+		requestService.setResultRequest(requestId, answer);
 
 	}
-	
-	//from here new
-	
-public List<String> getTableTaboo(List<Proposition> proposition, String manager){
-		
+
+	// from here new
+
+	public List<String> getTableTaboo(List<Proposition> proposition,
+			String manager) {
+
 		List<String> taboo = new ArrayList();
-		
-		for(Proposition propose:proposition){
-		if(propose.getManager().equals(manager)){
-			taboo.add("");
-		}else{
-			taboo.add("disabled");
-		}
+
+		for (Proposition propose : proposition) {
+			if (propose.getManager().equals(manager)) {
+				taboo.add("");
+			} else {
+				taboo.add("disabled");
+			}
 		}
 		return taboo;
 	}
-	public List<String> getTableColour(List<Request> requests){
-		
+
+	public List<String> getTableColour(List<Request> requests) {
+
 		List<String> colours = new ArrayList();
 		Constants constant = new Constants();
-		
-		for(Request request:requests){
-			if(request.getResult().equals(constant.RESULT_BOOKING)){
+
+		for (Request request : requests) {
+			if (request.getResult().equals(constant.RESULT_BOOKING)) {
 				colours.add("w3-green");
-			}else if(request.getResult().equals(constant.RESULT_NOT_INTERESTING)){
-				colours.add("w3-red");
-			}else if(request.getResult().equals(constant.RESULT_WAITING)){
-				colours.add("");
-			}else{
+			} else if (request.getResult().equals(constant.RESULT_EMPTY)) {
 				colours.add("w3-yellow");
+			} else if (request.getResult().equals(constant.RESULT_WAITING)) {
+				colours.add("");
+			} else {
+				colours.add("w3-red");
 			}
 		}
 		return colours;
 	}
-	
+
 	public Date makeStringtoDate(String date) {
 		try {
 			DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -291,9 +304,11 @@ public List<String> getTableTaboo(List<Proposition> proposition, String manager)
 		return manager;
 	}
 
-	public List<Request> getRequestsByServiceFromCodeConsole(String code) {
+	public String getManagerMailById(int id) {
+		return managerService.getManagersMailById(id);
+	}
 
-	
+	public List<Request> getRequestsByServiceFromCodeConsole(String code) {
 
 		String firstPart = code.substring(0, 1);
 		String deleteCode = code.substring(0, 5);
@@ -432,13 +447,13 @@ public List<String> getTableTaboo(List<Proposition> proposition, String manager)
 
 	public boolean isCodeCompanyExist(String cod) {
 		try {
-			
+
 			Client client = clientService.getClientByCode(cod);
 			return true;
 		} catch (NoResultException e) {
 			return false;
 		}
 	}
-	//to here new
+	// to here new
 
 }

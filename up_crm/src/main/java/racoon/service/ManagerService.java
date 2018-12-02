@@ -32,4 +32,7 @@ public class ManagerService {
 	public String getManagersNameById(int id) {
 		return dao.getManagersById(id).getName();
 	}
+	public String getManagersMailById(int id) {
+		return dao.getManagersById(id).getMail();
+	}
 }

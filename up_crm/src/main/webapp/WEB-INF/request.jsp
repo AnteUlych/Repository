@@ -84,7 +84,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </table>
 <br>
 
-<button type="submit"class="w3-button w3-red w3-third" type="submit"  name="cancel" value="cancel" ${mayIClick}>Cancel
+<input class="w3-input w3-border w3-third" type="text" placeholder="not intersting" value="not intersting" maxlength="50" name="whynot">
+<button type="submit"class="w3-button w3-red w3-third" type="submit"  name="cancel" value="cancel" ${mayIClick}>Cancel</button>
+
 </form>
 
   </div>

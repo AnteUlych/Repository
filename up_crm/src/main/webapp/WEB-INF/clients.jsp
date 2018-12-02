@@ -56,12 +56,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-container">
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
 	
-	<c:forEach items="${clients}" var="client">
+	<c:forEach items="${clients}" var="client" varStatus="theCount">
 <tr>	
 <td><a href="/crm/client/${privateCode}${client.id}">${client.company}</a></td>
 <td>${client.funnel}</td>
 <td>${client.category}</td>
-<td>${client.nextcall}</td>
+<td>${dates[theCount.index]}</td>
 <td>${client.person}</td>
 <td>${client.phone}</td>
 <td>${client.mail}</td>

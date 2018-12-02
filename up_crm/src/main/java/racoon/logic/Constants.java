@@ -9,6 +9,26 @@ public class Constants {
 	public String RESULT_BOOKING = "booking";
 	public String RESULT_NOT_INTERESTING = "not interesting";
 	public String RESULT_EMPTY = "";
+	
+	public String USERNAME = "uplg.monitoring@gmail.com";
+	public String PASSWORD = "Klug0506";
+	
+	public String AUTO_MAIL = "auto@uplg.com.ua";
+	public String SAR_MAIL = "sar@uplg.com.ua";
+	
+	public String ERROR_MAIL = "anton.ulych@gmail.com";
+	
+	public String getDepartmentMail(String service){
+	
+		if(service.equals("AUTO")){
+			return AUTO_MAIL;
+		}else if(service.equals("SAR")){
+			return SAR_MAIL;
+		}
+		
+		return ERROR_MAIL;
+		
+	}
 
 	public List<String> getAllServices() {
 

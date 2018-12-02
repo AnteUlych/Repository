@@ -23,11 +23,11 @@ import racoon.model.Status;
 @Controller
 public class addClient {
 	@RequestMapping(value = "/addClient/{code}", method = RequestMethod.GET)
-	public String selectClient(@PathVariable("code") String code, ModelMap model) {
+	public String selectClient(@PathVariable("code") String code, ModelMap model, HttpServletResponse resp) {
 
 		//Encoder encoder = new Encoder();
 		BaseController encoder = new BaseController();
-
+try{
 		Manager manager = encoder.getFullInfoByManagerByCode(code);
 
 		Constants constantBase = new Constants();
@@ -45,6 +45,10 @@ public class addClient {
 
 		encoder.closeConnection();
 		return "addClient";
+}catch(NullPointerException e){
+	encoder.closeConnection();
+	return "exception";
+}
 
 	}
 
@@ -87,7 +91,7 @@ public class addClient {
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
-
+			encoder.closeConnection();
 			return "ok";
 		}
 

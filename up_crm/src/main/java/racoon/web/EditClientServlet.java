@@ -26,7 +26,7 @@ public class EditClientServlet {
 
 		//Encoder encoder = new Encoder();
 		BaseController encoder = new BaseController();
-
+try{
 		Client client = encoder.getClientByIdCodeFromConsole(code);
 		Manager manager = encoder.getFullInfoByManagerByCode(code);
 
@@ -54,6 +54,10 @@ public class EditClientServlet {
 		encoder.closeConnection();
 		
 		return "editClient";
+	}catch(NullPointerException e){
+		encoder.closeConnection();
+		return "exception";
+	}
 	}
 
 	@RequestMapping(value = "/editClient/{code}", method = RequestMethod.POST)
@@ -94,7 +98,7 @@ public class EditClientServlet {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
+		encoder.closeConnection();
 		return "client";
 
 	}

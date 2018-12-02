@@ -28,7 +28,7 @@ public class CheckClient {
 
 	//	Encoder encoder = new Encoder();
 		BaseController encoder = new BaseController();
-
+try{
 		Manager manager = encoder.getFullInfoByManagerByCode(code);
 		// make disabled button
 
@@ -46,6 +46,10 @@ public class CheckClient {
 		encoder.closeConnection();
 		
 		return "check";
+	}catch(NullPointerException e){
+		encoder.closeConnection();
+		return "exception";
+	}
 
 	}
 

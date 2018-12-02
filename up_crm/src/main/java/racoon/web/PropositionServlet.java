@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import racoon.logic.BaseController;
 import racoon.logic.Constants;
 import racoon.logic.Encoder;
+import racoon.logic.Sender;
+import racoon.model.Manager;
 import racoon.model.Proposition;
 import racoon.model.Request;
 
@@ -28,7 +30,7 @@ public class PropositionServlet {
 
 		//Encoder encoder = new Encoder();
 		BaseController encoder = new BaseController();
-
+try{
 		int managerId = encoder.getIdOfManagerFromRequestsPage(code);
 		int requestId = encoder.getIdOfRequestFromRequestsPage(code);
 
@@ -58,6 +60,10 @@ public class PropositionServlet {
 		encoder.closeConnection();
 		
 		return "proposition";
+	}catch(NullPointerException e){
+		encoder.closeConnection();
+		return "exception";
+	}
 	}
 
 	@RequestMapping(value = "/proposition/{code}", method = RequestMethod.POST)
@@ -90,6 +96,10 @@ public class PropositionServlet {
 
 		//base.addProposition(proposition);
 		encoder.addProposition(proposition);
+		
+		Sender bird = new Sender();
+		String mail = encoder.getManagerMailById(managerId);
+		bird.sendToDepartment("added new proposition for request "+requestId, "http://uplg.info/crm/login", mail);
 		/**
 		Request request = base.getRequestById(requestId);
 		if(request.getResult().equals(constants.RESULT_EMPTY)){

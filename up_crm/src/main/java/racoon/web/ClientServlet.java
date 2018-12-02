@@ -30,7 +30,7 @@ public class ClientServlet {
 
 		//Encoder encoder = new Encoder();
 		BaseController encoder = new BaseController();
-
+try{
 		Client client = encoder.getClientByIdCodeFromConsole(code);
 		Manager manager = encoder.getFullInfoByManagerByCode(code);
 		
@@ -87,6 +87,10 @@ public class ClientServlet {
 		encoder.closeConnection();
 
 		return "client";
+	}catch(NullPointerException e){
+		encoder.closeConnection();
+		return "exception";
+	}
 	}
 
 	@RequestMapping(value = "/client/{code}", method = RequestMethod.POST)

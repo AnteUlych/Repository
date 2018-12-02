@@ -28,7 +28,7 @@ public class RequestsServlet {
 
 	//	Encoder encoder = new Encoder();
 		BaseController encoder = new BaseController();
-
+try{
 		List<Request> requests = encoder
 				.getRequestsByServiceFromCodeConsole(code);
 		Manager manager = encoder.getFullInfoByManagerByCode(code);
@@ -50,6 +50,10 @@ public class RequestsServlet {
 		encoder.closeConnection();
 		
 		return "requests";
+	}catch(NullPointerException e){
+		encoder.closeConnection();
+		return "exception";
+	}
 	}
 	@RequestMapping(value = "/service/{code}", method = RequestMethod.POST)
 	public String goToClients(@PathVariable("code") String code,
@@ -67,6 +71,7 @@ public class RequestsServlet {
 			session.setAttribute("code", password);
 			session.setAttribute("manager", isAccess);
 			try {
+				encoder.closeConnection();
 				resp.sendRedirect("/crm/clients");
 			} catch (IOException e) {
 				e.printStackTrace();

@@ -60,8 +60,8 @@
 
 	<!-- copyright -->
 	<div class="footer">
-		<p>&copy;  Design by
-			<a href="https://www.facebook.com/profile.php?id=100009594527667">Ante Ulych</a>
+		<p>&copy;  Design for
+			<a href="https://www.facebook.com/profile.php?id=100009594527667">UPLG</a>
 		</p>
 	</div>
 	<!-- //copyright -->

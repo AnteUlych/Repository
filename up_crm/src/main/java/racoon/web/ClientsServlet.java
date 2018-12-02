@@ -28,6 +28,7 @@ public class ClientsServlet {
 
 		//Encoder encoder = new Encoder();
 		BaseController encoder = new BaseController();
+		try{
 		String privateCode = encoder.encode(code);
 
 		//BaseController base = new BaseController();
@@ -36,7 +37,9 @@ public class ClientsServlet {
 
 		Constants constantBase = new Constants();
 		List<String> services = constantBase.getAllServices();
-
+		List<String> dates = encoder.getDatesForClientsInNormalFormat(clients);
+		
+		model.addAttribute("dates", dates);
 		model.addAttribute("services", services);
 		model.addAttribute("manager", manager);
 		model.addAttribute("privateCode", privateCode);
@@ -45,7 +48,10 @@ public class ClientsServlet {
 		encoder.closeConnection();
 		
 		return "clients";
-
+	}catch(NullPointerException e){
+		encoder.closeConnection();
+		return "exception";
+	}
 	}
 
 }

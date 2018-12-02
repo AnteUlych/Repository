@@ -1,8 +1,11 @@
 package racoon.web;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import racoon.logic.BaseController;
 import racoon.logic.Constants;
 import racoon.logic.Encoder;
+import racoon.logic.Sender;
 import racoon.model.Proposition;
 import racoon.model.Request;
 
@@ -25,7 +29,7 @@ public class RequestServlet {
 
 		//Encoder encoder = new Encoder();
 		BaseController encoder = new BaseController();
-
+try{
 		int managerId = encoder.getIdOfManagerFromRequestsPage(code);
 		int requestId = encoder.getIdOfRequestFromRequestsPage(code);
 		
@@ -78,11 +82,15 @@ public class RequestServlet {
 		encoder.closeConnection();
 		
 		return "request";
+	}catch(NullPointerException e){
+		encoder.closeConnection();
+		return "exception";
+	}
 	}
 
 	@RequestMapping(value = "/request/{code}", method = RequestMethod.POST)
 	public String postProposition(@PathVariable("code") String code,
-			ModelMap model, HttpServletRequest req, HttpServletRequest resp) {
+			ModelMap model, HttpServletRequest req, HttpServletResponse resp) {
 
 		//Encoder encoder = new Encoder();
 				BaseController encoder = new BaseController();
@@ -116,6 +124,9 @@ public class RequestServlet {
 		model.addAttribute("size", request.getSize());
 		model.addAttribute("weight", request.getWeight());
 		model.addAttribute("requestId", request.getId());
+		
+		Sender bird = new Sender();
+		Constants constant = new Constants();
 
 		for (Proposition deal : propositions) {
 
@@ -129,6 +140,7 @@ public class RequestServlet {
 			if (req.getParameter("confirm" + deal.getId()) != null) {
 				//base.confirmProposition(deal.getId(), requestId);
 				encoder.confirmProposition(deal.getId(), requestId);
+				bird.sendToDepartment(request.getManager()+" has booked request "+request.getId(), "http://uplg.info/crm/login", constant.getDepartmentMail(request.getType()));
 				encoder.closeConnection();
 				return "redirect:";
 			}
@@ -136,9 +148,26 @@ public class RequestServlet {
 		}
 		if (req.getParameter("cancel") != null) {
 			//base.cancelProposition(requestId);
-			encoder.cancelProposition(requestId);
+			String whynot = req.getParameter("whynot");
+			encoder.cancelProposition(requestId, whynot);
+			bird.sendToDepartment(request.getManager()+" has canceled request "+request.getId(), "http://uplg.info/crm/login", constant.getDepartmentMail(request.getType()));
+			
+			String password = encoder.getPasswordById(managerId);
+			String isAccess = encoder.getAccess(password);
+			HttpSession session = req.getSession();
+			session.setAttribute("code", password);
+			session.setAttribute("manager", isAccess);
+			try {
+				encoder.closeConnection();
+				resp.sendRedirect("/crm/clients");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			encoder.closeConnection();
-			return "redirect:";
+			return "ok";
+			
+			//encoder.closeConnection();
+			//return "redirect:";
 		}
 		encoder.closeConnection();
 		return "request";
