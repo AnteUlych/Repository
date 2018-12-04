@@ -97,8 +97,10 @@ try{
 		//base.addProposition(proposition);
 		encoder.addProposition(proposition);
 		
+		Request request = encoder.getRequestById(requestId);
+		
 		Sender bird = new Sender();
-		String mail = encoder.getManagerMailById(managerId);
+		String mail = encoder.getManagersMailByName(request.getManager());
 		bird.sendToDepartment("added new proposition for request "+requestId, "http://uplg.info/crm/login", mail);
 		/**
 		Request request = base.getRequestById(requestId);
@@ -108,7 +110,7 @@ try{
 
 		int today = encoder.todayDay();
 */
-		Request request = encoder.getRequestById(requestId);
+		
 		if(request.getResult().equals(constants.RESULT_EMPTY)){
 			encoder.startTradeForRequest(requestId, constants.RESULT_WAITING);
 		}

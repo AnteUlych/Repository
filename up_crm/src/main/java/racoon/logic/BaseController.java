@@ -307,6 +307,9 @@ public class BaseController {
 	public String getManagerMailById(int id) {
 		return managerService.getManagersMailById(id);
 	}
+	public String getManagersMailByName(String name) {
+		return managerService.getManagersMailByName(name);
+	}
 
 	public List<Request> getRequestsByServiceFromCodeConsole(String code) {
 

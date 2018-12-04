@@ -65,7 +65,6 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	<c:forEach items="${propositions}" var="proposition" varStatus="theCount">
 
 <tr>
-<td>${proposition.id}</td>
 <td>${proposition.answer}</td>
 <td>${proposition.rate}</td>
 <td>${proposition.delivery}</td>
