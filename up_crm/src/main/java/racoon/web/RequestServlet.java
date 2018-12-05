@@ -150,7 +150,7 @@ try{
 			//base.cancelProposition(requestId);
 			String whynot = req.getParameter("whynot");
 			encoder.cancelProposition(requestId, whynot);
-			bird.sendToDepartment(request.getManager()+" has canceled request "+request.getId(), "http://uplg.info/crm/login", constant.getDepartmentMail(request.getType()));
+			//bird.sendToDepartment(request.getManager()+" has canceled request "+request.getId(), "http://uplg.info/crm/login", constant.getDepartmentMail(request.getType()));
 			
 			String password = encoder.getPasswordById(managerId);
 			String isAccess = encoder.getAccess(password);

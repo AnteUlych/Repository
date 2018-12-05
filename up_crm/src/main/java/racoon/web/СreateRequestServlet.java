@@ -106,8 +106,8 @@ try{
 		
 		//mail namager
 			
-		Sender bird = new Sender();
-        bird.sendToDepartment("new request was added from "+manager , "http://uplg.info/crm/login", constants.getDepartmentMail(service));
+		//Sender bird = new Sender();
+       // bird.sendToDepartment("new request was added from "+manager , "http://uplg.info/crm/login", constants.getDepartmentMail(service));
 		
 		//end mail namager
 		
