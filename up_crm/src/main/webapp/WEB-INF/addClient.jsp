@@ -43,7 +43,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
     <p></p>
     <form method="post">
-      <p><input class="w3-input w3-border" type="text" placeholder="Company" maxlength="50" required name="company"></p>
+      <p><input class="w3-input w3-border" type="text" pattern="[^\\/]+" placeholder="Company" maxlength="50" required name="company"></p>
 	  <p><input class="w3-input w3-border" type="text" placeholder="Company code" maxlength="20" required name="cod"></p>
 	  <p><input class="w3-input w3-border" type="text" placeholder="Mail" required maxlength="70" name="mail"></p>
 	  <p><input class="w3-input w3-border" type="text" placeholder="Manager" required maxlength="70" name="person"></p>

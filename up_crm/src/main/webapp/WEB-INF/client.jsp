@@ -85,6 +85,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	
 	<c:forEach items="${requests}" var="request">
 	<tr>
+	<td>${request.id}</td>
 	<td>${request.creating}</td>
 	<td>${request.type}</td>
 	<td>${request.readiness}</td> 
