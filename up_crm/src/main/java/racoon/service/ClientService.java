@@ -25,6 +25,10 @@ public class ClientService {
 		return dao.getAllClientsByManager(manager);
 	}
 
+	public List<Client> getAllClientsByFunnel(String funnel) {
+		return dao.getAllClientsByFunnel(funnel);
+	}
+	
 	public Client getClientById(int id) {
 		return dao.getClientById(id);
 	}

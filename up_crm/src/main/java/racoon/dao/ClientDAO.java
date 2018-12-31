@@ -24,12 +24,20 @@ public class ClientDAO {
 		em.persist(transaction);
 		em.close();
 	}
+	
 
 	@SuppressWarnings("unchecked")
 	public List<Client> getAllClientsByManager(String manager) {
 		return em.createQuery(
 				"from Client where manager = '" + manager
 						+ "' order by nextcall").getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Client> getAllClientsByFunnel(String funnel) {
+		return em.createQuery(
+				"from Client where funnel = '" + funnel
+						+ "'").getResultList();
 	}
 
 	public Client getClientByCode(String code) {

@@ -16,6 +16,14 @@ public class PropositionService {
 	@Autowired
 	private PropositionDAO dao;
 
+	public List<Proposition> getAllPropositionsByManagerTypeAndDates(String start, String ending, String manager, String result) {
+		return dao.getAllPropositionsByManagerTypeAndDates(start, ending, manager, result);
+	}
+	
+	public List<Proposition> getAllPropositionsByTypeAndDates(String start, String ending, String result) {
+		return dao.getAllPropositionsByTypeAndDates(start, ending, result);
+	}
+	
 	public void addProposition(Proposition proposition) {
 		dao.persist(proposition);
 	}

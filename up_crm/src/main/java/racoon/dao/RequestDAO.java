@@ -32,10 +32,29 @@ public class RequestDAO {
 		return em.createQuery("from Request where type = '" + type + "' order by id desc").setMaxResults(max)
 				.getResultList();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Request> getAllRequestsByManagerTypeResultsBetweenDates(String manager, String type, String result, String start, String ending) {
+		return em.createQuery("from Request where creating >= '" + start+"' and creating <= '"+ ending+"' and result = '"+ result+"' and type = '"+ type+"' and manager = '"+ manager+"' order by id desc")
+				.getResultList();
+	}
+	@SuppressWarnings("unchecked")
+	public List<Request> getAllRequestsByTypeResultsBetweenDates(String type,
+			String result, String start, String ending) {
+		return em.createQuery("from Request where creating >= '" + start+"' and creating <= '"+ ending+"' and result = '"+ result+"' and type = '"+ type+"' order by id desc")
+				.getResultList();
+	}
+
 
 	@SuppressWarnings("unchecked")
 	public List<Request> getAllRequestsByCompany(String company) {
 		return em.createQuery("from Request where company = '" + company + "' order by id desc")
+				.getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Request> getAllRequestsByCompanyBetweenDates(String company, String start, String ending) {
+		return em.createQuery("from Request where company = '" + company + "' and creating >= '" + start+"' and creating <= '"+ ending+"'")
 				.getResultList();
 	}
 
@@ -55,5 +74,7 @@ public class RequestDAO {
 		em.persist(transaction);
 		em.close();
 	}
+
+	
 
 }

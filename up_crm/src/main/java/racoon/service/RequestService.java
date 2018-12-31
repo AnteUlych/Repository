@@ -27,6 +27,14 @@ public class RequestService {
 	public List<Request> getAllRequestsByType(String type) {
 		return dao.getAllRequestsByType(type);
 	}
+	
+	public List<Request> getAllRequestsByCompanyBetweenDates(String company, String start, String ending) {
+		return dao.getAllRequestsByCompanyBetweenDates(company, start, ending);
+	}
+	
+	public List<Request> getAllRequestsByManagerTypeResultsBetweenDates(String manager, String type, String result, String start, String ending) {
+		return dao.getAllRequestsByManagerTypeResultsBetweenDates(manager, type, result, start, ending);
+	}
 
 	public List<Request> getAllRequestsByCompany(String company) {
 		return dao.getAllRequestsByCompany(company);
@@ -34,5 +42,12 @@ public class RequestService {
 
 	public void setResultRequest(int id, String result) {
 		dao.setResultRequest(id, result);
+	}
+
+	public List<Request> getAllRequestsByTypeResultsBetweenDates(String type,
+			String result, String start, String ending) {
+		// TODO Auto-generated method stub
+		return dao.getAllRequestsByTypeResultsBetweenDates(type,
+				result, start, ending);
 	}
 }

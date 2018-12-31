@@ -57,6 +57,60 @@ public class BaseController {
 		
 		return dates;
 	}
+	//number request for report2
+	public int getNumberOfAllRequestsByCompanyBetweenDates(String company, String start, String ending) {
+		return requestService.getAllRequestsByCompanyBetweenDates(company, start, ending).size();
+	}
+	//number bookings for report2
+	public int getNumberOfAllBookingRequestsByCompanyBetweenDates(String company, String start, String ending) {
+		
+		List<Request> requests = requestService.getAllRequestsByCompanyBetweenDates(company, start, ending);
+		
+		int bookings = 0;
+		
+		for(Request request:requests){
+			if(request.getResult().equals("booking")){
+				bookings++;
+			}
+		}
+		return bookings;
+	}
+	//report2 all parter clients
+	public List<Client> getAllClientsByFunnel(String funnel) {
+		return clientService.getAllClientsByFunnel(funnel);
+	}
+	
+	public List<Proposition> getAllPropositionsByManagerTypeAndDates(String start, String ending, String manager, String result) {
+		return propositionService.getAllPropositionsByManagerTypeAndDates(start, ending, manager, result);
+	}
+	//report1 number of propositions with result
+	public int getNumberOfAllPropositionsByManagerTypeAndDates(String start, String ending, String manager, String result) {
+		return propositionService.getAllPropositionsByManagerTypeAndDates(start, ending, manager, result).size();
+	}
+	
+	public List<Proposition> getAllPropositionsByTypeAndDates(String start, String ending, String result) {
+		return propositionService.getAllPropositionsByTypeAndDates(start, ending, result);
+	}
+	//report1 number of proposition
+	public int getNumberOfAllPropositionsByTypeAndDates(String start, String ending, String result) {
+		return propositionService.getAllPropositionsByTypeAndDates(start, ending, result).size();
+	}
+	
+	public List<Request> getAllRequestsByManagerTypeResultsBetweenDates(String manager, String type, String result, String start, String ending) {
+		return requestService.getAllRequestsByManagerTypeResultsBetweenDates(manager, type, result, start, ending);		 
+	}
+	//report1 all statistic
+	public int getNumberOfAllRequestsByManagerTypeResultsBetweenDates(String manager, String type, String result, String start, String ending) {
+		return requestService.getAllRequestsByManagerTypeResultsBetweenDates(manager, type, result, start, ending).size();		 
+	}
+	
+	public List<Request> getAllRequestsByTypeResultsBetweenDates(String type, String result, String start, String ending) {
+		return requestService.getAllRequestsByTypeResultsBetweenDates(type, result, start, ending);		 
+	}
+	//report1 for Total
+	public int getNumberOfAllRequestsByTypeResultsBetweenDates(String type, String result, String start, String ending) {
+		return requestService.getAllRequestsByTypeResultsBetweenDates(type, result, start, ending).size();		 
+	}
 
 	public Client getClientByCode(String code) {
 

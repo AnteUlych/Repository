@@ -29,6 +29,20 @@ public class PropositionDAO {
 				"from Proposition where requestId = '" + idRequest + "' order by id desc")
 				.getResultList();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Proposition> getAllPropositionsByManagerTypeAndDates(String start, String ending, String manager, String result) {
+		return em.createQuery(
+				"from Proposition where answer >= '" + start+"' and answer <= '"+ ending+"' and result = '"+ result+"'  and manager = '"+ manager+"' order by id desc")
+				.getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Proposition> getAllPropositionsByTypeAndDates(String start, String ending, String result) {
+		return em.createQuery(
+				"from Proposition where answer >= '" + start+"' and answer <= '"+ ending+"' and result = '"+ result+"'   order by id desc")
+				.getResultList();
+	}
 
 	@Transactional
 	public void deleteProposition(int id) {
