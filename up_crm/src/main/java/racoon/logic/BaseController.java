@@ -111,7 +111,10 @@ public class BaseController {
 	public int getNumberOfAllRequestsByTypeResultsBetweenDates(String type, String result, String start, String ending) {
 		return requestService.getAllRequestsByTypeResultsBetweenDates(type, result, start, ending).size();		 
 	}
-
+    //all managers
+	public List<Manager> getAllManagers() {
+		return managerService.getAllManagers();
+	}
 	public Client getClientByCode(String code) {
 
 		return clientService.getClientByCode(code);

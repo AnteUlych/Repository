@@ -17,6 +17,16 @@ import racoon.model.Request;
 public class Test {
 
 	public static void main(String[] args)  {
+		
+		BaseController encoder = new BaseController();
+		List <Manager> managers = encoder.getAllManagers();
+		
+        for(Manager m:managers){
+			
+			System.out.println(m.getName());
+		}
+		
+		/**
 		String company ="&#1070;&#1085;&#1072;&#1081;&#1089;";
 		String start = "2018-12-01";
 		String ending = "2018-12-27";

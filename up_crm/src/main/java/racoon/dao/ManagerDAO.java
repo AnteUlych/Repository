@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import racoon.model.Manager;
 
+
 @Repository
 public class ManagerDAO {
 
@@ -37,5 +38,11 @@ public class ManagerDAO {
 	public Manager getManagersByName(String name) {
 		Query query = em.createQuery("from Manager where name = '" + name + "'");
 		return (Manager) query.getSingleResult();
+	}
+	@SuppressWarnings("unchecked")
+	public List<Manager> getAllManagers() {
+		return em
+				.createQuery("from Manager")
+				.getResultList();
 	}
 }

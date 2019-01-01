@@ -38,4 +38,7 @@ public class ManagerService {
 	public String getManagersMailByName(String name) {
 		return dao.getManagersByName(name).getMail();
 	}
+	public List<Manager> getAllManagers() {
+		return dao.getAllManagers();
+	}
 }
