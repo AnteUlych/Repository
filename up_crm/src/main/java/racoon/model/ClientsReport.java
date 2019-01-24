@@ -1,5 +1,7 @@
 package racoon.model;
 
+import java.util.Date;
+
 public class ClientsReport {
 	
 	private String company;
@@ -7,6 +9,8 @@ public class ClientsReport {
 	private String category;
 	private int requests;
 	private int bookings;
+	private String nextCall;
+	private String lastComment;
 	/**
 	 * @return the company
 	 */
@@ -42,6 +46,19 @@ public class ClientsReport {
 	}
 	public void setBookings(int bookings) {
 		this.bookings = bookings;
+	}
+
+	public String getLastComment() {
+		return lastComment;
+	}
+	public void setLastComment(String lastComment) {
+		this.lastComment = lastComment;
+	}
+	public String getNextCall() {
+		return nextCall;
+	}
+	public void setNextCall(String nextCall) {
+		this.nextCall = nextCall;
 	}
 
 }

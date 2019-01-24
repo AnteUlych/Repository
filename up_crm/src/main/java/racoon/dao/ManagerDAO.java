@@ -24,6 +24,19 @@ public class ManagerDAO {
 		em.persist(transaction);
 		em.close();
 	}
+	
+	@Transactional
+	public void firedManager(int id, String firedManager) {
+
+		Manager manager = (Manager) em.find(Manager.class, id);
+
+		manager.setName(firedManager);
+
+		Manager transaction = em.merge(manager);
+		em.persist(transaction);
+		em.close();
+
+	}
 
 	public Manager getManagersByCode(int code) {
 		Query query = em

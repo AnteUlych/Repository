@@ -38,6 +38,13 @@ public class RequestDAO {
 		return em.createQuery("from Request where creating >= '" + start+"' and creating <= '"+ ending+"' and result = '"+ result+"' and type = '"+ type+"' and manager = '"+ manager+"' order by id desc")
 				.getResultList();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Request> getAllRequestsByManagerTypeBetweenDates(String manager, String type, String start, String ending) {
+		return em.createQuery("from Request where creating >= '" + start+"' and creating <= '"+ ending+"'  and type = '"+ type+"' and manager = '"+ manager+"' order by id desc")
+				.getResultList();
+	}
+	
 	@SuppressWarnings("unchecked")
 	public List<Request> getAllRequestsByTypeResultsBetweenDates(String type,
 			String result, String start, String ending) {

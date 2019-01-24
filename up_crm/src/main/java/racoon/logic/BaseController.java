@@ -47,6 +47,26 @@ public class BaseController {
 
 	// 22.11
 	
+	public int getManagerIdByName(String name) {
+		return managerService.getManagerIdByName(name);
+	}
+	public void firedManager(int id, String firedManager) {
+		managerService.firedManager(id, firedManager);
+	}
+	
+	public void editManagerOfClient(int id, String manager) {
+		clientService.editManagerOfClient(id, manager);
+	}
+	
+	public List<Client> getAllClients() {
+		return clientService.getAllClients();
+	}
+	
+
+	public Client getClientById(int id) {
+		return clientService.getClientById(id);
+	}
+	
 	public List<String> getDatesForClientsInNormalFormat(List<Client> clients){
 		List<String> dates = new ArrayList();
 		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -94,6 +114,10 @@ public class BaseController {
 	//report1 number of proposition
 	public int getNumberOfAllPropositionsByTypeAndDates(String start, String ending, String result) {
 		return propositionService.getAllPropositionsByTypeAndDates(start, ending, result).size();
+	}
+	
+	public int getNumberOfAllRequestsByManagerTypeBetweenDates(String manager, String type, String start, String ending){
+		return requestService.getAllRequestsByManagerTypeBetweenDates(manager, type, start, ending).size();
 	}
 	
 	public List<Request> getAllRequestsByManagerTypeResultsBetweenDates(String manager, String type, String result, String start, String ending) {

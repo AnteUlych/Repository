@@ -17,8 +17,15 @@ public class ClientService {
 	@Autowired
 	private ClientDAO dao;
 
+	public void editManagerOfClient(int id, String manager) {
+		dao.editManagerOfClient(id, manager);
+	}
 	public void addClient(Client client) {
 		dao.persist(client);
+	}
+	
+	public List<Client> getAllClients() {
+		return dao.getAllClients();
 	}
 
 	public List<Client> getAllClientsByManager(String manager) {

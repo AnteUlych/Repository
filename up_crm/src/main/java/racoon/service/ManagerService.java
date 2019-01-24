@@ -17,6 +17,10 @@ public class ManagerService {
 	@Autowired
 	private ManagerDAO dao;
 
+	public void firedManager(int id, String firedManager) {
+		dao.firedManager(id, firedManager);
+	}
+	
 	public void addManager(Manager manager) {
 		dao.persist(manager);
 	}
@@ -37,6 +41,9 @@ public class ManagerService {
 	}
 	public String getManagersMailByName(String name) {
 		return dao.getManagersByName(name).getMail();
+	}
+	public int getManagerIdByName(String name) {
+		return dao.getManagersByName(name).getId();
 	}
 	public List<Manager> getAllManagers() {
 		return dao.getAllManagers();

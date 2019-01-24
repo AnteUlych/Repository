@@ -28,6 +28,10 @@ public class RequestService {
 		return dao.getAllRequestsByType(type);
 	}
 	
+	public List<Request> getAllRequestsByManagerTypeBetweenDates(String manager, String type, String start, String ending){
+		return dao.getAllRequestsByManagerTypeBetweenDates(manager, type, start, ending);
+	}
+	
 	public List<Request> getAllRequestsByCompanyBetweenDates(String company, String start, String ending) {
 		return dao.getAllRequestsByCompanyBetweenDates(company, start, ending);
 	}

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import racoon.model.Client;
+import racoon.model.Manager;
 
 @Repository
 public class ClientDAO {
@@ -23,6 +24,13 @@ public class ClientDAO {
 		Client transaction = em.merge(client);
 		em.persist(transaction);
 		em.close();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Client> getAllClients() {
+		return em
+				.createQuery("from Client")
+				.getResultList();
 	}
 	
 
@@ -61,6 +69,19 @@ public class ClientDAO {
 		client.setPerson(person);
 		client.setCategory(category);
 		client.setMail(mail);
+
+		Client transaction = em.merge(client);
+		em.persist(transaction);
+		em.close();
+
+	}
+	
+	@Transactional
+	public void editManagerOfClient(int id, String manager) {
+
+		Client client = (Client) em.find(Client.class, id);
+
+		client.setManager(manager);
 
 		Client transaction = em.merge(client);
 		em.persist(transaction);
