@@ -50,6 +50,11 @@ public class BaseController {
 	public int getManagerIdByName(String name) {
 		return managerService.getManagerIdByName(name);
 	}
+	
+	public void addManager(Manager manager) {
+		managerService.addManager(manager);
+	}
+	
 	public void firedManager(int id, String firedManager) {
 		managerService.firedManager(id, firedManager);
 	}
@@ -518,7 +523,7 @@ public class BaseController {
 		for (;;) {
 
 			code = 1000 + random.nextInt(9999 - 1000);
-
+			
 			try {
 				Manager manager = managerService.getManagersByCode(code);
 			} catch (NoResultException e) {

@@ -30,39 +30,20 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
 
-    <h5><b>Manager`s console. <a href="/crm/addManager" class="w3-bar-item w3-button w3-padding">&nbsp; Add</a> manager:</b></h5>
+    <h5><b>Add Manager:</b></h5>
   </header>
   <div class="w3-container">
-
-    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
-	 <tr>
-      <th>#</th>
-      <th>Company</th>
-      <th>Code</th>
-      
-      <th>Category</th>
-      <th>Change to</th>
-      <th>Next call</th>
-      <th>Last Comment</th>
-      <th>Funnel</th>
-      
-    </tr>
-	<c:forEach items="${clients}" var="client" varStatus="theCount">
-<tr>
-<td>${theCount.index+1}</td>	
-<td>${client.company}</td>
-<td>${client.code}</td>
-<td>${client.category}</td>
-<td><a href="/crm/change/${client.id}" class="w3-bar-item w3-button w3-padding">&nbsp; ${client.manager}</a></td>
-<td>${client.nextcall}</td>
-<td>${client.answer}</td>
-<td>${client.funnel}</td>
-
-
-</tr>
-</c:forEach>   
-    </table>
-    
+  <form method="post">
+   
+   <br>
+<p><input class="w3-input w3-border" type="text" pattern="[^\\/`]+" placeholder="Name" maxlength="50" required name="name"></p>
+<br>
+<p><input class="w3-input w3-border" type="text" pattern="[^\\/`]+" placeholder="Mail" required maxlength="70" name="mail"></p>
+<br>
+    <button type="submit" class="w3-button w3-green w3-third" name="change" value="change">Add</button>
+ 
+   <br><br>
+  </form>
     <br>
   </div>
   <hr>
