@@ -24,7 +24,7 @@ public class AddManager {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String submitForm(HttpServletRequest request,
+	public String submitForm(ModelMap model, HttpServletRequest request,
 			HttpServletResponse response) {
 
 		//Encoder enigma = new Encoder();
@@ -42,18 +42,13 @@ public class AddManager {
 		member.setRank(rank);
 		member.setCode(pass);
 		
-		enigma.addManager(member);
-		
-		try {
-			enigma.closeConnection();
-			response.sendRedirect("/crm/managers");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
+		enigma.addManager(member);		
 		enigma.closeConnection();
 		
-		return "change";
+		model.addAttribute("name", name);
+		model.addAttribute("password", pass+"");
+		
+		return "managerWasAdded";
 	}
 
 }
