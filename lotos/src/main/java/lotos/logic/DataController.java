@@ -2,7 +2,6 @@ package lotos.logic;
 
 import java.util.List;
 
-import lotos.model.Company;
 import lotos.model.Deal;
 import lotos.model.Proposition;
 import lotos.model.Recomendation;
@@ -34,11 +33,40 @@ public class DataController {
 	StatisticService statisticService = (StatisticService) ctx.getBean("statisticService");
 	TenderService tenderService = (TenderService) ctx.getBean("tenderService");
 	
-	//test
-	public List<Company> getAllCompanies() {
-		return companyService.getAllCompanies();
+
+	public void closeConnection() {
+		((AbstractApplicationContext) ctx).close();
 	}
 	
+	//request
+	public void createNewRequest(Request request) {
+		requestService.createNewRequest(request);
+	}
+	
+	public boolean isMailInRequestExist(String mail){
+		return requestService.isMailInRequestExist(mail);
+	}
+	
+	public boolean isCodeInRequestExist(String code){
+		return requestService.isCodeInRequestExist(code);
+	}
+	//request
+	
+	//company
+	public int getIdByLoginAndPassword(String mail, String password) {
+		return companyService.getIdByLoginAndPassword(mail, password);
+	}
+	
+	public boolean isMailExist(String mail){
+		return companyService.isMailExist(mail);
+	}
+	
+	public boolean isCodeExist(String code){
+		return companyService.isCodeExist(code);
+	}
+	//company
+	
+	//test	
 	public List<Deal> getAllDeals() {
 		return dealService.getAllDeals();
 	}
@@ -51,10 +79,6 @@ public class DataController {
 		return recomendationService.getAllRecomendations();
 	}
 	
-	public List<Request> getAllRequests() {
-		return requestService.getAllRequests();
-	}
-	
 	public List<Statistic> getAllStatistic() {
 		return statisticService.getAllStatistics();
 	}
@@ -63,11 +87,5 @@ public class DataController {
 		return tenderService.getAllTenders();
 	}
 	
-	
 	//test
-	
-	
-	public void closeConnection() {
-		((AbstractApplicationContext) ctx).close();
-	}
 }

@@ -24,8 +24,6 @@ public class Company {
 	@Column
 	private String mobile;
 	@Column
-	private String login;
-	@Column
 	private String password;
 	@Column
 	private String webaddress;
@@ -75,12 +73,6 @@ public class Company {
 	}
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
-	}
-	public String getLogin() {
-		return login;
-	}
-	public void setLogin(String login) {
-		this.login = login;
 	}
 	public String getPassword() {
 		return password;
