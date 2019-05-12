@@ -14,6 +14,8 @@ public class Recomendation {
 	@Column
 	private int dealid;
 	@Column
+	private int companyid;
+	@Column
 	private int companytenderid;
 	@Column
 	private int companytransportationid;
@@ -35,6 +37,8 @@ public class Recomendation {
 	private String weight;
 	@Column
 	private String transport;
+	@Column
+	private String rate;
 	@Column
 	private String whyinfo;
 	
@@ -122,5 +126,17 @@ public class Recomendation {
 	}
 	public void setDealdate(String dealdate) {
 		this.dealdate = dealdate;
+	}
+	public String getRate() {
+		return rate;
+	}
+	public void setRate(String rate) {
+		this.rate = rate;
+	}
+	public int getCompanyid() {
+		return companyid;
+	}
+	public void setCompanyid(int companyid) {
+		this.companyid = companyid;
 	}
 }

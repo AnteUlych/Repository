@@ -2,6 +2,7 @@ package lotos.logic;
 
 import java.util.List;
 
+import lotos.model.Company;
 import lotos.model.Deal;
 import lotos.model.Proposition;
 import lotos.model.Recomendation;
@@ -38,6 +39,42 @@ public class DataController {
 		((AbstractApplicationContext) ctx).close();
 	}
 	
+	//deal
+	
+	
+	public List<Deal> getDealsByCompanyOrPropositionId(int companytenderid, int companypropositionid) {
+		return dealService.getDealsByCompanyOrPropositionId(companytenderid, companypropositionid);
+	}
+	
+	public int getNumberofClosingDealsByCompanyId(int companytenderid) {
+		return dealService.getNumberofClosingDealsByCompanyId(companytenderid);
+	}
+	
+	public int getNumberWinningDealsByCompanyId(int companypropositionid) {
+		return dealService.getNumberWinningDealsByCompanyId(companypropositionid);
+	}
+	
+	//deal
+	//proposition
+	public List<Proposition> getPropositionsByTenderId(int tenderId) {
+		return propositionService.getPropositionsByTenderId(tenderId);
+	}
+	
+	public List<Proposition> getPropositionsByCompanyId(int companyId) {
+		return propositionService.getPropositionsByCompanyId(companyId);
+	}
+	//proposition
+	
+	//tender
+	public int getNumberOfTendersByCompanyId(int companyId) {
+		return tenderService.getNumberOfTendersByCompanyId(companyId);
+	}
+	
+	public List<Tender> getOpenTendersByCompanyId(int companyId){
+		return tenderService.getOpenTendersByCompanyId(companyId);
+	}
+	//tender
+	
 	//request
 	public void createNewRequest(Request request) {
 		requestService.createNewRequest(request);
@@ -64,27 +101,26 @@ public class DataController {
 	public boolean isCodeExist(String code){
 		return companyService.isCodeExist(code);
 	}
+	
+	public Company getCompanyById(int id) {
+		return companyService.getCompanyById(id);
+	}
 	//company
 	
+	//recomendation
+	public int getNumberOfGoodRecomendationByCompanyId(int companyid){
+		return recomendationService.getNumberOfRecomendationByCompanyId(companyid, "good");
+	}
+	
+	public int getNumberOfBadRecomendationByCompanyId(int companyid){
+		return recomendationService.getNumberOfRecomendationByCompanyId(companyid, "bad");
+	}
+	//recomendation
+	
 	//test	
-	public List<Deal> getAllDeals() {
-		return dealService.getAllDeals();
-	}
-	
-	public List<Proposition> getAllPropositions() {
-		return propositionService.getAllPropositions();
-	}
-	
-	public List<Recomendation> getAllRecomendations() {
-		return recomendationService.getAllRecomendations();
-	}
 	
 	public List<Statistic> getAllStatistic() {
 		return statisticService.getAllStatistics();
-	}
-	
-	public List<Tender> getAllTenders() {
-		return tenderService.getAllTenders();
 	}
 	
 	//test

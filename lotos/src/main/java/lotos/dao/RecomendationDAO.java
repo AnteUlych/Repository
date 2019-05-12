@@ -15,12 +15,12 @@ public class RecomendationDAO {
 	@PersistenceContext
 	private EntityManager em;
 	
-	//test
+	
 	@SuppressWarnings("unchecked")
-	public List<Recomendation> getAllRecomendations() {
+	public List<Recomendation> getRecomendationsByCompanyId(int companyid, String rate) {
 		return em
-				.createQuery("from Recomendation")
+				.createQuery("from Recomendation where companyid = '" + companyid + "'  and rate = '" + rate + "' order by id desc")
 				.getResultList();
 	}
-	//test
+	
 }

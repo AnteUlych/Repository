@@ -15,9 +15,12 @@ public class PropositionService {
 	
 	@Autowired
 	private PropositionDAO dao;
-	//test
-	public List<Proposition> getAllPropositions() {
-		return dao.getAllPropositions();
+
+	public List<Proposition> getPropositionsByTenderId(int tenderId) {
+		return dao.getPropositionsByTenderId(tenderId);
 	}
-	//test
+	
+	public List<Proposition> getPropositionsByCompanyId(int companyId) {
+		return dao.getPropositionsByCompanyId(companyId);
+	}
 }

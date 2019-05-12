@@ -14,9 +14,16 @@ import org.springframework.transaction.annotation.Transactional;
 public class DealService {
 	@Autowired
 	private DealDAO dao;
-	//test
-	public List<Deal> getAllDeals() {
-		return dao.getAllDeals();
+	
+	public List<Deal> getDealsByCompanyOrPropositionId(int companytenderid, int companypropositionid) {
+		return dao.getDealsByCompanyOrPropositionId(companytenderid, companypropositionid);
 	}
-	//test
+	
+	public int getNumberofClosingDealsByCompanyId(int companytenderid) {
+		return dao.getClosingDealsByCompanyId(companytenderid).size();
+	}
+	
+	public int getNumberWinningDealsByCompanyId(int companypropositionid) {
+		return dao.getWinningDealsByCompanyId(companypropositionid).size();
+	}
 }

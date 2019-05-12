@@ -43,7 +43,7 @@ public class LoginServlet {
         		session.setAttribute("id", id);
         		
         		try {
-        			response.sendRedirect("/lotos/panel");
+        			response.sendRedirect("/lotos/company/"+id);
         		} catch (IOException e) {
         			e.printStackTrace();
         		}
@@ -63,7 +63,7 @@ public class LoginServlet {
 		session.setAttribute("id", id);
 		
 		try {
-			response.sendRedirect("/lotos/panel");
+			response.sendRedirect("/lotos/tenders");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -1,6 +1,7 @@
 package lotos.service;
 
 import lotos.dao.CompanyDAO;
+import lotos.model.Company;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,10 @@ public class CompanyService {
 		} catch (Exception e) {
 			return 0;
 		}
+	}
+	
+	public Company getCompanyById(int id) {
+		return dao.getCompanyById(id);
 	}
 
 	public boolean isMailExist(String mail) {

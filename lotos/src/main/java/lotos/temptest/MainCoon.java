@@ -1,6 +1,11 @@
 package lotos.temptest;
 
+import java.util.List;
+
 import lotos.logic.DataController;
+import lotos.model.Deal;
+import lotos.model.Proposition;
+import lotos.model.Tender;
 
 public class MainCoon {
 
@@ -9,10 +14,9 @@ public class MainCoon {
 		System.out.println("class start");
 		DataController data = new DataController();
 	
-		boolean w = data.isCodeInRequestExist("124");
-		boolean w1 = data.isMailInRequestExist("satru@i.ua");
+			System.out.println(data.getNumberofClosingDealsByCompanyId(1));
+			System.out.println(data.getNumberWinningDealsByCompanyId(40));
 		
-		System.out.println(w+" "+w1);
 		System.out.println("class end");
 	}
 

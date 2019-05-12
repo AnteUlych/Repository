@@ -15,9 +15,13 @@ public class TenderService {
 
 	@Autowired
 	private TenderDAO dao;
-	//test
-	public List<Tender> getAllTenders() {
-		return dao.getAllTenders();
+	
+	public List<Tender> getOpenTendersByCompanyId(int companyId){
+		return dao.getOpenTendersByCompanyId(companyId);
 	}
-	//test
+	
+	public int getNumberOfTendersByCompanyId(int companyId) {
+		return dao.getTendersByCompanyId(companyId).size();
+	}
+	
 }

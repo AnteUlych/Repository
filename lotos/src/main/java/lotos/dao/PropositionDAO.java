@@ -15,12 +15,17 @@ public class PropositionDAO {
 	@PersistenceContext
 	private EntityManager em;
 	
-	//test
 	@SuppressWarnings("unchecked")
-	public List<Proposition> getAllPropositions() {
-		return em
-				.createQuery("from Proposition")
+	public List<Proposition> getPropositionsByTenderId(int tenderId) {
+		return em.createQuery(
+				"from Proposition where tenderid = '" + tenderId + "' order by id desc")
 				.getResultList();
 	}
-	//test
+	
+	@SuppressWarnings("unchecked")
+	public List<Proposition> getPropositionsByCompanyId(int companyId) {
+		return em.createQuery(
+				"from Proposition where companyid = '" + companyId + "'")
+				.getResultList();
+	}
 }

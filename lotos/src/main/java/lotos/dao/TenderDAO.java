@@ -9,18 +9,24 @@ import lotos.model.Tender;
 
 import org.springframework.stereotype.Repository;
 
+
 @Repository
 public class TenderDAO {
 
 	@PersistenceContext
 	private EntityManager em;
 	
-	//test
 	@SuppressWarnings("unchecked")
-	public List<Tender> getAllTenders() {
-		return em
-				.createQuery("from Tender")
+	public List<Tender> getOpenTendersByCompanyId(int companyId) {
+		return em.createQuery(
+				"from Tender where companyid = '" + companyId + "' and isopen = 'open' order by id desc")
 				.getResultList();
 	}
-	//test
+	
+	@SuppressWarnings("unchecked")
+	public List<Tender> getTendersByCompanyId(int companyId) {
+		return em.createQuery(
+				"from Tender where companyid = '" + companyId + "' order by id desc")
+				.getResultList();
+	}
 }

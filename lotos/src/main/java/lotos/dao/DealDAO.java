@@ -14,13 +14,26 @@ public class DealDAO {
 
 	@PersistenceContext
 	private EntityManager em;
-	
-	//test
+
 	@SuppressWarnings("unchecked")
-	public List<Deal> getAllDeals() {
+	public List<Deal> getDealsByCompanyOrPropositionId(int companytenderid, int companypropositionid) {
 		return em
-				.createQuery("from Deal")
+				.createQuery("from Deal where companytenderid = '" + companytenderid + "' or companypropositionid = '" + companypropositionid + "' order by id desc")
 				.getResultList();
 	}
-	//test
+	
+	@SuppressWarnings("unchecked")
+	public List<Deal> getClosingDealsByCompanyId(int companytenderid) {
+		return em
+				.createQuery("from Deal where companytenderid = '" + companytenderid + "' order by id desc")
+				.getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Deal> getWinningDealsByCompanyId(int companypropositionid) {
+		return em
+				.createQuery("from Deal where companypropositionid = '" + companypropositionid + "' order by id desc")
+				.getResultList();
+	}
+
 }

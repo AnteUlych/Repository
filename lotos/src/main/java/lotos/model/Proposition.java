@@ -31,6 +31,7 @@ public class Proposition {
 	private String currency;
 	@Column
 	private String otherinformation;
+
 	
 	public int getId() {
 		return id;

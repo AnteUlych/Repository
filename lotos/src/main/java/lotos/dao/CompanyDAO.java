@@ -29,4 +29,9 @@ public class CompanyDAO {
 		Query query = em.createQuery("from Company where code = '" + code + "'");
 		return (Company) query.getSingleResult();
 	}
+	
+	public Company getCompanyById(int id) {
+		Query query = em.createQuery("from Company where id = '" + id + "'");
+		return (Company) query.getSingleResult();
+	}
 }
