@@ -2,6 +2,7 @@ package lotos.temptest;
 
 import java.util.List;
 
+import lotos.logic.ConstantBase;
 import lotos.logic.DataController;
 import lotos.model.Deal;
 import lotos.model.Proposition;
@@ -12,12 +13,12 @@ public class MainCoon {
 	public static void main(String[] args) {
 		
 		System.out.println("class start");
-		DataController data = new DataController();
-	
-			System.out.println(data.getNumberofClosingDealsByCompanyId(1));
-			System.out.println(data.getNumberWinningDealsByCompanyId(40));
+		DataController cb = new DataController();
 		
-		System.out.println("class end");
+		List<Tender> t = cb.getOpenTenders();
+		for(Tender te:t){
+		System.out.println(te.getId());
+		}
 	}
 
 }

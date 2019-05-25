@@ -13,9 +13,10 @@
 	<a href="/lotos/recomendations/${company.id}" >${numberOfGoodRecomendations}</a><br>
 	<br> numberOfBadRecomendations = 
 	<a href="/lotos/recomendations/${company.id}" >${numberOfBadRecomendations}</a><br>
-	<br> numberOfClosingTenders = ${numberOfClosingTenders}
-	<br> numberOfWinningPropositions = ${numberOfWinningPropositions}
-	<br>
+	<br> numberOfClosingTenders = 
+	<a href="/lotos/deals/${company.id}" >${numberOfClosingTenders}</a><br>
+	<br> numberOfWinningPropositions = 
+	<a href="/lotos/deals/${company.id}" >${numberOfWinningPropositions}</a><br>
 	<br> 
 	
     <br> tenders:<br> 
@@ -37,7 +38,8 @@
 		<c:forEach items="${propositions}" var="tenderPropositions" varStatus="step">
 			propos - ${tenderPropositions.id}<br>	
 		</c:forEach>
-			
+		<a href="/lotos/edit_account" >edit</a><br>	
+		<a href="/lotos/tenders" >tenders</a><br>	
 
 </body>
 </html>

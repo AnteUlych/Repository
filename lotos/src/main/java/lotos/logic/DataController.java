@@ -1,5 +1,6 @@
 package lotos.logic;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lotos.model.Company;
@@ -66,6 +67,26 @@ public class DataController {
 	//proposition
 	
 	//tender
+	public List<Tender> getOpenTenders() {
+		return tenderService.getOpenTenders();
+	}
+	
+	public List<Tender> getOpenTendersFiltr(int more, int less, String countryfrom, String countryto, String transport) {
+		
+		List<Tender> tenders = tenderService.getOpenTendersFiltr(more, less, countryfrom, countryto);
+		
+		if(transport.contains("any")){
+			return tenders;
+		}
+		List<Tender> transportTenders = new ArrayList();
+		for (Tender tender:tenders){
+			if(tender.getPossibletransport().equals(transport)){
+				transportTenders.add(tender);
+			}
+		}
+		return transportTenders;
+	} 
+	
 	public int getNumberOfTendersByCompanyId(int companyId) {
 		return tenderService.getNumberOfTendersByCompanyId(companyId);
 	}
