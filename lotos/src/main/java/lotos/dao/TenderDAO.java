@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import lotos.model.Tender;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Repository
@@ -15,6 +16,13 @@ public class TenderDAO {
 
 	@PersistenceContext
 	private EntityManager em;
+	
+	@Transactional
+	public void persist(Tender tender) {
+		Tender transaction = em.merge(tender);
+		em.persist(transaction);
+		em.close();
+	}
 	
 	@SuppressWarnings("unchecked")
 	public List<Tender> getOpenTenders() {

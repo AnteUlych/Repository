@@ -1,8 +1,10 @@
 package lotos.service;
 
+import java.util.Date;
 import java.util.List;
 
 import lotos.dao.TenderDAO;
+import lotos.logic.SimpleLogic;
 import lotos.model.Tender;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,37 @@ public class TenderService {
 
 	@Autowired
 	private TenderDAO dao;
+	
+	public void addTender(int companyid, String company, int weight, String size, String readytopickup, String appdelivery, Date timetoendtender, String countryfrom, String countryto, String possibletransport, String payconditions, int dayspay, String freightinformationandconditions, String visiability, String addresstopickup, String addresstodelivery, String incoterms){
+		
+		Tender tender = new Tender();
+		
+		tender.setAddresstodelivery(addresstodelivery);
+		tender.setAddresstopickup(addresstopickup);
+		tender.setAppdelivery(appdelivery);
+		tender.setCompany(company);
+		tender.setCompanyid(companyid);
+		tender.setCountryfrom(countryfrom);
+		tender.setCountryto(countryto);
+		
+		SimpleLogic simple = new SimpleLogic();
+		
+		tender.setDateofopening(simple.fixDateInString());
+		tender.setDatetimecreation(new Date());
+		tender.setDayspay(dayspay);
+		tender.setFreightinformationandconditions(freightinformationandconditions);
+		tender.setIncoterms(incoterms);
+		tender.setIsopen("open");
+		tender.setPayconditions(payconditions);
+		tender.setPossibletransport(possibletransport);
+		tender.setReadytopickup(readytopickup);
+		tender.setSize(size);
+		tender.setTimetoendtender(timetoendtender);
+		tender.setVisiability(visiability);
+		tender.setWeight(weight);
+		
+		dao.persist(tender);
+	}
 	
 	public List<Tender> getOpenTenders() {
 		return dao.getOpenTenders();

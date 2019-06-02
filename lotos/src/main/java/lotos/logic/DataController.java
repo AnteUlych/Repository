@@ -1,6 +1,7 @@
 package lotos.logic;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import lotos.model.Company;
@@ -67,6 +68,11 @@ public class DataController {
 	//proposition
 	
 	//tender
+	
+	public void addTender(int companyid, String company, int weight, String size, String readytopickup, String appdelivery, Date timetoendtender, String countryfrom, String countryto, String possibletransport, String payconditions, int dayspay, String freightinformationandconditions, String visiability, String addresstopickup, String addresstodelivery, String incoterms){
+		tenderService.addTender(companyid, company, weight, size, readytopickup, appdelivery, timetoendtender, countryfrom, countryto, possibletransport, payconditions, dayspay, freightinformationandconditions, visiability, addresstopickup, addresstodelivery, incoterms);
+	}
+	
 	public List<Tender> getOpenTenders() {
 		return tenderService.getOpenTenders();
 	}

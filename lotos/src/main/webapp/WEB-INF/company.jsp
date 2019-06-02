@@ -40,6 +40,7 @@
 		</c:forEach>
 		<a href="/lotos/edit_account" >edit</a><br>	
 		<a href="/lotos/tenders" >tenders</a><br>	
+		<a href="/lotos/addtender" >add tender</a><br>	
 
 </body>
 </html>

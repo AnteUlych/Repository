@@ -24,11 +24,11 @@ public class Tender {
 	@Column
 	private int weight;
 	@Column
-	private int size;
+	private String size;
 	@Column
-	private int readytopickup;
+	private String readytopickup;
 	@Column
-	private int appdelivery;
+	private String appdelivery;
 	@Column
 	private Date timetoendtender;
 	@Column
@@ -84,22 +84,22 @@ public class Tender {
 	public void setWeight(int weight) {
 		this.weight = weight;
 	}
-	public int getSize() {
+	public String getSize() {
 		return size;
 	}
-	public void setSize(int size) {
+	public void setSize(String size) {
 		this.size = size;
 	}
-	public int getReadytopickup() {
+	public String getReadytopickup() {
 		return readytopickup;
 	}
-	public void setReadytopickup(int readytopickup) {
+	public void setReadytopickup(String readytopickup) {
 		this.readytopickup = readytopickup;
 	}
-	public int getAppdelivery() {
+	public String getAppdelivery() {
 		return appdelivery;
 	}
-	public void setAppdelivery(int appdelivery) {
+	public void setAppdelivery(String appdelivery) {
 		this.appdelivery = appdelivery;
 	}
 	public Date getTimetoendtender() {
