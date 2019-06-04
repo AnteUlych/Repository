@@ -13,6 +13,10 @@ public class CompanyService {
 
 	@Autowired
 	private CompanyDAO dao;
+	
+	public void editCompany(int id, String manager, String mail, String phone, String mobile, String password, String webaddress) {
+		dao.editCompany(id, manager, mail, phone, mobile, password, webaddress);
+	}
 
 	public int getIdByLoginAndPassword(String mail, String password) {
 		try {

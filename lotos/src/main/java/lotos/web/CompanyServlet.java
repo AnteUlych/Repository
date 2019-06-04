@@ -30,6 +30,7 @@ public class CompanyServlet {
 		
 		HttpSession session = request.getSession();
 		int id = (Integer) session.getAttribute("id");
+		String logo = (String) session.getAttribute("logo");
 		
 		DataController data = new DataController();
 		
@@ -61,6 +62,7 @@ public class CompanyServlet {
 		
 		model.addAttribute("companyId", companyId);
 		model.addAttribute("id", id);
+		model.addAttribute("logo", logo);
 		
 		model.addAttribute("company", company);
 		model.addAttribute("companyTenders", companyTenders);

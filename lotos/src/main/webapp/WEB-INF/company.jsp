@@ -6,6 +6,7 @@
 <body>
 	CompanyServlet ${companyId}
 	<br> ${id}
+	<br> ${logo}
 	<br> company - ${company.company}
 	<br> isOwnCompany : ${isOwnCompany}
 	<br> numberOfTenders = ${numberOfTenders}
@@ -38,7 +39,7 @@
 		<c:forEach items="${propositions}" var="tenderPropositions" varStatus="step">
 			propos - ${tenderPropositions.id}<br>	
 		</c:forEach>
-		<a href="/lotos/edit_account" >edit</a><br>	
+		<a href="/lotos/edit_company" >edit</a><br>	
 		<a href="/lotos/tenders" >tenders</a><br>	
 		<a href="/lotos/addtender" >add tender</a><br>	
 

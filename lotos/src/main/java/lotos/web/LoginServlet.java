@@ -27,6 +27,7 @@ public class LoginServlet {
 			HttpServletResponse response) {
 		
 		int id = 0;
+		String logo = "sign in";
 		
 		if (request.getParameter("logIn") != null) {
 
@@ -35,12 +36,16 @@ public class LoginServlet {
 			
             DataController data = new DataController();
             id = data.getIdByLoginAndPassword(mail, password);
+            if(id!=0){
+            logo = data.getCompanyById(id).getCompany();
+            }
             data.closeConnection();
             
             if(id!=0){
             	
             	HttpSession session = request.getSession();
         		session.setAttribute("id", id);
+        		session.setAttribute("logo", logo);
         		
         		try {
         			response.sendRedirect("/lotos/company/"+id);
@@ -61,6 +66,7 @@ public class LoginServlet {
 			
 		HttpSession session = request.getSession();
 		session.setAttribute("id", id);
+		session.setAttribute("logo", logo);
 		
 		try {
 			response.sendRedirect("/lotos/tenders");
