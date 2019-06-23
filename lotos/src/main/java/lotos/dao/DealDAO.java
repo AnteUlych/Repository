@@ -8,12 +8,20 @@ import javax.persistence.PersistenceContext;
 import lotos.model.Deal;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public class DealDAO {
 
 	@PersistenceContext
 	private EntityManager em;
+	
+	@Transactional
+	public void persist(Deal deal) {
+		Deal transaction = em.merge(deal);
+		em.persist(transaction);
+		em.close();
+	}
 
 	@SuppressWarnings("unchecked")
 	public List<Deal> getDealsByCompanyOrPropositionId(int companytenderid, int companypropositionid) {

@@ -15,6 +15,29 @@ public class PropositionService {
 	
 	@Autowired
 	private PropositionDAO dao;
+	
+	public void deleteProposition(int propositionId) {
+		dao.deleteProposition(propositionId);
+	}
+	
+	public void addProposition(int tenderid, int companyid, String company, String dateproposition, String transport, String pickup, String deliverydate, int price, String currency, String otherinformation){
+		
+		Proposition proposition = new Proposition();
+		
+		proposition.setTenderid(tenderid);
+		proposition.setCompanyid(companyid);
+		proposition.setCompany(company);
+		proposition.setDateproposition(dateproposition);
+		proposition.setTransport(transport);
+		proposition.setPickup(pickup);
+		proposition.setDeliverydate(deliverydate);
+		proposition.setPrice(price);
+		proposition.setCurrency(currency);
+		proposition.setOtherinformation(otherinformation);
+		
+		dao.persist(proposition);
+		
+	}
 
 	public List<Proposition> getPropositionsByTenderId(int tenderId) {
 		return dao.getPropositionsByTenderId(tenderId);

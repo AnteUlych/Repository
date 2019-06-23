@@ -4,12 +4,12 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import lotos.model.Tender;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 
 @Repository
 public class TenderDAO {
@@ -18,10 +18,35 @@ public class TenderDAO {
 	private EntityManager em;
 	
 	@Transactional
+	public void deleteTender(int tenderId) {
+		Tender tender = (Tender) em.find(Tender.class, tenderId);
+		Tender transaction = em.merge(tender);
+		em.remove(transaction);
+		em.close();
+	}
+	
+	@Transactional
+	public void closeTender(int tenderId) {
+
+		Tender tender = (Tender) em.find(Tender.class, tenderId);
+
+		tender.setIsopen("closed");
+
+		Tender transaction = em.merge(tender);
+		em.persist(transaction);
+		em.close();
+	}
+	
+	@Transactional
 	public void persist(Tender tender) {
 		Tender transaction = em.merge(tender);
 		em.persist(transaction);
 		em.close();
+	}
+	
+	public Tender getTenderByTenderId(int tenderId) {
+		Query query = em.createQuery("from Tender where id = '" + tenderId + "'");
+		return (Tender) query.getSingleResult();
 	}
 	
 	@SuppressWarnings("unchecked")

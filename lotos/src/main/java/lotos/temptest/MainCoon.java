@@ -12,13 +12,12 @@ public class MainCoon {
 
 	public static void main(String[] args) {
 		
-		System.out.println("class start");
+	
 		DataController cb = new DataController();
-		
-		List<Tender> t = cb.getOpenTenders();
-		for(Tender te:t){
-		System.out.println(te.getId());
-		}
+	cb.addDeal(1, 2, 1, 2, "test", 5, "test", "test", "test", "test", "test", 5, "test", "test", "test", "test", "test", "test", 4, "test", "test", "test");
+		System.out.println("done");
+	
+	
 	}
 
 }

@@ -18,6 +18,19 @@ public class TenderService {
 	@Autowired
 	private TenderDAO dao;
 	
+	public void deleteTender(int tenderId){
+		dao.deleteTender(tenderId);
+	}
+	
+	
+	public void closeTender(int tenderId) {
+		dao.closeTender(tenderId);
+	}
+	
+	public Tender getTenderByTenderId(int tenderId) {
+		return dao.getTenderByTenderId(tenderId);
+	}
+	
 	public void addTender(int companyid, String company, int weight, String size, String readytopickup, String appdelivery, Date timetoendtender, String countryfrom, String countryto, String possibletransport, String payconditions, int dayspay, String freightinformationandconditions, String visiability, String addresstopickup, String addresstodelivery, String incoterms){
 		
 		Tender tender = new Tender();

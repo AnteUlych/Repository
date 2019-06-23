@@ -5,6 +5,18 @@ import java.util.List;
 
 public class ConstantBase {
 	
+	public List<String> getCurrencyBase() {
+		
+		List<String> currencies = new ArrayList();
+		
+		currencies.add("USD");
+		currencies.add("UAH");
+		currencies.add("EUR");
+		
+		return currencies;
+		
+	}
+	
 	public List<String> getIncotermsBase() {
 
 		List<String> incoterms = new ArrayList();
