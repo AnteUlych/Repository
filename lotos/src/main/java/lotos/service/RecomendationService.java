@@ -19,4 +19,8 @@ public class RecomendationService {
 	public int getNumberOfRecomendationByCompanyId(int companyid, String rate) {
 		return dao.getRecomendationsByCompanyId(companyid, rate).size();
 	}
+	
+	public List<Recomendation> getRecomendationsByCompanyId(int companyid, String rate) {
+		return dao.getRecomendationsByCompanyId(companyid, rate);
+	}
 }

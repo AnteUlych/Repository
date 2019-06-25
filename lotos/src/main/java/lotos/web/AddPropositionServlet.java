@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import lotos.logic.ConstantBase;
 import lotos.logic.DataController;
+import lotos.logic.MailController;
 import lotos.model.Tender;
 
 import org.springframework.stereotype.Controller;
@@ -112,6 +113,8 @@ public class AddPropositionServlet {
 		}
 		
 		data.addProposition(idTender, id, logo, transport, pickup, deliverydate, Integer.parseInt(price), currency, otherinformation);
+		MailController mail = new MailController();
+		mail.sendProposition(tender, transport, pickup, deliverydate, Integer.parseInt(price), currency, otherinformation);
 		data.closeConnection();
 		
 		try {

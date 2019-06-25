@@ -18,4 +18,11 @@ public class MailController {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public void sendProposition(Tender tender, String transport, String pickup,
+			String deliverydate, int parseInt, String currency,
+			String otherinformation) {
+		// TODO Auto-generated method stub
+		
+	}
 }

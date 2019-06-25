@@ -11,9 +11,9 @@
 	<br> isOwnCompany : ${isOwnCompany}
 	<br> numberOfTenders = ${numberOfTenders}
 	<br> numberOfGoodRecomendations = 
-	<a href="/lotos/recomendations/${company.id}" >${numberOfGoodRecomendations}</a><br>
+	<a href="/lotos/recommendations/good_${company.id}" >${numberOfGoodRecomendations}</a><br>
 	<br> numberOfBadRecomendations = 
-	<a href="/lotos/recomendations/${company.id}" >${numberOfBadRecomendations}</a><br>
+	<a href="/lotos/recommendations/bad_${company.id}" >${numberOfBadRecomendations}</a><br>
 	<br> numberOfClosingTenders = 
 	<a href="/lotos/deals/${company.id}" >${numberOfClosingTenders}</a><br>
 	<br> numberOfWinningPropositions = 

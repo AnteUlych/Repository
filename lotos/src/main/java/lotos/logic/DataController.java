@@ -205,6 +205,10 @@ public class DataController {
 	// company
 
 	// recomendation
+	public List<Recomendation> getRecomendationsByCompanyId(int companyid, String rate) {
+		return recomendationService.getRecomendationsByCompanyId(companyid, rate);
+	}
+	
 	public int getNumberOfGoodRecomendationByCompanyId(int companyid) {
 		return recomendationService.getNumberOfRecomendationByCompanyId(
 				companyid, "good");
