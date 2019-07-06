@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import lotos.model.Deal;
 
@@ -43,5 +44,18 @@ public class DealDAO {
 				.createQuery("from Deal where companypropositionid = '" + companypropositionid + "' order by id desc")
 				.getResultList();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Deal> getDealsByTransportId(int companypropositionid) {
+		return em
+				.createQuery("from Deal where companypropositionid = '" + companypropositionid + "' order by id desc")
+				.getResultList();
+	}
+	
+	public Deal getDealById(int id) {
+		Query query = em.createQuery("from Deal where id = '" + id + "'");
+		return (Deal) query.getSingleResult();
+	}
+	
 
 }

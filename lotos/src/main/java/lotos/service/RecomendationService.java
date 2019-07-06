@@ -23,4 +23,33 @@ public class RecomendationService {
 	public List<Recomendation> getRecomendationsByCompanyId(int companyid, String rate) {
 		return dao.getRecomendationsByCompanyId(companyid, rate);
 	}
+	
+	public Recomendation getRecomendationByDealId(int dealid) {
+		return dao.getRecomendationByDealId(dealid);
+	}
+	
+	public void addRecommendation(int dealid, int companyid, int companytenderid, int companytransportationid, String companytender, String companyproposition, String dealdate, String recomendationdate, String incoterms, String countryfrom, String countryto, int weight, String transport, String rate, String whyinfo){
+		
+		Recomendation rec = new Recomendation();
+		
+		rec.setCompanyid(companyid);
+		rec.setCompanyproposition(companyproposition);
+		rec.setCompanytender(companytender);
+		rec.setCompanytenderid(companytenderid);
+		rec.setCompanytransportationid(companytransportationid);
+		rec.setCountryfrom(countryfrom);
+		rec.setCountryto(countryto);
+		rec.setDealdate(dealdate);
+		rec.setDealid(dealid);
+		rec.setIncoterms(incoterms);
+		rec.setIncoterms(incoterms);
+		rec.setRate(rate);
+		rec.setRecomendationdate(recomendationdate);
+		rec.setTransport(transport);
+		rec.setWeight(weight);
+		rec.setWhyinfo(whyinfo);
+		
+		dao.persist(rec);
+		
+	}
 }

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.NoResultException;
+
 import lotos.model.Company;
 import lotos.model.Deal;
 import lotos.model.Proposition;
@@ -69,6 +71,18 @@ public class DataController {
 			int companypropositionid) {
 		return dealService.getDealsByCompanyOrPropositionId(companytenderid,
 				companypropositionid);
+	}
+	
+	public List<Deal> getDealsByCompanyId(int companytenderid) {
+		return dealService.getDealsByCompanyId(companytenderid);
+	}
+	
+	public List<Deal> getDealsByTransportId(int companypropositionid) {
+		return dealService.getDealsByTransportId(companypropositionid);
+	}
+	
+	public Deal getDealById(int id) {
+		return dealService.getDealById(id);
 	}
 
 	public int getNumberofClosingDealsByCompanyId(int companytenderid) {
@@ -218,6 +232,24 @@ public class DataController {
 		return recomendationService.getNumberOfRecomendationByCompanyId(
 				companyid, "bad");
 	}
+	
+	public void addRecommendation(int dealid, int companyid, int companytenderid, int companytransportationid, String companytender, String companyproposition, String dealdate, String recomendationdate, String incoterms, String countryfrom, String countryto, int weight, String transport, String rate, String whyinfo){
+		recomendationService.addRecommendation(dealid, companyid, companytenderid, companytransportationid, companytender, companyproposition, dealdate, recomendationdate, incoterms, countryfrom, countryto, weight, transport, rate, whyinfo);
+	}
+	
+	public Recomendation getRecomendationByDealId(int dealid) {
+		return recomendationService.getRecomendationByDealId(dealid);
+	}
+	
+	public boolean isRecomendationExist(int dealid){
+		try{
+			Recomendation recomendation = getRecomendationByDealId(dealid);
+			return true;
+			}catch(NoResultException resultException){
+				return false;
+			}
+	}
+
 
 	// recomendation
 

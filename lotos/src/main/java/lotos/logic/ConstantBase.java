@@ -4,23 +4,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConstantBase {
-	
+
+	public List<String> getRateBase() {
+
+		List<String> rates = new ArrayList();
+
+		rates.add("good");
+		rates.add("bad");
+
+		return rates;
+
+	}
+
 	public List<String> getCurrencyBase() {
-		
+
 		List<String> currencies = new ArrayList();
-		
+
 		currencies.add("USD");
 		currencies.add("UAH");
 		currencies.add("EUR");
-		
+
 		return currencies;
-		
+
 	}
-	
+
 	public List<String> getIncotermsBase() {
 
 		List<String> incoterms = new ArrayList();
-		
+
 		incoterms.add("EXW");
 		incoterms.add("FCA");
 		incoterms.add("FAS");
@@ -31,25 +42,25 @@ public class ConstantBase {
 		incoterms.add("CIP");
 		incoterms.add("DAP");
 		incoterms.add("DDP");
-		
+
 		return incoterms;
 	}
-	
+
 	public List<String> getVisiabilityBase() {
 
 		List<String> visiability = new ArrayList();
-		
+
 		visiability.add("propositions");
 		visiability.add("prices");
 		visiability.add("competitors");
 
 		return visiability;
 	}
-	
+
 	public List<String> getPaymentBase() {
 
 		List<String> payments = new ArrayList();
-		
+
 		payments.add("prepayment");
 		payments.add("prepayment and after unloading");
 		payments.add("prepayment and after originals of documents");
@@ -58,11 +69,11 @@ public class ConstantBase {
 
 		return payments;
 	}
-	
+
 	public List<String> getTransportBase() {
 
 		List<String> transports = new ArrayList();
-		
+
 		transports.add("any");
 		transports.add("truck");
 		transports.add("container");
@@ -276,6 +287,5 @@ public class ConstantBase {
 
 		return countries;
 	}
-
 
 }

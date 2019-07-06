@@ -15,9 +15,9 @@
 	<br> numberOfBadRecomendations = 
 	<a href="/lotos/recommendations/bad_${company.id}" >${numberOfBadRecomendations}</a><br>
 	<br> numberOfClosingTenders = 
-	<a href="/lotos/deals/${company.id}" >${numberOfClosingTenders}</a><br>
+	<a href="/lotos/deals/tender" >${numberOfClosingTenders}</a><br>
 	<br> numberOfWinningPropositions = 
-	<a href="/lotos/deals/${company.id}" >${numberOfWinningPropositions}</a><br>
+	<a href="/lotos/deals/transport" >${numberOfWinningPropositions}</a><br>
 	<br> 
 	
     <br> tenders:<br> 

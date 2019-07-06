@@ -61,6 +61,18 @@ public class DealService {
 		return dao.getDealsByCompanyOrPropositionId(companytenderid,
 				companypropositionid);
 	}
+	
+	public List<Deal> getDealsByCompanyId(int companytenderid) {
+		return dao.getClosingDealsByCompanyId(companytenderid);
+	}
+	
+	public List<Deal> getDealsByTransportId(int companypropositionid) {
+		return dao.getDealsByTransportId(companypropositionid);
+	}
+	
+	public Deal getDealById(int id) {
+		return dao.getDealById(id);
+	}
 
 	public int getNumberofClosingDealsByCompanyId(int companytenderid) {
 		return dao.getClosingDealsByCompanyId(companytenderid).size();

@@ -34,7 +34,7 @@ public class Recomendation {
 	@Column
 	private String countryto;
 	@Column
-	private String weight;
+	private int weight;
 	@Column
 	private String transport;
 	@Column
@@ -103,12 +103,7 @@ public class Recomendation {
 	public void setCountryto(String countryto) {
 		this.countryto = countryto;
 	}
-	public String getWeight() {
-		return weight;
-	}
-	public void setWeight(String weight) {
-		this.weight = weight;
-	}
+
 	public String getTransport() {
 		return transport;
 	}
@@ -138,5 +133,11 @@ public class Recomendation {
 	}
 	public void setCompanyid(int companyid) {
 		this.companyid = companyid;
+	}
+	public int getWeight() {
+		return weight;
+	}
+	public void setWeight(int weight) {
+		this.weight = weight;
 	}
 }
