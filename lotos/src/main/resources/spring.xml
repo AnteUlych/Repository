@@ -58,7 +58,6 @@
 	 <bean id="propositionDao" class="lotos.dao.PropositionDAO" />
 	 <bean id="recomendationDao" class="lotos.dao.RecomendationDAO" />
 	 <bean id="requestDao" class="lotos.dao.RequestDAO" />
-	 <bean id="statisticDao" class="lotos.dao.StatisticDAO" />
 	 <bean id="tenderDao" class="lotos.dao.TenderDAO" />
 	 
 	 <bean id="companyService" class="lotos.service.CompanyService" />
@@ -66,7 +65,6 @@
 	 <bean id="propositionService" class="lotos.service.PropositionService" />
 	 <bean id="recomendationService" class="lotos.service.RecomendationService" />
 	 <bean id="requestService" class="lotos.service.RequestService" />
-	 <bean id="statisticService" class="lotos.service.StatisticService" />
 	 <bean id="tenderService" class="lotos.service.TenderService" />
 	
 	

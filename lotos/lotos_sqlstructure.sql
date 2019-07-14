@@ -72,7 +72,7 @@ CREATE TABLE `deal` (
   `freightinformationandconditions` varchar(200) NOT NULL,
   `transport` varchar(45) NOT NULL,
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +95,7 @@ CREATE TABLE `proposition` (
   `currency` varchar(45) NOT NULL,
   `otherinformation` varchar(200) NOT NULL,
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,7 +123,7 @@ CREATE TABLE `recomendation` (
   `rate` varchar(10) NOT NULL,
   `companyid` int(11) NOT NULL,
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -145,30 +145,6 @@ CREATE TABLE `request` (
   `registration` varchar(45) NOT NULL,
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `statistic`
---
-
-DROP TABLE IF EXISTS `statistic`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `statistic` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `companyid` int(11) NOT NULL,
-  `company` varchar(90) NOT NULL,
-  `code` varchar(20) NOT NULL,
-  `tenderscount` int(11) NOT NULL,
-  `propositionscount` int(11) NOT NULL,
-  `confirmpropositionscount` int(11) NOT NULL,
-  `badrecomendationscount` int(11) NOT NULL,
-  `goodrecomendationscount` int(11) NOT NULL,
-  `confirmtenderscount` int(11) NOT NULL,
-  `lastvisit` varchar(45) NOT NULL,
-  UNIQUE KEY `id_UNIQUE` (`id`),
-  UNIQUE KEY `companyid_UNIQUE` (`companyid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -201,7 +177,7 @@ CREATE TABLE `tender` (
   `incoterms` varchar(10) NOT NULL,
   `isopen` varchar(10) NOT NULL,
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -217,4 +193,4 @@ CREATE TABLE `tender` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-09 15:46:26
+-- Dump completed on 2019-07-09 20:17:41

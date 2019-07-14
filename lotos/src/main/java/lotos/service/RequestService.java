@@ -16,9 +16,21 @@ public class RequestService {
 
 	@Autowired
 	private RequestDAO dao;
+	
+	public Request getRequestByRequestId(int id) {
+		return dao.getRequestByRequestId(id);
+	}
+	
+	public List<Request> getAllRequests() {
+		return dao.getAllRequests();
+	}
 
 	public void createNewRequest(Request request) {
 		dao.persist(request);
+	}
+	
+	public void deleteRequest(int requestId) {
+		dao.deleteRequest(requestId);
 	}
 	
 	public boolean isMailInRequestExist(String mail) {

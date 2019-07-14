@@ -11,14 +11,12 @@ import lotos.model.Deal;
 import lotos.model.Proposition;
 import lotos.model.Recomendation;
 import lotos.model.Request;
-import lotos.model.Statistic;
 import lotos.model.Tender;
 import lotos.service.CompanyService;
 import lotos.service.DealService;
 import lotos.service.PropositionService;
 import lotos.service.RecomendationService;
 import lotos.service.RequestService;
-import lotos.service.StatisticService;
 import lotos.service.TenderService;
 
 import org.springframework.context.ApplicationContext;
@@ -38,8 +36,6 @@ public class DataController {
 			.getBean("recomendationService");
 	RequestService requestService = (RequestService) ctx
 			.getBean("requestService");
-	StatisticService statisticService = (StatisticService) ctx
-			.getBean("statisticService");
 	TenderService tenderService = (TenderService) ctx.getBean("tenderService");
 
 	public void closeConnection() {
@@ -179,6 +175,18 @@ public class DataController {
 	// tender
 
 	// request
+	public Request getRequestByRequestId(int id) {
+		return requestService.getRequestByRequestId(id);
+	}
+	
+	public void deleteRequest(int requestId) {
+		requestService.deleteRequest(requestId);
+	}
+	
+	public List<Request> getAllRequests() {
+		return requestService.getAllRequests();
+	}
+	
 	public void createNewRequest(Request request) {
 		requestService.createNewRequest(request);
 	}
@@ -194,6 +202,14 @@ public class DataController {
 	// request
 
 	// company
+	public List<Company> getAllCompanies() {
+		return companyService.getAllCompanies();
+	}
+	
+	public void addCompany(String company, String code, String manager, String mail, String phone, String mobile, String password, String webaddress, String youcontrol, String registration) {
+		companyService.addCompany(company, code, manager, mail, phone, mobile, password, webaddress, youcontrol, registration);
+	}
+	
 	public void editCompany(int id, String manager, String mail, String phone,
 			String mobile, String password, String webaddress) {
 		companyService.editCompany(id, manager, mail, phone, mobile, password,
@@ -253,11 +269,4 @@ public class DataController {
 
 	// recomendation
 
-	// test
-
-	public List<Statistic> getAllStatistic() {
-		return statisticService.getAllStatistics();
-	}
-
-	// test
 }

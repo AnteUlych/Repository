@@ -15,6 +15,16 @@ import lotos.model.Deal;
 
 public class SimpleLogic {
 	
+	final String adminPassword = "xzxzzxzxcaa";
+	
+	public boolean isPasswordForAdninRight(String password){
+		
+		if(password.equals(adminPassword)){
+			return true;
+		}
+		return false;
+	}
+	
 	public List<Deal> getDealsByIdWithNoRecommendation(int companyid){
 		
 		DataController dc = new DataController();

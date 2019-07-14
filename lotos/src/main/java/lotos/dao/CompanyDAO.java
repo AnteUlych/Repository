@@ -1,5 +1,7 @@
 package lotos.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -31,6 +33,18 @@ public class CompanyDAO {
 		Company transaction = em.merge(company);
 		em.persist(transaction);
 		em.close();
+	}
+	
+	@Transactional
+	public void persist(Company company) {
+		Company transaction = em.merge(company);
+		em.persist(transaction);
+		em.close();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Company> getAllCompanies() {
+		return em.createQuery("from Company").getResultList();
 	}
 	
 	public Company getCompanyByLoginAndPassword(String mail, String password) {

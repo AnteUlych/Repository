@@ -1,5 +1,7 @@
 package lotos.service;
 
+import java.util.List;
+
 import lotos.dao.CompanyDAO;
 import lotos.model.Company;
 
@@ -16,6 +18,29 @@ public class CompanyService {
 	
 	public void editCompany(int id, String manager, String mail, String phone, String mobile, String password, String webaddress) {
 		dao.editCompany(id, manager, mail, phone, mobile, password, webaddress);
+	}
+	
+	public List<Company> getAllCompanies() {
+		return dao.getAllCompanies();
+	}
+	
+	public void addCompany(String company, String code, String manager, String mail, String phone, String mobile, String password, String webaddress, String youcontrol, String registration) {
+		
+		Company client = new Company();
+		
+		client.setCompany(company);
+		client.setCode(code);
+		client.setManager(manager);
+		client.setMail(mail);
+		client.setPhone(phone);
+		client.setMobile(mobile);
+		client.setPassword(password);
+		client.setWebaddress(webaddress);
+		client.setYoucontrol(youcontrol);
+		client.setRegistration(registration);
+		
+		dao.persist(client);
+		
 	}
 
 	public int getIdByLoginAndPassword(String mail, String password) {
