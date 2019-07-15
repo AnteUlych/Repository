@@ -231,6 +231,10 @@ public class DataController {
 	public Company getCompanyById(int id) {
 		return companyService.getCompanyById(id);
 	}
+	
+	public Company getCompanyByCode(String code) {
+		return companyService.getCompanyByCode(code);
+	}
 
 	// company
 

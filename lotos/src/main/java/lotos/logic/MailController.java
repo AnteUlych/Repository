@@ -25,4 +25,15 @@ public class MailController {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public void sendCreationDenied(String mail, String manager) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void sendConfirmationOfCreating(String mail, String manager,
+			String company) {
+		// TODO Auto-generated method stub
+		
+	}
 }

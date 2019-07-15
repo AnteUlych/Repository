@@ -54,6 +54,10 @@ public class CompanyService {
 	public Company getCompanyById(int id) {
 		return dao.getCompanyById(id);
 	}
+	
+	public Company getCompanyByCode(String code) {
+		return dao.getCompanyByCode(code);
+	}
 
 	public boolean isMailExist(String mail) {
 		try {
