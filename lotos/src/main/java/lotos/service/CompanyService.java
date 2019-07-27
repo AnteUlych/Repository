@@ -20,6 +20,10 @@ public class CompanyService {
 		dao.editCompany(id, manager, mail, phone, mobile, password, webaddress);
 	}
 	
+	public void editCompanyWithAllParameters(int id, String client, String code, String manager, String mail, String phone, String mobile, String password, String webaddress, String youcontrol) {
+		dao.editCompanyWithAllParameters(id, client, code, manager, mail, phone, mobile, password, webaddress, youcontrol);
+	}
+	
 	public List<Company> getAllCompanies() {
 		return dao.getAllCompanies();
 	}

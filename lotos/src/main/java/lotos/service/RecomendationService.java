@@ -16,6 +16,10 @@ public class RecomendationService {
 	@Autowired
 	private RecomendationDAO dao;
 	
+	public List<Recomendation> getListRecomendationsByCompanyId(int companyid) {
+		return dao.getListRecomendationsByCompanyId(companyid);
+	}
+	
 	public int getNumberOfRecomendationByCompanyId(int companyid, String rate) {
 		return dao.getRecomendationsByCompanyId(companyid, rate).size();
 	}

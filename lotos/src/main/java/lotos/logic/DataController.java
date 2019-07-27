@@ -215,6 +215,10 @@ public class DataController {
 		companyService.editCompany(id, manager, mail, phone, mobile, password,
 				webaddress);
 	}
+	
+	public void editCompanyWithAllParameters(int id, String client, String code, String manager, String mail, String phone, String mobile, String password, String webaddress, String youcontrol) {
+		companyService.editCompanyWithAllParameters(id, client, code, manager, mail, phone, mobile, password, webaddress, youcontrol);
+	}
 
 	public int getIdByLoginAndPassword(String mail, String password) {
 		return companyService.getIdByLoginAndPassword(mail, password);
@@ -239,6 +243,10 @@ public class DataController {
 	// company
 
 	// recomendation
+	public List<Recomendation> getListRecomendationsByCompanyId(int companyid) {
+		return recomendationService.getListRecomendationsByCompanyId(companyid);
+	}
+	
 	public List<Recomendation> getRecomendationsByCompanyId(int companyid, String rate) {
 		return recomendationService.getRecomendationsByCompanyId(companyid, rate);
 	}

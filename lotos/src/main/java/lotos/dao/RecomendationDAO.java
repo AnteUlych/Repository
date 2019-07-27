@@ -27,6 +27,13 @@ public class RecomendationDAO {
 				.getResultList();
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Recomendation> getListRecomendationsByCompanyId(int companyid) {
+		return em
+				.createQuery("from Recomendation where companyid = '" + companyid + "' order by id desc")
+				.getResultList();
+	}
+	
 	public Recomendation getRecomendationByDealId(int dealid) {
 		Query query = em.createQuery("from Recomendation where dealid = '" + dealid + "'");
 		return (Recomendation) query.getSingleResult();

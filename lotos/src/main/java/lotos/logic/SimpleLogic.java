@@ -11,6 +11,8 @@ import java.util.Locale;
 
 import javax.persistence.NoResultException;
 
+import lotos.model.Company;
+import lotos.model.CompanyForStatistic;
 import lotos.model.Deal;
 
 public class SimpleLogic {

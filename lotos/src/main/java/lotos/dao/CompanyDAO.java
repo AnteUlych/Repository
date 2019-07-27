@@ -36,6 +36,26 @@ public class CompanyDAO {
 	}
 	
 	@Transactional
+	public void editCompanyWithAllParameters(int id, String client, String code, String manager, String mail, String phone, String mobile, String password, String webaddress, String youcontrol) {
+
+		Company company = (Company) em.find(Company.class, id);
+
+		company.setCompany(client);
+		company.setCode(code);
+		company.setMail(mail);
+		company.setManager(manager);
+		company.setMobile(mobile);
+		company.setPassword(password);
+		company.setPhone(phone);
+		company.setWebaddress(webaddress);
+		company.setYoucontrol(youcontrol);
+
+		Company transaction = em.merge(company);
+		em.persist(transaction);
+		em.close();
+	}
+	
+	@Transactional
 	public void persist(Company company) {
 		Company transaction = em.merge(company);
 		em.persist(transaction);
