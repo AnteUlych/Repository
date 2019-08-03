@@ -16,6 +16,18 @@ public class RecomendationService {
 	@Autowired
 	private RecomendationDAO dao;
 	
+	public void deleteRecomendation(int id) {
+	    dao.deleteRecomendation(id);	
+	}
+	
+	public void hideRecomendation(int id) {
+		dao.hideRecomendation(id);
+	}
+	
+	public Recomendation getRecomendationById(int id) {
+		return dao.getRecomendationById(id);
+	}
+	
 	public List<Recomendation> getListRecomendationsByCompanyId(int companyid) {
 		return dao.getListRecomendationsByCompanyId(companyid);
 	}

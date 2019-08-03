@@ -243,6 +243,18 @@ public class DataController {
 	// company
 
 	// recomendation
+	public Recomendation getRecomendationById(int id) {
+		return recomendationService.getRecomendationById(id);
+	}
+	
+	public void hideRecomendation(int id) {
+		recomendationService.hideRecomendation(id);
+	}
+	
+	public void deleteRecomendation(int id) {
+		recomendationService.deleteRecomendation(id);
+	}
+	
 	public List<Recomendation> getListRecomendationsByCompanyId(int companyid) {
 		return recomendationService.getListRecomendationsByCompanyId(companyid);
 	}
