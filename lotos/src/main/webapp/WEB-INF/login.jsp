@@ -27,6 +27,9 @@
             <tr>
         </table>
     </form>
- 
+ <br>
+ <br><a href="/lotos/information/about" >about</a>
+ <br><a href="/lotos/information/donate" >donate</a>
+ <br><a href="/lotos/information/contacts" >contacts</a>
 </body>
 </html>
