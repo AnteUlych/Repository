@@ -1,0 +1,44 @@
+CREATE SCHEMA `progforce` ;
+
+USE `progforce`  ;
+
+
+
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_category` varchar(45) NOT NULL,
+  `store_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  UNIQUE KEY `type_UNIQUE` (`product_category`)
+) ;
+
+
+INSERT INTO `category` VALUES (1,'food',1),(2,'toys',1),(3,'clothes',2),(4,'vitamins',2);
+
+
+
+CREATE TABLE `product` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) NOT NULL,
+  `title` varchar(20) NOT NULL,
+  `price` double DEFAULT NULL,
+  `status` varchar(9) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  UNIQUE KEY `title_UNIQUE` (`title`)
+);
+INSERT INTO `product` VALUES (1,1,'meat',12.33,'available'),(2,1,'fish',54,'absent'),(3,2,'feather',32,'expected'),(4,2,'mouse',3,'available'),(5,3,'hat',123.89,'absent'),(6,3,'jacket',194.98,'expected'),(7,4,'calcium',32,'available'),(8,4,'magnium',65,'absent');
+
+
+
+CREATE TABLE `store` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  UNIQUE KEY `Name_UNIQUE` (`Name`)
+);
+
+
+INSERT INTO `store` VALUES (1,'Happy Cat'),(2,'Lucky Dog');
