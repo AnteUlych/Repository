@@ -5,7 +5,9 @@ import java.util.List;
 
 import box.logic.DataBaseController;
 import box.model.Auction;
+import box.model.Bet;
 import box.model.Manager;
+import box.model.Sold;
 
 public class MainTest {
 
@@ -15,11 +17,16 @@ public class MainTest {
 		
 		DataBaseController db = new DataBaseController();
 		
-		List<Auction> list = db.getListOfAuctionsByDirection("export");
+		List<Bet> list = db.getListOfBetsByAuctionId(3);
+	
 		
-		for(Auction a:list){
-			System.out.println(a.getDirection()+" "+a.getRoute()+" "+a.getImportance());
-
+		//System.out.println(db.getAuctionByAuctionId(2).getRoute()+" "+db.getAuctionByAuctionId(2).getImportance());
+		//db.editImportanceOfAuction(2, 1);
+		//System.out.println(db.getAuctionByAuctionId(2).getRoute()+" "+db.getAuctionByAuctionId(2).getImportance());
+		
+		
+		for(Bet a:list){
+			System.out.println(a.getClient());
 		}
 		
 

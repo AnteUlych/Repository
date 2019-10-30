@@ -43,7 +43,7 @@ public class LoginServlet {
 		
 		session.setAttribute("id", manager.getId());
 		session.setAttribute("rank", manager.getRank());
-		session.setAttribute("name", manager.getCode());
+		session.setAttribute("name", manager.getName());
 				
 		base.closeConnection();
 		

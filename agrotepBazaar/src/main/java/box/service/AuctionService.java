@@ -24,5 +24,17 @@ public class AuctionService {
 	public List<Auction> getListOfAuctionsByDirection(String direction) {
 		return dao.getListOfAuctionsByDirection(direction);
 	}
+	
+	public Auction getAuctionByAuctionId(int id){
+		return dao.getAuctionByAuctionId(id);
+	}
+	
+	public void editBetcountOfAuction(int id, int betcount) {
+		dao.editBetcountOfAuction(id, betcount);
+	}
+	
+	public void editImportanceOfAuction(int id, int importance) {
+		dao.editImportanceOfAuction(id, importance);
+	}
 
 }

@@ -30,5 +30,36 @@ public class AuctionDAO {
 				"from Auction where direction = '" + direction + "' order by importance")
 				.getResultList();
 	}
+	
+	public Auction getAuctionByAuctionId(int id){
+		Auction auction = (Auction) em.find(Auction.class, id);
+		return auction;
+	}
+	
+	@Transactional
+	public void editBetcountOfAuction(int id, int betcount) {
+
+		Auction auction = (Auction) em.find(Auction.class, id);
+
+		auction.setBetcount(betcount);
+
+		Auction transaction = em.merge(auction);
+		em.persist(transaction);
+		em.close();
+	}
+	
+	@Transactional
+	public void editImportanceOfAuction(int id, int importance) {
+		
+		Auction auction = (Auction) em.find(Auction.class, id);
+
+		auction.setImportance(importance);
+
+		Auction transaction = em.merge(auction);
+		em.persist(transaction);
+		em.close();
+		
+	}
+	
 
 }

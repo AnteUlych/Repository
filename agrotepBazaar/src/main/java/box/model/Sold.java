@@ -26,8 +26,6 @@ public class Sold {
 	@Column
 	private String currency;
 	@Column
-	private String status;
-	@Column
 	private String truck;
 	@Column
 	private Date date;
@@ -75,12 +73,6 @@ public class Sold {
 	}
 	public void setCurrency(String currency) {
 		this.currency = currency;
-	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
 	}
 	public String getTruck() {
 		return truck;

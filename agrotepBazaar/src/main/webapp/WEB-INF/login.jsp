@@ -7,13 +7,13 @@
    -->
 
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
- <%@page contentType="text/html;charset=UTF-8"%>
+ <%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 
 <html>
 
 <head>
-    <title>Agrotep</title>
+    <title>Агротеп</title>
     <!-- Meta tags -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -39,24 +39,24 @@
 	<!---728x90--->
         <div class="mid-class">
             <div class="img-right-side">
-                <h3>Transport System Agrotep</h3>
-                <p>If You forgot your code please ask your manager for reminding it</p>
+                <h3>Транспортна Біржа Агротеп</h3>
+                <p>Якщо ви не маєте код доступу зверніться до керівника вашого відділу</p>
                 <img src="<c:url value="resources/images/b11.png" />" class="img-fluid" alt="">
             </div>
             <div class="txt-left-side">
-                <h2> Log In </h2>
+                <h2> Вхід </h2>
                 <form method="POST">
                     <div class="form-left-to-w3l ">
 
                         <span class="fa fa-lock" aria-hidden="true"></span>
-                        <input type="password" name="code" placeholder="Code" required>
+                        <input type="password" name="code" placeholder="Код" required>
                         <div class="clear"></div>
                     </div>
                     <div class="main-two-w3ls">
 
                     </div>
                     <div class="btnn">
-                        <button type="submit">Login In </button>
+                        <button type="submit">Вхід </button>
                     </div>
                 </form>
                 <div class="w3layouts_more-buttn">

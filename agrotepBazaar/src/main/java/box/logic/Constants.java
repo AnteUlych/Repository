@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Constants {
-
+	/**
 	public List<String> getDirectionConstants() {
 
 		List<String> list = new ArrayList<String>();
@@ -73,7 +73,6 @@ public class Constants {
 		list.add("auction_waiting");
 		list.add("bet_win");
 		list.add("proposition_taken");
-		list.add("sold_waiting");
 		list.add("deal_confirmed");
 		list.add("deal_waiting");
 		list.add("deal_canceled");
@@ -81,5 +80,5 @@ public class Constants {
 		return list;
 
 	}
-
+*/
 }

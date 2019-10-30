@@ -27,13 +27,11 @@ public class Auction {
 	@Column
 	private String currency;
 	@Column
-	private String importance;
+	private int importance;
 	@Column
 	private int betcount;
 	@Column
 	private Date date;
-	@Column
-	private String status;
 	@Column
 	private String route;
 	
@@ -79,12 +77,7 @@ public class Auction {
 	public void setCurrency(String currency) {
 		this.currency = currency;
 	}
-	public String getImportance() {
-		return importance;
-	}
-	public void setImportance(String importance) {
-		this.importance = importance;
-	}
+
 	public int getBetcount() {
 		return betcount;
 	}
@@ -97,17 +90,17 @@ public class Auction {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
 	public String getRoute() {
 		return route;
 	}
 	public void setRoute(String route) {
 		this.route = route;
+	}
+	public int getImportance() {
+		return importance;
+	}
+	public void setImportance(int importance) {
+		this.importance = importance;
 	}
 
 }

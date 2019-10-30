@@ -57,8 +57,12 @@
 
 	 <bean id="managerDAO" class="box.dao.ManagerDAO" />
 	 <bean id="auctionDAO" class="box.dao.AuctionDAO" />
+	 <bean id="soldDAO" class="box.dao.SoldDAO" />
+	 <bean id="betDAO" class="box.dao.BetDAO" />
 	 
 	 <bean id="managerService" class="box.service.ManagerService" />
 	 <bean id="auctionService" class="box.service.AuctionService" />
+	 <bean id="soldService" class="box.service.SoldService" />
+	 <bean id="betService" class="box.service.BetService" />
 	
 </beans>
