@@ -36,5 +36,9 @@ public class AuctionService {
 	public void editImportanceOfAuction(int id, int importance) {
 		dao.editImportanceOfAuction(id, importance);
 	}
+	
+	public void deleteAuction(int id) {
+		dao.deleteAuction(id);
+	}
 
 }

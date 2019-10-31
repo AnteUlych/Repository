@@ -70,11 +70,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
  
   
-<form>
+<form method = "post">
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
 	
 		<c:forEach items="${auctionBets}" var="bet" varStatus="theCount">
-<tr class="">
+<tr class="${colors[theCount.index]}">
 <td>${bet.date}</td>
 <td>${bet.information}</td>
 <td>${bet.rate} ${bet.currency}</td>
@@ -114,7 +114,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	  <p><input class="w3-input w3-border" type="text" required placeholder="Готовність вантажу" name="readiness"></p>
 	  <p><input class="w3-input w3-border" type="number" required min="0" placeholder="Ціна, ${auction.currency}" name="price"></p>
       
-	  <button type="button" class="w3-button w3-padding-large w3-green w3-margin-bottom" >Запропонувати</button>
+	  <button type="submit" name="addbet" value="addbet" class="w3-button w3-padding-large w3-green w3-margin-bottom" >Запропонувати</button>
     </div>
   </div>
 </div>

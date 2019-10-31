@@ -7,10 +7,14 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 
+import box.model.Archiveauction;
+import box.model.Archivebet;
 import box.model.Auction;
 import box.model.Bet;
 import box.model.Manager;
 import box.model.Sold;
+import box.service.ArchiveauctionService;
+import box.service.ArchivebetService;
 import box.service.AuctionService;
 import box.service.BetService;
 import box.service.ManagerService;
@@ -26,10 +30,14 @@ public class DataBaseController {
 			.getBean("managerService");
 	AuctionService auctionService = (AuctionService) ctx
 			.getBean("auctionService");
-	SoldService soldService = (SoldService) ctx
-			.getBean("soldService");
 	BetService betService = (BetService) ctx
 			.getBean("betService");
+	SoldService soldService = (SoldService) ctx
+			.getBean("soldService");
+	ArchiveauctionService archiveauctionService = (ArchiveauctionService) ctx
+			.getBean("archiveauctionService");
+	ArchivebetService archivebetService = (ArchivebetService) ctx
+			.getBean("archivebetService");
 	
 	
 	public void closeConnection() {
@@ -90,6 +98,22 @@ public class DataBaseController {
 	
 	public void deleteBet(int id) {
 		betService.deleteBet(id);
+	}
+	
+	public void editStatusOfBet(int id, String status) {
+		betService.editStatusOfBet(id, status);
+	}
+	
+	public void addArchiveauction(Archiveauction archiveauction) {
+		archiveauctionService.addArchiveauction(archiveauction);
+	}
+	
+	public void addArchivebet(Archivebet archivebet) {
+		archivebetService.addArchivebet(archivebet);
+	}
+	
+	public void deleteAuction(int id) {
+		auctionService.deleteAuction(id);
 	}
 	
 	//bets

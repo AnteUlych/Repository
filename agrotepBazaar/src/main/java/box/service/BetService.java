@@ -28,5 +28,9 @@ public class BetService {
 	public void deleteBet(int id) {
 		dao.deleteBet(id);
 	}
+	
+	public void editStatusOfBet(int id, String status) {
+		dao.editStatusOfBet(id, status);
+	}
 
 }

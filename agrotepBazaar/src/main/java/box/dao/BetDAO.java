@@ -37,5 +37,18 @@ public class BetDAO {
 		em.remove(transaction);
 		em.close();
 	}
+	
+	@Transactional
+	public void editStatusOfBet(int id, String status) {
+		
+		Bet bet = (Bet) em.find(Bet.class, id);
+
+		bet.setStatus(status);;
+
+		Bet transaction = em.merge(bet);
+		em.persist(transaction);
+		em.close();
+		
+	}
 
 }

@@ -59,10 +59,14 @@
 	 <bean id="auctionDAO" class="box.dao.AuctionDAO" />
 	 <bean id="soldDAO" class="box.dao.SoldDAO" />
 	 <bean id="betDAO" class="box.dao.BetDAO" />
+	 <bean id="archiveauctionDAO" class="box.dao.ArchiveauctionDAO" />
+	 <bean id="archivebetDAO" class="box.dao.ArchivebetDAO" />
 	 
 	 <bean id="managerService" class="box.service.ManagerService" />
 	 <bean id="auctionService" class="box.service.AuctionService" />
 	 <bean id="soldService" class="box.service.SoldService" />
 	 <bean id="betService" class="box.service.BetService" />
+	 <bean id="archiveauctionService" class="box.service.ArchiveauctionService" />
+	 <bean id="archivebetService" class="box.service.ArchivebetService" />
 	
 </beans>

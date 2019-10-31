@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import box.model.Auction;
+import box.model.Bet;
 
 public class DecoderDbToHtml {
 	
@@ -15,6 +16,9 @@ public class DecoderDbToHtml {
 	String IMPORTANCE_1_COLOR = "w3-red";
 	String IMPORTANCE_4_COLOR = "w3-gray";
 	String NO_COLOR = "";
+		
+	String WIN_BET = "bet_win";
+	String WIN_BET_COLOR = "w3-lime";
 	
 public List<String> colourTranslateAuctionStatusAndImportanceToJsp(List<Auction> auctions){
 		
@@ -62,6 +66,23 @@ public List<String> colourTranslateAuctionStatusAndImportanceToJsp(List<Auction>
 		}
 		
 		return icons;
+	}
+	
+	public List<String> paintWinBet(List<Bet> bets){
+
+		List<String> colors = new ArrayList();
+		
+		for(Bet bet:bets){
+			
+			if(bet.getStatus().equals(WIN_BET)){
+				colors.add(WIN_BET_COLOR);
+			}else{
+				colors.add(NO_COLOR);
+			}
+			
+		}
+		
+		return colors;
 	}
 
 }

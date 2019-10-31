@@ -6,33 +6,34 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 @Entity
-@Table(name = "sold")
-public class Sold {
+@Table(name = "archiveauction")
+public class Archiveauction {
 	@Id
 	@Column
 	private int id;
 	@Column
-	private String route;
+	private int auctionid;
 	@Column
 	private int managerid;
 	@Column
-	private String information;
+	private String route;
+	@Column
+	private String truck;
 	@Column
 	private String direction;
+	@Column
+	private String readiness;
 	@Column
 	private int rate;
 	@Column
 	private String currency;
 	@Column
-	private String truck;
+	private int importance;
+	@Column
+	private int betcount;
 	@Column
 	private Date date;
-	@Column
-	private String readiness;
-	@Column
-	private int importance;
 	
 	public int getId() {
 		return id;
@@ -40,11 +41,11 @@ public class Sold {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getRoute() {
-		return route;
+	public int getAuctionid() {
+		return auctionid;
 	}
-	public void setRoute(String route) {
-		this.route = route;
+	public void setAuctionid(int auctionid) {
+		this.auctionid = auctionid;
 	}
 	public int getManagerid() {
 		return managerid;
@@ -52,17 +53,29 @@ public class Sold {
 	public void setManagerid(int managerid) {
 		this.managerid = managerid;
 	}
-	public String getInformation() {
-		return information;
+	public String getRoute() {
+		return route;
 	}
-	public void setInformation(String information) {
-		this.information = information;
+	public void setRoute(String route) {
+		this.route = route;
+	}
+	public String getTruck() {
+		return truck;
+	}
+	public void setTruck(String truck) {
+		this.truck = truck;
 	}
 	public String getDirection() {
 		return direction;
 	}
 	public void setDirection(String direction) {
 		this.direction = direction;
+	}
+	public String getReadiness() {
+		return readiness;
+	}
+	public void setReadiness(String readiness) {
+		this.readiness = readiness;
 	}
 	public int getRate() {
 		return rate;
@@ -76,29 +89,23 @@ public class Sold {
 	public void setCurrency(String currency) {
 		this.currency = currency;
 	}
-	public String getTruck() {
-		return truck;
+	public int getImportance() {
+		return importance;
 	}
-	public void setTruck(String truck) {
-		this.truck = truck;
+	public void setImportance(int importance) {
+		this.importance = importance;
+	}
+	public int getBetcount() {
+		return betcount;
+	}
+	public void setBetcount(int betcount) {
+		this.betcount = betcount;
 	}
 	public Date getDate() {
 		return date;
 	}
 	public void setDate(Date date) {
 		this.date = date;
-	}
-	public String getReadiness() {
-		return readiness;
-	}
-	public void setReadiness(String readiness) {
-		this.readiness = readiness;
-	}
-	public int getImportance() {
-		return importance;
-	}
-	public void setImportance(int importance) {
-		this.importance = importance;
 	}
 
 }

@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import box.model.Auction;
 
-
 @Repository
 public class AuctionDAO {
 	
@@ -59,6 +58,14 @@ public class AuctionDAO {
 		em.persist(transaction);
 		em.close();
 		
+	}
+	
+	@Transactional
+	public void deleteAuction(int id) {
+		Auction auction = (Auction) em.find(Auction.class, id);
+		Auction transaction = em.merge(auction);
+		em.remove(transaction);
+		em.close();
 	}
 	
 
