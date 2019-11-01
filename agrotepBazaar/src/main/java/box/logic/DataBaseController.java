@@ -11,12 +11,14 @@ import box.model.Archiveauction;
 import box.model.Archivebet;
 import box.model.Auction;
 import box.model.Bet;
+import box.model.Deal;
 import box.model.Manager;
 import box.model.Sold;
 import box.service.ArchiveauctionService;
 import box.service.ArchivebetService;
 import box.service.AuctionService;
 import box.service.BetService;
+import box.service.DealService;
 import box.service.ManagerService;
 import box.service.SoldService;
 
@@ -38,6 +40,8 @@ public class DataBaseController {
 			.getBean("archiveauctionService");
 	ArchivebetService archivebetService = (ArchivebetService) ctx
 			.getBean("archivebetService");
+	DealService dealService = (DealService) ctx
+			.getBean("dealService");
 	
 	
 	public void closeConnection() {
@@ -117,6 +121,26 @@ public class DataBaseController {
 	}
 	
 	//bets
+	
+	//sold
+	
+	public List<Sold> getListOfSoldByManagerId(int managerid) {
+		return soldService.getListOfSoldByManagerId(managerid);
+	}
+	
+	public List<Sold> getListOfAllSold() {
+		return soldService.getListOfAllSold();
+	}
+	
+	public void deleteSold(int id) {
+		soldService.deleteSold(id);
+	}
+	
+	public void addDeal(Deal deal){
+		dealService.addDeal(deal);
+	}
+	
+	//sold
 	
 	
 

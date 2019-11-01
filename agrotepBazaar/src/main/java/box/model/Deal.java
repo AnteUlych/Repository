@@ -37,4 +37,100 @@ public class Deal {
 	@Column
 	private Date dateoftransportation;
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getSoldid() {
+		return soldid;
+	}
+
+	public void setSoldid(int soldid) {
+		this.soldid = soldid;
+	}
+
+	public int getManagerid() {
+		return managerid;
+	}
+
+	public void setManagerid(int managerid) {
+		this.managerid = managerid;
+	}
+
+	public String getManager() {
+		return manager;
+	}
+
+	public void setManager(String manager) {
+		this.manager = manager;
+	}
+
+	public String getRoute() {
+		return route;
+	}
+
+	public void setRoute(String route) {
+		this.route = route;
+	}
+
+	public String getInformation() {
+		return information;
+	}
+
+	public void setInformation(String information) {
+		this.information = information;
+	}
+
+	public String getDirection() {
+		return direction;
+	}
+
+	public void setDirection(String direction) {
+		this.direction = direction;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getTruck() {
+		return truck;
+	}
+
+	public void setTruck(String truck) {
+		this.truck = truck;
+	}
+
+	public String getTruckdriver() {
+		return truckdriver;
+	}
+
+	public void setTruckdriver(String truckdriver) {
+		this.truckdriver = truckdriver;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public Date getDateoftransportation() {
+		return dateoftransportation;
+	}
+
+	public void setDateoftransportation(Date dateoftransportation) {
+		this.dateoftransportation = dateoftransportation;
+	}
+
 }

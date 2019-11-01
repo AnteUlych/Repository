@@ -37,7 +37,7 @@ CREATE TABLE `archiveauction` (
   `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=ucs2;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=ucs2;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,7 +64,7 @@ CREATE TABLE `archivebet` (
   `manager` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,7 +88,7 @@ CREATE TABLE `auction` (
   `route` varchar(200) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -114,7 +114,7 @@ CREATE TABLE `bet` (
   `manager` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -139,7 +139,7 @@ CREATE TABLE `deal` (
   `dateoftransportation` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -186,29 +186,6 @@ CREATE TABLE `proposition` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `purse`
---
-
-DROP TABLE IF EXISTS `purse`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `purse` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `managerid` int(11) NOT NULL,
-  `manager` varchar(100) NOT NULL,
-  `date` datetime NOT NULL,
-  `uah` int(11) NOT NULL,
-  `eur` int(11) NOT NULL,
-  `usd` int(11) NOT NULL,
-  `client` varchar(100) NOT NULL,
-  `route` varchar(200) NOT NULL,
-  `truck` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Table structure for table `sold`
 --
 
@@ -227,9 +204,12 @@ CREATE TABLE `sold` (
   `date` datetime NOT NULL,
   `readiness` varchar(200) NOT NULL,
   `importance` int(11) DEFAULT NULL,
+  `auctionid` int(11) DEFAULT NULL,
+  `betid` int(11) DEFAULT NULL,
+  `manager` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -245,4 +225,4 @@ CREATE TABLE `sold` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-31 13:53:17
+-- Dump completed on 2019-11-01 18:08:36

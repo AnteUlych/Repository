@@ -21,7 +21,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </div>
 
 <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+<nav class="w3-sidebar w3-collapse w3-white" style="z-index:3;width:300px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
     
     <div class="w3-col s8 w3-bar">
@@ -74,7 +74,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
 	
 		<c:forEach items="${auctionBets}" var="bet" varStatus="theCount">
-<tr class="${colors[theCount.index]}">
+<tr class="">
 <td>${bet.date}</td>
 <td>${bet.information}</td>
 <td>${bet.rate} ${bet.currency}</td>

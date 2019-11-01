@@ -35,12 +35,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-bar-block">
     <a href="/bazaar/addauction" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
     <a href="/bazaar/auction" class="w3-bar-item w3-button w3-padding"><i class="fa fa-legal fa-fw"></i>&nbsp; Аукціон автомобілів</a>
-    <a href="/bazaar/sold" class="w3-bar-item w3-button w3-padding"><i class="fa fa-lock fa-fw"></i> ${alertSold} &nbsp; Заброньовані автомобілі </a>
+    <a href="/bazaar/sold" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-lock fa-fw"></i> ${alertSold} &nbsp; Заброньовані автомобілі </a>
     <a href="/bazaar/clientspropositions" class="w3-bar-item w3-button w3-padding"><i class="fa fa-volume-control-phone fa-fw"></i>&nbsp; Пропозиції клієнтів</a>
     <a href="/bazaar/deals" class="w3-bar-item w3-button w3-padding"><i class="fa fa-truck fa-fw"></i>&nbsp; План відвантажень</a>
     <a href="/bazaar/managers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card-o fa-fw"></i>&nbsp; Кадрова інформація</a>
     <a href="/bazaar/report" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bar-chart fa-fw"></i>&nbsp; Місячна звітність</a>
-    <a href="/bazaar/addauction" class="w3-bar-item w3-button w3-padding w3-blue"><i class="	fa fa-balance-scale fa-fw"></i>&nbsp; Додати Аукціон</a><br><br>
+    <a href="/bazaar/addauction" class="w3-bar-item w3-button w3-padding "><i class="	fa fa-balance-scale fa-fw"></i>&nbsp; Додати Аукціон</a><br><br>
 
   </div>
 </nav>
@@ -54,58 +54,75 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-balance-scale"></i> Новий Аукціон</b></h5>
+    <h5><b><i class="fa fa-lock"></i> Заброньовані автомобілі</b></h5>
   </header>
 
   <div class="w3-container" id="contact">
   
-    <p></p>
-    <form method="post">
-      <p><input class="w3-input w3-border" type="text" placeholder="Маршрут" maxlength="100" required name="route"></p>
-	  <p><input class="w3-input w3-border" type="text" placeholder="Бажані дні забору" maxlength="100" required name="readiness"></p>
-	  <p><input class="w3-input w3-border" type="number" placeholder="Ціна" min="0" required name="rate"></p>
-	  <br>
+  	
 
-    Валюта:<br>
-				 
-                       <input required type="radio" name="currency" value ="EUR"> <label>євро</label><br>
-		               <input required type="radio" name="currency" value ="UAH"> <label>гривні</label><br>
-                       <input required type="radio" name="currency" value ="USD"> <label>доллари</label><br>
-<br>
-
-    Вантажівка:<br>
-
-                       <input required type="radio" name="truck" value ="довільний"> <label>довільний</label><br>
-		               <input required type="radio" name="truck" value ="тент"> <label>тент</label><br>
-                       <input required type="radio" name="truck" value ="цільнометалевий"> <label>цільнометалевий</label><br>
-                       <input required type="radio" name="truck" value ="рефрижератор"> <label>рефрижератор</label><br>
-                       <input required type="radio" name="truck" value ="2-режимний"> <label>2-режимний</label><br>
-<br>
-
-   Напрямок:<br>
-
-                       <input required type="radio" name="direction" value ="export"> <label>експорт</label><br>
-		               <input required type="radio" name="direction" value ="import"> <label>імпорт</label><br>
-              
-<br>
-
-   Пріорітетність:<br>
-
-                       <input required type="radio" name="important" value ="1"> <label>висока</label><br>
-		               <input required type="radio" name="important" value ="2"> <label>середня</label><br>
-		               <input required type="radio" name="important" value ="3"> <label>низька</label><br>
-              
-<br>
+	 <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+	
+		<c:forEach items="${solds}" var="sol" varStatus="theCount">
+<tr>
+	
+			    <td>${sol.date}</td>
+			    <td>${sol.manager}</td>
+			    <td>${sol.readiness}</td>
+				<td>${sol.route}</td>
+				<td>${sol.information}</td>
+				<td>${sol.rate} ${sol.currency}</td>
+				<td>${sol.truck}</td>
+				<td>${buttons[theCount.index]}</td>
+			
+</tr>
 
 
-	 
-    ${button}
-    </form>
-	<br>
-	<br>
-<br>
-<br>
+</c:forEach>
+</table>
+
+<!-- Subscribe Modal -->
+
+<c:forEach items="${solds}" var="sol" varStatus="theCount">
+<div id="subscribe${sol.id}" class="w3-modal">
+  <div class="w3-modal-content  w3-padding-large">
+    <div class="w3-container w3-white w3-center">
+      <i onclick="document.getElementById('subscribe${sol.id}').style.display='none'" class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent"></i>
+      <h2 class="w3-wide"><i class="fa fa-lock" style="width:30px"></i> </h2>
+	  
+     <i class="fa fa-truck" style="width:30px"></i>${sol.route}, ${sol.information}, ${auction.truck}
+	  <i class="fa fa-clock-o" style="width:30px"></i>${sol.readiness}
+      <i class="fa fa-dollar" style="width:30px"> </i>${sol.rate} ${sol.currency}
+	  
+	  <form method="post" >
+	  
+	  <p><input class="w3-input w3-border" required type="date"  placeholder="Дата відвантаження" name="readydate${sol.id}"></p>
+      <p>    Вантажівка:</p>
+	   <p>
+
+
+                       
+					   <input  type="radio" required name="truck${sol.id}" value ="довільний"> <label>довільний</label>
+		               <input  type="radio" required name="truck${sol.id}" value ="тент"> <label>тент</label>
+                       <input  type="radio" required name="truck${sol.id}" value ="цільнометалевий"> <label>цільнометалевий</label>
+                       <input  type="radio" required name="truck${sol.id}" value ="рефрижератор"> <label>рефрижератор</label>
+                       <input  type="radio" required name="truck${sol.id}" value ="2-режимний"> <label>2-режимний</label>
+	
+	
+	</p>
+	  <br><br>
+      <button type="submit" formnovalidate name="cancel${sol.id}" value="cancel${sol.id}" class="w3-button w3-padding-large w3-red w3-margin-bottom" >Відмінити</button>
+	  <button type="submit" name="toDeals${sol.id}" value="toDeals${sol.id}" class="w3-button w3-padding-large w3-green w3-margin-bottom" >Оформити перевезення</button>
+	  </form>	
+    </div>
   </div>
+</div>	
+</c:forEach>	
+
+ 
+  </div>
+
+
 
 </div>
   <!-- End page content -->

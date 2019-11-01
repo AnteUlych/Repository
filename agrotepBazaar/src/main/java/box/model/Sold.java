@@ -33,6 +33,13 @@ public class Sold {
 	private String readiness;
 	@Column
 	private int importance;
+	@Column
+	private int auctionid;
+	@Column
+	private int betid;
+	@Column
+	private String manager;
+	
 	
 	public int getId() {
 		return id;
@@ -99,6 +106,24 @@ public class Sold {
 	}
 	public void setImportance(int importance) {
 		this.importance = importance;
+	}
+	public int getAuctionid() {
+		return auctionid;
+	}
+	public void setAuctionid(int auctionid) {
+		this.auctionid = auctionid;
+	}
+	public int getBetid() {
+		return betid;
+	}
+	public void setBetid(int betid) {
+		this.betid = betid;
+	}
+	public String getManager() {
+		return manager;
+	}
+	public void setManager(String manager) {
+		this.manager = manager;
 	}
 
 }

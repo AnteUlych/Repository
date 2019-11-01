@@ -243,7 +243,10 @@ public class BetsServlet {
 					sold.setRate(bet.getRate());
 					sold.setReadiness(bet.getReadiness());
 					sold.setRoute(auction.getRoute());
-					sold.setTruck(auction.getTruck());					
+					sold.setTruck(auction.getTruck());	
+					sold.setAuctionid(auctionid);
+					sold.setBetid(bet.getId());
+					sold.setManager(bet.getManager());
 				
 					base.addSold(sold);
 					

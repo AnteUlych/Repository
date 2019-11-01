@@ -8,6 +8,7 @@ import box.model.Archiveauction;
 import box.model.Archivebet;
 import box.model.Auction;
 import box.model.Bet;
+import box.model.Deal;
 import box.model.Manager;
 import box.model.Sold;
 
@@ -18,18 +19,16 @@ public class MainTest {
 		//System.out.println(",,,^._.^,,,");
 		
 		DataBaseController b = new DataBaseController();
+				
 		
-
+		List <Sold> all = b.getListOfAllSold();
+		
+		for(Sold s:all){
+			System.out.println(s.getId()+" "+s.getRoute());
+		}
 		
 		System.out.println(",,,^._.^,,,");
-		//System.out.println(db.getAuctionByAuctionId(2).getRoute()+" "+db.getAuctionByAuctionId(2).getImportance());
-		//db.editImportanceOfAuction(2, 1);
-		//System.out.println(db.getAuctionByAuctionId(2).getRoute()+" "+db.getAuctionByAuctionId(2).getImportance());
 		
-		
-		
-		
-
 	}
 
 }
