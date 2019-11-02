@@ -218,7 +218,9 @@ public class BetsServlet {
 				if (request.getParameter("delete" + bet.getId()) != null) {
 		
 					base.deleteBet(bet.getId());
+					base.editBetcountOfAuction(auctionid, auction.getBetcount()-1);
 					base.closeConnection();
+					
 					
 					try {
 						response.sendRedirect("/bazaar/bets/"+auction.getId());
