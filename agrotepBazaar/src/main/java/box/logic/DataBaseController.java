@@ -142,6 +142,40 @@ public class DataBaseController {
 	
 	//sold
 	
+	public void editArchivebetById(int id, String status) {
+		archivebetService.editArchivebetById(id, status);
+	}
 	
+	public List<Deal> getListOfallDeals() {
+		return dealService.getListOfallDeals();
+	}
+	
+	public List<Deal> getListOfallDealsByDirection(String direction) {
+		return dealService.getListOfallDealsByDirection(direction);
+	}
+	
+	public List<Deal> getListOfallDealsByManagerId(int managerid) {	
+		return dealService.getListOfallDealsByManagerId(managerid);
+	}
+	
+	public List<Deal> getListOfallDealsByManagerIdAndDirection(int managerid, String direction) {
+		return dealService.getListOfallDealsByManagerIdAndDirection(managerid, direction);
+	}
+	
+	public Deal getDealById(int id) {
+		return dealService.getDealById(id);
+	}
+	
+	public void editTruckdriverById(int id, String truckdriver) {
+		dealService.editTruckdriverById(id, truckdriver);
+	}
+
+	public void editStatusOfDealById(int id, String status) {
+		dealService.editStatusOfDealById(id, status);
+	}
+	
+	public Archivebet getArchivebetByBetid(int betid) {
+		return archivebetService.getArchivebetByBetid(betid);
+	}
 
 }

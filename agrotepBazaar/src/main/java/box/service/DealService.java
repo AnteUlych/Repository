@@ -1,5 +1,7 @@
 package box.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +18,34 @@ public class DealService {
 	
 	public void addDeal(Deal deal){
 		dao.persist(deal);
+	}
+	
+	public List<Deal> getListOfallDeals() {
+		return dao.getListOfallDeals();
+	}
+	
+	public List<Deal> getListOfallDealsByDirection(String direction) {
+		return dao.getListOfallDealsByDirection(direction);
+	}
+	
+	public List<Deal> getListOfallDealsByManagerId(int managerid) {	
+		return dao.getListOfallDealsByManagerId(managerid);
+	}
+	
+	public List<Deal> getListOfallDealsByManagerIdAndDirection(int managerid, String direction) {
+		return dao.getListOfallDealsByManagerIdAndDirection(managerid, direction);
+	}
+	
+	public Deal getDealById(int id) {
+		return dao.getDealById(id);
+	}
+	
+	public void editTruckdriverById(int id, String truckdriver) {
+		dao.editTruckdriverById(id, truckdriver);
+	}
+
+	public void editStatusOfDealById(int id, String status) {
+		dao.editStatusOfDealById(id, status);
 	}
 
 }

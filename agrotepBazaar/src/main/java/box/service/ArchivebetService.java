@@ -19,6 +19,13 @@ public class ArchivebetService {
 	public void addArchivebet(Archivebet archivebet) {
 		dao.persist(archivebet);
 	}
+	
+	public void editArchivebetById(int id, String status) {
+		dao.editArchivebetById(id, status);
+	}
 
+	public Archivebet getArchivebetByBetid(int betid) {
+		return dao.getArchivebetByBetid(betid);
+	}
 
 }

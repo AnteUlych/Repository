@@ -37,7 +37,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="/bazaar/auction" class="w3-bar-item w3-button w3-padding"><i class="fa fa-legal fa-fw"></i>&nbsp; Аукціон автомобілів</a>
     <a href="/bazaar/sold" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-lock fa-fw"></i> ${alertSold} &nbsp; Заброньовані автомобілі </a>
     <a href="/bazaar/clientspropositions" class="w3-bar-item w3-button w3-padding"><i class="fa fa-volume-control-phone fa-fw"></i>&nbsp; Пропозиції клієнтів</a>
-    <a href="/bazaar/deals" class="w3-bar-item w3-button w3-padding"><i class="fa fa-truck fa-fw"></i>&nbsp; План відвантажень</a>
+    <a href="/bazaar/deals/all" class="w3-bar-item w3-button w3-padding"><i class="fa fa-truck fa-fw"></i>&nbsp; План відвантажень</a>
     <a href="/bazaar/managers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card-o fa-fw"></i>&nbsp; Кадрова інформація</a>
     <a href="/bazaar/report" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bar-chart fa-fw"></i>&nbsp; Місячна звітність</a>
     <a href="/bazaar/addauction" class="w3-bar-item w3-button w3-padding "><i class="	fa fa-balance-scale fa-fw"></i>&nbsp; Додати Аукціон</a><br><br>
@@ -64,7 +64,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	 <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
 	
 		<c:forEach items="${solds}" var="sol" varStatus="theCount">
-<tr>
+<tr class="w3-lime">
 	
 			    <td>${sol.date}</td>
 			    <td>${sol.manager}</td>

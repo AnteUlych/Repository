@@ -1,10 +1,12 @@
 package box.logic;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import box.model.Auction;
 import box.model.Bet;
+import box.model.Deal;
 
 public class DecoderDbToHtml {
 	
@@ -19,6 +21,52 @@ public class DecoderDbToHtml {
 		
 	String WIN_BET = "bet_win";
 	String WIN_BET_COLOR = "w3-lime";
+	
+	String COLOR_DEAL_WAITING = "";
+	String COLOR_DEAL_OK = "w3-green";
+	String COLOR_DEAL_CANCELED = "w3-red";
+	
+	String DEAL_WAITING = "deal_waiting";
+	String DEAL_OK = "deal_ok";
+	String DEAL_CANCELED = "deal_canceled";
+	
+	public List<String> getDatesForHtmlDates(List<Deal> deals){
+		
+		List<String> dates = new ArrayList();		
+		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");  
+		
+		for(Deal deal:deals){
+			
+			dates.add(formatter.format(deal.getDateoftransportation()));
+			
+		}
+		
+		return dates;
+		
+	}
+	
+	public List<String> paintDeals(List<Deal> deals){
+		
+		List<String> colors = new ArrayList();
+		
+		for(Deal deal:deals){
+			
+			if(deal.getStatus().equals(DEAL_WAITING)){
+				colors.add(COLOR_DEAL_WAITING);
+			}
+			
+			if(deal.getStatus().equals(DEAL_OK)){
+				colors.add(COLOR_DEAL_OK);
+			}
+			
+			if(deal.getStatus().equals(DEAL_CANCELED)){
+				colors.add(COLOR_DEAL_CANCELED);
+			}
+			
+		}
+		
+		return colors;
+	}
 	
 public List<String> colourTranslateAuctionStatusAndImportanceToJsp(List<Auction> auctions){
 		

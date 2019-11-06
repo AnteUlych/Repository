@@ -1,8 +1,9 @@
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
- <%@ page contentType="text/html; charset=UTF-8" %>
+ <%@ page language="java" contentType="text/html; charset=cp1251"%>
+ <%@ page pageEncoding="cp1251"%>
 <!DOCTYPE html>
 <html>
-<title>РђРіСЂРѕС‚РµРї</title>
+<title>Агротеп</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -28,17 +29,17 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
   <hr>
   <div class="w3-container">
-    <h5>РњРµРЅСЋ</h5>
+    <h5>Меню</h5>
   </div>
   <div class="w3-bar-block">
     <a href="/bazaar/addauction" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
-    <a href="/bazaar/auction" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-legal fa-fw"></i>&nbsp; РђСѓРєС†С–РѕРЅ Р°РІС‚РѕРјРѕР±С–Р»С–РІ</a>
-    <a href="/bazaar/sold" class="w3-bar-item w3-button w3-padding"><i class="fa fa-lock fa-fw"></i> ${alertSold} &nbsp; Р—Р°Р±СЂРѕРЅСЊРѕРІР°РЅС– Р°РІС‚РѕРјРѕР±С–Р»С– </a>
-    <a href="/bazaar/clientspropositions" class="w3-bar-item w3-button w3-padding"><i class="fa fa-volume-control-phone fa-fw"></i>&nbsp; РџСЂРѕРїРѕР·РёС†С–С— РєР»С–С”РЅС‚С–РІ</a>
-    <a href="/bazaar/deals" class="w3-bar-item w3-button w3-padding"><i class="fa fa-truck fa-fw"></i>&nbsp; РџР»Р°РЅ РІС–РґРІР°РЅС‚Р°Р¶РµРЅСЊ</a>
-    <a href="/bazaar/managers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card-o fa-fw"></i>&nbsp; РљР°РґСЂРѕРІР° С–РЅС„РѕСЂРјР°С†С–СЏ</a>
-    <a href="/bazaar/report" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bar-chart fa-fw"></i>&nbsp; РњС–СЃСЏС‡РЅР° Р·РІС–С‚РЅС–СЃС‚СЊ</a>
-    <a href="/bazaar/addauction" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-balance-scale fa-fw"></i>&nbsp; Р”РѕРґР°С‚Рё РђСѓРєС†С–РѕРЅ</a><br><br>
+    <a href="/bazaar/auction" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-legal fa-fw"></i>&nbsp; Аукціон автомобілів</a>
+    <a href="/bazaar/sold" class="w3-bar-item w3-button w3-padding"><i class="fa fa-lock fa-fw"></i> ${alertSold} &nbsp; Заброньовані автомобілі </a>
+    <a href="/bazaar/clientspropositions" class="w3-bar-item w3-button w3-padding"><i class="fa fa-volume-control-phone fa-fw"></i>&nbsp; Пропозиції клієнтів</a>
+    <a href="/bazaar/deals/all" class="w3-bar-item w3-button w3-padding"><i class="fa fa-truck fa-fw"></i>&nbsp; План відвантажень</a>
+    <a href="/bazaar/managers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-id-card-o fa-fw"></i>&nbsp; Кадрова інформація</a>
+    <a href="/bazaar/report" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bar-chart fa-fw"></i>&nbsp; Місячна звітність</a>
+    <a href="/bazaar/addauction" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-balance-scale fa-fw"></i>&nbsp; Додати Аукціон</a><br><br>
 
   </div>
 </nav>
@@ -52,7 +53,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-legal"></i> РђСѓРєС†С–РѕРЅ</b></h5>
+    <h5><b><i class="fa fa-legal"></i> Аукціон</b></h5>
   </header>
 
   <div class="w3-row-padding w3-hoverable w3-margin-bottom">
@@ -97,7 +98,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <!-- Footer -->
   <div class="w3-row-padding w3-hoverable w3-bottom">
   <footer class="w3-container w3-padding-16 w3-light-grey" >
-    <p>Р РѕР·СЂРѕР±Р»РµРЅРѕ РґР»СЏ РєРѕСЂРёСЃС‚СѓРІР°РЅРЅСЏ РєРѕРјРїР°РЅС–С”СЋ РђРіСЂРѕС‚РµРї</p>
+    <p>Розроблено для користування компанією Агротеп</p>
   </footer>
 </div>
   <!-- End page content -->

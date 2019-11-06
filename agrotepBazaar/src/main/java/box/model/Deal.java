@@ -36,6 +36,12 @@ public class Deal {
 	private Date date;
 	@Column
 	private Date dateoftransportation;
+	@Column
+	private int chiefid;
+	@Column
+	private String chiefname;
+	@Column
+	private int betid;
 
 	public int getId() {
 		return id;
@@ -131,6 +137,30 @@ public class Deal {
 
 	public void setDateoftransportation(Date dateoftransportation) {
 		this.dateoftransportation = dateoftransportation;
+	}
+
+	public int getChiefid() {
+		return chiefid;
+	}
+
+	public void setChiefid(int chiefid) {
+		this.chiefid = chiefid;
+	}
+
+	public String getChiefname() {
+		return chiefname;
+	}
+
+	public void setChiefname(String chiefname) {
+		this.chiefname = chiefname;
+	}
+
+	public int getBetid() {
+		return betid;
+	}
+
+	public void setBetid(int betid) {
+		this.betid = betid;
 	}
 
 }

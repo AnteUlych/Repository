@@ -196,6 +196,12 @@ public class SoldServlet {
 				deal.setStatus("deal_waiting");
 				deal.setTruck(truck);
 				deal.setTruckdriver("");
+				deal.setBetid(sol.getBetid());
+				
+				//change with adding chiefs table
+				deal.setChiefid(0);
+				deal.setChiefname("");
+				//change
 
 				base.addDeal(deal);
 
@@ -254,7 +260,7 @@ public class SoldServlet {
 				base.closeConnection();
 
 				try {
-					response.sendRedirect("/bazaar/deals");
+					response.sendRedirect("/bazaar/deals/all");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

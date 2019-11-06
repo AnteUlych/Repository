@@ -18,16 +18,30 @@ public class MainTest {
 		
 		//System.out.println(",,,^._.^,,,");
 		
-		DataBaseController b = new DataBaseController();
+		DataBaseController base = new DataBaseController();
 				
+		 Deal deal = base.getDealById(8);
+		 System.out.println(deal.getBetid());
+	
+		Archivebet arbet = base.getArchivebetByBetid(deal.getBetid());//
 		
-		List <Sold> all = b.getListOfAllSold();
+		System.out.println(arbet.getId());
+		//base.editArchivebetById(arbet.getId(), "canc");
 		
-		for(Sold s:all){
-			System.out.println(s.getId()+" "+s.getRoute());
+		
+		
+		
+	//	System.out.println(bet.getClient());
+		
+
+		/**
+		List <Deal> all = b.getListOfallDealsByManagerIdAndDirection(2, "import");
+		
+		for(Deal s:all){
+			System.out.println(s.getId()+" "+s.getDateoftransportation());
 		}
-		
-		System.out.println(",,,^._.^,,,");
+		*/
+		//System.out.println(",,,^._.^,,,");
 		
 	}
 
