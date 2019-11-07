@@ -19,20 +19,23 @@ public class MainTest {
 		//System.out.println(",,,^._.^,,,");
 		
 		DataBaseController base = new DataBaseController();
-				
-		 Deal deal = base.getDealById(8);
-		 System.out.println(deal.getBetid());
 	
-		Archivebet arbet = base.getArchivebetByBetid(deal.getBetid());//
+		System.out.println(base.generateCodeForManager());
+	
+		//Manager m = base.getManagerById(4);
 		
-		System.out.println(arbet.getId());
-		//base.editArchivebetById(arbet.getId(), "canc");
+		//base.addManager(m);
 		
-		
-		
-		
-	//	System.out.println(bet.getClient());
-		
+	
+		//System.out.println(m.getId()+" "+m.getName()+" "+m.getRank());
+		/**
+		List<Manager> all = base.getListOfManagers();
+				
+		for(Manager s:all){
+			System.out.println(s.getId()+" "+s.getName());
+		}
+	
+		*/
 
 		/**
 		List <Deal> all = b.getListOfallDealsByManagerIdAndDirection(2, "import");

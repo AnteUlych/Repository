@@ -1,6 +1,7 @@
 package box.logic;
 
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
@@ -142,6 +143,8 @@ public class DataBaseController {
 	
 	//sold
 	
+	//deal
+	
 	public void editArchivebetById(int id, String status) {
 		archivebetService.editArchivebetById(id, status);
 	}
@@ -177,5 +180,60 @@ public class DataBaseController {
 	public Archivebet getArchivebetByBetid(int betid) {
 		return archivebetService.getArchivebetByBetid(betid);
 	}
+	
+	//deal
+	
+	//manager
+	
+	public void addManager(Manager manager){
+		managerService.addManager(manager);
+	}
+	
+	public List<Manager> getListOfManagers() {
+		return managerService.getListOfManagers();
+	}
+	
+	public void editManager(int id, String name, String mail, String rank, String code) {
+		managerService.editManager(id, name, mail, rank, code);
+	}
+	
+	public Manager getManagerById(int id) {
+		return managerService.getManagerById(id);
+	}
+	
+	public String generateCodeForManager(){
+		
+		String code;
+				
+		for(;;){
+			
+			int min = 10000;
+			int max = 99999;
+	
+			Random random = new Random();
+			int i = random.nextInt((max-min)+1)+ min;
+			code = i+"";
+			
+			if(!isCodeExist(code)){
+				return code;
+			}
+		}
+		
+	}
+	
+	public boolean isCodeExist(String code){
+		List<Manager> managers = managerService.getListOfManagers();
+		
+		for(Manager m:managers){
+			if(code.equals(m.getCode())){
+				return true;
+			}
+			
+		}
+		
+		return false;
+	}
+	
+	//manager
 
 }
