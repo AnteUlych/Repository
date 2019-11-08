@@ -1,5 +1,7 @@
 package box.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -20,6 +22,13 @@ public class ArchiveauctionDAO {
 		Archiveauction transaction = em.merge(archiveauction);
 		em.persist(transaction);
 		em.close();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Archiveauction> getListOfArchiveauctionDates(String start, String ending) {
+		return em.createQuery(
+				"from Archiveauction where date >= '" + start+"' and date <= '"+ ending+"'")
+				.getResultList();
 	}
 
 }

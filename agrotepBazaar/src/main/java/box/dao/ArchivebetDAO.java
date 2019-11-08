@@ -1,5 +1,7 @@
 package box.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -20,6 +22,20 @@ public class ArchivebetDAO {
 		Archivebet transaction = em.merge(archivebet);
 		em.persist(transaction);
 		em.close();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Archivebet> getListOfArchivebetByManagerIdDates(String start, String ending, int managerid) {
+		return em.createQuery(
+				"from Archivebet where date >= '" + start+"' and date <= '"+ ending+"'  and managerid = '"+ managerid+"'")
+				.getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Archivebet> getListOfArchivebetByManagerIdAndStatusDates(String start, String ending, int managerid, String status) {
+		return em.createQuery(
+				"from Archivebet where date >= '" + start+"' and date <= '"+ ending+"'  and managerid = '"+ managerid+"' and status = '"+ status+"'")
+				.getResultList();
 	}
 	
 	public Archivebet getArchivebetByBetid(int betid) {

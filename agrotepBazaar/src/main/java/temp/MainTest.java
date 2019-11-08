@@ -19,8 +19,13 @@ public class MainTest {
 		//System.out.println(",,,^._.^,,,");
 		
 		DataBaseController base = new DataBaseController();
+		
+		//int n = base.getNumberOfArchivebetByManagerIdAndStatusDates("2019-10-07", "2019-11-25", 3, "bet_win");
+        //int n = base.getSummOfArchivebetByManagerIdAndStatusDates("2019-10-07", "2019-12-25", 2, "bet_win", "USD");
+		//int n = base.getListOfArchiveauctionDates("2019-11-03", "2019-11-25");
+		//System.out.println(n);
 	
-		System.out.println(base.generateCodeForManager());
+		//System.out.println(base.generateCodeForManager());
 	
 		//Manager m = base.getManagerById(4);
 		
@@ -29,13 +34,13 @@ public class MainTest {
 	
 		//System.out.println(m.getId()+" "+m.getName()+" "+m.getRank());
 		/**
-		List<Manager> all = base.getListOfManagers();
+		List<Manager> all = base.getListOfManagersByRank("manager");
 				
 		for(Manager s:all){
-			System.out.println(s.getId()+" "+s.getName());
+			System.out.println(s.getId()+" "+s.getName()+" "+s.getRank());
 		}
+	*/
 	
-		*/
 
 		/**
 		List <Deal> all = b.getListOfallDealsByManagerIdAndDirection(2, "import");

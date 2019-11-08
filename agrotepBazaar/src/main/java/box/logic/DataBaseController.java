@@ -235,5 +235,29 @@ public class DataBaseController {
 	}
 	
 	//manager
+	
+	//report
+	
+	public List<Manager> getListOfManagersByRank(String rank) {
+		return managerService.getListOfManagersByRank(rank);
+	}
+	
+	public int getNumberOfArchivebetByManagerIdDates(String start, String ending, int managerid) {
+		return archivebetService.getNumberOfArchivebetByManagerIdDates(start, ending, managerid);
+	}
+	
+	public int getNumberOfArchivebetByManagerIdAndStatusDates(String start, String ending, int managerid, String status) {
+		return archivebetService.getNumberOfArchivebetByManagerIdAndStatusDates(start, ending, managerid, status);
+	}
+
+	public int getSummOfArchivebetByManagerIdAndStatusDates(String start, String ending, int managerid, String status, String currency) {
+		return archivebetService.getSummOfArchivebetByManagerIdAndStatusDates(start, ending, managerid, status, currency);
+	}
+	
+	public int getNumberOfArchiveauctionDates(String start, String ending) {
+		return archiveauctionService.getNumberOfArchiveauctionDates(start, ending);
+	}
+	
+	//report
 
 }

@@ -22,6 +22,10 @@ public class ManagerService {
 		dao.persist(manager);
 	}
 	
+	public List<Manager> getListOfManagersByRank(String rank) {
+		return dao.getListOfManagersByRank(rank);
+	}
+	
 	public List<Manager> getListOfManagers() {
 		return dao.getListOfManagers();
 	}

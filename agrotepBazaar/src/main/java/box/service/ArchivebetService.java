@@ -1,5 +1,7 @@
 package box.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +17,28 @@ public class ArchivebetService {
 	
 	@Autowired
 	private ArchivebetDAO dao;
+	
+	public int getSummOfArchivebetByManagerIdAndStatusDates(String start, String ending, int managerid, String status, String currency) {
+		List<Archivebet> bets = dao.getListOfArchivebetByManagerIdAndStatusDates(start, ending, managerid, status);
+		int sum = 0;
+		
+		for(Archivebet b:bets){
+			if(b.getCurrency().equals(currency)){
+				sum = sum + b.getDifferance();
+			}
+		}
+		
+		return sum;
+	}
+	
+	
+	public int getNumberOfArchivebetByManagerIdDates(String start, String ending, int managerid) {
+		return dao.getListOfArchivebetByManagerIdDates(start, ending, managerid).size();
+	}
+	
+	public int getNumberOfArchivebetByManagerIdAndStatusDates(String start, String ending, int managerid, String status) {
+		return dao.getListOfArchivebetByManagerIdAndStatusDates(start, ending, managerid, status).size();
+	}
 	
 	public void addArchivebet(Archivebet archivebet) {
 		dao.persist(archivebet);

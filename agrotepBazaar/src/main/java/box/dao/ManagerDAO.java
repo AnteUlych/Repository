@@ -31,6 +31,12 @@ public class ManagerDAO {
 				"from Manager").getResultList();
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Manager> getListOfManagersByRank(String rank) {
+		return em.createQuery(
+				"from Manager where rank = '" + rank + "'").getResultList();
+	}
+	
 	public Manager getManagersByCode(String code) {
 		Query query = em
 				.createQuery("from Manager where code = '" + code + "'");

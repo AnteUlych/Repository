@@ -18,4 +18,7 @@ public class ArchiveauctionService {
 		dao.persist(archiveauction);
 	}
 
+	public int getNumberOfArchiveauctionDates(String start, String ending) {
+		return dao.getListOfArchiveauctionDates(start, ending).size();
+	}
 }
