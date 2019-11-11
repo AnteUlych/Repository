@@ -25,6 +25,13 @@ public class ArchivebetDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
+	public List<Archivebet> getListOfArchivebetsByAuctionId(int auctionid) {
+		return em.createQuery(
+				"from Archivebet where auctionid = '" + auctionid + "' order by rate desc")
+				.getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
 	public List<Archivebet> getListOfArchivebetByManagerIdDates(String start, String ending, int managerid) {
 		return em.createQuery(
 				"from Archivebet where date >= '" + start+"' and date <= '"+ ending+"'  and managerid = '"+ managerid+"'")

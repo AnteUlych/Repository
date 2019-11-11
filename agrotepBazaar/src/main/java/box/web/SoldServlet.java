@@ -215,7 +215,7 @@ public class SoldServlet {
 				archiveauction.setCurrency(auction.getCurrency());
 				archiveauction.setDate(auction.getDate());
 				archiveauction.setDirection(auction.getDirection());
-				archiveauction.setImportance(auction.getImportance());
+				archiveauction.setImportance(sol.getImportance()); //changed without checking  from auction.getImportance()
 				archiveauction.setManagerid(auction.getManagerid());
 				archiveauction.setRate(auction.getRate());
 				archiveauction.setReadiness(auction.getReadiness());

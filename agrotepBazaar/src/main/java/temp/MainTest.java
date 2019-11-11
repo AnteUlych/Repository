@@ -19,7 +19,13 @@ public class MainTest {
 		//System.out.println(",,,^._.^,,,");
 		
 		DataBaseController base = new DataBaseController();
-		
+		Archiveauction a = base.getArchiveauctionByAuctionId(15);
+		System.out.println(a.getId());
+		/**
+		for(Archivebet s:all){
+			System.out.println(s.getId()+" "+s.getManager());
+		}
+		*/
 		//int n = base.getNumberOfArchivebetByManagerIdAndStatusDates("2019-10-07", "2019-11-25", 3, "bet_win");
         //int n = base.getSummOfArchivebetByManagerIdAndStatusDates("2019-10-07", "2019-12-25", 2, "bet_win", "USD");
 		//int n = base.getListOfArchiveauctionDates("2019-11-03", "2019-11-25");

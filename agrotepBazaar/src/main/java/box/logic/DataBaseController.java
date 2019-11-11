@@ -258,6 +258,18 @@ public class DataBaseController {
 		return archiveauctionService.getNumberOfArchiveauctionDates(start, ending);
 	}
 	
+	public List<Archiveauction> getListOfArchiveauctionDates(String start, String ending) {
+		return archiveauctionService.getListOfArchiveauctionDates(start, ending);
+	}
+	
+	public List<Archivebet> getListOfArchivebetsByAuctionId(int auctionid) {
+		return archivebetService.getListOfArchivebetsByAuctionId(auctionid);
+	}
+	
+	public Archiveauction getArchiveauctionByAuctionId(int auctionid){
+		return archiveauctionService.getArchiveauctionByAuctionId(auctionid);
+	}
+	
 	//report
 
 }

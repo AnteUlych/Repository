@@ -51,5 +51,9 @@ public class ArchivebetService {
 	public Archivebet getArchivebetByBetid(int betid) {
 		return dao.getArchivebetByBetid(betid);
 	}
+	
+	public List<Archivebet> getListOfArchivebetsByAuctionId(int auctionid) {
+		return dao.getListOfArchivebetsByAuctionId(auctionid);
+	}
 
 }

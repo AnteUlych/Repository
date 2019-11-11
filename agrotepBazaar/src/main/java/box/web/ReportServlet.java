@@ -111,7 +111,7 @@ HttpSession session = request.getSession();
 				
 				reports.add(report);
 			}
-			auctions = "<a href=\"bazaar/auctionreport/"+start+"_"+ending+"\">Всього проведено аукціонів " + base.getNumberOfArchiveauctionDates(start, ending)+"</a>";
+			auctions = "<a href=\"auctionreport/"+start+"_"+ending+"\">Всього проведено аукціонів " + base.getNumberOfArchiveauctionDates(start, ending)+"</a>";
 			buttonn = buttonCalculate;
 			
 			base.closeConnection();

@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import box.model.Archiveauction;
+import box.model.Archivebet;
 import box.model.Auction;
 import box.model.Bet;
 import box.model.Deal;
@@ -38,6 +40,21 @@ public class DecoderDbToHtml {
 		for(Deal deal:deals){
 			
 			dates.add(formatter.format(deal.getDateoftransportation()));
+			
+		}
+		
+		return dates;
+		
+	}
+	
+	public List<String> getDatesForHtmlDatesForArchive(List<Archiveauction> auctions){
+		
+		List<String> dates = new ArrayList();		
+		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");  
+		
+		for(Archiveauction auction:auctions){
+			
+			dates.add(formatter.format(auction.getDate()));
 			
 		}
 		
@@ -91,6 +108,30 @@ public List<String> colourTranslateAuctionStatusAndImportanceToJsp(List<Auction>
 		
 		return colors;
 	}
+
+public List<String> translateArchiveauctionStatusAndImportanceToJsp(List<Archiveauction> auctions){
+	
+	List<String> icons = new ArrayList();
+	
+	for(Archiveauction auction:auctions){
+		
+		if(auction.getImportance()==1){
+			icons.add(IMPORTANCE_1);
+		}
+		if(auction.getImportance()==2){
+			icons.add(IMPORTANCE_2);
+		}
+		if(auction.getImportance()==3){
+			icons.add(IMPORTANCE_3);
+		}
+		if(auction.getImportance()==4){
+			icons.add(IMPORTANCE_4);
+		}
+		
+	}
+	
+	return icons;
+}
 	
 	public List<String> translateAuctionStatusAndImportanceToJsp(List<Auction> auctions){
 		
@@ -121,6 +162,24 @@ public List<String> colourTranslateAuctionStatusAndImportanceToJsp(List<Auction>
 		List<String> colors = new ArrayList();
 		
 		for(Bet bet:bets){
+			
+			if(bet.getStatus().equals(WIN_BET)){
+				colors.add(WIN_BET_COLOR);
+			}else{
+				colors.add(NO_COLOR);
+			}
+			
+		}
+		
+		return colors;
+	}
+	
+	
+	public List<String> paintWinArchiveBet(List<Archivebet> bets){
+
+		List<String> colors = new ArrayList();
+		
+		for(Archivebet bet:bets){
 			
 			if(bet.getStatus().equals(WIN_BET)){
 				colors.add(WIN_BET_COLOR);
