@@ -197,6 +197,7 @@ public class SoldServlet {
 				deal.setTruck(truck);
 				deal.setTruckdriver("");
 				deal.setBetid(sol.getBetid());
+				deal.setOtherinformation("");
 				
 				//change with adding chiefs table
 				deal.setChiefid(0);

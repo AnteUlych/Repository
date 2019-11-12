@@ -86,6 +86,18 @@ public class DealDAO {
 		em.close();
 	}
 	
+	@Transactional
+	public void editOtherinformationOfDealById(int id, String otherinformation) {
+
+		Deal deal = (Deal) em.find(Deal.class, id);
+
+		deal.setOtherinformation(otherinformation);
+
+		Deal transaction = em.merge(deal);
+		em.persist(transaction);
+		em.close();
+	}
+	
 	//"from Auction where direction = '" + direction + "' order by importance"
 
 }

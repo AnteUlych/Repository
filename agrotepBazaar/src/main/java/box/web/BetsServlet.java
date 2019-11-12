@@ -70,7 +70,7 @@ public class BetsServlet {
 		 
 		
 		 if(((rank.equals(COORDINATOR)||rank.equals(TOP)))&&(auction.getImportance()!=4)){
-			 deleteButton = "<button type=\"submit\" class=\"w3-button w3-red w3-quart\" name=\"deleteauction\" value=\"deleteauction\" formnovalidate >Відмінити</button>";
+			 deleteButton = "<button type=\"submit\" class=\"w3-button w3-red w3-quart\" name=\"deleteauction\" value=\"deleteauction\" formnovalidate >Відмінити аукціон</button>";
 		 }
 		 
 		 for(Bet bet:auctionBets){

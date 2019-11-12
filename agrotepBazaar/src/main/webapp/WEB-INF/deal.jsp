@@ -61,7 +61,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   
   	  <p></p>
     <form method="post">
-      <p><input class="w3-input w3-border" type="text" placeholder="${deal.truckdriver}"  maxlength="100" required name=driver></p>
+      Номер авто та водій:<br>
+      <p><input class="w3-input w3-border" type="text" placeholder="${deal.truckdriver}" value="${deal.truckdriver}"  maxlength="100" required name="driver" maxlength="90" autocomplete="off"></p>
+      Примітка:<br>
+      <p><input class="w3-input w3-border" type="text" placeholder="${deal.otherinformation}" value="${deal.otherinformation}"  maxlength="100" name="otherinformation" maxlength="90" autocomplete="off"></p>
 
   Статус:<br>
 

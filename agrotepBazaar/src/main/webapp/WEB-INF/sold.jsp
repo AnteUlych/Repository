@@ -106,6 +106,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		               <input  type="radio" required name="truck${sol.id}" value ="тент"> <label>тент</label>
                        <input  type="radio" required name="truck${sol.id}" value ="цільнометалевий"> <label>цільнометалевий</label>
                        <input  type="radio" required name="truck${sol.id}" value ="рефрижератор"> <label>рефрижератор</label>
+                       <input required type="radio" name="truck${sol.id}" value ="допельшток"> <label>допельшток</label><br>
                        <input  type="radio" required name="truck${sol.id}" value ="2-режимний"> <label>2-режимний</label>
 	
 	

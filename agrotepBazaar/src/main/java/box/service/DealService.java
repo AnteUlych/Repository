@@ -47,5 +47,9 @@ public class DealService {
 	public void editStatusOfDealById(int id, String status) {
 		dao.editStatusOfDealById(id, status);
 	}
+	
+	public void editOtherinformationOfDealById(int id, String otherinformation) {
+		dao.editOtherinformationOfDealById(id, otherinformation);
+	}
 
 }

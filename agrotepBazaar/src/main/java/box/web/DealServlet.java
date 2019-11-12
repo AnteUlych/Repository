@@ -89,6 +89,7 @@ public class DealServlet {
 			
 			String status = request.getParameter("status");
 			String driver = request.getParameter("driver");
+			String otherinformation = request.getParameter("otherinformation");
 			
 			if (driver != null){
 				try {
@@ -96,6 +97,18 @@ public class DealServlet {
 				} catch (UnsupportedEncodingException e) {
 					e.printStackTrace();
 				}
+			}
+			
+			if (otherinformation != null){
+				try {
+					otherinformation = new String(otherinformation.getBytes(requestEnc), clientEnc);
+				} catch (UnsupportedEncodingException e) {
+					e.printStackTrace();
+				}
+			}
+			
+			if(otherinformation.equals(null)){
+				otherinformation="";
 			}
 			
 			if(status.equals(STATUS_CANCEL)){
@@ -106,6 +119,7 @@ public class DealServlet {
 			
 			base.editStatusOfDealById(iddeal, status);
 			base.editTruckdriverById(iddeal, driver);
+			base.editOtherinformationOfDealById(iddeal, otherinformation);
    
             base.closeConnection();
             

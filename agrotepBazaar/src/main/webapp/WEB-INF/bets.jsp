@@ -109,10 +109,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <i class="fa fa-dollar" style="width:30px"> </i>${auction.rate} ${auction.currency}
 	  
 	  
-	  <p><input class="w3-input w3-border" type="text" required placeholder="Відвантаження" name="information"></p>
-      <p><input class="w3-input w3-border" type="text" required placeholder="Клієнт" name="client"></p>
-	  <p><input class="w3-input w3-border" type="text" required placeholder="Готовність вантажу" name="readiness"></p>
-	  <p><input class="w3-input w3-border" type="number" required min="0" placeholder="Ціна, ${auction.currency}" name="price"></p>
+	  <p><input class="w3-input w3-border" type="text" required placeholder="Відвантаження" name="information" maxlength="150" autocomplete="off"></p>
+      <p><input class="w3-input w3-border" type="text" required placeholder="Клієнт" name="client" maxlength="70"></p>
+	  <p><input class="w3-input w3-border" type="text" required placeholder="Готовність вантажу" name="readiness" maxlength="70" autocomplete="off"></p>
+	  <p><input class="w3-input w3-border" type="number" required min="0" max="1000000" placeholder="Ціна, ${auction.currency}" name="price" autocomplete="off"></p>
       
 	  <button type="submit" name="addbet" value="addbet" class="w3-button w3-padding-large w3-green w3-margin-bottom" >Запропонувати</button>
     </div>
@@ -126,9 +126,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   </div>
 
-</div>
-  <!-- End page content -->
-</div>
+
 
 <script>
 // Get the Sidebar

@@ -1,11 +1,3 @@
-
-<!--A Design by W3layouts
-   Author: W3layout
-   Author URL: http://w3layouts.com
-   License: Creative Commons Attribution 3.0 Unported
-   License URL: http://creativecommons.org/licenses/by/3.0/
-   -->
-
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
  <%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
@@ -49,7 +41,7 @@
                     <div class="form-left-to-w3l ">
 
                         <span class="fa fa-lock" aria-hidden="true"></span>
-                        <input type="password" name="code" placeholder="Код" required>
+                        <input type="password" name="code" placeholder="Код" required maxlength="7">
                         <div class="clear"></div>
                     </div>
                     <div class="main-two-w3ls">

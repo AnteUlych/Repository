@@ -96,8 +96,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <h2 class="w3-wide"><i class="fa fa-user-secret" style="width:30px"></i> </h2>
 	  
 <form method = "post">
-	  <p><input class="w3-input w3-border" type="text" required placeholder="${manag.name}" value="${manag.name}" name="name${manag.id}"></p>
-      <p><input class="w3-input w3-border" type="email" required placeholder="${manag.mail}" value="${manag.mail}" name="mail${manag.id}"></p>
+	  <p><input class="w3-input w3-border" type="text" required placeholder="${manag.name}" value="${manag.name}" name="name${manag.id}" maxlength="90"></p>
+      <p><input class="w3-input w3-border" type="email" required placeholder="${manag.mail}" value="${manag.mail}" name="mail${manag.id}" maxlength="90"></p>
       
 	                   <input  type="radio" name="san${manag.id}" checked value ="${manag.rank}"> <label>${manag.rank}</label>
 		               <input  type="radio" name="san${manag.id}" value ="top"> <label>top</label>
@@ -121,8 +121,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <h2 class="w3-wide"><i class="fa fa-user-secret" style="width:30px"></i> </h2>
 	  
 <form method = "post">
-	  <p><input class="w3-input w3-border" type="text" required placeholder="Ім'я та прізвище"  name="name"></p>
-      <p><input class="w3-input w3-border" type="email" required placeholder="Електронна адреса" name="mail"></p>
+	  <p><input class="w3-input w3-border" type="text" required placeholder="Ім'я та прізвище"  name="name" maxlength="90" autocomplete="off"></p>
+      <p><input class="w3-input w3-border" type="email" required placeholder="Електронна адреса" name="mail" maxlength="90" autocomplete="off"></p>
       
 	     
 		               <input  type="radio" name="san" required value ="top"> <label>top</label>

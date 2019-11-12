@@ -61,9 +61,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   
     <p></p>
     <form method="post">
-      <p><input class="w3-input w3-border" type="text" placeholder="Маршрут" maxlength="100" required name="route"></p>
-	  <p><input class="w3-input w3-border" type="text" placeholder="Бажані дні забору" maxlength="100" required name="readiness"></p>
-	  <p><input class="w3-input w3-border" type="number" placeholder="Ціна" min="0" required name="rate"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Маршрут" maxlength="100" required name="route" maxlength="100"></p>
+	  <p><input class="w3-input w3-border" type="text" placeholder="Бажані дні забору" maxlength="100" required name="readiness" maxlength="100" autocomplete="off"></p>
+	  <p><input class="w3-input w3-border" type="number" placeholder="Ціна" min="0" required name="rate" min="0" max="1000000" autocomplete="off"></p>
 	  <br>
 
     Валюта:<br>
@@ -79,6 +79,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		               <input required type="radio" name="truck" value ="тент"> <label>тент</label><br>
                        <input required type="radio" name="truck" value ="цільнометалевий"> <label>цільнометалевий</label><br>
                        <input required type="radio" name="truck" value ="рефрижератор"> <label>рефрижератор</label><br>
+                       <input required type="radio" name="truck" value ="допельшток"> <label>допельшток</label><br>
                        <input required type="radio" name="truck" value ="2-режимний"> <label>2-режимний</label><br>
 <br>
 

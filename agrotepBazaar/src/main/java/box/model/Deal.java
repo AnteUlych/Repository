@@ -42,6 +42,8 @@ public class Deal {
 	private String chiefname;
 	@Column
 	private int betid;
+	@Column
+	private String otherinformation;
 
 	public int getId() {
 		return id;
@@ -161,6 +163,14 @@ public class Deal {
 
 	public void setBetid(int betid) {
 		this.betid = betid;
+	}
+
+	public String getOtherinformation() {
+		return otherinformation;
+	}
+
+	public void setOtherinformation(String otherinformation) {
+		this.otherinformation = otherinformation;
 	}
 
 }

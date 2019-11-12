@@ -181,6 +181,10 @@ public class DataBaseController {
 		return archivebetService.getArchivebetByBetid(betid);
 	}
 	
+	public void editOtherinformationOfDealById(int id, String otherinformation) {
+		dealService.editOtherinformationOfDealById(id, otherinformation);
+	}
+	
 	//deal
 	
 	//manager
