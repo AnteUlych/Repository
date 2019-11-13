@@ -14,6 +14,7 @@ import box.model.Auction;
 import box.model.Bet;
 import box.model.Deal;
 import box.model.Manager;
+import box.model.Message;
 import box.model.Sold;
 import box.service.ArchiveauctionService;
 import box.service.ArchivebetService;
@@ -21,6 +22,7 @@ import box.service.AuctionService;
 import box.service.BetService;
 import box.service.DealService;
 import box.service.ManagerService;
+import box.service.MessageService;
 import box.service.SoldService;
 
 
@@ -43,6 +45,8 @@ public class DataBaseController {
 			.getBean("archivebetService");
 	DealService dealService = (DealService) ctx
 			.getBean("dealService");
+	MessageService messageService = (MessageService) ctx
+			.getBean("messageService");
 	
 	
 	public void closeConnection() {
@@ -275,5 +279,23 @@ public class DataBaseController {
 	}
 	
 	//report
+	
+	//messages
+	
+	public void addMessage(Message message) {
+		messageService.addMessage(message);
+	}
+	
+	public void deleteMessage(int id) {
+		messageService.deleteMessage(id);
+	}
+
+	public Message getMessageByRecipientid(int recipientid) {
+		return messageService.getMessageByRecipientid(recipientid);
+	}
+	
+	public boolean isAnyMessagesForRecipient(int recipientid){
+		return messageService.isAnyMessagesForRecipient(recipientid);
+	}
 
 }

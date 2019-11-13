@@ -2,6 +2,8 @@ package box.web;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,6 +24,7 @@ import box.model.Archiveauction;
 import box.model.Archivebet;
 import box.model.Auction;
 import box.model.Bet;
+import box.model.Message;
 import box.model.Sold;
 
 @Controller
@@ -253,6 +256,18 @@ public class BetsServlet {
 					base.addSold(sold);
 					
 					base.editImportanceOfAuction(auctionid, AUCTON_SOLD);
+					
+					//message
+					Date nowDate = new Date();
+					DateFormat dateFormat = new SimpleDateFormat("hh:mm");  
+					String messagedate = dateFormat.format(nowDate);  
+					
+					String textmessage = messagedate+" напрямок "+auction.getRoute()+" виграно для клієнта "+bet.getClient()+".";
+					Message message = new Message();
+					message.setRecipientid(bet.getManagerid());
+					message.setText(textmessage);
+					base.addMessage(message);
+					//message
 					
 					base.closeConnection();
 					try {

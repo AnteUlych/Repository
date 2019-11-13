@@ -2,6 +2,9 @@ package box.web;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import box.logic.DataBaseController;
 import box.model.Archivebet;
 import box.model.Deal;
+import box.model.Message;
 
 @Controller
 public class DealServlet {
@@ -23,6 +27,7 @@ public class DealServlet {
 	String TOP = "top";
 	String COORDINATOR = "coordinator";
 	String STATUS_CANCEL = "deal_canceled";
+	String STATUS_CONFIRMED = "deal_ok";
 	String BET_CANCEL = "bet_canceled";
 	
 	String CHANGE = "<button type=\"submit\" name = \"confirm\" class=\"w3-button w3-green\">Змінити</button>";
@@ -113,8 +118,36 @@ public class DealServlet {
 			
 			if(status.equals(STATUS_CANCEL)){
 				
+				//message
+				Date nowDate = new Date();
+				DateFormat dateFormat = new SimpleDateFormat("hh:mm");  
+				String messagedate = dateFormat.format(nowDate);  
+				
+				String textmessage = messagedate+" напрямок "+deal.getInformation()+" скасовано.";
+				Message message = new Message();
+				message.setRecipientid(deal.getManagerid());
+				message.setText(textmessage);
+				base.addMessage(message);
+				//message
+				
 				Archivebet arbet = base.getArchivebetByBetid(deal.getBetid());
 				base.editArchivebetById(arbet.getId(), BET_CANCEL);
+			}
+			
+			if(status.equals(STATUS_CONFIRMED)){
+				
+				//message
+				Date nowDate = new Date();
+				DateFormat dateFormat = new SimpleDateFormat("hh:mm");  
+				String messagedate = dateFormat.format(nowDate);  
+				
+				String textmessage = messagedate+" напрямок "+deal.getInformation()+" підтверджено - "+driver+".";
+				Message message = new Message();
+				message.setRecipientid(deal.getManagerid());
+				message.setText(textmessage);
+				base.addMessage(message);
+				//message
+				
 			}
 			
 			base.editStatusOfDealById(iddeal, status);

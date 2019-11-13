@@ -1,6 +1,9 @@
 package box.web;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -42,6 +45,7 @@ public class AuctionServlet {
 		
 		int numberSold = 0;
 		String alertSold = "";
+		String messagealert = "";
 		
 		if(!rank.equals(CHIEF)){
 			
@@ -59,6 +63,14 @@ public class AuctionServlet {
 		exportColors = dbToHtml.colourTranslateAuctionStatusAndImportanceToJsp(exportAuctions);
 		importColors  = dbToHtml.colourTranslateAuctionStatusAndImportanceToJsp(importAuctions);
 		
+		//message block		
+		if(base.isAnyMessagesForRecipient(id)){
+			String textmessagealert = base.getMessageByRecipientid(id).getText();
+			messagealert = "alert(\""+textmessagealert+"\");";
+			base.deleteMessage(base.getMessageByRecipientid(id).getId());
+		}
+		//message block
+		
 		base.closeConnection();
 		
 		}
@@ -67,7 +79,7 @@ public class AuctionServlet {
 			alertSold = "<span class=\"w3-badge w3-right w3-red\">"+numberSold+"</span>";
 		}
 		
-		
+		model.addAttribute("messagealert", messagealert);
 		
 		model.addAttribute("exportAuctions", exportAuctions);
 		model.addAttribute("importAuctions", importAuctions);

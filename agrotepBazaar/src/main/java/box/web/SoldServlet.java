@@ -25,6 +25,7 @@ import box.model.Archivebet;
 import box.model.Auction;
 import box.model.Bet;
 import box.model.Deal;
+import box.model.Message;
 import box.model.Sold;
 
 @Controller
@@ -134,6 +135,19 @@ public class SoldServlet {
 		for (Sold sol : solds) {
 
 			if (request.getParameter("cancel" + sol.getId()) != null) {
+				
+				//message
+				Date nowDate = new Date();
+				DateFormat dateFormat = new SimpleDateFormat("hh:mm");  
+				String messagedate = dateFormat.format(nowDate);  
+				
+				String textmessage = messagedate+" "+sol.getManager()+": скасування броні на машину по напрямку "+sol.getRoute()+".";
+				Message message = new Message();
+				int recipientid = base.getAuctionByAuctionId(sol.getAuctionid()).getManagerid();
+				message.setRecipientid(recipientid);
+				message.setText(textmessage);
+				base.addMessage(message);
+				//message
 
 				base.editImportanceOfAuction(sol.getAuctionid(),
 						sol.getImportance());

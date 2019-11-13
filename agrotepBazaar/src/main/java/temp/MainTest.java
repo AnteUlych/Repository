@@ -10,6 +10,7 @@ import box.model.Auction;
 import box.model.Bet;
 import box.model.Deal;
 import box.model.Manager;
+import box.model.Message;
 import box.model.Sold;
 
 public class MainTest {
@@ -19,8 +20,11 @@ public class MainTest {
 		//System.out.println(",,,^._.^,,,");
 		
 		DataBaseController base = new DataBaseController();
-		Archiveauction a = base.getArchiveauctionByAuctionId(15);
-		System.out.println(a.getId());
+	
+		//base.deleteMessage(3);
+		System.out.println(",,,^._.^,,,");
+		//Archiveauction a = base.getArchiveauctionByAuctionId(15);
+		//System.out.println(a.getId());
 		/**
 		for(Archivebet s:all){
 			System.out.println(s.getId()+" "+s.getManager());

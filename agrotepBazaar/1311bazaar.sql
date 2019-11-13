@@ -37,7 +37,7 @@ CREATE TABLE `archiveauction` (
   `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,6 +46,7 @@ CREATE TABLE `archiveauction` (
 
 LOCK TABLES `archiveauction` WRITE;
 /*!40000 ALTER TABLE `archiveauction` DISABLE KEYS */;
+INSERT INTO `archiveauction` VALUES (19,22,2,'Киев - Германия','довільний','export','23 тиждень',2000,'EUR',2,1,'2019-11-13 09:57:41');
 /*!40000 ALTER TABLE `archiveauction` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -73,7 +74,7 @@ CREATE TABLE `archivebet` (
   `manager` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -82,6 +83,7 @@ CREATE TABLE `archivebet` (
 
 LOCK TABLES `archivebet` WRITE;
 /*!40000 ALTER TABLE `archivebet` DISABLE KEYS */;
+INSERT INTO `archivebet` VALUES (24,37,22,'export','Киев - Германия, молочка','Kiticat','завтра',2100,5,'EUR',100,'2019-11-13 17:10:06','bet_canceled','Кот Манагер');
 /*!40000 ALTER TABLE `archivebet` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,7 +108,7 @@ CREATE TABLE `auction` (
   `route` varchar(200) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,7 +117,7 @@ CREATE TABLE `auction` (
 
 LOCK TABLES `auction` WRITE;
 /*!40000 ALTER TABLE `auction` DISABLE KEYS */;
-INSERT INTO `auction` VALUES (22,2,'довільний','export','23 тиждень',2000,'EUR',2,0,'2019-11-13 09:57:41','Киев - Германия');
+INSERT INTO `auction` VALUES (23,2,'цільнометалевий','import','21.05',2100,'USD',2,0,'2019-11-13 17:09:27','Стамбул - Київ');
 /*!40000 ALTER TABLE `auction` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,7 +144,7 @@ CREATE TABLE `bet` (
   `manager` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -180,7 +182,7 @@ CREATE TABLE `deal` (
   `otherinformation` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -189,6 +191,7 @@ CREATE TABLE `deal` (
 
 LOCK TABLES `deal` WRITE;
 /*!40000 ALTER TABLE `deal` DISABLE KEYS */;
+INSERT INTO `deal` VALUES (13,24,5,'Кот Манагер','Киев - Германия','Киев - Германия, молочка','export','deal_canceled','2-режимний','ІІ345 Андрушко','2019-11-13 17:13:02','2019-01-21 00:00:00',0,'',37,'Екмт');
 /*!40000 ALTER TABLE `deal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -218,6 +221,32 @@ LOCK TABLES `manager` WRITE;
 /*!40000 ALTER TABLE `manager` DISABLE KEYS */;
 INSERT INTO `manager` VALUES (1,'Топ','satoru@i.ua','top','0000'),(2,'Координатор','satoru@i.ua','coordinator','1111'),(3,'шеф колони','satoru@i.ua','chief','2222'),(4,'Маеагер ','satoru@i.ua','manager','3333'),(5,'Кот Манагер','satoru@i.ua','manager','4444');
 /*!40000 ALTER TABLE `manager` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `message`
+--
+
+DROP TABLE IF EXISTS `message`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `message` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `text` varchar(100) NOT NULL,
+  `recipientid` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `message`
+--
+
+LOCK TABLES `message` WRITE;
+/*!40000 ALTER TABLE `message` DISABLE KEYS */;
+INSERT INTO `message` VALUES (2,'привет1',1);
+/*!40000 ALTER TABLE `message` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -278,7 +307,7 @@ CREATE TABLE `sold` (
   `manager` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -303,4 +332,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-13 10:01:30
+-- Dump completed on 2019-11-13 17:17:28

@@ -37,6 +37,8 @@ public class DealsServlet {
 		 	
 		 List<Deal> deals = new ArrayList();
 		 
+		 String messagealert = "";
+		 
 		 if((direction.equals(DIRECTION_IMPORT))||(direction.equals(DIRECTION_EXPORT))){
 			 
 			DataBaseController base = new DataBaseController();
@@ -46,6 +48,13 @@ public class DealsServlet {
 			 }else{
 				 deals = base.getListOfallDealsByDirection(direction);
 			 }
+			 
+				//message block		
+				if(base.isAnyMessagesForRecipient(id)){
+					String textmessagealert = base.getMessageByRecipientid(id).getText();
+					messagealert = "alert(\""+textmessagealert+"\");";
+				}
+				//message block
 			 
 			 base.closeConnection();
 		 }
@@ -60,6 +69,14 @@ public class DealsServlet {
 					 deals = base.getListOfallDeals();
 				 }
 				 
+					//message block		
+					if(base.isAnyMessagesForRecipient(id)){
+						String textmessagealert = base.getMessageByRecipientid(id).getText();
+						messagealert = "alert(\""+textmessagealert+"\");";
+						base.deleteMessage(base.getMessageByRecipientid(id).getId());
+					}
+					//message block
+				 
 				 base.closeConnection();
 			 }
 		 
@@ -67,7 +84,9 @@ public class DealsServlet {
 		 
 		 List<String> colors = translateToHtml.paintDeals(deals);
 		 List<String> dates = translateToHtml.getDatesForHtmlDates(deals);
-		 		 
+		 	
+		 model.addAttribute("messagealert", messagealert);
+		 
 		 model.addAttribute("name", name);
 		 model.addAttribute("deals", deals);
 		 model.addAttribute("colors", colors);
