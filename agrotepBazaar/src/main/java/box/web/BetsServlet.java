@@ -303,7 +303,7 @@ public class BetsServlet {
 		 
 	 
 		 
-		 int dif = auction.getRate()-rate;
+		 int dif = rate - auction.getRate();
 		 if(dif<0){
 			 dif = 0;
 		 }

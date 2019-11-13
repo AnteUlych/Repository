@@ -37,17 +37,19 @@ public class ManagersServlet {
 		 String rank = (String) session.getAttribute("rank");
 		 String name = (String) session.getAttribute("name");
 		 
-		 DataBaseController base = new DataBaseController();
+		 
 		 String addManager = "";
 		 
 		 List <Manager> managers = new ArrayList();
 		 
 		 if(rank.equals("top")){
+			 DataBaseController base = new DataBaseController();
 			 managers = base.getListOfManagers();
 			 addManager = ADD_MANAGER_BUTTON;
-			 base.closeConnection();
+			  base.closeConnection();
 		 }
-		 		 
+		
+		 
 		 model.addAttribute("name", name);
 		 model.addAttribute("managers", managers);
 		 model.addAttribute("addManager", addManager);

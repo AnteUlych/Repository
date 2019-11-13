@@ -90,7 +90,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <i onclick="document.getElementById('subscribe${sol.id}').style.display='none'" class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent"></i>
       <h2 class="w3-wide"><i class="fa fa-lock" style="width:30px"></i> </h2>
 	  
-     <i class="fa fa-truck" style="width:30px"></i>${sol.route}, ${sol.information}, ${auction.truck}
+     <i class="fa fa-truck" style="width:30px"></i>${sol.information}, ${auction.truck}
 	  <i class="fa fa-clock-o" style="width:30px"></i>${sol.readiness}
       <i class="fa fa-dollar" style="width:30px"> </i>${sol.rate} ${sol.currency}
 	  

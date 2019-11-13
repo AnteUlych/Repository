@@ -270,6 +270,7 @@ public class SoldServlet {
 
 		}
 
+		base.closeConnection();
 		return "sold";
 	}
 

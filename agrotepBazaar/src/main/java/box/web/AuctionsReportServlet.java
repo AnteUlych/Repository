@@ -34,17 +34,17 @@ public class AuctionsReportServlet {
 		 
 		 DataBaseController base = new DataBaseController();
 		 List<Archiveauction> auctions = base.getListOfArchiveauctionDates(dateFrom, dateTo);
-		 /**
+		 
 		 DecoderDbToHtml translater = new DecoderDbToHtml();
-		 List<String> auctionDates = translater.getDatesForHtmlDatesForArchive(auctions);
-		 	*/	 
+		 List<String> auctionIcons = translater.translateArchiveauctionStatusAndImportanceToJsp(auctions);
+		 		 
 		 base.closeConnection();
 		 
 		 model.addAttribute("auctions", auctions);
 		 model.addAttribute("name", name);
 		 model.addAttribute("dateFrom", dateFrom);
 		 model.addAttribute("dateTo", dateTo);
-		// model.addAttribute("auctionDates", auctionDates);
+		 model.addAttribute("auctionIcons", auctionIcons);
 
 		
 		return "auctionreport";

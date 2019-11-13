@@ -157,6 +157,30 @@ public List<String> translateArchiveauctionStatusAndImportanceToJsp(List<Archive
 		return icons;
 	}
 	
+public List<String> translateArchiveAuctionStatusAndImportanceToJsp(List<Archiveauction> auctions){
+		
+		List<String> icons = new ArrayList();
+		
+		for(Archiveauction auction:auctions){
+			
+			if(auction.getImportance()==1){
+				icons.add(IMPORTANCE_1);
+			}
+			if(auction.getImportance()==2){
+				icons.add(IMPORTANCE_2);
+			}
+			if(auction.getImportance()==3){
+				icons.add(IMPORTANCE_3);
+			}
+			if(auction.getImportance()==4){
+				icons.add(IMPORTANCE_4);
+			}
+			
+		}
+		
+		return icons;
+	}
+
 	public List<String> paintWinBet(List<Bet> bets){
 
 		List<String> colors = new ArrayList();
