@@ -159,7 +159,7 @@ public class ManagersServlet {
 						}
 					}
 				 
-				 base.editManager(m.getId(), name, mail, "fired", base.getManagerById(m.getId()).getCode()+"f");
+				 base.editManager(m.getId(), manager, mail, "fired", base.getManagerById(m.getId()).getCode()+"f");
 			 }
 			 
 		 }

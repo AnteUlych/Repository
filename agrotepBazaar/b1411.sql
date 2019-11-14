@@ -245,7 +245,6 @@ CREATE TABLE `message` (
 
 LOCK TABLES `message` WRITE;
 /*!40000 ALTER TABLE `message` DISABLE KEYS */;
-INSERT INTO `message` VALUES (2,'привет1',1);
 /*!40000 ALTER TABLE `message` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -267,7 +266,7 @@ CREATE TABLE `proposition` (
   `manager` varchar(100) NOT NULL,
   `truck` varchar(45) NOT NULL,
   `date` datetime NOT NULL,
-  `readiness` varchar(200) NOT NULL,
+  `readiness` datetime NOT NULL,
   `information` varchar(200) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
@@ -320,6 +319,36 @@ LOCK TABLES `sold` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `transport`
+--
+
+DROP TABLE IF EXISTS `transport`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `transport` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `trucknumber` varchar(45) NOT NULL,
+  `truck` varchar(45) DEFAULT NULL,
+  `driver` varchar(45) DEFAULT NULL,
+  `chiefname` varchar(45) DEFAULT NULL,
+  `chiefid` int(11) DEFAULT NULL,
+  `euro` varchar(45) DEFAULT NULL,
+  `otherinformation` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `transport`
+--
+
+LOCK TABLES `transport` WRITE;
+/*!40000 ALTER TABLE `transport` DISABLE KEYS */;
+/*!40000 ALTER TABLE `transport` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Dumping routines for database 'agrotep_bazaar'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -332,4 +361,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-13 17:17:28
+-- Dump completed on 2019-11-14 11:11:47

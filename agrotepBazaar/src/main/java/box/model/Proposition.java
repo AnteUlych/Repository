@@ -33,7 +33,7 @@ public class Proposition {
 	@Column
 	private Date date;
 	@Column
-	private String readiness;
+	private Date readiness;
 	@Column
 	private String information;
 	
@@ -97,17 +97,17 @@ public class Proposition {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public String getReadiness() {
-		return readiness;
-	}
-	public void setReadiness(String readiness) {
-		this.readiness = readiness;
-	}
 	public String getInformation() {
 		return information;
 	}
 	public void setInformation(String information) {
 		this.information = information;
+	}
+	public Date getReadiness() {
+		return readiness;
+	}
+	public void setReadiness(Date readiness) {
+		this.readiness = readiness;
 	}
 
 }
