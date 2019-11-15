@@ -45,8 +45,11 @@ public class ManagersServlet {
 		 if(rank.equals("top")){
 			 DataBaseController base = new DataBaseController();
 			 managers = base.getListOfManagers();
+			 
+			 managers.remove(0); //hide Siam Admin
+			 
 			 addManager = ADD_MANAGER_BUTTON;
-			  base.closeConnection();
+			 base.closeConnection();
 		 }
 		
 		 
@@ -74,6 +77,9 @@ public class ManagersServlet {
 		 
 		 if(rank.equals("top")){
 			 managers = base.getListOfManagers();
+			 
+			 managers.remove(0); //hide Siam Admin
+			 
 			 addManager = ADD_MANAGER_BUTTON;
 			
 		 }
@@ -90,6 +96,7 @@ public class ManagersServlet {
 			 String manager = request.getParameter("name");
 			 String mail = request.getParameter("mail");
 			 String san = request.getParameter("san");
+			 String phone = request.getParameter("phone");
 				
 				String requestEnc = "ISO-8859-1";
 				String clientEnc = request.getParameter("charset");
@@ -110,6 +117,7 @@ public class ManagersServlet {
 			newManager.setName(manager);
 			newManager.setRank(san);
 			newManager.setCode(base.generateCodeForManager());
+			newManager.setPhone(phone);
 			
 		 
 			base.addManager(newManager);
@@ -122,6 +130,7 @@ public class ManagersServlet {
 				 String manager = request.getParameter("name"+m.getId());
 				 String mail = request.getParameter("mail"+m.getId());
 				 String san = request.getParameter("san"+m.getId());
+				 String phone = request.getParameter("phone"+m.getId());
 					
 					String requestEnc = "ISO-8859-1";
 					String clientEnc = request.getParameter("charset");
@@ -136,7 +145,7 @@ public class ManagersServlet {
 						}
 					}
 					
-					base.editManager(m.getId(), manager, mail, san, base.getManagerById(m.getId()).getCode());
+					base.editManager(m.getId(), manager, mail, san, base.getManagerById(m.getId()).getCode(), phone);
 				 
 			 }
 			 
@@ -159,7 +168,7 @@ public class ManagersServlet {
 						}
 					}
 				 
-				 base.editManager(m.getId(), manager, mail, "fired", base.getManagerById(m.getId()).getCode()+"f");
+				 base.editManager(m.getId(), manager, mail, "fired", base.getManagerById(m.getId()).getCode()+"f", m.getPhone());
 			 }
 			 
 		 }

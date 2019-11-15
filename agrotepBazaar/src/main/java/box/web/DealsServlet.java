@@ -17,6 +17,7 @@ import box.logic.DecoderDbToHtml;
 import box.model.Deal;
 
 @Controller
+
 public class DealsServlet {
 	
 	String DIRECTION_ALL = "all";

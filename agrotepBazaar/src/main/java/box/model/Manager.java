@@ -20,6 +20,8 @@ public class Manager {
 	private String rank;
 	@Column
 	private String code;
+	@Column
+	private String phone;
 
 	public int getId() {
 		return id;
@@ -59,6 +61,14 @@ public class Manager {
 
 	public void setCode(String code) {
 		this.code = code;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 }

@@ -6,7 +6,8 @@
 <html>
 <title>Агротеп</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+<link rel="stylesheet" href="<c:url value="/resources/w3.css" />">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -33,7 +34,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <h5>Меню</h5>
   </div>
   <div class="w3-bar-block">
-    <a href="/bazaar/addauction" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
+    <a href="/bazaar/auction" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
     <a href="/bazaar/auction" class="w3-bar-item w3-button w3-padding"><i class="fa fa-legal fa-fw"></i>&nbsp; Аукціон автомобілів</a>
     <a href="/bazaar/sold" class="w3-bar-item w3-button w3-padding"><i class="fa fa-lock fa-fw"></i> ${alertSold} &nbsp; Заброньовані автомобілі </a>
     <a href="/bazaar/clientspropositions" class="w3-bar-item w3-button w3-padding"><i class="fa fa-volume-control-phone fa-fw"></i>&nbsp; Пропозиції клієнтів</a>
@@ -84,7 +85,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </c:forEach>
 </table>
 
-
+<br><br><br>
   
 <!-- Subscribe Modal -->
 
@@ -98,6 +99,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <form method = "post">
 	  <p><input class="w3-input w3-border" type="text" required placeholder="${manag.name}" value="${manag.name}" name="name${manag.id}" maxlength="90"></p>
       <p><input class="w3-input w3-border" type="email" required placeholder="${manag.mail}" value="${manag.mail}" name="mail${manag.id}" maxlength="90"></p>
+      <p><input class="w3-input w3-border" type="number" required placeholder="${manag.phone}" value="${manag.phone}" name="phone${manag.id}" min="10000000000" max="999999999999"></p>
       
 	                   <input  type="radio" name="san${manag.id}" checked value ="${manag.rank}"> <label>${manag.rank}</label>
 		               <input  type="radio" name="san${manag.id}" value ="top"> <label>top</label>
@@ -123,6 +125,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <form method = "post">
 	  <p><input class="w3-input w3-border" type="text" required placeholder="Ім'я та прізвище"  name="name" maxlength="90" autocomplete="off"></p>
       <p><input class="w3-input w3-border" type="email" required placeholder="Електронна адреса" name="mail" maxlength="90" autocomplete="off"></p>
+      <p><input class="w3-input w3-border" type="number" required placeholder="Мобільний телефон"  name="phone" min="10000000000" max="999999999999" autocomplete="off"></p>
       
 	     
 		               <input  type="radio" name="san" required value ="top"> <label>top</label>

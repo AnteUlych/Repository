@@ -44,7 +44,7 @@ public class ManagerDAO {
 	}
 	
 	@Transactional
-	public void editManager(int id, String name, String mail, String rank, String code) {
+	public void editManager(int id, String name, String mail, String rank, String code, String phone) {
 
 		Manager manager = (Manager) em.find(Manager.class, id);
 
@@ -52,6 +52,7 @@ public class ManagerDAO {
 		manager.setName(name);
 		manager.setRank(rank);
 		manager.setCode(code);
+		manager.setPhone(phone);
 
 		Manager transaction = em.merge(manager);
 		em.persist(transaction);

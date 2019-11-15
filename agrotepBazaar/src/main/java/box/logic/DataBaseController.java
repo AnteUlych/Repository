@@ -201,8 +201,8 @@ public class DataBaseController {
 		return managerService.getListOfManagers();
 	}
 	
-	public void editManager(int id, String name, String mail, String rank, String code) {
-		managerService.editManager(id, name, mail, rank, code);
+	public void editManager(int id, String name, String mail, String rank, String code, String phone) {
+		managerService.editManager(id, name, mail, rank, code, phone);
 	}
 	
 	public Manager getManagerById(int id) {
