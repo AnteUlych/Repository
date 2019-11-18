@@ -14,7 +14,7 @@ public class DecoderDbToHtml {
 	
 	String IMPORTANCE_1 = "fa fa-bomb w3-text-black w3-large";
 	String IMPORTANCE_2 = "fa fa-bolt w3-text-yellow w3-large";
-	String IMPORTANCE_3 = "fa fa fa-bell w3-text-blue w3-large";
+	String IMPORTANCE_3 = "fa fa fa-dot-circle-o w3-text-blue w3-large";
 	String IMPORTANCE_4 = "fa fa-umbrella w3-text-black w3-large";
 	
 	String IMPORTANCE_1_COLOR = "w3-red";
