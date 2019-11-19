@@ -20,7 +20,7 @@
 		<div class="header">
 			<h1>Тендерна платформа Агротеп</h1>
 		</div>
-
+<br><br><br>
 		<div class="design-w3l">
 			<div class="mail-form-agile">
 				<form method="POST">

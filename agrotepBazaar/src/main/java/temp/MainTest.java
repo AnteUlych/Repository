@@ -22,7 +22,7 @@ public class MainTest {
 		
  List <Manager> managers = new ArrayList();
 		 
- 
+ /*
 		 if(rank.equals("top")){
 			 DataBaseController base = new DataBaseController();
 			 managers = base.getListOfManagers();
@@ -34,6 +34,8 @@ public class MainTest {
 
 			  //base.closeConnection();
 		 }
+		 
+		 */
 		
 	}
 

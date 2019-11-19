@@ -110,7 +110,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <i class="fa fa-dollar" style="width:30px"> </i>${auction.rate} ${auction.currency}
 	  
 	  
-	  <p><input class="w3-input w3-border" type="text" required placeholder="Відвантаження" name="information" maxlength="150" autocomplete="off"></p>
+	  <p><input class="w3-input w3-border" type="text" required placeholder="Маршрут, вантаж, температурний режим" name="information" maxlength="150" autocomplete="off"></p>
       <p><input class="w3-input w3-border" type="text" required placeholder="Клієнт" name="client" maxlength="70"></p>
 	  <p><input class="w3-input w3-border" type="text" required placeholder="Готовність вантажу" name="readiness" maxlength="70" autocomplete="off"></p>
 	  <p><input class="w3-input w3-border" type="number" required min="0" max="1000000" placeholder="Ціна, ${auction.currency}" name="price" autocomplete="off"></p>
@@ -152,6 +152,7 @@ function w3_close() {
     mySidebar.style.display = "none";
     overlayBg.style.display = "none";
 }
+
 </script>
 
 </body>
