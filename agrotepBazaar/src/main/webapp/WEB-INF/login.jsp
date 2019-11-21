@@ -18,7 +18,7 @@
 <body>
 	<div class="padding-all">
 		<div class="header">
-			<h1>Тендерна платформа Агротеп</h1>
+			<h1>10DR</h1>
 		</div>
 <br><br><br>
 		<div class="design-w3l">

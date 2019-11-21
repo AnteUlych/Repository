@@ -36,7 +36,7 @@ public class AddAuctionServlet {
 		String button = "";
 		
 		if(rank.equals(top)||rank.equals(coordinator)){
-			button ="<button type=\"submit\" class=\"w3-button w3-green w3-third\" name=\"add\" value=\"add\">Новий Аукціон</button>";
+			button ="<button type=\"submit\" class=\"w3-button w3-green w3-third\" name=\"add\" value=\"add\">Новий Тендер</button>";
 		}
 		
 
@@ -59,7 +59,7 @@ public class AddAuctionServlet {
 			String button = "";
 			
 			if(rank.equals(top)||rank.equals(coordinator)){
-				button ="<button type=\"submit\" class=\"w3-button w3-green w3-third\" name=\"add\" value=\"add\">Новий Аукціон</button>";
+				button ="<button type=\"submit\" class=\"w3-button w3-green w3-third\" name=\"add\" value=\"add\">Новий Тендер</button>";
 			}
 			
 

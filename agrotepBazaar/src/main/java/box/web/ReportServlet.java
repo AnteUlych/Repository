@@ -67,6 +67,9 @@ public class ReportServlet {
 			base.closeConnection();
 		}
 		
+		String tableHead = "";
+		
+		model.addAttribute("tableHead", tableHead);
 		model.addAttribute("name", name);
 		model.addAttribute("reports", reports);
 		model.addAttribute("auctions", auctions);
@@ -117,6 +120,9 @@ HttpSession session = request.getSession();
 			base.closeConnection();
 		}
 		
+		String tableHead = "	<tr><th>№</th><th>Менеджер</th><th>Зроблено пропозицій</th><th>Виграно тендерів</th><th>Додатково зароблено, EUR</th><th>Додатково зароблено, USD</th><th>Додатково зароблено, UAH</th></tr>";
+		
+		model.addAttribute("tableHead", tableHead);
 		model.addAttribute("name", name);
 		model.addAttribute("reports", reports);
 		model.addAttribute("auctions", auctions);
