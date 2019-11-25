@@ -124,7 +124,7 @@ public class AddAuctionServlet {
 			base.closeConnection();
 			
 			try {
-				response.sendRedirect("/bazaar/auction");
+				response.sendRedirect("/tender/auction");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

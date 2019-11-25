@@ -19,7 +19,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <!-- Top container -->
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i> &nbsp;Menu</button>
-  <span class="w3-bar-item w3-right"> <a href="/bazaar/login" ><i class="fa fa-sign-out fa-fw"></i></a></span>
+  <span class="w3-bar-item w3-right"> <a href="/tender/login" ><i class="fa fa-sign-out fa-fw"></i></a></span>
 </div>
 
 
@@ -31,7 +31,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-bug"></i> Виникла помилка на сервері, тому Ваше з'єднанн було розірване, зайдіть в систему знову <a href="/bazaar/login"><i class="fa fa-sign-out fa-fw"></i></a></b></h5>
+    <h5><b><i class="fa fa-bug"></i> Виникла помилка на сервері, тому Ваше з'єднання було розірване, зайдіть в систему знову <a href="/tender/login"><i class="fa fa-sign-out fa-fw"></i></a></b></h5>
   </header>
 
 </div>

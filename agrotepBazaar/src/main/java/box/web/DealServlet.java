@@ -157,7 +157,7 @@ public class DealServlet {
             base.closeConnection();
             
             try {
-				response.sendRedirect("/bazaar/deals/all");
+				response.sendRedirect("/tender/deals/all");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

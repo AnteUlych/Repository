@@ -86,7 +86,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>bazaar</finalName>
+		<finalName>tender</finalName>
 	</build>
 
 	<properties>

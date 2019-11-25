@@ -176,7 +176,7 @@ public class ManagersServlet {
 		 base.closeConnection();
 		 
 		 try {
-				response.sendRedirect("/bazaar/managers");
+				response.sendRedirect("/tender/managers");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

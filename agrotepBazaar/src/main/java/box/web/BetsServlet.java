@@ -207,7 +207,7 @@ public class BetsServlet {
 			 base.closeConnection();
 			 
 				try {
-					response.sendRedirect("/bazaar/auction");
+					response.sendRedirect("/tender/auction");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -226,7 +226,7 @@ public class BetsServlet {
 					
 					
 					try {
-						response.sendRedirect("/bazaar/bets/"+auction.getId());
+						response.sendRedirect("/tender/bets/"+auction.getId());
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
@@ -271,7 +271,7 @@ public class BetsServlet {
 					
 					base.closeConnection();
 					try {
-						response.sendRedirect("/bazaar/bets/"+auction.getId());
+						response.sendRedirect("/tender/bets/"+auction.getId());
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
@@ -346,7 +346,7 @@ public class BetsServlet {
 			 
 				base.closeConnection();
 				try {
-					response.sendRedirect("/bazaar/bets/"+auction.getId());
+					response.sendRedirect("/tender/bets/"+auction.getId());
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

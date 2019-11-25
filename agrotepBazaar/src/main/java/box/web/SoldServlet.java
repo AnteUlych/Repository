@@ -161,7 +161,7 @@ public class SoldServlet {
 				base.closeConnection();
 
 				try {
-					response.sendRedirect("/bazaar/auction");
+					response.sendRedirect("/tender/auction");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -275,7 +275,7 @@ public class SoldServlet {
 				base.closeConnection();
 
 				try {
-					response.sendRedirect("/bazaar/deals/all");
+					response.sendRedirect("/tender/deals/all");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
