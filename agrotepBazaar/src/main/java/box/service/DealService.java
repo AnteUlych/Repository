@@ -1,5 +1,6 @@
 package box.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +51,10 @@ public class DealService {
 	
 	public void editOtherinformationOfDealById(int id, String otherinformation) {
 		dao.editOtherinformationOfDealById(id, otherinformation);
+	}
+	
+	public void editDateoftransportationOfDealById(int id, Date date) {
+		dao.editDateoftransportationOfDealById(id, date);
 	}
 
 }

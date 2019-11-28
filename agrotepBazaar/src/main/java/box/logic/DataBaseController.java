@@ -1,5 +1,6 @@
 package box.logic;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -15,6 +16,7 @@ import box.model.Bet;
 import box.model.Deal;
 import box.model.Manager;
 import box.model.Message;
+import box.model.Proposition;
 import box.model.Sold;
 import box.service.ArchiveauctionService;
 import box.service.ArchivebetService;
@@ -23,6 +25,7 @@ import box.service.BetService;
 import box.service.DealService;
 import box.service.ManagerService;
 import box.service.MessageService;
+import box.service.PropositionService;
 import box.service.SoldService;
 
 
@@ -47,6 +50,8 @@ public class DataBaseController {
 			.getBean("dealService");
 	MessageService messageService = (MessageService) ctx
 			.getBean("messageService");
+	PropositionService propositionService = (PropositionService) ctx
+			.getBean("propositionService");
 	
 	
 	public void closeConnection() {
@@ -189,6 +194,10 @@ public class DataBaseController {
 		dealService.editOtherinformationOfDealById(id, otherinformation);
 	}
 	
+	public void editDateoftransportationOfDealById(int id, Date date) {
+		dealService.editDateoftransportationOfDealById(id, date);
+	}
+	
 	//deal
 	
 	//manager
@@ -297,5 +306,26 @@ public class DataBaseController {
 	public boolean isAnyMessagesForRecipient(int recipientid){
 		return messageService.isAnyMessagesForRecipient(recipientid);
 	}
+	//messages
+	
+	//propositions
+	
+	public void addProposition(Proposition proposition) {
+		propositionService.addProposition(proposition);
+	}
+	
+	public void deleteProposition(int id) {
+		propositionService.deleteProposition(id);
+	}
+		
+	public void editStatusOfProposition(int id, String status) {		
+		propositionService.editStatusOfProposition(id, status);		
+	}
+		
+	public List<Proposition> getListOfPropositionsByDirection(String direction) {
+		return propositionService.getListOfPropositionsByDirection(direction);
+	}
+	
+	//propositions
 
 }

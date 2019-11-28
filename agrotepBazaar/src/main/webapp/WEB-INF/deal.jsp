@@ -62,6 +62,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   
   	  <p></p>
     <form method="post">
+          Дата отгрузки:<br>
+      <p><input class="w3-input w3-border" type = "date" name="readiness" placeholder="${ready}" value="${ready}"></p>
       Номер авто та водій:<br>
       <p><input class="w3-input w3-border" type="text" placeholder="${deal.truckdriver}" value="${deal.truckdriver}"  maxlength="100" required name="driver" maxlength="90" autocomplete="off"></p>
       Примітка:<br>

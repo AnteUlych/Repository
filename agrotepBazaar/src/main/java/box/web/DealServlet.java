@@ -3,6 +3,7 @@ package box.web;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -54,9 +55,13 @@ public class DealServlet {
         	 buttonChange = CHANGE;
          }
          
+         DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd"); 
+         String ready = dateFormat1.format(deal.getDateoftransportation()); 
+        		        	        
          model.addAttribute("name", name);
          model.addAttribute("buttonChange", buttonChange);
          model.addAttribute("deal", deal);
+         model.addAttribute("ready", ready);
 		
 		return "deal";
 	}
@@ -81,9 +86,13 @@ public class DealServlet {
         	 buttonChange = CHANGE;
          }
          
+         DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd"); 
+         String ready = dateFormat1.format(deal.getDateoftransportation());
+         
          model.addAttribute("name", name);
          model.addAttribute("buttonChange", buttonChange);
          model.addAttribute("deal", deal);
+         model.addAttribute("ready", ready);
          
          //post starts here
 		
@@ -95,6 +104,16 @@ public class DealServlet {
 			String status = request.getParameter("status");
 			String driver = request.getParameter("driver");
 			String otherinformation = request.getParameter("otherinformation");
+			String readiness = request.getParameter("readiness");
+			
+			DateFormat format2 = new SimpleDateFormat("yyyy-MM-dd"); //changed bug of mounth
+			Date dateoftransportation = null;
+
+			try {
+				dateoftransportation = format2.parse(readiness);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
 			
 			if (driver != null){
 				try {
@@ -139,9 +158,9 @@ public class DealServlet {
 				//message
 				Date nowDate = new Date();
 				DateFormat dateFormat = new SimpleDateFormat("hh:mm");  
-				String messagedate = dateFormat.format(nowDate);  
+				String messagedate = dateFormat.format(nowDate); 
 				
-				String textmessage = messagedate+" напрямок "+deal.getInformation()+" підтверджено - "+driver+".";
+				String textmessage = messagedate+" напрямок "+deal.getInformation()+" підтверджено на "+readiness+" - "+driver+".";
 				Message message = new Message();
 				message.setRecipientid(deal.getManagerid());
 				message.setText(textmessage);
@@ -153,6 +172,7 @@ public class DealServlet {
 			base.editStatusOfDealById(iddeal, status);
 			base.editTruckdriverById(iddeal, driver);
 			base.editOtherinformationOfDealById(iddeal, otherinformation);
+			base.editDateoftransportationOfDealById(iddeal, dateoftransportation);
    
             base.closeConnection();
             

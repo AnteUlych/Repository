@@ -1,5 +1,6 @@
 package box.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -80,6 +81,18 @@ public class DealDAO {
 		Deal deal = (Deal) em.find(Deal.class, id);
 
 		deal.setStatus(status);
+
+		Deal transaction = em.merge(deal);
+		em.persist(transaction);
+		em.close();
+	}
+	
+	@Transactional
+	public void editDateoftransportationOfDealById(int id, Date date) {
+
+		Deal deal = (Deal) em.find(Deal.class, id);
+
+		deal.setDateoftransportation(date);
 
 		Deal transaction = em.merge(deal);
 		em.persist(transaction);

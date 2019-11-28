@@ -188,7 +188,7 @@ public class SoldServlet {
 					}
 				}
 
-				DateFormat format = new SimpleDateFormat("yyyy-MM-DD");
+				DateFormat format = new SimpleDateFormat("yyyy-MM-dd"); //changed bug of mounth
 				Date dateoftransportation = null;
 
 				try {

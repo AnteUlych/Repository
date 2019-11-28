@@ -1,5 +1,8 @@
 package temp;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,31 +15,30 @@ import box.model.Bet;
 import box.model.Deal;
 import box.model.Manager;
 import box.model.Message;
+import box.model.Proposition;
 import box.model.Sold;
 
 public class MainTest {
 
 	public static void main(String[] args) {
-		
-		String rank = "top";
-		
- List <Manager> managers = new ArrayList();
-		 
- /*
-		 if(rank.equals("top")){
-			 DataBaseController base = new DataBaseController();
-			 managers = base.getListOfManagers();
-			 
-			 managers.remove(0);
-			 for(Manager manager:managers){
-				System.out.println(manager.getName());
-			 }
+		/**
+		DataBaseController d = new DataBaseController();
 
-			  //base.closeConnection();
-		 }
-		 
-		 */
+
+		d.editStatusOfProposition(4, "confirmed");
 		
+		List<Proposition> pi = d.getListOfPropositionsByDirection("import");
+		System.out.println("import");
+		for(Proposition pr:pi){
+		System.out.println(pr.getRoute()+" "+pr.getId());
+		}
+		System.out.println("export");
+        List<Proposition> pe = d.getListOfPropositionsByDirection("export");
+		
+		for(Proposition pr:pe){
+		System.out.println(pr.getRoute()+" "+pr.getId()+" "+pr.getStatus());
+		}
+		*/
 	}
 
 }
