@@ -75,8 +75,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	            <td>${bet.manager}</td>
 			    <td>${bet.client}</td>
 			    <td>${bet.readiness}</td>
-			    <td>${bet.rate}</td>
-			    <td>${bet.currency}</td>			   			
+			    <td>${bet.rate} ${bet.currency}</td>
+			  		   			
 </tr>
 
 

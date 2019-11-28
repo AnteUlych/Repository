@@ -77,8 +77,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 			    <td><a href="/tender/betsreport/${dateFrom}_${dateTo}_${auc.auctionid}">${auc.route}</a></td>
 			    <td>${auc.truck}</td>
 			    <td>${auc.readiness}</td>
-			    <td>${auc.rate}</td>
-			    <td>${auc.currency}</td>
+			    <td>${auc.rate} ${auc.currency}</td>
 			    <td><a href="/tender/betsreport/${dateFrom}_${dateTo}_${auc.auctionid}">${auc.betcount}</a></td>			   			
 </tr>
 

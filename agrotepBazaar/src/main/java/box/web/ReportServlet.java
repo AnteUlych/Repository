@@ -21,6 +21,7 @@ import box.model.Report;
 public class ReportServlet {
 	
 	String top = "top";
+	String coordinator = "coordinator";
 	String manager = "manager";
 	String BET_WIN = "bet_win";
 	
@@ -43,7 +44,7 @@ public class ReportServlet {
 		String auctions = "";
 		String buttonn = "";
 		
-		if(rank.equals(top)){
+		if(rank.equals(top)||rank.equals(coordinator)){
 			
 			DataBaseController base = new DataBaseController();
 			List<Manager> managers = base.getListOfManagersByRank(manager);
@@ -96,7 +97,7 @@ HttpSession session = request.getSession();
 		String start = request.getParameter("start");
 		String ending = request.getParameter("finish");
 		
-		if(rank.equals(top)){
+		if(rank.equals(top)||rank.equals(coordinator)){
 			
 			DataBaseController base = new DataBaseController();
 			List<Manager> managers = base.getListOfManagersByRank(manager);
