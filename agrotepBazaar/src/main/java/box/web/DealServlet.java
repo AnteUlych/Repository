@@ -149,8 +149,10 @@ public class DealServlet {
 				base.addMessage(message);
 				//message
 				
+				if(deal.getBetid()!=0){
 				Archivebet arbet = base.getArchivebetByBetid(deal.getBetid());
 				base.editArchivebetById(arbet.getId(), BET_CANCEL);
+				}
 			}
 			
 			if(status.equals(STATUS_CONFIRMED)){
