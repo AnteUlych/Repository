@@ -69,8 +69,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		<c:forEach items="${exportPropositions}" var="exportInfo" varStatus="theCount">
 <tr class="${exportColor[theCount.index]}">		
 <td>${exportDate[theCount.index]}</td>
-<td>${exportInfo.route}</td>
-<td>${exportInfo.truck}</td>
+<td>${exportInfo.route}, ${exportInfo.truck}</td>
 <td>${exportInfo.information}</td>
 <td>${exportInfo.rate} ${exportInfo.currency}</td>
 <td>${exportInfo.manager}</td>
@@ -89,11 +88,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		<c:forEach items="${importPropositions}" var="importInfo" varStatus="theCount">
 <tr class="${importColor[theCount.index]}">	
 <td>${importDate[theCount.index]}</td>
-<td>${importInfo.route}</td>
-<td>${importInfo.truck}</td>
+<td>${importInfo.route}, ${importInfo.truck}</td>
 <td>${importInfo.information}</td>
 <td>${importInfo.rate} ${importInfo.currency}</td>
-<td>${importInfomanager}</td>
+<td>${importInfo.manager}</td>
 <td>${importButtonDelete[theCount.index]}</td>
 <td>${importButtonConfirm[theCount.index]}</td>
 

@@ -60,6 +60,7 @@ public class BetsServlet {
 		 int auctionid = Integer.parseInt(idauction);
 		 		 
 		 String deleteButton = "";
+		 String deleteButtonSubscribe1 = "";
 		 List<String> confirmButtons = new ArrayList();
 		 List<String> deleteButtons = new ArrayList();
 		 
@@ -74,6 +75,7 @@ public class BetsServlet {
 		
 		 if(((rank.equals(COORDINATOR)||rank.equals(TOP)))&&(auction.getImportance()!=4)){
 			 deleteButton = "<button type=\"submit\" class=\"w3-button w3-red w3-quart\" name=\"deleteauction\" value=\"deleteauction\" formnovalidate >Відмінити тендер</button>";
+			 deleteButtonSubscribe1 = "<button class=\"w3-button w3-red w3-third\" onclick=\"document.getElementById('subscribe1').style.display='block'\">Відмінити тендер</button>";
 		 }
 		 
 		 for(Bet bet:auctionBets){
@@ -98,6 +100,7 @@ public class BetsServlet {
 		 model.addAttribute("auction", auction);
 		 model.addAttribute("auctionBets", auctionBets);
 		 model.addAttribute("deleteButton", deleteButton);
+		 model.addAttribute("deleteButtonSubscribe1", deleteButtonSubscribe1);
 		 
 		 model.addAttribute("confirmButtons", confirmButtons);
 		 model.addAttribute("deleteButtons", deleteButtons);
@@ -119,6 +122,7 @@ public class BetsServlet {
 		 int auctionid = Integer.parseInt(idauction);
 		 		 
 		 String deleteButton = "";
+		 String deleteButtonSubscribe1 = "";
 		 List<String> confirmButtons = new ArrayList();
 		 List<String> deleteButtons = new ArrayList();
 		 
@@ -131,6 +135,7 @@ public class BetsServlet {
 		
 		 if(((rank.equals(COORDINATOR)||rank.equals(TOP)))&&(auction.getImportance()!=4)){
 			 deleteButton = "<button type=\"submit\" class=\"w3-button w3-red w3-quart\" name=\"deleteauction\" formnovalidate >Відмінити тендер</button>";
+			 deleteButtonSubscribe1 = "<button class=\"w3-button w3-red w3-third\" onclick=\"document.getElementById('subscribe1').style.display='block'\">Відмінити тендер</button>";
 		 }
 		 
 		 for(Bet bet:auctionBets){
@@ -155,6 +160,7 @@ public class BetsServlet {
 		 model.addAttribute("auction", auction);
 		 model.addAttribute("auctionBets", auctionBets);
 		 model.addAttribute("deleteButton", deleteButton);
+		 model.addAttribute("deleteButtonSubscribe1", deleteButtonSubscribe1);
 		 
 		 model.addAttribute("confirmButtons", confirmButtons);
 		 model.addAttribute("deleteButtons", deleteButtons);

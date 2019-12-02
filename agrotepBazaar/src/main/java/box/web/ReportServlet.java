@@ -43,10 +43,16 @@ public class ReportServlet {
 		List<Report> reports = new ArrayList();
 		String auctions = "";
 		String buttonn = "";
+		String tableHead = "";
 		
 		if(rank.equals(top)||rank.equals(coordinator)){
 			
 			DataBaseController base = new DataBaseController();
+			
+			if(rank.equals(top)){
+				
+			tableHead = "	<tr><th>№</th><th>Менеджер</th><th>Зроблено пропозицій</th><th>Виграно тендерів</th><th>Додатково зароблено, EUR</th><th>Додатково зароблено, USD</th><th>Додатково зароблено, UAH</th></tr>";
+				
 			List<Manager> managers = base.getListOfManagersByRank(manager);
 			
 			for(Manager m:managers){
@@ -62,13 +68,14 @@ public class ReportServlet {
 				
 				reports.add(report);
 			}
+			}
 			auctions = "Всього проведено аукціонів 0";
 			buttonn = buttonCalculate;
 			
 			base.closeConnection();
 		}
 		
-		String tableHead = "";
+		
 		
 		model.addAttribute("tableHead", tableHead);
 		model.addAttribute("name", name);
@@ -93,6 +100,7 @@ HttpSession session = request.getSession();
 		List<Report> reports = new ArrayList();
 		String auctions = "";
 		String buttonn = "";
+		String tableHead = "";
 		
 		String start = request.getParameter("start");
 		String ending = request.getParameter("finish");
@@ -100,6 +108,11 @@ HttpSession session = request.getSession();
 		if(rank.equals(top)||rank.equals(coordinator)){
 			
 			DataBaseController base = new DataBaseController();
+			
+			if(rank.equals(top)){
+				
+		    tableHead = "	<tr><th>№</th><th>Менеджер</th><th>Зроблено пропозицій</th><th>Виграно тендерів</th><th>Додатково зароблено, EUR</th><th>Додатково зароблено, USD</th><th>Додатково зароблено, UAH</th></tr>";
+				
 			List<Manager> managers = base.getListOfManagersByRank(manager);
 			
 			for(Manager m:managers){
@@ -115,13 +128,14 @@ HttpSession session = request.getSession();
 				
 				reports.add(report);
 			}
+			}
 			auctions = "<a href=\"auctionreport/"+start+"_"+ending+"\">Всього проведено аукціонів " + base.getNumberOfArchiveauctionDates(start, ending)+"</a>";
 			buttonn = buttonCalculate;
 			
 			base.closeConnection();
 		}
 		
-		String tableHead = "	<tr><th>№</th><th>Менеджер</th><th>Зроблено пропозицій</th><th>Виграно тендерів</th><th>Додатково зароблено, EUR</th><th>Додатково зароблено, USD</th><th>Додатково зароблено, UAH</th></tr>";
+		
 		
 		model.addAttribute("tableHead", tableHead);
 		model.addAttribute("name", name);

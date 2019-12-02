@@ -35,15 +35,15 @@ public class ClientsPropositionsServlet {
 	
 	String FIRST_PART_DELETE_BUTTON = "<button type=\"submit\" formnovalidate class=\"w3-button w3-red\" name=\"delete";
 	String SECOND_PART_DELETE_BUTTON = "\" value=\"delete";
-	String THIRD_PART_DELETE_BUTTON = "\" >видалити</button>";
+	String THIRD_PART_DELETE_BUTTON = "\" ><i class=\"fa fa-close\"></button>";
 	
 	String FIRST_PART_CONFIRM_BUTTON = "<button type=\"submit\" formnovalidate class=\"w3-button w3-green\" name=\"confirm";
 	String SECOND_PART_CONFIRM_BUTTON = "\" value=\"confirm";
-	String THIRD_PART_CONFIRM_BUTTON = "\" >підтвердити</button>";
+	String THIRD_PART_CONFIRM_BUTTON = "\" ><i class=\"fa fa-check\"></button>";
 	
 	String FIRST_PART_CONFIRM2_BUTTON = "<button type=\"submit\" formnovalidate class=\"w3-button w3-yellow\" name=\"confirm2";
 	String SECOND_PART_CONFIRM2_BUTTON = "\" value=\"confirm2";
-	String THIRD_PART_CONFIRM2_BUTTON = "\" >підтвердити</button>";
+	String THIRD_PART_CONFIRM2_BUTTON = "\" ><i class=\"fa fa-check\"></i></button>";
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String doGet(ModelMap model, HttpServletRequest request) {
@@ -70,7 +70,7 @@ public class ClientsPropositionsServlet {
 		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM");
 		
 		for(Proposition proposition:exportPropositions){
-			if(id==proposition.getManagerid()){
+			if(id==proposition.getManagerid()||rank.equals("coordinator")){
 				exportButtonDelete.add(FIRST_PART_DELETE_BUTTON+proposition.getId()+SECOND_PART_DELETE_BUTTON+proposition.getId()+THIRD_PART_DELETE_BUTTON);
 			}else{
 				exportButtonDelete.add("");
@@ -98,7 +98,7 @@ public class ClientsPropositionsServlet {
 		}
 		
 		for(Proposition proposition:importPropositions){
-			if(id==proposition.getManagerid()){
+			if(id==proposition.getManagerid()||rank.equals("coordinator")){
 				importButtonDelete.add(FIRST_PART_DELETE_BUTTON+proposition.getId()+SECOND_PART_DELETE_BUTTON+proposition.getId()+THIRD_PART_DELETE_BUTTON);
 			}else{
 				importButtonDelete.add("");
@@ -168,7 +168,7 @@ HttpSession session = request.getSession();
 		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM");
 		
 		for(Proposition proposition:exportPropositions){
-			if(id==proposition.getManagerid()){
+			if(id==proposition.getManagerid()||rank.equals("coordinator")){
 				exportButtonDelete.add(FIRST_PART_DELETE_BUTTON+proposition.getId()+SECOND_PART_DELETE_BUTTON+proposition.getId()+THIRD_PART_DELETE_BUTTON);
 			}else{
 				exportButtonDelete.add("");
@@ -196,7 +196,7 @@ HttpSession session = request.getSession();
 		}
 		
 		for(Proposition proposition:importPropositions){
-			if(id==proposition.getManagerid()){
+			if(id==proposition.getManagerid()||rank.equals("coordinator")){
 				importButtonDelete.add(FIRST_PART_DELETE_BUTTON+proposition.getId()+SECOND_PART_DELETE_BUTTON+proposition.getId()+THIRD_PART_DELETE_BUTTON);
 			}else{
 				importButtonDelete.add("");

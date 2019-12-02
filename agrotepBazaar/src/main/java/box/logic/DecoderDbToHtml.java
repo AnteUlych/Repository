@@ -2,6 +2,7 @@ package box.logic;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import box.model.Archiveauction;
@@ -13,11 +14,12 @@ import box.model.Deal;
 public class DecoderDbToHtml {
 	
 	String IMPORTANCE_1 = "fa fa-bomb w3-text-black w3-large";
-	String IMPORTANCE_2 = "fa fa-bolt w3-text-yellow w3-large";
+	String IMPORTANCE_2 = "fa fa-bolt w3-text-black w3-large";
 	String IMPORTANCE_3 = "fa fa fa-dot-circle-o w3-text-blue w3-large";
 	String IMPORTANCE_4 = "fa fa-umbrella w3-text-black w3-large";
 	
 	String IMPORTANCE_1_COLOR = "w3-red";
+	String IMPORTANCE_2_COLOR = "w3-yellow";
 	String IMPORTANCE_4_COLOR = "w3-gray";
 	String NO_COLOR = "";
 		
@@ -37,9 +39,43 @@ public class DecoderDbToHtml {
 		List<String> dates = new ArrayList();		
 		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");  
 		
+		Calendar calendar = Calendar.getInstance();
+		String weekday = "";
+		
 		for(Deal deal:deals){
 			
-			dates.add(formatter.format(deal.getDateoftransportation()));
+			calendar.setTime(deal.getDateoftransportation());
+			int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+			
+			if(dayOfWeek==1){
+				weekday = "нед≥л€";
+			}
+			
+			if(dayOfWeek==2){
+				weekday = "понед≥лок";
+			}
+			
+			if(dayOfWeek==3){
+				weekday = "в≥второк";
+			}
+			
+			if(dayOfWeek==4){
+				weekday = "середа";
+			}
+			
+			if(dayOfWeek==5){
+				weekday = "четвер";
+			}
+			
+			if(dayOfWeek==6){
+				weekday = "п'€тниц€";
+			}
+			
+			if(dayOfWeek==7){
+				weekday = "субота";
+			}
+			
+			dates.add(formatter.format(deal.getDateoftransportation())+"<br>"+weekday);
 			
 		}
 		
@@ -50,10 +86,10 @@ public class DecoderDbToHtml {
 	public List<String> getDatesForHtmlDatesForArchive(List<Archiveauction> auctions){
 		
 		List<String> dates = new ArrayList();		
-		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");  
-		
+		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy"); 
+				
 		for(Archiveauction auction:auctions){
-			
+					
 			dates.add(formatter.format(auction.getDate()));
 			
 		}
@@ -95,7 +131,7 @@ public List<String> colourTranslateAuctionStatusAndImportanceToJsp(List<Auction>
 				colors.add(IMPORTANCE_1_COLOR);
 			}
 			if(auction.getImportance()==2){
-				colors.add(NO_COLOR);
+				colors.add(IMPORTANCE_2_COLOR);
 			}
 			if(auction.getImportance()==3){
 				colors.add(NO_COLOR);
@@ -131,6 +167,22 @@ public List<String> translateArchiveauctionStatusAndImportanceToJsp(List<Archive
 	}
 	
 	return icons;
+}
+//temp method for color of archive auction
+public List<String> translateColorOfArchiveauction(List<Archiveauction> auctions){
+	
+	List<String> colors = new ArrayList();
+	
+	for(Archiveauction auction:auctions){
+		
+		if(auction.getBetcount()==0){
+			colors.add("w3-black");
+		}else{
+			colors.add(NO_COLOR);
+		}		
+	}
+	
+	return colors;
 }
 	
 	public List<String> translateAuctionStatusAndImportanceToJsp(List<Auction> auctions){

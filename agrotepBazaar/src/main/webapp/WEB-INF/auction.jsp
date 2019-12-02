@@ -13,6 +13,30 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
 </style>
 <body class="w3-light-grey">
 
@@ -66,7 +90,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		
 		<c:forEach items="${exportAuctions}" var="exportInfo" varStatus="theCount">
 <tr class="${exportColors[theCount.index]}">	
-<td><i class="${exportIcons[theCount.index]}"></td>
+<td><div class="tooltip"><i class="${exportIcons[theCount.index]}"></i><span class="tooltiptext">${exportInfo.date}</span></div></td>
 <td><a href="/tender/bets/${exportInfo.id}">${exportInfo.route}</a></td>
 <td>${exportInfo.truck}</td>
 <td>${exportInfo.readiness}</td>
@@ -84,7 +108,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		
 		<c:forEach items="${importAuctions}" var="importInfo" varStatus="theCount">
 <tr class="${importColors[theCount.index]}">	
-<td><i class="${importIcons[theCount.index]}"></i></td>
+<td><div class="tooltip"><i class="${importIcons[theCount.index]}"></i><span class="tooltiptext">${importInfo.date}</span></div></td>
 <td><a href="/tender/bets/${importInfo.id}">${importInfo.route}</a></td>
 <td>${importInfo.truck}</td>
 <td>${importInfo.readiness}</td>

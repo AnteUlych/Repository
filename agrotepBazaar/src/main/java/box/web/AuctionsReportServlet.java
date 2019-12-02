@@ -37,7 +37,8 @@ public class AuctionsReportServlet {
 		 
 		 DecoderDbToHtml translater = new DecoderDbToHtml();
 		 List<String> auctionIcons = translater.translateArchiveauctionStatusAndImportanceToJsp(auctions);
-		 		 
+		 List<String> colors = 	translater.translateColorOfArchiveauction(auctions);
+		 
 		 base.closeConnection();
 		 
 		 model.addAttribute("auctions", auctions);
@@ -45,6 +46,7 @@ public class AuctionsReportServlet {
 		 model.addAttribute("dateFrom", dateFrom);
 		 model.addAttribute("dateTo", dateTo);
 		 model.addAttribute("auctionIcons", auctionIcons);
+		 model.addAttribute("colors", colors);
 
 		
 		return "auctionreport";

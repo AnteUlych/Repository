@@ -69,7 +69,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	
 	
 		<c:forEach items="${auctions}" var="auc" varStatus="theCount">
-<tr>
+<tr class="${colors[theCount.index]}">
 	            
 	            <td>${theCount.count}</td>
 	            <td><i class="${auctionIcons[theCount.index]}"></i></td>

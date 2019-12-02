@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -21,6 +22,18 @@ import box.model.Sold;
 public class MainTest {
 
 	public static void main(String[] args) {
+		
+		
+	Calendar calendar = Calendar.getInstance();
+					
+			calendar.setTime(new Date());
+			int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+			
+			System.out.println(dayOfWeek);
+
+			
+		
+		
 		/**
 		DataBaseController d = new DataBaseController();
 

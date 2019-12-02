@@ -47,7 +47,7 @@ public class PropositionDAO {
 	@SuppressWarnings("unchecked")
 	public List<Proposition> getListOfPropositionsByDirection(String direction) {
 		return em.createQuery(
-				"from Proposition where direction = '" + direction + "' order by id desc")
+				"from Proposition where direction = '" + direction + "' order by readiness desc")
 				.getResultList();
 	}
 	
