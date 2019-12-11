@@ -31,6 +31,7 @@ import box.model.Sold;
 public class BetsServlet {
 	
 	String WIN_BET = "bet_win";	
+	String CONFIRMED_BET = "bet_confirmed";
 	String BET_WAITING = "bet_waiting";
 	int AUCTON_SOLD = 4;
 	
@@ -73,21 +74,40 @@ public class BetsServlet {
 		 base.closeConnection();
 		 
 		
-		 if(((rank.equals(COORDINATOR)||rank.equals(TOP)))&&(auction.getImportance()!=4)){
-			 deleteButton = "<button type=\"submit\" class=\"w3-button w3-red w3-quart\" name=\"deleteauction\" value=\"deleteauction\" formnovalidate >Відмінити тендер</button>";
-			 deleteButtonSubscribe1 = "<button class=\"w3-button w3-red w3-third\" onclick=\"document.getElementById('subscribe1').style.display='block'\">Відмінити тендер</button>";
+		 String disabled = "";
+		 String buttonMessage = "Закрити тендер";
+		 
+		 for(Bet bet:auctionBets){
+			 if(bet.getStatus().equals("bet_win")){
+				 disabled = "disabled";
+				 buttonMessage = "Очікування підтвердження";
+			 }
+			 }
+		
+		 if(((rank.equals(COORDINATOR)||rank.equals(TOP)))){
+			 /**  ???
+			 if(base.isSoldOfAuctionIdisEmpty(auctionid)>1){
+				 disabled = ""; 
+			 }
+			 */
+			 deleteButton = "<button type=\"submit\"  class=\"w3-button w3-red w3-quart\" name=\"deleteauction\" value=\"deleteauction\" formnovalidate >Закрити тендер</button>";
+			 deleteButtonSubscribe1 = "<button class=\"w3-button w3-red w3-third\" "+disabled+" onclick=\"document.getElementById('subscribe1').style.display='block'\">"+buttonMessage+"</button>";
 		 }
 		 
 		 for(Bet bet:auctionBets){
 			 
-			 if((id == bet.getManagerid())&&(auction.getImportance()!=4)){
+			 if((id == bet.getManagerid())&&(bet.getStatus().equals("bet_waiting"))){
+
 				 deleteButtons.add(FIRST_PART_DELETE_BUTTON+bet.getId()+SECOND_PART_DELETE_BUTTON+bet.getId()+THIRD_PART_DELETE_BUTTON);
+				
 			 }else{
 				 deleteButtons.add(EMPTY);
 			 }
 			 
-			 if(rank.equals(COORDINATOR)&&(auction.getImportance()!=4)){
+			 if((rank.equals(COORDINATOR))&&(bet.getStatus().equals("bet_waiting"))){
+			
 				 confirmButtons.add(FIRST_PART_CONFIRM_BUTTON+bet.getId()+SECOND_PART_CONFIRM_BUTTON+bet.getId()+THIRD_PART_CONFIRM_BUTTON);
+				
 			 }else{
 				 confirmButtons.add(EMPTY);
 			 }
@@ -126,28 +146,44 @@ public class BetsServlet {
 		 List<String> confirmButtons = new ArrayList();
 		 List<String> deleteButtons = new ArrayList();
 		 
+		 
+		 
 			 
 		 DataBaseController base = new DataBaseController();
 		 
 		 Auction auction = base.getAuctionByAuctionId(auctionid);
 		 List<Bet> auctionBets = base.getListOfBetsByAuctionId(auctionid);
 		 
-		
-		 if(((rank.equals(COORDINATOR)||rank.equals(TOP)))&&(auction.getImportance()!=4)){
-			 deleteButton = "<button type=\"submit\" class=\"w3-button w3-red w3-quart\" name=\"deleteauction\" formnovalidate >Відмінити тендер</button>";
-			 deleteButtonSubscribe1 = "<button class=\"w3-button w3-red w3-third\" onclick=\"document.getElementById('subscribe1').style.display='block'\">Відмінити тендер</button>";
-		 }
+		 String disabled = "";
+		 String buttonMessage = "Закрити тендер";
 		 
 		 for(Bet bet:auctionBets){
+			 if(bet.getStatus().equals("bet_win")){
+				 disabled = "disabled";
+				 buttonMessage = "Очікування підтвердження";
+			 }
+			 }
+		 
+		
+		 if(((rank.equals(COORDINATOR)||rank.equals(TOP)))&&(auction.getImportance()!=4)){
+			 deleteButton = "<button type=\"submit\" class=\"w3-button w3-red w3-quart\" name=\"deleteauction\" formnovalidate >Закрити тендер</button>";
+			 deleteButtonSubscribe1 = "<button class=\"w3-button w3-red w3-third\" "+disabled+" onclick=\"document.getElementById('subscribe1').style.display='block'\">"+buttonMessage+"</button>";
+		 }
+		 
+	 for(Bet bet:auctionBets){
 			 
-			 if((id == bet.getManagerid())&&(auction.getImportance()!=4)){
+		 if((id == bet.getManagerid())&&(bet.getStatus().equals("bet_waiting"))){
+			
 				 deleteButtons.add(FIRST_PART_DELETE_BUTTON+bet.getId()+SECOND_PART_DELETE_BUTTON+bet.getId()+THIRD_PART_DELETE_BUTTON);
+			
 			 }else{
 				 deleteButtons.add(EMPTY);
 			 }
 			 
-			 if(rank.equals(COORDINATOR)&&(auction.getImportance()!=4)){
+		 if((rank.equals(COORDINATOR))&&(bet.getStatus().equals("bet_waiting"))){
+		
 				 confirmButtons.add(FIRST_PART_CONFIRM_BUTTON+bet.getId()+SECOND_PART_CONFIRM_BUTTON+bet.getId()+THIRD_PART_CONFIRM_BUTTON);
+			
 			 }else{
 				 confirmButtons.add(EMPTY);
 			 }
@@ -169,6 +205,22 @@ public class BetsServlet {
 			//start Post
 		 		 
 		 if (request.getParameter("deleteauction") != null){
+			 
+			 String requestEnc = "ISO-8859-1";
+				String clientEnc = request.getParameter("charset");
+				if (clientEnc == null)
+					clientEnc = "Cp1251";
+							 
+			 String deleteresult = request.getParameter("deleteresult");
+
+			 if (deleteresult != null){
+					try {
+						deleteresult = new String(deleteresult.getBytes(requestEnc), clientEnc);
+					} catch (UnsupportedEncodingException e) {
+						e.printStackTrace();
+					}
+				}
+			 
 			 		 
 			 Archiveauction archiveauction = new Archiveauction();
 			 
@@ -183,6 +235,9 @@ public class BetsServlet {
 			 archiveauction.setReadiness(auction.getReadiness());
 			 archiveauction.setRoute(auction.getRoute());
 			 archiveauction.setTruck(auction.getTruck());
+			 archiveauction.setResult(deleteresult+" ("+name+")");
+			 archiveauction.setTrucks(auction.getTrucks());
+			 archiveauction.setTrucksclosed(auction.getTrucksclosed());
 			 
 			 base.addArchiveauction(archiveauction);
 			 
@@ -261,7 +316,12 @@ public class BetsServlet {
 				
 					base.addSold(sold);
 					
+					/**
 					base.editImportanceOfAuction(auctionid, AUCTON_SOLD);
+					*/
+					
+					//change number of trucks in auction
+					base.editNumberOfClosedTrucks(auctionid, 1);
 					
 					//message
 					Date nowDate = new Date();

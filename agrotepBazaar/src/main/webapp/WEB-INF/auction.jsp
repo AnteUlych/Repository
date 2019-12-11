@@ -93,6 +93,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <td><div class="tooltip"><i class="${exportIcons[theCount.index]}"></i><span class="tooltiptext">${exportInfo.date}</span></div></td>
 <td><a href="/tender/bets/${exportInfo.id}">${exportInfo.route}</a></td>
 <td>${exportInfo.truck}</td>
+<td>${exportInfo.trucksclosed}/${exportInfo.trucks}</td>
 <td>${exportInfo.readiness}</td>
 <td>${exportInfo.rate} ${exportInfo.currency}</td>
 <td>${exportInfo.betcount}</td>
@@ -111,6 +112,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <td><div class="tooltip"><i class="${importIcons[theCount.index]}"></i><span class="tooltiptext">${importInfo.date}</span></div></td>
 <td><a href="/tender/bets/${importInfo.id}">${importInfo.route}</a></td>
 <td>${importInfo.truck}</td>
+<td>${importInfo.trucksclosed}/${importInfo.trucks}</td>
 <td>${importInfo.readiness}</td>
 <td>${importInfo.rate} ${importInfo.currency}</td>
 <td>${importInfo.betcount}</td>

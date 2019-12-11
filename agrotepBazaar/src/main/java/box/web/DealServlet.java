@@ -149,10 +149,11 @@ public class DealServlet {
 				base.addMessage(message);
 				//message
 				
-				if(deal.getBetid()!=0){
-				Archivebet arbet = base.getArchivebetByBetid(deal.getBetid());
-				base.editArchivebetById(arbet.getId(), BET_CANCEL);
-				}
+			//	if(deal.getBetid()!=0){
+			//	Archivebet arbet = base.getArchivebetByBetid(deal.getBetid());
+			//	base.editArchivebetById(deal.getBetid(), BET_CANCEL);
+			//	base.editNumberOfClosedTrucksofArchiveAuction(arbet.getAuctionid(), -1);
+			//	}
 			}
 			
 			if(status.equals(STATUS_CONFIRMED)){

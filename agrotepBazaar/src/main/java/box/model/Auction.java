@@ -34,6 +34,10 @@ public class Auction {
 	private Date date;
 	@Column
 	private String route;
+	@Column
+	private int trucks;
+	@Column
+	private int trucksclosed;
 	
 	public int getId() {
 		return id;
@@ -101,6 +105,18 @@ public class Auction {
 	}
 	public void setImportance(int importance) {
 		this.importance = importance;
+	}
+	public int getTrucks() {
+		return trucks;
+	}
+	public void setTrucks(int trucks) {
+		this.trucks = trucks;
+	}
+	public int getTrucksclosed() {
+		return trucksclosed;
+	}
+	public void setTrucksclosed(int trucksclosed) {
+		this.trucksclosed = trucksclosed;
 	}
 
 }

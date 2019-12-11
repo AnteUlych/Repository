@@ -40,5 +40,9 @@ public class AuctionService {
 	public void deleteAuction(int id) {
 		dao.deleteAuction(id);
 	}
+	
+	public void editNumberOfClosedTrucks(int id, int number) {
+		dao.editNumberOfClosedTrucks(id, number);
+	}
 
 }

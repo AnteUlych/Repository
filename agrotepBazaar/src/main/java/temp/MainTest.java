@@ -24,20 +24,12 @@ public class MainTest {
 	public static void main(String[] args) {
 		
 		
-	Calendar calendar = Calendar.getInstance();
-					
-			calendar.setTime(new Date());
-			int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
-			
-			System.out.println(dayOfWeek);
-
-			
 		
-		
-		/**
 		DataBaseController d = new DataBaseController();
+		int s =d.isSoldOfAuctionIdisEmpty(1);
+		System.out.println(s);
 
-
+/**
 		d.editStatusOfProposition(4, "confirmed");
 		
 		List<Proposition> pi = d.getListOfPropositionsByDirection("import");

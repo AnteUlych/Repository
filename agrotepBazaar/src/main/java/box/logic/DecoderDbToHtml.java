@@ -15,7 +15,7 @@ public class DecoderDbToHtml {
 	
 	String IMPORTANCE_1 = "fa fa-bomb w3-text-black w3-large";
 	String IMPORTANCE_2 = "fa fa-bolt w3-text-black w3-large";
-	String IMPORTANCE_3 = "fa fa fa-dot-circle-o w3-text-blue w3-large";
+	String IMPORTANCE_3 = "fa fa fa-dot-circle-o w3-text-black w3-large";
 	String IMPORTANCE_4 = "fa fa-umbrella w3-text-black w3-large";
 	
 	String IMPORTANCE_1_COLOR = "w3-red";
@@ -24,7 +24,8 @@ public class DecoderDbToHtml {
 	String NO_COLOR = "";
 		
 	String WIN_BET = "bet_win";
-	String WIN_BET_COLOR = "w3-lime";
+	String WIN_BET_COLOR = "w3-yellow";
+	String WIN_BET_CONFIRMED = "w3-lime";
 	
 	String COLOR_DEAL_WAITING = "";
 	String COLOR_DEAL_OK = "w3-green";
@@ -175,11 +176,15 @@ public List<String> translateColorOfArchiveauction(List<Archiveauction> auctions
 	
 	for(Archiveauction auction:auctions){
 		
-		if(auction.getBetcount()==0){
-			colors.add("w3-black");
+		if(auction.getResult().contains("знайдена")){
+			colors.add("w3-lime");
+		}else if(auction.getResult().contains("знайдено")){
+			colors.add("w3-pale-red");
+		}else if(auction.getResult().contains("відпала")){
+			colors.add("w3-grey");
 		}else{
-			colors.add(NO_COLOR);
-		}		
+			colors.add("w3-dark-grey");
+		}
 	}
 	
 	return colors;
@@ -239,10 +244,14 @@ public List<String> translateArchiveAuctionStatusAndImportanceToJsp(List<Archive
 		
 		for(Bet bet:bets){
 			
-			if(bet.getStatus().equals(WIN_BET)){
-				colors.add(WIN_BET_COLOR);
+			if(bet.getStatus().equals("bet_win")){
+				colors.add("w3-yellow");
+			}else if(bet.getStatus().equals("bet_confirmed")){
+				colors.add("w3-green");
+			}else if(bet.getStatus().equals("bet_canceled")){
+				colors.add("w3-red");
 			}else{
-				colors.add(NO_COLOR);
+				colors.add("");
 			}
 			
 		}
@@ -257,10 +266,14 @@ public List<String> translateArchiveAuctionStatusAndImportanceToJsp(List<Archive
 		
 		for(Archivebet bet:bets){
 			
-			if(bet.getStatus().equals(WIN_BET)){
-				colors.add(WIN_BET_COLOR);
+			if(bet.getStatus().equals("bet_win")){
+				colors.add("w3-yellow");
+			}else if(bet.getStatus().equals("bet_confirmed")){
+				colors.add("w3-green");
+			}else if(bet.getStatus().equals("bet_canceled")){
+				colors.add("w3-red");
 			}else{
-				colors.add(NO_COLOR);
+				colors.add("");
 			}
 			
 		}

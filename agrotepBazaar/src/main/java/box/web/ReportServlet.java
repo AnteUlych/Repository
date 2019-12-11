@@ -23,7 +23,7 @@ public class ReportServlet {
 	String top = "top";
 	String coordinator = "coordinator";
 	String manager = "manager";
-	String BET_WIN = "bet_win";
+	String BET_CONFIRMED = "bet_confirmed";
 	
 	String EUR = "EUR";
 	String USD = "USD";
@@ -121,10 +121,10 @@ HttpSession session = request.getSession();
 				
 				report.setManager(m.getName());
 				report.setPropositions(base.getNumberOfArchivebetByManagerIdDates(start, ending, m.getId()));
-				report.setDeals(base.getNumberOfArchivebetByManagerIdAndStatusDates(start, ending, m.getId(), BET_WIN));
-				report.setEur(base.getSummOfArchivebetByManagerIdAndStatusDates(start, ending, m.getId(), BET_WIN, EUR));
-				report.setUah(base.getSummOfArchivebetByManagerIdAndStatusDates(start, ending, m.getId(), BET_WIN, UAH));
-				report.setUsd(base.getSummOfArchivebetByManagerIdAndStatusDates(start, ending, m.getId(), BET_WIN, USD));
+				report.setDeals(base.getNumberOfArchivebetByManagerIdAndStatusDates(start, ending, m.getId(), BET_CONFIRMED));
+				report.setEur(base.getSummOfArchivebetByManagerIdAndStatusDates(start, ending, m.getId(), BET_CONFIRMED, EUR));
+				report.setUah(base.getSummOfArchivebetByManagerIdAndStatusDates(start, ending, m.getId(), BET_CONFIRMED, UAH));
+				report.setUsd(base.getSummOfArchivebetByManagerIdAndStatusDates(start, ending, m.getId(), BET_CONFIRMED, USD));
 				
 				reports.add(report);
 			}

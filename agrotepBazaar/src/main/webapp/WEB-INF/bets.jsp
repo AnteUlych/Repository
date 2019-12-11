@@ -63,6 +63,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	
 	 <i class="fa fa-clock-o" style="width:30px"></i>Дата : ${auction.readiness}<br>
     <i class="fa fa-dollar" style="width:30px"> </i>Ціна: ${auction.rate} ${auction.currency}<br>
+    <i class="fa fa-truck" style="width:30px"> </i>Закрито: ${auction.trucksclosed}/${auction.trucks}<br>
 	
   </header>
   
@@ -102,7 +103,24 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-modal-content w3-animate-zoom w3-padding-large">
     <div class="w3-container w3-white w3-center">
       <i onclick="document.getElementById('subscribe1').style.display='none'" class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent"></i>
-      <p>Ви впевнені, що хочете закрити тедер?</p>
+      <p>Тендер закритий по причині:</p>
+      
+      <br>
+				 <table align="center">
+                      <tr>
+                      <td align="left"> <input required type="radio" name="deleteresult" value ="знайдена потрібна кількість маршрутів" checked><label>знайдена потрібна кількість автомобілів</label></td>  
+                      </tr> 
+                      <tr>            
+		               <td align="left"><input required type="radio" name="deleteresult" value ="не знайдено потрібних маршрутів"><label>не знайдено потрібних маршрутів</label></td>
+		               </tr>
+		               <tr>
+                       <td align="left"><input required type="radio" name="deleteresult" value ="відпала необхідність шукати даний маршрут"><label>відпала необхідність шукати даний маршрут</label></td>
+                       </tr>
+                       <tr>
+                      <td align="left"> <input required type="radio" name="deleteresult" value ="помилка"><label>помилка</label></td>
+                     </tr>
+                 </table>
+      <br>
     ${deleteButton}
     </div>
   </div>

@@ -28,6 +28,13 @@ public class SoldDAO {
 		return em.createQuery("from Sold order by id desc").getResultList();
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Sold> getListOfSoldAuctionId(int auctionid) {
+		return em.createQuery(
+				"from Sold where auctionid = '" + auctionid + "' order by id desc")
+				.getResultList();
+	}
+	
 	@Transactional
 	public void persist(Sold sold) {
 		Sold transaction = em.merge(sold);

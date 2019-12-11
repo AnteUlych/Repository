@@ -130,6 +130,14 @@ public class DataBaseController {
 		auctionService.deleteAuction(id);
 	}
 	
+	public void editNumberOfClosedTrucks(int id, int number) {
+		auctionService.editNumberOfClosedTrucks(id, number);
+	}
+	
+	public int isSoldOfAuctionIdisEmpty(int auctionid){
+		return soldService.getListOfSoldAuctionId(auctionid).size();
+	}
+	
 	//bets
 	
 	//sold
@@ -148,6 +156,14 @@ public class DataBaseController {
 	
 	public void addDeal(Deal deal){
 		dealService.addDeal(deal);
+	}
+	
+	public boolean isArchiveauctionExist(int auctionid){
+		return archiveauctionService.isArchiveauctionExist(auctionid);
+	}
+	
+	public void editNumberOfClosedTrucksofArchiveAuction(int auctionid, int number) {
+		archiveauctionService.editNumberOfClosedTrucksofArchiveAuction(auctionid, number);
 	}
 	
 	//sold

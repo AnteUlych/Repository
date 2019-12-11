@@ -61,6 +61,19 @@ public class AuctionDAO {
 	}
 	
 	@Transactional
+	public void editNumberOfClosedTrucks(int id, int number) {
+		
+		Auction auction = (Auction) em.find(Auction.class, id);
+		
+		auction.setTrucksclosed(auction.getTrucksclosed()+number);
+		
+		Auction transaction = em.merge(auction);
+		em.persist(transaction);
+		em.close();
+		
+	}
+	
+	@Transactional
 	public void deleteAuction(int id) {
 		Auction auction = (Auction) em.find(Auction.class, id);
 		Auction transaction = em.merge(auction);

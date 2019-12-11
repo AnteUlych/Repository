@@ -76,6 +76,7 @@ public class AddAuctionServlet {
 			String price = request.getParameter("rate");
 			String currency = request.getParameter("currency");
 			String truck = request.getParameter("truck");
+			String trucks = request.getParameter("trucks");
 			String direction = request.getParameter("direction");
 			String important = request.getParameter("important");
 			
@@ -116,8 +117,10 @@ public class AddAuctionServlet {
 			auction.setManagerid(id);
 			auction.setRate(rate);
 			auction.setReadiness(readiness);
-			auction.setRoute(route);
+			auction.setRoute(route+" ("+name+")");
 			auction.setTruck(truck);
+			auction.setTrucks(Integer.parseInt(trucks));
+			auction.setTrucksclosed(0);
 			
 			base.addAuction(auction);
 			

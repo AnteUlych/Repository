@@ -74,7 +74,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                        <input required type="radio" name="currency" value ="USD"> <label>доллари</label><br>
 <br>
 
-    Вантажівка:<br>
+    Вантажівка: <input type="number" value="1" required name="trucks" min="1" max="10" autocomplete="off"><br>
 
                        <input required type="radio" name="truck" value ="довільний"> <label>довільний</label><br>
 		               <input required type="radio" name="truck" value ="тент"> <label>тент</label><br>
@@ -83,6 +83,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                        <input required type="radio" name="truck" value ="допельшток"> <label>допельшток</label><br>
                        <input required type="radio" name="truck" value ="2-режимний"> <label>2-режимний</label><br>
 <br>
+
 
    Напрямок:<br>
 
@@ -98,6 +99,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		               <input required type="radio" name="important" value ="3"> <label>низька</label><br>
               
 <br>
+
 
 
 	 

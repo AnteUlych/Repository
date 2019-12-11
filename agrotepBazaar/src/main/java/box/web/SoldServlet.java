@@ -149,14 +149,19 @@ public class SoldServlet {
 				base.addMessage(message);
 				//message
 
-				base.editImportanceOfAuction(sol.getAuctionid(),
-						sol.getImportance());
+		     //base.editImportanceOfAuction(sol.getAuctionid(),sol.getImportance()); delete
 				int countOfBetInAuction = base.getAuctionByAuctionId(
 						sol.getAuctionid()).getBetcount() - 1;
 				base.editBetcountOfAuction(sol.getAuctionid(),
 						countOfBetInAuction);
-				base.deleteBet(sol.getBetid());
+				
+				base.editNumberOfClosedTrucks(sol.getAuctionid(), -1);//new one
+				
+				base.editStatusOfBet(sol.getBetid(), "bet_canceled");
+				//base.deleteBet(sol.getBetid());
 				base.deleteSold(sol.getId());
+				
+				
 
 				base.closeConnection();
 
@@ -219,12 +224,18 @@ public class SoldServlet {
 				//change
 
 				base.addDeal(deal);
+				
+				
 
-				Archiveauction archiveauction = new Archiveauction();
+				
 
-				Auction auction = base
-						.getAuctionByAuctionId(sol.getAuctionid());
+			//	Auction auction = base
+			//			.getAuctionByAuctionId(sol.getAuctionid());
 
+			//	if(!base.isArchiveauctionExist(auction.getId())){
+					/**
+			    Archiveauction archiveauction = new Archiveauction();
+			    
 				archiveauction.setAuctionid(auction.getId());
 				archiveauction.setBetcount(auction.getBetcount());
 				archiveauction.setCurrency(auction.getCurrency());
@@ -236,13 +247,23 @@ public class SoldServlet {
 				archiveauction.setReadiness(auction.getReadiness());
 				archiveauction.setRoute(auction.getRoute());
 				archiveauction.setTruck(auction.getTruck());
+				archiveauction.setTrucksclosed(0);
 
 				base.addArchiveauction(archiveauction);
+				*/
+			//	}else{
+			//		base.editNumberOfClosedTrucksofArchiveAuction(auction.getId(), 1);
+			//	}
+                
+			//	List<Bet> bets = base.getListOfBetsByAuctionId(auction.getId());
+				
+				base.editStatusOfBet(sol.getBetid(), "bet_confirmed");
 
-				List<Bet> bets = base.getListOfBetsByAuctionId(auction.getId());
-
-				for (Bet bet : bets) {
-
+			//	for (Bet bet : bets) {
+					
+				
+				//	if (sol.getBetid() == bet.getId()) { //new one
+					/**					
 					Archivebet archivebet = new Archivebet();
 
 					archivebet.setAuctionid(bet.getAuctionid());
@@ -257,19 +278,24 @@ public class SoldServlet {
 					archivebet.setManagerid(bet.getManagerid());
 					archivebet.setRate(bet.getRate());
 					archivebet.setReadiness(bet.getReadiness());
+					*/
+
+				//	if (sol.getBetid() == bet.getId()) {
+					//	archivebet.setStatus(BET_WIN);
+					//}
+					//	else {
+					//	archivebet.setStatus(BET_LOST);
+				//	}
+                    
 					
+					
+				//	base.addArchivebet(archivebet);
+				//	base.deleteBet(bet.getId());
+				//	}
+			//	}
+				
 
-					if (sol.getBetid() == bet.getId()) {
-						archivebet.setStatus(BET_WIN);
-					} else {
-						archivebet.setStatus(BET_LOST);
-					}
-
-					base.addArchivebet(archivebet);
-					base.deleteBet(bet.getId());
-				}
-
-				base.deleteAuction(auction.getId());
+				//base.deleteAuction(auction.getId());
 				base.deleteSold(sol.getId());
 
 				base.closeConnection();

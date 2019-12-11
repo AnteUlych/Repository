@@ -35,5 +35,9 @@ public class SoldService {
 	public void deleteSold(int id) {
 		dao.deleteSold(id);
 	}
+	
+	public List<Sold> getListOfSoldAuctionId(int auctionid) {
+		return dao.getListOfSoldAuctionId(auctionid);
+	}
 
 }

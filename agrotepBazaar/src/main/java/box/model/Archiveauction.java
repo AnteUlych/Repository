@@ -34,6 +34,12 @@ public class Archiveauction {
 	private int betcount;
 	@Column
 	private Date date;
+	@Column
+	private String result;
+	@Column
+	private int trucks;
+	@Column
+	private int trucksclosed;
 	
 	public int getId() {
 		return id;
@@ -106,6 +112,24 @@ public class Archiveauction {
 	}
 	public void setDate(Date date) {
 		this.date = date;
+	}
+	public String getResult() {
+		return result;
+	}
+	public void setResult(String result) {
+		this.result = result;
+	}
+	public int getTrucks() {
+		return trucks;
+	}
+	public void setTrucks(int trucks) {
+		this.trucks = trucks;
+	}
+	public int getTrucksclosed() {
+		return trucksclosed;
+	}
+	public void setTrucksclosed(int trucksclosed) {
+		this.trucksclosed = trucksclosed;
 	}
 
 }
