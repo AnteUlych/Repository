@@ -214,6 +214,19 @@ public class DataBaseController {
 		dealService.editDateoftransportationOfDealById(id, date);
 	}
 	
+	public boolean isBetExist(int id){
+		Bet bet = betService.getBetbyId(id);
+		
+		try{
+			String tempParamForException = bet.getDirection();
+			return true;
+			
+		}catch(NullPointerException e){
+			return false;
+		}
+		
+	}
+	
 	//deal
 	
 	//manager

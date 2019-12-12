@@ -149,6 +149,11 @@ public class DealServlet {
 				base.addMessage(message);
 				//message
 				
+				//new one
+				if(base.isBetExist(deal.getBetid())){
+					base.editStatusOfBet(deal.getBetid(), "bet_canceled");
+				}
+				
 			//	if(deal.getBetid()!=0){
 			//	Archivebet arbet = base.getArchivebetByBetid(deal.getBetid());
 			//	base.editArchivebetById(deal.getBetid(), BET_CANCEL);

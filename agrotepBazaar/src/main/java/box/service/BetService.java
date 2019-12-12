@@ -32,5 +32,9 @@ public class BetService {
 	public void editStatusOfBet(int id, String status) {
 		dao.editStatusOfBet(id, status);
 	}
+	
+	public Bet getBetbyId(int id){
+		return dao.getBetbyId(id);
+	}
 
 }

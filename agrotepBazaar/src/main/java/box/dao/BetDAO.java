@@ -50,5 +50,10 @@ public class BetDAO {
 		em.close();
 		
 	}
+	
+	public Bet getBetbyId(int id){
+		Bet bet = (Bet) em.find(Bet.class, id);
+		return bet;
+	}
 
 }

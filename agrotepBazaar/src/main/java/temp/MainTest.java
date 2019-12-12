@@ -26,8 +26,8 @@ public class MainTest {
 		
 		
 		DataBaseController d = new DataBaseController();
-		int s =d.isSoldOfAuctionIdisEmpty(1);
-		System.out.println(s);
+		//int s =d.isSoldOfAuctionIdisEmpty(1);
+		System.out.println(d.isBetExist(147));
 
 /**
 		d.editStatusOfProposition(4, "confirmed");
