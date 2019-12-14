@@ -47,7 +47,7 @@ public class ClientsPropositionsServlet {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String doGet(ModelMap model, HttpServletRequest request) {
-		
+		/**
         HttpSession session = request.getSession();
 		
 		int id = (Integer) session.getAttribute("id");
@@ -138,10 +138,11 @@ public class ClientsPropositionsServlet {
 		model.addAttribute("importDate", importDate);
 		model.addAttribute("exportColor", exportColor);
 		model.addAttribute("importColor", importColor);
-		
+		*/
 		return "clientspropositions";
 	}
 	
+	/**
 	@RequestMapping(method = RequestMethod.POST)
 	public String doPost(ModelMap model, HttpServletRequest request,
 			HttpServletResponse response) {
@@ -408,5 +409,5 @@ HttpSession session = request.getSession();
 		
 		return "clientspropositions";
 	}
-
+*/
 }
