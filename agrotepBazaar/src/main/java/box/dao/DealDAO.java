@@ -44,6 +44,20 @@ public class DealDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
+	public List<Deal> getListOfDealsBetweenDates(String dateStart, String dateFinish) {					
+		return em.createQuery(
+				"from Deal where dateoftransportation  >= '" + dateStart+"' and dateoftransportation <= '"+ dateFinish+"' order by dateoftransportation desc")
+				.getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Deal> getListOfDealsBetweenDatesAndManagerId(String dateStart, String dateFinish, int managerid) {					
+		return em.createQuery(
+				"from Deal where dateoftransportation  >= '" + dateStart+"' and dateoftransportation <= '"+ dateFinish+"' and managerid ='"+managerid+"' order by dateoftransportation desc")
+				.getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
 	public List<Deal> getListOfallDealsByManagerId(int managerid) {					
 		return em.createQuery(
 				"from Deal where managerid = '" + managerid + "' order by dateoftransportation desc")

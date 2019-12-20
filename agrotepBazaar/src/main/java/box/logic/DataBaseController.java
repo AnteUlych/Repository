@@ -227,6 +227,14 @@ public class DataBaseController {
 		
 	}
 	
+	public List<Deal> getListOfDealsBetweenDates(String dateStart, String dateFinish) {
+		return dealService.getListOfDealsBetweenDates(dateStart, dateFinish);
+	}
+	
+	public List<Deal> getListOfDealsBetweenDatesAndManagerId(String dateStart, String dateFinish, int managerid) {
+		return dealService.getListOfDealsBetweenDatesAndManagerId(dateStart, dateFinish, managerid);
+	}
+	
 	//deal
 	
 	//manager

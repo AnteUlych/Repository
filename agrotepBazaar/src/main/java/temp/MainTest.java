@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 import box.logic.DataBaseController;
+import box.logic.DecoderDbToHtml;
 import box.model.Archiveauction;
 import box.model.Archivebet;
 import box.model.Auction;
@@ -23,27 +24,31 @@ public class MainTest {
 
 	public static void main(String[] args) {
 		
+		String start = "2019-12-19";
+		String ending = "2019-12-21";
 		
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		
-		DataBaseController d = new DataBaseController();
-		//int s =d.isSoldOfAuctionIdisEmpty(1);
-		System.out.println(d.isBetExist(147));
-
-/**
-		d.editStatusOfProposition(4, "confirmed");
+		Date dateStart = new Date();
+		Date dateFinish = new Date();
 		
-		List<Proposition> pi = d.getListOfPropositionsByDirection("import");
-		System.out.println("import");
-		for(Proposition pr:pi){
-		System.out.println(pr.getRoute()+" "+pr.getId());
+		try {
+			dateStart = formatter.parse(start);
+			dateFinish = formatter.parse(ending);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		System.out.println("export");
-        List<Proposition> pe = d.getListOfPropositionsByDirection("export");
+	
+		DataBaseController b = new DataBaseController();
+		List<Deal> ds = b.getListOfDealsBetweenDates(start, ending);
 		
-		for(Proposition pr:pe){
-		System.out.println(pr.getRoute()+" "+pr.getId()+" "+pr.getStatus());
+		System.out.println(dateStart);
+		System.out.println(dateFinish);
+		
+		for(Deal d:ds){
+			System.out.println(d.getDateoftransportation());
 		}
-		*/
+		
 	}
-
 }

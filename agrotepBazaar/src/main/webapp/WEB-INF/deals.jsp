@@ -57,12 +57,397 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-truck"></i> План відвантажень (<a href="/tender/deals/export">Експорт</a> та <a href="/tender/deals/import">Імпорт</a>)</b></h5>
+    <h5><b><i class="fa fa-truck"></i> План відвантажень (<a href="/tender/deals/export">Експорт</a>, <a href="/tender/deals/import">Імпорт</a> та <a href="/tender/dealsfiltr">архів</a>)</b></h5>
   </header>
 
   <div class="w3-container" id="contact">
   
-  	
+      
+  
+       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">		 
+          <tr style="background-color:#f08080">
+             <th colspan="6">${lastMonday}</th>                
+          </tr>
+         <c:forEach items="${lastWeekMomday}" var="dea" varStatus="theCount">
+         <tr class="${lastWeekMomdayColors[theCount.index]}">
+             <td>${theCount.index+1}</td>
+			 <td>${dea.information}</td>
+			 <td><a href="/tender/deal/${dea.id}">${dea.truck}</a></td>
+		     <td>${dea.manager}</td>				
+		     <td>${dea.truckdriver}</td>
+			 <td>${dea.otherinformation}</td>
+			
+		  </tr>
+        </c:forEach>
+     </table>
+  <br><br>
+  
+       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">		 
+          <tr style="background-color:#f08080">
+             <th colspan="6">${lastTuesday}</th> 
+         </tr>
+         <c:forEach items="${lastWeekTuesday}" var="dea" varStatus="theCount">
+         <tr class="${lastWeekTuesdayColors[theCount.index]}">
+             <td>${theCount.index+1}</td>
+			 <td>${dea.information}</td>
+			 <td><a href="/tender/deal/${dea.id}">${dea.truck}</a></td>
+		     <td>${dea.manager}</td>				
+		     <td>${dea.truckdriver}</td>
+			 <td>${dea.otherinformation}</td>
+			
+		  </tr>
+        </c:forEach>
+     </table>
+  <br><br>
+  
+       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">		 
+          <tr style="background-color:#f08080">
+             <th colspan="6">${lastWednesday}</th> 
+         </tr>
+         <c:forEach items="${lastWeekWednesday}" var="dea" varStatus="theCount">
+         <tr class="${lastWeekWednesdayColors[theCount.index]}">
+             <td>${theCount.index+1}</td>
+			 <td>${dea.information}</td>
+			 <td><a href="/tender/deal/${dea.id}">${dea.truck}</a></td>
+		     <td>${dea.manager}</td>				
+		     <td>${dea.truckdriver}</td>
+			 <td>${dea.otherinformation}</td>
+	
+		  </tr>
+        </c:forEach>
+     </table>
+  <br><br>
+  
+       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">		 
+          <tr style="background-color:#f08080">
+            <th colspan="6">${lastThursday}</th> 
+         </tr>
+         <c:forEach items="${lastWeekThursday}" var="dea" varStatus="theCount">
+         <tr class="${lastWeekThursdayColors[theCount.index]}">
+             <td>${theCount.index+1}</td>
+			 <td>${dea.information}</td>
+			 <td><a href="/tender/deal/${dea.id}">${dea.truck}</a></td>
+		     <td>${dea.manager}</td>				
+		     <td>${dea.truckdriver}</td>
+			 <td>${dea.otherinformation}</td>
+		
+		  </tr>
+        </c:forEach>
+     </table>
+  <br><br>
+  
+       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">		 
+          <tr style="background-color:#f08080">
+            <th colspan="6">${lastFriday}</th> 
+         </tr>
+         <c:forEach items="${lastWeekFriday}" var="dea" varStatus="theCount">
+         <tr class="${lastWeekFridayColors[theCount.index]}">
+             <td>${theCount.index+1}</td>
+			 <td>${dea.information}</td>
+			 <td><a href="/tender/deal/${dea.id}">${dea.truck}</a></td>
+		     <td>${dea.manager}</td>				
+		     <td>${dea.truckdriver}</td>
+			 <td>${dea.otherinformation}</td>
+			 
+		  </tr>
+        </c:forEach>
+     </table>
+  <br><br>
+  
+       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">		 
+          <tr style="background-color:#f08080">
+            <th colspan="6">${lastSaturday}</th> 
+         </tr>
+         <c:forEach items="${lastWeekSaturday}" var="dea" varStatus="theCount">
+         <tr class="${lastWeekSaturdayColors[theCount.index]}">
+             <td>${theCount.index+1}</td>
+			 <td>${dea.information}</td>
+			 <td><a href="/tender/deal/${dea.id}">${dea.truck}</a></td>
+		     <td>${dea.manager}</td>				
+		     <td>${dea.truckdriver}</td>
+			 <td>${dea.otherinformation}</td>
+		
+		  </tr>
+        </c:forEach>
+     </table>
+  <br><br>
+  
+   <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">		 
+          <tr style="background-color:#f08080">
+            <th colspan="6">${lastSunday}</th> 
+         </tr>
+         <c:forEach items="${lastWeekSunday}" var="dea" varStatus="theCount">
+         <tr class="${lastWeekSundayColors[theCount.index]}">
+             <td>${theCount.index+1}</td>
+			 <td>${dea.information}</td>
+			 <td><a href="/tender/deal/${dea.id}">${dea.truck}</a></td>
+		     <td>${dea.manager}</td>				
+		     <td>${dea.truckdriver}</td>
+			 <td>${dea.otherinformation}</td>
+			
+		  </tr>
+        </c:forEach>
+     </table>
+  <br><br>
+  
+  
+  
+       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">		 
+          <tr style="background-color:#f08080">
+            <th colspan="6">${presentMonday}</th> 
+         </tr>
+         <c:forEach items="${presentWeekMomday}" var="dea" varStatus="theCount">
+         <tr class="${presentWeekMomdayColors[theCount.index]}">
+             <td>${theCount.index+1}</td>
+			 <td>${dea.information}</td>
+			 <td><a href="/tender/deal/${dea.id}">${dea.truck}</a></td>
+		     <td>${dea.manager}</td>				
+		     <td>${dea.truckdriver}</td>
+			 <td>${dea.otherinformation}</td>
+			 
+		  </tr>
+        </c:forEach>
+     </table>
+  <br><br>
+  
+       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">		 
+          <tr style="background-color:#f08080">
+            <th colspan="6">${presentTuesday}</th> 
+         </tr>
+         <c:forEach items="${presentWeekTuesday}" var="dea" varStatus="theCount">
+         <tr class="${presentWeekTuesdayColors[theCount.index]}">
+             <td>${theCount.index+1}</td>
+			 <td>${dea.information}</td>
+			 <td><a href="/tender/deal/${dea.id}">${dea.truck}</a></td>
+		     <td>${dea.manager}</td>				
+		     <td>${dea.truckdriver}</td>
+			 <td>${dea.otherinformation}</td>
+			
+		  </tr>
+        </c:forEach>
+     </table>
+  <br><br>
+  
+       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">		 
+          <tr style="background-color:#f08080">
+            <th colspan="6">${presentWednesday}</th> 
+         </tr>
+         <c:forEach items="${presentWeekWednesday}" var="dea" varStatus="theCount">
+         <tr class="${presentWeekWednesdayColors[theCount.index]}">
+             <td>${theCount.index+1}</td>
+			 <td>${dea.information}</td>
+			 <td><a href="/tender/deal/${dea.id}">${dea.truck}</a></td>
+		     <td>${dea.manager}</td>				
+		     <td>${dea.truckdriver}</td>
+			 <td>${dea.otherinformation}</td>
+			
+		  </tr>
+        </c:forEach>
+     </table>
+  <br><br>
+  
+       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">		 
+          <tr style="background-color:#f08080">
+             <th colspan="6">${presentThursday}</th> 
+         </tr>
+         <c:forEach items="${presentWeekThursday}" var="dea" varStatus="theCount">
+         <tr class="${presentWeekThursdayColors[theCount.index]}">
+             <td>${theCount.index+1}</td>
+			 <td>${dea.information}</td>
+			 <td><a href="/tender/deal/${dea.id}">${dea.truck}</a></td>
+		     <td>${dea.manager}</td>				
+		     <td>${dea.truckdriver}</td>
+			 <td>${dea.otherinformation}</td>
+			
+		  </tr>
+        </c:forEach>
+     </table>
+  <br><br>
+       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">		 
+          <tr style="background-color:#f08080">
+             <th colspan="6">${presentFriday}</th> 
+         </tr>
+         <c:forEach items="${presentWeekFriday}" var="dea" varStatus="theCount">
+         <tr class="${presentWeekFridayColors[theCount.index]}">
+             <td>${theCount.index+1}</td>
+			 <td>${dea.information}</td>
+			 <td><a href="/tender/deal/${dea.id}">${dea.truck}</a></td>
+		     <td>${dea.manager}</td>				
+		     <td>${dea.truckdriver}</td>
+			 <td>${dea.otherinformation}</td>
+			
+		  </tr>
+        </c:forEach>
+     </table>
+  <br><br>
+  
+       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">		 
+          <tr style="background-color:#f08080">
+            <th colspan="6">${presentSaturday}</th> 
+         </tr>
+         <c:forEach items="${presentWeekSaturday}" var="dea" varStatus="theCount">
+         <tr class="${presentWeekSaturdayColors[theCount.index]}">
+             <td>${theCount.index+1}</td>
+			 <td>${dea.information}</td>
+			 <td><a href="/tender/deal/${dea.id}">${dea.truck}</a></td>
+		     <td>${dea.manager}</td>				
+		     <td>${dea.truckdriver}</td>
+			 <td>${dea.otherinformation}</td>
+	
+		  </tr>
+        </c:forEach>
+     </table>
+  <br><br>
+  
+  
+       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">		 
+          <tr style="background-color:#f08080">
+            <th colspan="6">${presentSunday}</th> 
+         </tr>
+         <c:forEach items="${presentWeekSunday}" var="dea" varStatus="theCount">
+         <tr class="${presentWeekSundayColors[theCount.index]}">
+             <td>${theCount.index+1}</td>
+			 <td>${dea.information}</td>
+			 <td><a href="/tender/deal/${dea.id}">${dea.truck}</a></td>
+		     <td>${dea.manager}</td>				
+		     <td>${dea.truckdriver}</td>
+			 <td>${dea.otherinformation}</td>
+		
+		  </tr>
+        </c:forEach>
+     </table>
+  <br><br>
+  
+      
+  
+       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">		 
+          <tr style="background-color:#f08080">
+            <th colspan="6">${nextMonday}</th> 
+         </tr>
+         <c:forEach items="${nextWeekMomday}" var="dea" varStatus="theCount">
+         <tr class="${nextWeekMomdayColors[theCount.index]}">
+             <td>${theCount.index+1}</td>
+			 <td>${dea.information}</td>
+			 <td><a href="/tender/deal/${dea.id}">${dea.truck}</a></td>
+		     <td>${dea.manager}</td>				
+		     <td>${dea.truckdriver}</td>
+			 <td>${dea.otherinformation}</td>
+			
+		  </tr>
+        </c:forEach>
+     </table>
+  <br><br>
+  
+       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">		 
+          <tr style="background-color:#f08080">
+            <th colspan="6">${nextTuesday}</th> 
+         </tr>
+         <c:forEach items="${nextWeekTuesday}" var="dea" varStatus="theCount">
+         <tr class="${nextWeekTuesdayColors[theCount.index]}">
+             <td>${theCount.index+1}</td>
+			 <td>${dea.information}</td>
+			 <td><a href="/tender/deal/${dea.id}">${dea.truck}</a></td>
+		     <td>${dea.manager}</td>				
+		     <td>${dea.truckdriver}</td>
+			 <td>${dea.otherinformation}</td>
+			 
+		  </tr>
+        </c:forEach>
+     </table>
+  <br><br>
+  
+       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">		 
+          <tr style="background-color:#f08080">
+            <th colspan="6">${nextWednesday}</th> 
+         </tr>
+         <c:forEach items="${nextWeekWednesday}" var="dea" varStatus="theCount">
+         <tr class="${nextWeekWednesdayColors[theCount.index]}">
+             <td>${theCount.index+1}</td>
+			 <td>${dea.information}</td>
+			 <td><a href="/tender/deal/${dea.id}">${dea.truck}</a></td>
+		     <td>${dea.manager}</td>				
+		     <td>${dea.truckdriver}</td>
+			 <td>${dea.otherinformation}</td>
+			
+		  </tr>
+        </c:forEach>
+     </table>
+  <br><br>
+  
+       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">		 
+          <tr style="background-color:#f08080">
+            <th colspan="6">${nextThursday}</th> 
+         </tr>
+         <c:forEach items="${nextWeekThursday}" var="dea" varStatus="theCount">
+         <tr class="${nextWeekThursdayColors[theCount.index]}">
+             <td>${theCount.index+1}</td>
+			 <td>${dea.information}</td>
+			 <td><a href="/tender/deal/${dea.id}">${dea.truck}</a></td>
+		     <td>${dea.manager}</td>				
+		     <td>${dea.truckdriver}</td>
+			 <td>${dea.otherinformation}</td>
+			
+		  </tr>
+        </c:forEach>
+     </table>
+  <br><br>
+  
+       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">		 
+          <tr style="background-color:#f08080">
+           <th colspan="6">${nextFriday}</th> 
+         </tr>
+         <c:forEach items="${nextWeekFriday}" var="dea" varStatus="theCount">
+         <tr class="${nextWeekFridayColors[theCount.index]}">
+             <td>${theCount.index+1}</td>
+			 <td>${dea.information}</td>
+			 <td><a href="/tender/deal/${dea.id}">${dea.truck}</a></td>
+		     <td>${dea.manager}</td>				
+		     <td>${dea.truckdriver}</td>
+			 <td>${dea.otherinformation}</td>
+			
+		  </tr>
+        </c:forEach>
+     </table>
+  <br><br>
+  
+     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">		 
+          <tr style="background-color:#f08080">
+            <th colspan="6">${nextSaturday}</th> 
+         </tr>
+         <c:forEach items="${nextWeekSaturday}" var="dea" varStatus="theCount">
+         <tr class="${nextWeekSaturdayColors[theCount.index]}">
+             <td>${theCount.index+1}</td>
+			 <td>${dea.information}</td>
+			 <td><a href="/tender/deal/${dea.id}">${dea.truck}</a></td>
+		     <td>${dea.manager}</td>				
+		     <td>${dea.truckdriver}</td>
+			 <td>${dea.otherinformation}</td>
+			 
+		  </tr>
+        </c:forEach>
+     </table>
+  <br><br>
+  
+   <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">		 
+          <tr style="background-color:#f08080">
+           <th colspan="6">${nextSunday}</th> 
+         </tr>
+         <c:forEach items="${nextWeekSunday}" var="dea" varStatus="theCount">
+         <tr class="${nextWeekSundayColors[theCount.index]}">
+             <td>${theCount.index+1}</td>
+			 <td>${dea.information}</td>
+			 <td><a href="/tender/deal/${dea.id}">${dea.truck}</a></td>
+		     <td>${dea.manager}</td>				
+		     <td>${dea.truckdriver}</td>
+			 <td>${dea.otherinformation}</td>
+			 
+		  </tr>
+        </c:forEach>
+     </table>
+  <br><br>
+  
+  
+  	<!--  
 
 	 <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
 	
@@ -82,6 +467,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 </c:forEach>
 </table>
+
+-->
+
+
 <br><br><br>
 <!-- Subscribe Modal -->
 

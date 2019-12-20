@@ -56,5 +56,13 @@ public class DealService {
 	public void editDateoftransportationOfDealById(int id, Date date) {
 		dao.editDateoftransportationOfDealById(id, date);
 	}
+	
+	public List<Deal> getListOfDealsBetweenDates(String dateStart, String dateFinish) {
+		return dao.getListOfDealsBetweenDates(dateStart, dateFinish);
+	}
+	
+	public List<Deal> getListOfDealsBetweenDatesAndManagerId(String dateStart, String dateFinish, int managerid) {
+		return dao.getListOfDealsBetweenDatesAndManagerId(dateStart, dateFinish, managerid);
+	}
 
 }

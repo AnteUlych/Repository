@@ -28,7 +28,7 @@ public class DecoderDbToHtml {
 	String WIN_BET_CONFIRMED = "w3-lime";
 	
 	String COLOR_DEAL_WAITING = "";
-	String COLOR_DEAL_OK = "w3-green";
+	String COLOR_DEAL_OK = "w3-light-green";
 	String COLOR_DEAL_CANCELED = "w3-red";
 	
 	String DEAL_WAITING = "deal_waiting";
