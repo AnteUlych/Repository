@@ -13,6 +13,7 @@ import box.model.Archiveauction;
 import box.model.Archivebet;
 import box.model.Auction;
 import box.model.Bet;
+import box.model.Contract;
 import box.model.Deal;
 import box.model.Manager;
 import box.model.Message;
@@ -22,6 +23,7 @@ import box.service.ArchiveauctionService;
 import box.service.ArchivebetService;
 import box.service.AuctionService;
 import box.service.BetService;
+import box.service.ContractService;
 import box.service.DealService;
 import box.service.ManagerService;
 import box.service.MessageService;
@@ -52,6 +54,8 @@ public class DataBaseController {
 			.getBean("messageService");
 	PropositionService propositionService = (PropositionService) ctx
 			.getBean("propositionService");
+	ContractService contractService = (ContractService) ctx
+			.getBean("contractService");
 	
 	
 	public void closeConnection() {
@@ -364,5 +368,38 @@ public class DataBaseController {
 	}
 	
 	//propositions
+	
+	//contract
+	
+	public void addContract(Contract contract) {
+		contractService.addContract(contract);
+	}
+	
+	public List<Contract> getListOfContracts() {
+		return contractService.getListOfContracts();
+	}
+	
+	public List<Contract> getListOfContractsByManagerId(int managerid) {
+		return contractService.getListOfContractsByManagerId(managerid);
+	}
+	
+	public void editContract(int id, String company, int managerid, String manager, Date lastday, String status) {
+		contractService.editContract(id, company, managerid, manager, lastday, status);
+	}
+	
+	public Contract getContractById(int id) {
+		return contractService.getContractById(id);
+	}
+	
+	public int getNumberOfContractsByManagerId(int managerid) {
+		return contractService.getNumberOfContractsByManagerId(managerid);
+	}
+	
+	public List<Deal> getListOfTodayDealsByManagerId(String today, int managerid) {	
+		return dealService.getListOfTodayDealsByManagerId(today, managerid);
+	}
+
+	
+	//contract
 
 }

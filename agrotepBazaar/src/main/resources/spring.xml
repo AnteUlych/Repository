@@ -64,6 +64,7 @@
 	 <bean id="dealDAO" class="box.dao.DealDAO" />
 	 <bean id="messageDAO" class="box.dao.MessageDAO" />
 	 <bean id="propositionDAO" class="box.dao.PropositionDAO" />
+	 <bean id="contractDAO" class="box.dao.ContractDAO" />
 	 
 	 <bean id="managerService" class="box.service.ManagerService" />
 	 <bean id="auctionService" class="box.service.AuctionService" />
@@ -74,5 +75,6 @@
 	 <bean id="dealService" class="box.service.DealService" />
 	 <bean id="messageService" class="box.service.MessageService" />
 	 <bean id="propositionService" class="box.service.PropositionService" />
+	 <bean id="contractService" class="box.service.ContractService" />
 	
 </beans>

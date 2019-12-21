@@ -21,6 +21,7 @@ public class DealService {
 		dao.persist(deal);
 	}
 	
+	
 	public List<Deal> getListOfallDeals() {
 		return dao.getListOfallDeals();
 	}
@@ -63,6 +64,10 @@ public class DealService {
 	
 	public List<Deal> getListOfDealsBetweenDatesAndManagerId(String dateStart, String dateFinish, int managerid) {
 		return dao.getListOfDealsBetweenDatesAndManagerId(dateStart, dateFinish, managerid);
+	}
+	
+	public List<Deal> getListOfTodayDealsByManagerId(String today, int managerid) {	
+		return dao.getListOfTodayDealsByManagerId(today, managerid);
 	}
 
 }

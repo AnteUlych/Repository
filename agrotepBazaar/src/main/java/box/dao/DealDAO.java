@@ -16,8 +16,8 @@ import box.model.Deal;
 @Repository
 public class DealDAO {
 	
-	// max result of requests 500
-	public int max = 500;
+	// max result of requests 1000
+	public int max = 1000;
 	
 	@PersistenceContext
 	private EntityManager em;
@@ -54,6 +54,13 @@ public class DealDAO {
 	public List<Deal> getListOfDealsBetweenDatesAndManagerId(String dateStart, String dateFinish, int managerid) {					
 		return em.createQuery(
 				"from Deal where dateoftransportation  >= '" + dateStart+"' and dateoftransportation <= '"+ dateFinish+"' and managerid ='"+managerid+"' order by dateoftransportation desc")
+				.getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Deal> getListOfTodayDealsByManagerId(String today, int managerid) {					
+		return em.createQuery(
+				"from Deal where date  >= '" + today+"' and managerid ='"+managerid+"'")
 				.getResultList();
 	}
 	

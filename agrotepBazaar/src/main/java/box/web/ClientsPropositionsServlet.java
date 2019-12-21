@@ -19,35 +19,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import box.logic.DataBaseController;
-import box.model.Auction;
-import box.model.Bet;
-import box.model.Deal;
-import box.model.Message;
-import box.model.Proposition;
-import box.model.Sold;
+import box.model.Contract;
+import box.model.Manager;
+
 
 @Controller
 @RequestMapping("/clientspropositions")
 public class ClientsPropositionsServlet {
 	
-	String STATUS_OPEN = "open";
-	String STATUS_CONFIRMED = "confirmed";
+	String RANK_TOP = "top";
+	String RANK_MANAGER = "manager";
 	
-	String FIRST_PART_DELETE_BUTTON = "<button type=\"submit\" formnovalidate class=\"w3-button w3-red\" name=\"delete";
-	String SECOND_PART_DELETE_BUTTON = "\" value=\"delete";
-	String THIRD_PART_DELETE_BUTTON = "\" ><i class=\"fa fa-close\"></button>";
-	
-	String FIRST_PART_CONFIRM_BUTTON = "<button type=\"submit\" formnovalidate class=\"w3-button w3-green\" name=\"confirm";
-	String SECOND_PART_CONFIRM_BUTTON = "\" value=\"confirm";
-	String THIRD_PART_CONFIRM_BUTTON = "\" ><i class=\"fa fa-check\"></button>";
-	
-	String FIRST_PART_CONFIRM2_BUTTON = "<button type=\"submit\" formnovalidate class=\"w3-button w3-yellow\" name=\"confirm2";
-	String SECOND_PART_CONFIRM2_BUTTON = "\" value=\"confirm2";
-	String THIRD_PART_CONFIRM2_BUTTON = "\" ><i class=\"fa fa-check\"></i></button>";
+	String BUTTON_BEFORE_ID = "<button class=\"w3-button\" onclick=\"document.getElementById('subscribe";
+	String BUTTON_AFTER_ID = "').style.display='block'\"><i class=\"fa fa-cog\"></i></button>";
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String doGet(ModelMap model, HttpServletRequest request) {
-		/**
+		
         HttpSession session = request.getSession();
 		
 		int id = (Integer) session.getAttribute("id");
@@ -56,358 +44,205 @@ public class ClientsPropositionsServlet {
 		
 		DataBaseController base = new DataBaseController();
 		
-		List <Proposition> exportPropositions = base.getListOfPropositionsByDirection("export");
-		List <Proposition> importPropositions  = base.getListOfPropositionsByDirection("import");
-		List <String> exportButtonDelete = new ArrayList();
-		List <String> importButtonDelete  = new ArrayList();
-		List <String> exportButtonConfirm = new ArrayList();
-		List <String> importButtonConfirm  = new ArrayList();
-		List <String> exportDate= new ArrayList();
-		List <String> importDate = new ArrayList();
-		List <String> exportColor= new ArrayList();
-		List <String> importColor = new ArrayList();
+		List<Contract> contracts = new ArrayList();
+		List<String> lastdates = new ArrayList();
+		List<String> colors = new ArrayList();
+		List<Manager> managers = base.getListOfManagersByRank(RANK_MANAGER);
+		List<String> editButtons = new ArrayList();
 		
-		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM");
-		
-		for(Proposition proposition:exportPropositions){
-			if(id==proposition.getManagerid()||rank.equals("coordinator")){
-				exportButtonDelete.add(FIRST_PART_DELETE_BUTTON+proposition.getId()+SECOND_PART_DELETE_BUTTON+proposition.getId()+THIRD_PART_DELETE_BUTTON);
-			}else{
-				exportButtonDelete.add("");
-			}
-			
-			String buttonConf = "";
-			
-			if(rank.equals("coordinator")&&(proposition.getStatus().equals(STATUS_OPEN))){
-				buttonConf = FIRST_PART_CONFIRM_BUTTON+proposition.getId()+SECOND_PART_CONFIRM_BUTTON+proposition.getId()+THIRD_PART_CONFIRM_BUTTON;
-			}
-				
-			if((id==proposition.getManagerid()&&(proposition.getStatus().equals(STATUS_CONFIRMED)))){
-			    buttonConf = FIRST_PART_CONFIRM2_BUTTON+proposition.getId()+SECOND_PART_CONFIRM2_BUTTON+proposition.getId()+THIRD_PART_CONFIRM2_BUTTON;
-			}
-			
-			if(proposition.getStatus().equals(STATUS_CONFIRMED)){
-				exportColor.add("w3-green");
-			}else{
-				exportColor.add("");
-			}
-				
-			exportButtonConfirm.add(buttonConf);
-			exportDate.add(formatter.format(proposition.getReadiness()));
-			
+		if(rank.equals(RANK_TOP)){
+			contracts = base.getListOfContracts();
+		}else{
+			contracts = base.getListOfContractsByManagerId(id);
 		}
 		
-		for(Proposition proposition:importPropositions){
-			if(id==proposition.getManagerid()||rank.equals("coordinator")){
-				importButtonDelete.add(FIRST_PART_DELETE_BUTTON+proposition.getId()+SECOND_PART_DELETE_BUTTON+proposition.getId()+THIRD_PART_DELETE_BUTTON);
-			}else{
-				importButtonDelete.add("");
-			}
-			
-			String buttonConf = "";
-			
-			if(rank.equals("coordinator")&&(proposition.getStatus().equals(STATUS_OPEN))){
-				buttonConf = FIRST_PART_CONFIRM_BUTTON+proposition.getId()+SECOND_PART_CONFIRM_BUTTON+proposition.getId()+THIRD_PART_CONFIRM_BUTTON;
-			}
-				
-			if((id==proposition.getManagerid()&&(proposition.getStatus().equals(STATUS_CONFIRMED)))){
-			    buttonConf = FIRST_PART_CONFIRM2_BUTTON+proposition.getId()+SECOND_PART_CONFIRM2_BUTTON+proposition.getId()+THIRD_PART_CONFIRM2_BUTTON;
-			}
-			
-			if(proposition.getStatus().equals(STATUS_CONFIRMED)){
-				importColor.add("w3-green");
-			}else{
-				importColor.add("");
-			}
-				
-			importButtonConfirm.add(buttonConf);
-			importDate.add(formatter.format(proposition.getReadiness()));
-		}
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		
+		Date today = new Date();
+		
+		for(Contract contract:contracts){
+			
+			if(today.after(contract.getLastday())&&contract.getStatus().equals("on")){
+				base.editContract(contract.getId(), contract.getCompany(), contract.getManagerid(), contract.getManager(), contract.getLastday(), "off");
+			}
+				
+			String lastDayText = dateFormat.format(contract.getLastday());
+			lastdates.add(lastDayText);
+			
+			if(contract.getStatus().equals("off")){
+				colors.add("w3-pink");
+			}else{
+				colors.add("");
+			}
+			
+			if(rank.equals(RANK_TOP)){
+				editButtons.add(BUTTON_BEFORE_ID+contract.getId()+BUTTON_AFTER_ID);
+			}else{
+				editButtons.add("");
+			}
+			
+		}
+	
 		base.closeConnection();
 		
 		model.addAttribute("name", name);
+		model.addAttribute("contracts", contracts);
+		model.addAttribute("lastdates", lastdates);
+		model.addAttribute("colors", colors);
+		model.addAttribute("managers", managers);
+		model.addAttribute("editButtons", editButtons);
 		
-		model.addAttribute("exportPropositions", exportPropositions);
-		model.addAttribute("importPropositions", importPropositions);
-		model.addAttribute("exportButtonDelete", exportButtonDelete);
-		model.addAttribute("importButtonDelete", importButtonDelete);
-		model.addAttribute("exportButtonConfirm", exportButtonConfirm);
-		model.addAttribute("importButtonConfirm", importButtonConfirm);
-		model.addAttribute("exportDate", exportDate);
-		model.addAttribute("importDate", importDate);
-		model.addAttribute("exportColor", exportColor);
-		model.addAttribute("importColor", importColor);
-		*/
 		return "clientspropositions";
 	}
 	
-	/**
+	
 	@RequestMapping(method = RequestMethod.POST)
 	public String doPost(ModelMap model, HttpServletRequest request,
 			HttpServletResponse response) {
 		
-HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
 		
 		int id = (Integer) session.getAttribute("id");
 		String rank = (String) session.getAttribute("rank");
 		String name = (String) session.getAttribute("name");
 		
-		DataBaseController base = new DataBaseController();
+	DataBaseController base = new DataBaseController();
 		
-		List <Proposition> exportPropositions = base.getListOfPropositionsByDirection("export");
-		List <Proposition> importPropositions  = base.getListOfPropositionsByDirection("import");
-		List <String> exportButtonDelete = new ArrayList();
-		List <String> importButtonDelete  = new ArrayList();
-		List <String> exportButtonConfirm = new ArrayList();
-		List <String> importButtonConfirm  = new ArrayList();
-		List <String> exportDate= new ArrayList();
-		List <String> importDate = new ArrayList();
-		List <String> exportColor= new ArrayList();
-		List <String> importColor = new ArrayList();
+		List<Contract> contracts = new ArrayList();
+		List<String> lastdates = new ArrayList();
+		List<String> colors = new ArrayList();
+		List<Manager> managers = base.getListOfManagersByRank(RANK_MANAGER);
+		List<String> editButtons = new ArrayList();
 		
-		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM");
-		
-		for(Proposition proposition:exportPropositions){
-			if(id==proposition.getManagerid()||rank.equals("coordinator")){
-				exportButtonDelete.add(FIRST_PART_DELETE_BUTTON+proposition.getId()+SECOND_PART_DELETE_BUTTON+proposition.getId()+THIRD_PART_DELETE_BUTTON);
-			}else{
-				exportButtonDelete.add("");
-			}
-			
-			String buttonConf = "";
-			
-			if(rank.equals("coordinator")&&(proposition.getStatus().equals(STATUS_OPEN))){
-				buttonConf = FIRST_PART_CONFIRM_BUTTON+proposition.getId()+SECOND_PART_CONFIRM_BUTTON+proposition.getId()+THIRD_PART_CONFIRM_BUTTON;
-			}
-				
-			if((id==proposition.getManagerid()&&(proposition.getStatus().equals(STATUS_CONFIRMED)))){
-			    buttonConf = FIRST_PART_CONFIRM2_BUTTON+proposition.getId()+SECOND_PART_CONFIRM2_BUTTON+proposition.getId()+THIRD_PART_CONFIRM2_BUTTON;
-			}
-			
-			if(proposition.getStatus().equals(STATUS_CONFIRMED)){
-				exportColor.add("w3-green");
-			}else{
-				exportColor.add("");
-			}
-				
-			exportButtonConfirm.add(buttonConf);
-			exportDate.add(formatter.format(proposition.getReadiness()));
-			
+		if(rank.equals(RANK_TOP)){
+			contracts = base.getListOfContracts();
+		}else{
+			contracts = base.getListOfContractsByManagerId(id);
 		}
 		
-		for(Proposition proposition:importPropositions){
-			if(id==proposition.getManagerid()||rank.equals("coordinator")){
-				importButtonDelete.add(FIRST_PART_DELETE_BUTTON+proposition.getId()+SECOND_PART_DELETE_BUTTON+proposition.getId()+THIRD_PART_DELETE_BUTTON);
-			}else{
-				importButtonDelete.add("");
-			}
-			
-			String buttonConf = "";
-			
-			if(rank.equals("coordinator")&&(proposition.getStatus().equals(STATUS_OPEN))){
-				buttonConf = FIRST_PART_CONFIRM_BUTTON+proposition.getId()+SECOND_PART_CONFIRM_BUTTON+proposition.getId()+THIRD_PART_CONFIRM_BUTTON;
-			}
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		
+		for(Contract contract:contracts){
 				
-			if((id==proposition.getManagerid()&&(proposition.getStatus().equals(STATUS_CONFIRMED)))){
-			    buttonConf = FIRST_PART_CONFIRM2_BUTTON+proposition.getId()+SECOND_PART_CONFIRM2_BUTTON+proposition.getId()+THIRD_PART_CONFIRM2_BUTTON;
+			String lastDayText = dateFormat.format(contract.getLastday());
+			lastdates.add(lastDayText);
+			
+			if(contract.getStatus().equals("off")){
+				colors.add("w3-pink");
+			}else{
+				colors.add("");
 			}
 			
-			if(proposition.getStatus().equals(STATUS_CONFIRMED)){
-				importColor.add("w3-green");
+			if(rank.equals(RANK_TOP)){
+				editButtons.add(BUTTON_BEFORE_ID+contract.getId()+BUTTON_AFTER_ID);
 			}else{
-				importColor.add("");
+				editButtons.add("");
 			}
-				
-			importButtonConfirm.add(buttonConf);
-			importDate.add(formatter.format(proposition.getReadiness()));
+			
 		}
-		
-		
+	
 		
 		model.addAttribute("name", name);
+		model.addAttribute("contracts", contracts);
+		model.addAttribute("lastdates", lastdates);
+		model.addAttribute("colors", colors);
+		model.addAttribute("managers", managers);
+		model.addAttribute("editButtons", editButtons);
 		
-		model.addAttribute("exportPropositions", exportPropositions);
-		model.addAttribute("importPropositions", importPropositions);
-		model.addAttribute("exportButtonDelete", exportButtonDelete);
-		model.addAttribute("importButtonDelete", importButtonDelete);
-		model.addAttribute("exportButtonConfirm", exportButtonConfirm);
-		model.addAttribute("importButtonConfirm", importButtonConfirm);
-		model.addAttribute("exportDate", exportDate);
-		model.addAttribute("importDate", importDate);
-		model.addAttribute("exportColor", exportColor);
-		model.addAttribute("importColor", importColor);
+		//post start here
 		
-		//Post starts here
-		
-		List <Proposition> propositions = new ArrayList();
-		propositions.addAll(exportPropositions);
-		propositions.addAll(importPropositions);
-		
-		 for (Proposition proposition : propositions) {
-
-				if (request.getParameter("delete" + proposition.getId()) != null) {
-		
-					base.deleteProposition(proposition.getId());
-					base.closeConnection();
-									
-					
-					try {
-						response.sendRedirect("/tender/clientspropositions");
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-					
-					
-					return "clientspropositions";
-					
-				}
-
-				if (request.getParameter("confirm" + proposition.getId()) != null) {
-										
-					base.editStatusOfProposition(proposition.getId(), "confirmed");
-
-					//message
-					
-					Date nowDate = new Date();
-					DateFormat dateFormat = new SimpleDateFormat("hh:mm");  
-					String messagedate = dateFormat.format(nowDate);  
-					
-					String textmessage = messagedate+" Вашу пропозицію "+proposition.getRoute()+" для "+proposition.getInformation()+" підтвердив координатор, підтвердіть фінально.";
-					Message message = new Message();
-					message.setRecipientid(proposition.getManagerid());
-					message.setText(textmessage);
-					base.addMessage(message);
-					
-					//message
-				 		
-					base.closeConnection();
-
-					try {
-						response.sendRedirect("/tender/clientspropositions");
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-					
-					return "clientspropositions";
-				}
-				
-				if (request.getParameter("confirm2" + proposition.getId()) != null) {
-					
-					Deal deal = new Deal();
-
-					deal.setDate(new Date());
-					deal.setDateoftransportation(proposition.getReadiness());
-					deal.setDirection(proposition.getDirection());
-					deal.setInformation(proposition.getRoute());
-					deal.setManager(proposition.getManager());
-					deal.setManagerid(proposition.getManagerid());
-					deal.setRoute(proposition.getRoute());
-					deal.setSoldid(0);
-					deal.setStatus("deal_waiting");
-					deal.setTruck(proposition.getTruck());
-					deal.setTruckdriver("");
-					deal.setBetid(0);
-					deal.setOtherinformation("");
-					
-					//change with adding chiefs table
-					deal.setChiefid(0);
-					deal.setChiefname("");
-					//change
-
-					base.addDeal(deal);
-					
-					base.deleteProposition(proposition.getId());
-		 		
-					base.closeConnection();
-					
-					try {
-						response.sendRedirect("/tender/clientspropositions");
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-					
-					return "clientspropositions";
-				}
-
-			}
-		
-		 if (request.getParameter("addproposition") != null) {
+             if(request.getParameter("add") != null){
 			 
+			 String newclient = request.getParameter("newclient");
+						
 			 String requestEnc = "ISO-8859-1";
-				String clientEnc = request.getParameter("charset");
+			 String clientEnc = request.getParameter("charset");
+			 
 				if (clientEnc == null)
 					clientEnc = "Cp1251";
 				
-			 
-			 String direction = request.getParameter("direction");
-			 String readydate = request.getParameter("readydate");
-			 String route = request.getParameter("route");
-			 String client = request.getParameter("client");
-			 String rate = request.getParameter("rate");
-			 String currency = request.getParameter("currency");
-			 String truck = request.getParameter("truck");
+				if (newclient != null){
+					try {
+						newclient = new String(newclient.getBytes(requestEnc), clientEnc);
+					} catch (UnsupportedEncodingException e) {
+						e.printStackTrace();
+					}
+				}
 
-			 DateFormat format = new SimpleDateFormat("yyyy-MM-dd"); //changed bug of mounth
-			 Date dateoftransportation = null;
-
-				try {
-					dateoftransportation = format.parse(readydate);
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
-			 
-			 int price = Integer.parseInt(rate);
-			 
-			 if (route != null){
-					try {
-						route = new String(route.getBytes(requestEnc), clientEnc);
-					} catch (UnsupportedEncodingException e) {
-						e.printStackTrace();
-					}
-				}
-				if (client != null){
-					try {
-						client = new String(client.getBytes(requestEnc), clientEnc);
-					} catch (UnsupportedEncodingException e) {
-						e.printStackTrace();
-					}
-				}
-				if (truck != null){
-					try {
-						truck = new String(truck.getBytes(requestEnc), clientEnc);
-					} catch (UnsupportedEncodingException e) {
-						e.printStackTrace();
-					}
-				}
-				
-				Proposition proposition = new Proposition();
-				
-				proposition.setCurrency(currency);
-				proposition.setDate(new Date());
-				proposition.setDirection(direction);
-				proposition.setInformation(client);
-				proposition.setManager(name);
-				proposition.setManagerid(id);
-				proposition.setRate(price);
-				proposition.setReadiness(dateoftransportation);
-				proposition.setRoute(route);
-				proposition.setStatus(STATUS_OPEN);
-				proposition.setTruck(truck);
-				
-			    base.addProposition(proposition);	
-			 
+			Contract contract = new Contract();
+			
+			contract.setCompany(newclient);
+			contract.setCreating(new Date());
+			contract.setLastday(new Date());
+			contract.setManager(name);
+			contract.setManagerid(id);
+		    contract.setStatus("off");
+		    
+		    base.addContract(contract);
+		    
+		    base.closeConnection();
+			
+			try {
+				response.sendRedirect("/tender/clientspropositions");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return "clientspropositions";
+			
 		 }
-		 
-		base.closeConnection();
-		
-		try {
-			response.sendRedirect("/tender/clientspropositions");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+             
+             for(Contract c:contracts){
+    			 
+    			 if(request.getParameter("edit"+c.getId()) != null){
+    				 
+    				 String company = request.getParameter("comp"+c.getId());
+    				 String lastday = request.getParameter("lastdate"+c.getId());
+    				 String managerid = request.getParameter("manager"+c.getId());
+    				 String status = request.getParameter("status"+c.getId());
+    					
+    					String requestEnc = "ISO-8859-1";
+    					String clientEnc = request.getParameter("charset");
+    					if (clientEnc == null)
+    						clientEnc = "Cp1251";
+    					
+    					if (company != null){
+    						try {
+    							company = new String(company.getBytes(requestEnc), clientEnc);
+    						} catch (UnsupportedEncodingException e) {
+    							e.printStackTrace();
+    						}
+    					}
+    					
+    					DateFormat format = new SimpleDateFormat("yyyy-MM-dd"); //changed bug of mounth
+    					Date lastd = null;
+
+    					try {
+    						lastd = format.parse(lastday);
+    					} catch (ParseException e) {
+    						e.printStackTrace();
+    					}
+    					
+    					int managid = Integer.parseInt(managerid);
+    				    Manager managerfrombase = base.getManagerById(managid);   					
+    					base.editContract(c.getId(), company, managid, managerfrombase.getName(), lastd, status);
+    					
+    					base.closeConnection();
+    					
+    					try {
+    						response.sendRedirect("/tender/clientspropositions");
+    					} catch (IOException e) {
+    						e.printStackTrace();
+    					}
+    					
+    					return "clientspropositions";
+    				 
+    			 }
+    			 
+    		
+    			 
+    		 }
 		
 		return "clientspropositions";
 	}
-*/
+
 }

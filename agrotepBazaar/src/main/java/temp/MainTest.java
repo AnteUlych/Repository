@@ -14,6 +14,7 @@ import box.model.Archiveauction;
 import box.model.Archivebet;
 import box.model.Auction;
 import box.model.Bet;
+import box.model.Contract;
 import box.model.Deal;
 import box.model.Manager;
 import box.model.Message;
@@ -24,31 +25,10 @@ public class MainTest {
 
 	public static void main(String[] args) {
 		
-		String start = "2019-12-19";
-		String ending = "2019-12-21";
-		
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		
-		Date dateStart = new Date();
-		Date dateFinish = new Date();
-		
-		try {
-			dateStart = formatter.parse(start);
-			dateFinish = formatter.parse(ending);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	
-		DataBaseController b = new DataBaseController();
-		List<Deal> ds = b.getListOfDealsBetweenDates(start, ending);
 		
-		System.out.println(dateStart);
-		System.out.println(dateFinish);
+		System.out.println(new Date());
 		
-		for(Deal d:ds){
-			System.out.println(d.getDateoftransportation());
-		}
 		
 	}
 }
