@@ -35,6 +35,22 @@ public class DecoderDbToHtml {
 	String DEAL_OK = "deal_ok";
 	String DEAL_CANCELED = "deal_canceled";
 	
+	public List<String> getDatesForHtmlDatesofDealsFromContract(List<Deal> deals){
+		
+		List<String> dates = new ArrayList();		
+		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");  
+		
+		
+		for(Deal deal:deals){
+			
+			dates.add(formatter.format(deal.getDateoftransportation()));
+			
+		}
+		
+		return dates;
+		
+	}
+	
 	public List<String> getDatesForHtmlDates(List<Deal> deals){
 		
 		List<String> dates = new ArrayList();		
@@ -98,6 +114,8 @@ public class DecoderDbToHtml {
 		return dates;
 		
 	}
+	
+
 	
 	public List<String> paintDeals(List<Deal> deals){
 		

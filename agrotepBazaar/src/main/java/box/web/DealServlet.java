@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import box.logic.DataBaseController;
+import box.logic.DecoderDbToHtml;
 import box.model.Archivebet;
 import box.model.Deal;
 import box.model.Message;
@@ -57,6 +58,7 @@ public class DealServlet {
          
          DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd"); 
          String ready = dateFormat1.format(deal.getDateoftransportation()); 
+         
         		        	        
          model.addAttribute("name", name);
          model.addAttribute("buttonChange", buttonChange);
