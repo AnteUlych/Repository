@@ -101,12 +101,15 @@ public class DealsServlet {
 
 		cal.setTime(today);
 		int presentWeek = cal.get(Calendar.WEEK_OF_YEAR);
+		//int presentYear = cal.get(Calendar.YEAR);
 
 		cal.add(Calendar.DAY_OF_YEAR, -7);
 		int lastWeek = cal.get(Calendar.WEEK_OF_YEAR);
+		//int lastYear = cal.get(Calendar.YEAR);
 
 		cal.add(Calendar.DAY_OF_YEAR, 14);
 		int nextWeek = cal.get(Calendar.WEEK_OF_YEAR);
+		//int nextYear = cal.get(Calendar.YEAR);
 
 		List<Deal> lastWeekMomday = new ArrayList();
 		List<Deal> lastWeekTuesday = new ArrayList();
@@ -232,33 +235,107 @@ public class DealsServlet {
 
 			}
 		
+		//calendar don`t work correct
 		
-		int year = Calendar.getInstance().get(Calendar.YEAR);
+       // int year = Calendar.getInstance().get(Calendar.YEAR);
+        
 		
-		String presentSunday = getDateInString(year, presentWeek, 1);
-		String presentMonday = getDateInString(year, presentWeek, 2);
-		String presentTuesday = getDateInString(year, presentWeek, 3);
-		String presentWednesday = getDateInString(year, presentWeek, 4);
-		String presentThursday = getDateInString(year, presentWeek, 5);
-		String presentFriday = getDateInString(year, presentWeek, 6);
-		String presentSaturday = getDateInString(year, presentWeek, 7);
-							
-		String lastSunday = getDateInString(year, lastWeek, 1);
-		String lastMonday = getDateInString(year, lastWeek, 2);
-		String lastTuesday = getDateInString(year, lastWeek, 3);
-		String lastWednesday = getDateInString(year, lastWeek, 4);
-		String lastThursday = getDateInString(year, lastWeek, 5);
-		String lastFriday = getDateInString(year, lastWeek, 6);
-		String lastSaturday = getDateInString(year, lastWeek, 7);
+		//Calendar cal = Calendar.getInstance();
+
+		cal.setTime(today);
+		//System.out.println(cal.getTime());
 		
-		String nextSunday = getDateInString(year, nextWeek, 1);
-		String nextMonday = getDateInString(year, nextWeek, 2);
-		String nextTuesday = getDateInString(year, nextWeek, 3);
-		String nextWednesday = getDateInString(year, nextWeek, 4);
-		String nextThursday = getDateInString(year, nextWeek, 5);
-		String nextFriday = getDateInString(year, nextWeek, 6);
-		String nextSaturday = getDateInString(year, nextWeek, 7);
+		//System.out.println();
+		cal.add(Calendar.DAY_OF_YEAR, -7);	
+		//System.out.println(cal.getTime());
+		
+		cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);	
+		//System.out.println(cal.getTime());
+		
+		String lastMonday = getDateInString(cal);
+		cal.add(Calendar.DAY_OF_YEAR, 1);	
+		//System.out.println(cal.getTime());
+		
+		String lastTuesday = getDateInString(cal);
+		cal.add(Calendar.DAY_OF_YEAR, 1);	
+		System.out.println(cal.getTime());
+		
+		String lastWednesday = getDateInString(cal);
+		cal.add(Calendar.DAY_OF_YEAR, 1);	
+		//System.out.println(cal.getTime());
+		
+		String lastThursday = getDateInString(cal);
+		cal.add(Calendar.DAY_OF_YEAR, 1);
+		//System.out.println(cal.getTime());
+		
+		String lastFriday = getDateInString(cal);
+		cal.add(Calendar.DAY_OF_YEAR, 1);
+		//System.out.println(cal.getTime());
+		
+		String lastSaturday = getDateInString(cal);
+		cal.add(Calendar.DAY_OF_YEAR, 1);	
+		//System.out.println(cal.getTime());
+		
+		String lastSunday = getDateInString(cal);
 	
+		cal.add(Calendar.DAY_OF_YEAR, 1);
+		//System.out.println(cal.getTime());
+		
+		String presentMonday = getDateInString(cal);
+		cal.add(Calendar.DAY_OF_YEAR, 1);	
+		//System.out.println(cal.getTime());
+		
+		String presentTuesday = getDateInString(cal);
+		cal.add(Calendar.DAY_OF_YEAR, 1);
+		//System.out.println(cal.getTime());
+		
+		String presentWednesday = getDateInString(cal);
+		cal.add(Calendar.DAY_OF_YEAR, 1);
+		//System.out.println(cal.getTime());
+		
+		String presentThursday = getDateInString(cal);
+		cal.add(Calendar.DAY_OF_YEAR, 1);
+		//System.out.println(cal.getTime());
+		
+		String presentFriday = getDateInString(cal);
+		cal.add(Calendar.DAY_OF_YEAR, 1);
+		//System.out.println(cal.getTime());
+		
+		String presentSaturday = getDateInString(cal);
+		cal.add(Calendar.DAY_OF_YEAR, 1);
+		//System.out.println(cal.getTime());
+		
+		String presentSunday = getDateInString(cal);
+		// 30 не вик оф ер - змынити алгоритм
+		cal.add(Calendar.DAY_OF_YEAR, 1);
+		//System.out.println(cal.getTime());
+		
+		String nextMonday = getDateInString(cal);
+		cal.add(Calendar.DAY_OF_YEAR, 1);
+		//System.out.println(cal.getTime());
+		
+		String nextTuesday = getDateInString(cal);
+		cal.add(Calendar.DAY_OF_YEAR, 1);
+		//System.out.println(cal.getTime());
+		
+		String nextWednesday = getDateInString(cal);
+		cal.add(Calendar.DAY_OF_YEAR, 1);
+		//System.out.println(cal.getTime());
+		
+		String nextThursday = getDateInString(cal);
+		cal.add(Calendar.DAY_OF_YEAR, 1);
+		//System.out.println(cal.getTime());
+		
+		String nextFriday = getDateInString(cal);
+		cal.add(Calendar.DAY_OF_YEAR, 1);
+		//System.out.println(cal.getTime());
+		
+		String nextSaturday = getDateInString(cal);
+		cal.add(Calendar.DAY_OF_YEAR, 1);
+		//System.out.println(cal.getTime());
+		
+		String nextSunday = getDateInString(cal);
+	//
 	
 		List<String> lastWeekMomdayColors = translateToHtml.paintDeals(lastWeekMomday);
 		List<String> lastWeekTuesdayColors = translateToHtml.paintDeals(lastWeekTuesday);
@@ -371,37 +448,33 @@ public class DealsServlet {
 		return "deals";
 	}
 
-	private String getDateInString(int year, int weekOfYear, int dayOfWeek){
+	private String getDateInString(Calendar cal){
 		
-		Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.YEAR, year);
-        cal.set(Calendar.WEEK_OF_YEAR, weekOfYear);
-        cal.set(Calendar.DAY_OF_WEEK, dayOfWeek);
-        
-        Date date = cal.getTime();
-        
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM");
-        String dateString = dateFormat.format(date);
-        
-        String resultWeek = "";
-        
-        if(dayOfWeek==1){
-        	resultWeek = "нед≥л€, ";
-        }else if(dayOfWeek==2){
-        	resultWeek = "понед≥лок, ";
-        }else if(dayOfWeek==3){
-        	resultWeek = "в≥второк, ";
-        }else if(dayOfWeek==4){
-        	resultWeek = "середа, ";
-        }else if(dayOfWeek==5){
-        	resultWeek = "четвер, ";
-        }else if(dayOfWeek==6){
-        	resultWeek = "п'€тниц€, ";
-        }else if(dayOfWeek==7){
-        	resultWeek = "суббота, ";
-        }
-		
-		return resultWeek+dateString;
+		    Date date = cal.getTime();
+	        
+	        DateFormat dateFormat = new SimpleDateFormat("dd.MM");
+	        String dateString = dateFormat.format(date);
+	        
+	        int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+	        
+	        String resultWeek = "";
+	        
+	        if(dayOfWeek==1){
+	        	resultWeek = "нед≥л€, ";
+	        }else if(dayOfWeek==2){
+	        	resultWeek = "понед≥лок, ";
+	        }else if(dayOfWeek==3){
+	        	resultWeek = "в≥второк, ";
+	        }else if(dayOfWeek==4){
+	        	resultWeek = "середа, ";
+	        }else if(dayOfWeek==5){
+	        	resultWeek = "четвер, ";
+	        }else if(dayOfWeek==6){
+	        	resultWeek = "п'€тниц€, ";
+	        }else if(dayOfWeek==7){
+	        	resultWeek = "суббота, ";
+	        }
+			return resultWeek+dateString;
 	}
 
 }

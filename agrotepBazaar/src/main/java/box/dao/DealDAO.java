@@ -16,8 +16,8 @@ import box.model.Deal;
 @Repository
 public class DealDAO {
 	
-	// max result of requests 1000
-	public int max = 1000;
+	// max result of requests 1500
+	public int max = 1500;
 	
 	@PersistenceContext
 	private EntityManager em;

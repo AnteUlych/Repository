@@ -103,7 +103,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   ${theCount.index+1}. ${dates[theCount.index]} ${dea.information}, ${dea.truck};<br>
   
   </c:forEach>  
-
+<br><br><br>
 <!-- Subscribe Modal -->
 
 	
