@@ -65,6 +65,8 @@ public class ReportServlet {
 				report.setEur(0);
 				report.setUah(0);
 				report.setUsd(0);
+				report.setLinkPropositions("0");
+				report.setLinkWinPropositions("0");
 				
 				reports.add(report);
 			}
@@ -125,6 +127,9 @@ HttpSession session = request.getSession();
 				report.setEur(base.getSummOfArchivebetByManagerIdAndStatusDates(start, ending, m.getId(), BET_CONFIRMED, EUR));
 				report.setUah(base.getSummOfArchivebetByManagerIdAndStatusDates(start, ending, m.getId(), BET_CONFIRMED, UAH));
 				report.setUsd(base.getSummOfArchivebetByManagerIdAndStatusDates(start, ending, m.getId(), BET_CONFIRMED, USD));
+				
+				report.setLinkPropositions("<a href=\"filtrbetsreport/"+start+"_"+ending+"_"+m.getId()+"_all\">" + base.getNumberOfArchivebetByManagerIdDates(start, ending, m.getId())+"</a>");
+				report.setLinkWinPropositions("<a href=\"filtrbetsreport/"+start+"_"+ending+"_"+m.getId()+"_win\">" + base.getNumberOfArchivebetByManagerIdAndStatusDates(start, ending, m.getId(), BET_CONFIRMED)+"</a>");
 				
 				reports.add(report);
 			}

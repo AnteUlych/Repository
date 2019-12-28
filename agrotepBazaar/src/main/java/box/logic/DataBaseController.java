@@ -328,6 +328,14 @@ public class DataBaseController {
 		return archiveauctionService.getArchiveauctionByAuctionId(auctionid);
 	}
 	
+	public List<Archivebet> getListOfArchivebetByManagerIdDates(String start, String ending, int managerid) {
+		return archivebetService.getListOfArchivebetByManagerIdDates(start, ending, managerid);
+	}
+	
+	public List<Archivebet> getListOfArchivebetByManagerIdAndStatusDates(String start, String ending, int managerid, String status) {
+		return archivebetService.getListOfArchivebetByManagerIdAndStatusDates(start, ending, managerid, status);
+	}
+	
 	//report
 	
 	//messages

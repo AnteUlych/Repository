@@ -40,6 +40,14 @@ public class ArchivebetService {
 		return dao.getListOfArchivebetByManagerIdAndStatusDates(start, ending, managerid, status).size();
 	}
 	
+	public List<Archivebet> getListOfArchivebetByManagerIdDates(String start, String ending, int managerid) {
+		return dao.getListOfArchivebetByManagerIdDates(start, ending, managerid);
+	}
+	
+	public List<Archivebet> getListOfArchivebetByManagerIdAndStatusDates(String start, String ending, int managerid, String status) {
+		return dao.getListOfArchivebetByManagerIdAndStatusDates(start, ending, managerid, status);
+	}
+	
 	public void addArchivebet(Archivebet archivebet) {
 		dao.persist(archivebet);
 	}

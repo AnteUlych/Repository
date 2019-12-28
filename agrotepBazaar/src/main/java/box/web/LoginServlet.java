@@ -48,7 +48,13 @@ public class LoginServlet {
 		base.closeConnection();
 		
 		try {
-			response.sendRedirect("/tender/auction");
+			
+			if(manager.getRank().equals("chief")){
+				response.sendRedirect("/tender/deals/all");
+			}else{
+			    response.sendRedirect("/tender/auction");
+		    }
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

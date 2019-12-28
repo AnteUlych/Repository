@@ -56,40 +56,33 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <!-- Header -->
   <form method="post">
   <header class="w3-container" style="padding-top:22px">
-    <h5><i class="fa fa-bar-chart"></i> «в≥т
-     з <input type="date" required name="start"> до <input type="date" required name="finish"> 
-     ${buttonn}
+    <h5><i class="fa fa-bar-chart"></i> ${information} 
+    <a href="/tender/report"><i class="fa fa fa-calculator"></i></a>
     </h5>
   </header>
 </form>
  
   	<br>
   <div class="w3-container" id="contact">
-  ${auctions}
-  	<br>
-  
 
 	 <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
 	
-${tableHead}
 	
-		<c:forEach items="${reports}" var="rep" varStatus="theCount">
-<tr>
-	            <td>${theCount.count}</td>
-			    <td>${rep.manager}</td>
-			    <td>${rep.linkPropositions}</td>
-			    <td>${rep.linkWinPropositions}</td>
-			    <td>${rep.eur}</td>
-			    <td>${rep.usd}</td>
-			    <td>${rep.uah}</td>
-			    
-			
-</tr>
+		<c:forEach items="${betsreport}" var="bet" varStatus="theCount">
+            <tr class="${colors[theCount.index]}">
+                <td>${theCount.index+1}</td>
+	            <td>${bet.date}</td>
+	            <td>${bet.information}</td>
+	            <td>${bet.manager}</td>
+			    <td>${bet.client}</td>
+			    <td>${bet.readiness}</td>
+			    <td>${bet.rate} ${bet.currency}</td>		  		   			
+           </tr>
 
 
 </c:forEach>
 </table>
-
+<br><br><br>
 </div>
 </div>
 <!-- Subscribe Modal -->

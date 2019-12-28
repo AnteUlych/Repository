@@ -8,6 +8,8 @@ public class Report {
 	private int eur;
 	private int usd;
 	private int uah;
+	private String linkPropositions;
+	private String linkWinPropositions;
 	
 	public String getManager() {
 		return manager;
@@ -45,5 +47,19 @@ public class Report {
 	public void setUah(int uah) {
 		this.uah = uah;
 	}
+	public String getLinkPropositions() {
+		return linkPropositions;
+	}
+	public void setLinkPropositions(String linkPropositions) {
+		this.linkPropositions = linkPropositions;
+	}
+	public String getLinkWinPropositions() {
+		return linkWinPropositions;
+	}
+	public void setLinkWinPropositions(String linkWinPropositions) {
+		this.linkWinPropositions = linkWinPropositions;
+	}
+
+
 
 }
