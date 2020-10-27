@@ -1,5 +1,6 @@
 package box.logic;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
@@ -55,12 +56,43 @@ public class DataBaseController {
 	public List<Client> getClientsSortedByNextcall() {
 		return clientService.getClientsSortedByNextcall();
 	}
+	
+	public List<Client> getClientsByManagerIdAndProductSortedByNexcall(int managerid, String product) {
+		
+		 List<Client> clients = clientService.getClientsByManagerIdSortedByNexcall(managerid);
+		 List<Client> productClients = new ArrayList();
+		 
+		 for(Client c:clients){
+			 if(c.getProducts().contains(product)){
+				 productClients.add(c);
+			 }
+		 }
+		 
+		 return productClients;
+	}
+	
+	public List<Client> getClientsByProductSortedByNextcall(String product) {
+		List<Client> clients = clientService.getClientsSortedByNextcall();
+		 List<Client> productClients = new ArrayList();
+		 
+		 for(Client c:clients){
+			 if(c.getProducts().contains(product)){
+				 productClients.add(c);
+			 }
+		 }
+		 
+		 return productClients;
+	}
 
 	// Client
 
 	//Product
-	public List<Product> getListOfProducts() {
-		return productService.getListOfProducts();
+	public List<Product> getListOfOpenProducts() {
+		return productService.getListOfOpenProducts();
+	}
+	
+	public Product getProductById(int productid){
+		return productService.getProductById(productid);
 	}
 	//Product
 

@@ -61,7 +61,7 @@ ${menuForHead}
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <h5>
-    <b><i class="fa fa-calendar"></i> Графік дзвінків</b>
+    <b><i class="fa fa-minus"></i> ${product}</b>
      
     
     </h5>

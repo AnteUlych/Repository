@@ -12,13 +12,12 @@ public class MainTest {
 	public static void main(String[] args) {
 		
 		DataBaseController db = new DataBaseController();
-		//System.out.println(db.getManagersByCode("111").getName());
+		List<Product> ps = db.getListOfOpenProducts();
 		
-		List<Manager> cs = db.getListOfNotAdminManagers();
-		
-		for(Manager c:cs){
-			System.out.println(c.getName()+" "+c.getRank());
+		for(Product p:ps){
+			System.out.println(p.getProduct());
 		}
+	
 
 	}
 

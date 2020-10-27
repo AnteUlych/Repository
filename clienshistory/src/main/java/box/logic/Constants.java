@@ -2,6 +2,8 @@ package box.logic;
 
 public class Constants {
 	
+	public String MENU_FOR_HEAD = "<span class=\"w3-bar-item w3-right\"> <a href=\"/clientshisory/managers\" ><i class=\"fa fa-child\"></i></a></span><span class=\"w3-bar-item w3-right\"> <a href=\"/clientshisory/products\" ><i class=\"fa fa-map-signs\"></i></a></span>";
+	
 	public int PRODUCT_STATUS_HIDE = 0;
 	public int PRODUCT_STATUS_OPEN = 1;
 	
