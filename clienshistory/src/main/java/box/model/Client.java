@@ -43,7 +43,7 @@ public class Client {
 	@Column
 	private String lastrecord;
 	@Column
-	private String freght;
+	private String freight;
 	
 	public int getId() {
 		return id;
@@ -135,12 +135,13 @@ public class Client {
 	public void setLastrecord(String lastrecord) {
 		this.lastrecord = lastrecord;
 	}
-	public String getFreght() {
-		return freght;
+	public String getFreight() {
+		return freight;
 	}
-	public void setFreght(String freght) {
-		this.freght = freght;
+	public void setFreight(String freight) {
+		this.freight = freight;
 	}
+
 	
 
 }
