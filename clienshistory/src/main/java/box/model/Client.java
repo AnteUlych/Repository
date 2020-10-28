@@ -44,6 +44,8 @@ public class Client {
 	private String lastrecord;
 	@Column
 	private String freight;
+	@Column
+	private String edrpo;
 	
 	public int getId() {
 		return id;
@@ -140,6 +142,12 @@ public class Client {
 	}
 	public void setFreight(String freight) {
 		this.freight = freight;
+	}
+	public String getEdrpo() {
+		return edrpo;
+	}
+	public void setEdrpo(String edrpo) {
+		this.edrpo = edrpo;
 	}
 
 	

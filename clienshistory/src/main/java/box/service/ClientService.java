@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 
+
 import box.dao.ClientDAO;
 import box.model.Client;
 
@@ -29,6 +30,11 @@ public class ClientService {
 	@SuppressWarnings("unchecked")
 	public List<Client> getClientsSortedByNextcall() {
 		return dao.getClientsSortedByNextcall();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Client> getListOfClients(){
+		return dao.getListOfClients();
 	}
 
 }

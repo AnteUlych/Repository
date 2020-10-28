@@ -57,6 +57,19 @@ public class DataBaseController {
 		return clientService.getClientsSortedByNextcall();
 	}
 	
+	public List<Client> getClientsByCodeOrCompany(String word){
+		List<Client> allClients = clientService.getListOfClients();
+		List<Client> filtrClients = new ArrayList();
+		
+		for(Client client:allClients){
+			if(client.getCompany().contains(word)||client.getEdrpo().contains(word)){
+				filtrClients.add(client);
+			}
+		}
+		
+		return filtrClients;
+	}
+	
 	public List<Client> getClientsByManagerIdAndProductSortedByNexcall(int managerid, String product) {
 		
 		 List<Client> clients = clientService.getClientsByManagerIdSortedByNexcall(managerid);

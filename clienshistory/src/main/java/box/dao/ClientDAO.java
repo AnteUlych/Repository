@@ -29,5 +29,10 @@ public class ClientDAO {
 				"from Client order by nextcall")
 				.getResultList();	
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Client> getListOfClients(){
+		return em.createQuery("from Client").getResultList();
+	}
 
 }

@@ -12,10 +12,11 @@ public class MainTest {
 	public static void main(String[] args) {
 		
 		DataBaseController db = new DataBaseController();
-		List<Product> ps = db.getListOfOpenProducts();
 		
-		for(Product p:ps){
-			System.out.println(p.getProduct());
+		List<Client> ps = db.getClientsByCodeOrCompany("2");
+		
+		for(Client p:ps){
+			System.out.println(p.getCompany()+" "+p.getEdrpo());
 		}
 	
 
