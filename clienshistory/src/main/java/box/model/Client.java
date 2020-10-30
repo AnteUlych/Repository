@@ -27,8 +27,6 @@ public class Client {
 	@Column
 	private String mobile;
 	@Column
-	private String skype;
-	@Column
 	private String mail;
 	@Column
 	private String othercontact;
@@ -88,12 +86,6 @@ public class Client {
 	}
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
-	}
-	public String getSkype() {
-		return skype;
-	}
-	public void setSkype(String skype) {
-		this.skype = skype;
 	}
 	public String getMail() {
 		return mail;

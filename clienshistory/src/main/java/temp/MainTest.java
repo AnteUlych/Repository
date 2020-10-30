@@ -1,11 +1,13 @@
 package temp;
 
+import java.util.Date;
 import java.util.List;
 
 import box.logic.DataBaseController;
 import box.model.Client;
 import box.model.Manager;
 import box.model.Product;
+import box.model.Records;
 
 public class MainTest {
 
@@ -13,10 +15,14 @@ public class MainTest {
 		
 		DataBaseController db = new DataBaseController();
 		
-		List<Client> ps = db.getClientsByCodeOrCompany("2");
+	
+		//db.addRecords(r);
 		
-		for(Client p:ps){
-			System.out.println(p.getCompany()+" "+p.getEdrpo());
+		
+		List<Records> ps = db.getListOfRecordsByClientId(3);
+		
+		for(Records p:ps){
+			System.out.println(p.getManager());
 		}
 	
 

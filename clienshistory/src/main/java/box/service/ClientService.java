@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 
+
 import box.dao.ClientDAO;
 import box.model.Client;
 
@@ -21,20 +22,29 @@ public class ClientService {
 	
 	@Autowired
 	private ClientDAO dao;
-	
-	@SuppressWarnings("unchecked")
+
 	public List<Client> getClientsByManagerIdSortedByNexcall(int managerid) {
 		return dao.getClientsByManagerIdSortedByNexcall(managerid);
 	}
-	
-	@SuppressWarnings("unchecked")
+
 	public List<Client> getClientsSortedByNextcall() {
 		return dao.getClientsSortedByNextcall();
 	}
-	
-	@SuppressWarnings("unchecked")
+
 	public List<Client> getListOfClients(){
 		return dao.getListOfClients();
+	}
+	
+	public Client getClientByERDPO(String edrpo) {
+		return dao.getClientByERDPO(edrpo);
+	}
+	
+	public void addClient(Client client) {
+		dao.persist(client);
+	}
+	
+	public Client getClientById(int id){
+		return dao.getClientById(id);
 	}
 
 }

@@ -35,7 +35,7 @@ ${menuForHead}
   <div class="w3-bar-block">
     <a href="/clientshisory/plan" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
     <a href="/clientshisory/plan" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar"></i>&nbsp; Графік дзвінків</a>
-     <a href="/clientshisory/addclient" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-plus"></i>&nbsp; Додати клієнта</a>
+     <a href="/clientshisory/addclient" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-user-plus"></i>&nbsp; Додати клієнта</a>
     <a href="/clientshisory/find" class="w3-bar-item w3-button w3-padding"><i class="fa fa-search"></i>&nbsp; Пошук </a>
     <a href="/clientshisory/report" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bar-chart"></i>&nbsp; Звіт</a>
   </div>
@@ -61,7 +61,7 @@ ${menuForHead}
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <h5>
-    <b><i class="fa fa-minus"></i> ${product}</b>
+    <b><i class="fa fa-user-plus"></i> Додати клієнта</b>
      
     
     </h5>
@@ -70,26 +70,24 @@ ${menuForHead}
 <br>
 <div class="w3-container">
 
- 
-    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
-	
-		<c:forEach items="${clients}" var="cli" varStatus="theCount">
-<tr class="">
-
-<td>${dates[theCount.index]}</td>
-<td><i class="${icons[theCount.index]}"></i></td>
-<td><a href="/clientshisory/client/${cli.id}">${cli.company}</a></td>
-<td>${cli.manager}</td>
-<td>${cli.lastrecord}</td>
-
-</tr>
-
-
-</c:forEach>
-</table>
-
-<br><br><br>
-  
+ <form method="POST">
+ <p><input class="w3-input w3-border" type="text" placeholder="Компанія" maxlength="99" required name="company" autocomplete="off"></p>
+ <p><input class="w3-input w3-border" type="number" placeholder="ЄДРПОУ або код компанії" maxlength="19" required name="edrpo" autocomplete="off"></p>
+ <p><input class="w3-input w3-border" type="text" placeholder="ЛПР" maxlength="99" required name="lpr" autocomplete="off"></p>
+ <p><input class="w3-input w3-border" type="text" placeholder="Стаціонарний телефон" maxlength="19" required name="phone" autocomplete="off"></p>
+ <p><input class="w3-input w3-border" type="text" placeholder="Мобільний телефон" maxlength="44" required name="mobile" autocomplete="off"></p>
+  <p><input class="w3-input w3-border" type="email" placeholder="Елктронна пошта" maxlength="44" required name="mail" autocomplete="off"></p>
+  <p><input class="w3-input w3-border" type="text" placeholder="Інші контактні данні" maxlength="199" required name="othercontact" autocomplete="off"></p>
+  <p>
+  <c:forEach items="${products}" var="prod" varStatus="theCount">
+    <input type="checkbox" id="${prod.id}" name="${prod.id}" value="${prod.id}">
+    <label for="${prod.id}"> ${prod.product}</label>
+  </c:forEach>
+  </p>
+  <p><input class="w3-input w3-border" type="text" placeholder="Вантаж" maxlength="44" required name="freight" autocomplete="off"></p>
+<br>
+<button type="submit" class="w3-button w3-green w3-third" name="add" value="add">Додати клієнта</button>
+ </form> 
   </div>
 
   </div>
@@ -97,6 +95,8 @@ ${menuForHead}
 
 
 <script>
+${messagealert}
+
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
 

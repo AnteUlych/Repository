@@ -10,9 +10,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import box.model.Client;
 import box.model.Manager;
 import box.model.Product;
+import box.model.Records;
 import box.service.ClientService;
 import box.service.ManagerService;
 import box.service.ProductService;
+import box.service.RecordsService;
 
 public class DataBaseController {
 
@@ -24,6 +26,7 @@ public class DataBaseController {
 	ProductService productService = (ProductService) ctx
 			.getBean("productService");
 	ClientService clientService = (ClientService) ctx.getBean("clientService");
+	RecordsService recordsService = (RecordsService)ctx.getBean("recordsService");
 
 	public void closeConnection() {
 		((AbstractApplicationContext) ctx).close();
@@ -49,6 +52,10 @@ public class DataBaseController {
 	// Manager
 
 	// Client
+	public void addClient(Client client){
+		clientService.addClient(client);
+	}
+	
 	public List<Client> getClientsByManagerIdSortedByNexcall(int managerid) {
 		return clientService.getClientsByManagerIdSortedByNexcall(managerid);
 	}
@@ -62,7 +69,7 @@ public class DataBaseController {
 		List<Client> filtrClients = new ArrayList();
 		
 		for(Client client:allClients){
-			if(client.getCompany().contains(word)||client.getEdrpo().contains(word)){
+			if(client.getCompany().toLowerCase().contains(word.toLowerCase())||client.getEdrpo().contains(word)){
 				filtrClients.add(client);
 			}
 		}
@@ -96,6 +103,26 @@ public class DataBaseController {
 		 
 		 return productClients;
 	}
+	
+	public boolean isEDRPOExist(String edrpo){
+		List<Client> clients = clientService.getListOfClients();
+		
+		for(Client client:clients){
+			if(client.getEdrpo().equals(edrpo)){
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	public Client getClientByERDPO(String edrpo) {
+		return clientService.getClientByERDPO(edrpo);
+	}
+	
+	public Client getClientById(int id){
+		return clientService.getClientById(id);
+	}
 
 	// Client
 
@@ -108,5 +135,15 @@ public class DataBaseController {
 		return productService.getProductById(productid);
 	}
 	//Product
+	
+	//Records
+	public void addRecords(Records record){
+		recordsService.addRecords(record);
+	}
+	
+	public List<Records> getListOfRecordsByClientId(int managerid) {
+		return recordsService.getListOfRecordsByClientId(managerid);
+	}
+	
 
 }
