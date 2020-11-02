@@ -25,9 +25,9 @@ public class RecordsDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Records> getListOfRecordsByClientId(int managerid) {
+	public List<Records> getListOfRecordsByClientId(int clientid) {
 		return em.createQuery(
-				"from Records where managerid = '" + managerid + "' order by date desc")
+				"from Records where clientid = '" + clientid + "' order by date desc")
 				.getResultList();
 	}
 

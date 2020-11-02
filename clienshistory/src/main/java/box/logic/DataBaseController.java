@@ -141,8 +141,8 @@ public class DataBaseController {
 		recordsService.addRecords(record);
 	}
 	
-	public List<Records> getListOfRecordsByClientId(int managerid) {
-		return recordsService.getListOfRecordsByClientId(managerid);
+	public List<Records> getListOfRecordsByClientId(int clientid) {
+		return recordsService.getListOfRecordsByClientId(clientid);
 	}
 	
 

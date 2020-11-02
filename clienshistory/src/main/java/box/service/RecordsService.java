@@ -20,7 +20,7 @@ public class RecordsService {
 		dao.persist(records);
 	}
 
-	public List<Records> getListOfRecordsByClientId(int managerid) {
-		return dao.getListOfRecordsByClientId(managerid);
+	public List<Records> getListOfRecordsByClientId(int clientid) {
+		return dao.getListOfRecordsByClientId(clientid);
 	}
 }
