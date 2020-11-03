@@ -1,5 +1,6 @@
 package box.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -53,5 +54,43 @@ public class ClientDAO {
 		Client client = (Client) em.find(Client.class, id);
 		return client;
 	}
+	
+	@Transactional
+	public void editNectcallAndLastrecordAndFunekOfClientById(int id, Date nextcall, int funel, String lastrecord){
+		
+		Client client = (Client) em.find(Client.class, id);
+		client.setLastrecord(lastrecord);
+		client.setNextcall(nextcall);
+		client.setFunel(funel);
+		
+		Client transaction = em.merge(client);
+		em.persist(transaction);
+		em.close();
 
+	}
+	
+	public void editClientById(int id, int funel, String company, String edrpo, String freight,
+			String lpr, String mail, String manager, int managerid,
+			String mobile, String othercontact, String phone, String  products){
+		
+		Client client = (Client) em.find(Client.class, id);
+		
+		client.setCompany(company);
+		client.setEdrpo(edrpo);
+		client.setFreight(freight);
+		client.setFunel(funel);
+		client.setLpr(lpr);
+		client.setMail(mail);
+		client.setManager(manager);
+		client.setManagerid(managerid);
+		client.setMobile(mobile);
+		client.setOthercontact(othercontact);
+		client.setPhone(phone);
+		client.setProducts(products);
+		
+		Client transaction = em.merge(client);
+		em.persist(transaction);
+		em.close();
+	}
+	
 }

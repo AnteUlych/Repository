@@ -25,6 +25,8 @@ public class Records {
 	private int recordstatus;
 	@Column
 	private int managerid;
+	@Column
+	private int funel;
 	
 	public int getId() {
 		return id;
@@ -67,6 +69,12 @@ public class Records {
 	}
 	public void setManagerid(int managerid) {
 		this.managerid = managerid;
+	}
+	public int getFunel() {
+		return funel;
+	}
+	public void setFunel(int funel) {
+		this.funel = funel;
 	}
 
 }

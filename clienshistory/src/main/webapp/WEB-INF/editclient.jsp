@@ -61,81 +61,47 @@ ${menuForHead}
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <h5>
-    <b><i class="${funelIcon}"></i>&nbsp; ${company} &nbsp;  
-    ${editClient} 
+    <b><i class="fa fa-edit"></i> Редагування клієнта ${company}</b>
+     
     
-    </b>   
     </h5>
-
-     <i class="fa fa-university" style="width:30px"></i> Код підприємства ${edrpo}<br>
-     <i class="fa fa-clock-o" style="width:30px"></i> Дата внесення в систему ${creationAsString}<br>
-     <i class="fa fa-truck" style="width:30px"> </i> ${productsOfClient}<br>
-     <i class="fa fa-cube" style="width:30px"> </i>  ${freight}<br>
-     <i class="fa fa-user-o" style="width:30px"> </i> ${manager}<br>
-     <br>
-     <i class="fa fa-male" style="width:30px"> </i> ${lpr}<br>
-     <i class="fa fa-phone" style="width:30px"> </i> ${phone}<br>
-     <i class="fa fa-mobile" style="width:30px"> </i> ${mobile}<br>
-     <i class="fa fa-envelope" style="width:30px"> </i> ${mail}<br>
-     <i class="fa fa-sticky-note-o" style="width:30px"> </i> ${othercontact}<br>
-     
-     
-    
   </header>
-
-<br>
-
-<div class="w3-container">
-<h5>
-${addRecord}<br> 
-</h5>
-    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
-	
-		<c:forEach items="${records}" var="rec" varStatus="theCount">
-<tr class="">
-
-<td>${rec.date}</td>
-<td><i class="${icons[theCount.index]}"></i></td>
-<td>${rec.manager}</td>
-<td>${rec.record}</td>
-
-</tr>
-
-
-</c:forEach>
-</table>
-
-<br><br><br>
   
+<br>
+<div class="w3-container ${hidden}">
+
+ <form method="POST">
+ <p><input class="w3-input w3-border" type="text" maxlength="99" required name="company" value="${company}" autocomplete="off"></p>
+ <p><input class="w3-input w3-border" type="text" maxlength="99" required name="lpr" value="${lpr}" autocomplete="off"></p>
+ <p><input class="w3-input w3-border" type="text" maxlength="19" required name="phone" value="${phone}" autocomplete="off"></p>
+ <p><input class="w3-input w3-border" type="text" maxlength="44" required name="mobile" value="${mobile}" autocomplete="off"></p>
+  <p><input class="w3-input w3-border" type="email" maxlength="44" required name="mail" value="${mail}" autocomplete="off"></p>
+  <p><input class="w3-input w3-border" type="text" maxlength="199" required name="othercontact" value="${othercontact}" autocomplete="off"></p>
+  <p>
+  <c:forEach items="${products}" var="prod" varStatus="theCount">
+    <input type="checkbox" id="${prod.id}" name="${prod.id}" ${productChecks[theCount.index]} value="${prod.id}">
+    <label for="${prod.id}"> ${prod.product}</label>
+  </c:forEach>
+  </p>
+    <p>
+  <c:forEach items="${managers}" var="mana" varStatus="theCount">
+    <input  type="radio" required name="responsiblemanager" ${managerChecks[theCount.index]} value ="${mana.id}"> <label>${mana.name}</label>
+  </c:forEach>
+  </p>
+  
+  <p><input class="w3-input w3-border" type="text" placeholder="Вантаж" maxlength="44" required name="freight" value="${freight}" autocomplete="off"></p>
+<br>
+<button type="submit" class="w3-button w3-green w3-third" name="add" value="add">Редагувати клієнта</button>
+ </form> 
   </div>
 
   </div>
 
-<div id="add" class="w3-modal">
-  <div class="w3-modal-content  w3-padding-large">
-    <div class="w3-container w3-white w3-center">
-      <i onclick="document.getElementById('add').style.display='none'" class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent"></i>
-      <h2 class="w3-wide"><i class="${funelIcon}" style="width:30px"></i>&nbsp; ${company}</h2>
-	  
-	  <form method="post" >
-	  <p><input class="w3-input w3-border" required type="text"  placeholder="Коментар" name="planrecord" maxlength="199" required></p>
-	  <p><input class="w3-input w3-border" required type="date"  placeholder="Наступний дзвінок" name="callfornexttime"></p>
-    
-	   <p>                      
-					   <input  type="radio" required name="radiofunel" ${check0} value ="0"> <label><i class="fa fa-snowflake-o w3-text-blue"></i> &nbsp;</label>
-		               <input  type="radio" required name="radiofunel" ${check1} value ="1"> <label><i class="fa fa-user-secret"></i> &nbsp;</label>
-                       <input  type="radio" required name="radiofunel" ${check2} value ="2"> <label><i class="fa fa-flag-checkered"></i> &nbsp;</label>
-                       <input  type="radio" required name="radiofunel" ${check3} value ="3"> <label><i class="fa fa-check w3-text-green"></i> &nbsp;</label>
-                       <input  type="radio" required name="radiofunel" ${check4} value ="4"> <label><i class="fa fa fa-ban w3-text-red"></i> &nbsp;</label>	
-	</p>
-	  <br>
-	  <button type="submit" name="addrecord" value="addrecord" class="w3-button w3-padding-large w3-green w3-margin-bottom" >Додати запис</button>
-	  </form>	
-    </div>
-  </div>
-</div>
+
 
 <script>
+
+
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
 

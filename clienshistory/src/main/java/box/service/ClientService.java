@@ -1,5 +1,6 @@
 package box.service;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,6 +9,8 @@ import javax.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+
 
 
 
@@ -45,6 +48,16 @@ public class ClientService {
 	
 	public Client getClientById(int id){
 		return dao.getClientById(id);
+	}
+	
+	public void editNectcallAndLastrecordAndFunekOfClientById(int id, Date nextcall, int funel, String lastrecord){
+		dao.editNectcallAndLastrecordAndFunekOfClientById(id, nextcall, funel, lastrecord);
+	}
+	
+	public void editClientById(int id, int funel, String company, String edrpo, String freight,
+			String lpr, String mail, String manager, int managerid,
+			String mobile, String othercontact, String phone, String  products){
+		dao.editClientById(id, funel, company, edrpo, freight, lpr, mail, manager, managerid, mobile, othercontact, phone, products);
 	}
 
 }

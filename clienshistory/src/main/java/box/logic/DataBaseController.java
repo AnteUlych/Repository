@@ -1,6 +1,7 @@
 package box.logic;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
@@ -52,6 +53,16 @@ public class DataBaseController {
 	// Manager
 
 	// Client
+	public void editClientById(int id, int funel, String company, String edrpo, String freight,
+			String lpr, String mail, String manager, int managerid,
+			String mobile, String othercontact, String phone, String  products){
+		clientService.editClientById(id, funel, company, edrpo, freight, lpr, mail, manager, managerid, mobile, othercontact, phone, products);
+	}
+	
+	public void editNectcallAndLastrecordAndFunekOfClientById(int id, Date nextcall, int funel, String lastrecord){
+		clientService.editNectcallAndLastrecordAndFunekOfClientById(id, nextcall, funel, lastrecord);
+	}
+	
 	public void addClient(Client client){
 		clientService.addClient(client);
 	}

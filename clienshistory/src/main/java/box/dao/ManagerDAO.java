@@ -34,7 +34,7 @@ public class ManagerDAO {
 	public List<Manager> getListOfNotAdminManagers() {
 		return em.createQuery(
 				"from Manager where rank != '" + constant.MANAGER_RANK_ADMIN
-						+ "'").getResultList();
+						+ "' and rank != '" + constant.MANAGER_RANK_FIRED+"'").getResultList();
 	}
 
 }

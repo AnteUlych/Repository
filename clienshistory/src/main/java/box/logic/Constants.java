@@ -10,6 +10,7 @@ public class Constants {
 	public int MANAGER_RANK_MANAGER = 0;
 	public int MANAGER_RANK_HEAD = 1;
 	public int MANAGER_RANK_ADMIN = 2;
+	public int MANAGER_RANK_FIRED = 3;
 	
 	public int CLIENT_FUNEL_COLD_CALL = 0;
 	public int CLIENT_FUNEL_COMUNICATION_WITH_LPR = 1;
