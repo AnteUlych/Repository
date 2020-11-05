@@ -15,8 +15,10 @@ public class MainTest {
 		
 		DataBaseController db = new DataBaseController();
 		
-        //db.editClientById(2, 1, " ульбабка", "2332", "‘–", "якийсь Ћѕ–", "1@dd.d", "јнтон≥й", 1, "222", "othercontact", "33335", "пл€шки");			
-			System.out.println(true||false);
+	
+		System.out.println(db.generateCodeForManager());
+	
+      
 	
 	
 

@@ -30,18 +30,18 @@ CREATE TABLE `client` (
   `lpr` varchar(100) NOT NULL,
   `phone` varchar(20) NOT NULL,
   `mobile` varchar(45) NOT NULL,
-  `skype` varchar(45) NOT NULL,
   `mail` varchar(45) NOT NULL,
   `othercontact` varchar(200) NOT NULL,
-  `products` varchar(45) NOT NULL,
+  `products` varchar(400) NOT NULL,
   `creation` datetime NOT NULL,
   `funel` int(11) DEFAULT NULL,
   `nextcall` datetime NOT NULL,
   `lastrecord` varchar(200) NOT NULL,
   `freight` varchar(45) NOT NULL,
+  `edrpo` varchar(20) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -59,7 +59,7 @@ CREATE TABLE `manager` (
   `mail` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,7 +75,7 @@ CREATE TABLE `product` (
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,9 +93,10 @@ CREATE TABLE `records` (
   `manager` varchar(45) NOT NULL,
   `recordstatus` int(11) DEFAULT NULL,
   `managerid` int(11) DEFAULT NULL,
+  `funel` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -111,4 +112,4 @@ CREATE TABLE `records` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-21 11:04:20
+-- Dump completed on 2020-11-03 17:42:22

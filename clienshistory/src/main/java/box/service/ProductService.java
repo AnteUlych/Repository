@@ -23,6 +23,18 @@ public class ProductService {
 	public Product getProductById(int productid){
 		return dao.getProductById(productid);
 	}
+	
+	public void addProduct(Product product){
+		dao.persist(product);
+	}
+	
+	public void hideProduct(int id){
+		dao.hideProduct(id);
+	}
+	
+	public List<Product> getListOfProducts() {
+		return dao.getListOfProducts();
+	}
 
 
 }

@@ -61,37 +61,29 @@ ${menuForHead}
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <h5>
-    <b><i class="fa fa-edit"></i> Редагування клієнта ${company}</b>
+    <b><i class="fa fa-child"></i> ${managerName}</b>
      
     
     </h5>
   </header>
   
 <br>
-<div class="w3-container ${hidden}">
+<div class="w3-container">
 
  <form method="POST">
- <p><input class="w3-input w3-border" type="text" maxlength="99" required name="company" value="${company}" autocomplete="off"></p>
- <p><input class="w3-input w3-border" type="text" maxlength="99" required name="lpr" value="${lpr}" autocomplete="off"></p>
- <p><input class="w3-input w3-border" type="text" maxlength="19" required name="phone" value="${phone}" autocomplete="off"></p>
- <p><input class="w3-input w3-border" type="text" maxlength="44" required name="mobile" value="${mobile}" autocomplete="off"></p>
-  <p><input class="w3-input w3-border" type="email" maxlength="44" required name="mail" value="${mail}" autocomplete="off"></p>
-  <p><input class="w3-input w3-border" type="text" maxlength="199" required name="othercontact" value="${othercontact}" autocomplete="off"></p>
+ <p><input class="w3-input w3-border" type="text" placeholder="Ім'я" maxlength="44" required name="nameOfManager" value="${managerName}" autocomplete="off"></p>
+  <p><input class="w3-input w3-border" type="email" placeholder="Елктронна пошта" maxlength="44" required name="mail" value="${managerMail}" autocomplete="off"></p>
   <p>
-  <c:forEach items="${products}" var="prod" varStatus="theCount">
-    <input type="checkbox" id="${prod.id}" name="${prod.id}" ${productChecks[theCount.index]} value="${prod.id}">
-    <label for="${prod.id}"> ${prod.product}</label>
-  </c:forEach>
+     <input  type="radio" required name="rankManager" ${radio0} value ="0"> <label> &nbsp; Менеджер</label>
+      </p><p>
+	 <input  type="radio" required name="rankManager" ${radio1} value ="1"> <label> &nbsp; Керівник</label>
   </p>
-    <p>
-  <c:forEach items="${managers}" var="mana" varStatus="theCount">
-    <input  type="radio" required name="responsiblemanager" ${managerChecks[theCount.index]} value ="${mana.id}"> <label>${mana.name}</label>
-  </c:forEach>
-  </p>
-  
-  <p><input class="w3-input w3-border" type="text" placeholder="Вантаж" maxlength="44" required name="freight" value="${freight}" autocomplete="off"></p>
 <br>
-${button}
+${editbutton}
+<br><br>
+${editCode}
+<br><br>
+${daleteButton}
  </form> 
   </div>
 
@@ -100,7 +92,7 @@ ${button}
 
 
 <script>
-
+${messagealert}
 
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");

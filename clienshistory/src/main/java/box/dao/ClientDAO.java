@@ -50,6 +50,12 @@ public class ClientDAO {
 		return (Client) query.getSingleResult();
 	}
 	
+	public int getNumberOfClientsByManagerid(int managerid) {
+		return em
+				.createQuery("from Client where managerid = '" + managerid + "'").getResultList().size();
+		
+	}
+	
 	public Client getClientById(int id){
 		Client client = (Client) em.find(Client.class, id);
 		return client;

@@ -40,5 +40,25 @@ public class ManagerService {
 	public List<Manager> getListOfNotAdminManagers() {
 		return dao.getListOfNotAdminManagers();
 	}
+	
+	public Manager getManagerById(int id){
+		return dao.getManagerById(id);
+	}
+	
+	public void firedManagerById(int id){
+		dao.firedManagerById(id);
+	}
+	
+	public void deleteManager(int id) {
+		dao.deleteManager(id);
+	}
+	
+	public void addManager(Manager manager){
+		dao.persist(manager);
+	}
+	
+	public void editManagerById(int id, String name, String mail, String code, int rank) {
+		dao.editManagerById(id, name, mail, code, rank);
+	}
 
 }

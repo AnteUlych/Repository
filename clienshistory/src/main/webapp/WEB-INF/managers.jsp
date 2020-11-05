@@ -61,47 +61,69 @@ ${menuForHead}
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <h5>
-    <b><i class="fa fa-edit"></i> Редагування клієнта ${company}</b>
+    <b><i class="fa fa-child"></i> Менеджери &nbsp; ${addManager}</b>
      
     
     </h5>
   </header>
   
 <br>
-<div class="w3-container ${hidden}">
+<div class="w3-container">
 
- <form method="POST">
- <p><input class="w3-input w3-border" type="text" maxlength="99" required name="company" value="${company}" autocomplete="off"></p>
- <p><input class="w3-input w3-border" type="text" maxlength="99" required name="lpr" value="${lpr}" autocomplete="off"></p>
- <p><input class="w3-input w3-border" type="text" maxlength="19" required name="phone" value="${phone}" autocomplete="off"></p>
- <p><input class="w3-input w3-border" type="text" maxlength="44" required name="mobile" value="${mobile}" autocomplete="off"></p>
-  <p><input class="w3-input w3-border" type="email" maxlength="44" required name="mail" value="${mail}" autocomplete="off"></p>
-  <p><input class="w3-input w3-border" type="text" maxlength="199" required name="othercontact" value="${othercontact}" autocomplete="off"></p>
-  <p>
-  <c:forEach items="${products}" var="prod" varStatus="theCount">
-    <input type="checkbox" id="${prod.id}" name="${prod.id}" ${productChecks[theCount.index]} value="${prod.id}">
-    <label for="${prod.id}"> ${prod.product}</label>
-  </c:forEach>
-  </p>
-    <p>
-  <c:forEach items="${managers}" var="mana" varStatus="theCount">
-    <input  type="radio" required name="responsiblemanager" ${managerChecks[theCount.index]} value ="${mana.id}"> <label>${mana.name}</label>
-  </c:forEach>
-  </p>
+ 
+    <table class="w3-table w3-striped w3-bordered w3-border w3-white">
+	
+	<th>Ім'я</th>
+<th>Код</th>
+<th>Пошта</th>
+<th>Ранг</th>
+<th>&nbsp;</th>
+	
+	
+		<c:forEach items="${managers}" var="ma" varStatus="theCount">
+<tr class="">
+
+
+<td>${ma.name}</td>
+<td>${ma.code}</td>
+<td>${ma.mail}</td>
+<td>${ranks[theCount.index]}</td>
+<td><a href="/clientshisory/editmanager/${ma.id}">редагувати</a></td>
+</tr>
+
+
+</c:forEach>
+</table>
+
+<br><br><br>
   
-  <p><input class="w3-input w3-border" type="text" placeholder="Вантаж" maxlength="44" required name="freight" value="${freight}" autocomplete="off"></p>
-<br>
-${button}
- </form> 
   </div>
 
   </div>
 
+<div id="add" class="w3-modal">
+  <div class="w3-modal-content  w3-padding-large">
+    <div class="w3-container w3-white w3-center">
+      <i onclick="document.getElementById('add').style.display='none'" class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent"></i>
+      <h2 class="w3-wide">&nbsp; Новий менеджер</h2>
+	  <!-- !!!!!!! -->
+	  <form method="post" >
+	  <p><input class="w3-input w3-border" required type="text"  placeholder="Ім'я" name="managerName" maxlength="44" required></p>
+	  <p><input class="w3-input w3-border" required type="email"  placeholder="Електронна пошта" name="managerMail"></p>
+    
+	   <p>                      
+					   <input  type="radio" required name="radioRank" value ="0"> <label> &nbsp; Менеджер</label>
+		               <input  type="radio" required name="radioRank" value ="1"> <label> &nbsp; Керівник</label>
+	  </p>
+	  <br>
+	  <button type="submit" name="addmanager" value="addmanager" class="w3-button w3-padding-large w3-green w3-margin-bottom" >Додати запис</button>
+	  </form>	
+    </div>
+  </div>
+</div>
 
 
 <script>
-
-
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
 

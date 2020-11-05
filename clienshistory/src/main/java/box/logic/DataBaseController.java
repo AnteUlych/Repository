@@ -3,6 +3,7 @@ package box.logic;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
@@ -49,6 +50,46 @@ public class DataBaseController {
 	public List<Manager> getListOfNotAdminManagers(){
 		return managerService.getListOfNotAdminManagers();
 	}
+	
+	public Manager getManagerById(int id){
+		return managerService.getManagerById(id);
+	}
+	
+	public void firedManagerById(int id){
+		managerService.firedManagerById(id);
+	}
+	
+	public void deleteManager(int id) {
+		managerService.deleteManager(id);
+	}
+	
+	public void addManager(Manager manager){
+		managerService.addManager(manager);
+	}
+	
+public String generateCodeForManager(){
+		
+		String code;
+				
+		for(;;){
+			
+			int min = 10000;
+			int max = 99999;
+	
+			Random random = new Random();
+			int i = random.nextInt((max-min)+1)+ min;
+			code = i+"";
+		
+			if(!managerService.isManagerExisByCode(code)){
+				return code;
+			}
+		}
+		
+	}
+
+    public void editManagerById(int id, String name, String mail, String code, int rank) {
+    	managerService.editManagerById(id, name, mail, code, rank);
+    }
 
 	// Manager
 
@@ -135,6 +176,9 @@ public class DataBaseController {
 		return clientService.getClientById(id);
 	}
 
+	public int getNumberOfClientsByManagerid(int managerid) {
+		return clientService.getNumberOfClientsByManagerid(managerid);
+	}
 	// Client
 
 	//Product
@@ -144,6 +188,18 @@ public class DataBaseController {
 	
 	public Product getProductById(int productid){
 		return productService.getProductById(productid);
+	}
+	
+	public void addProduct(Product product){
+		productService.addProduct(product);
+	}
+	
+	public void hideProduct(int id){
+		productService.hideProduct(id);
+	}
+	
+	public List<Product> getListOfProducts() {
+		return productService.getListOfProducts();
 	}
 	//Product
 	

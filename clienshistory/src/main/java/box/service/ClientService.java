@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 
+
 import box.dao.ClientDAO;
 import box.model.Client;
 
@@ -58,6 +59,10 @@ public class ClientService {
 			String lpr, String mail, String manager, int managerid,
 			String mobile, String othercontact, String phone, String  products){
 		dao.editClientById(id, funel, company, edrpo, freight, lpr, mail, manager, managerid, mobile, othercontact, phone, products);
+	}
+	
+	public int getNumberOfClientsByManagerid(int managerid) {
+		return dao.getNumberOfClientsByManagerid(managerid);
 	}
 
 }

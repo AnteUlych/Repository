@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import box.logic.Constants;
 import box.model.Product;
@@ -27,6 +28,29 @@ public class ProductDAO {
 	public Product getProductById(int productid){
 		Product product = (Product) em.find(Product.class, productid);
 		return product;
+	}
+	
+	@Transactional
+	public void persist(Product product) {
+		Product transaction = em.merge(product);
+		em.persist(transaction);
+		em.close();
+	}
+	
+	public void hideProduct(int id){
+		
+		Product product = (Product) em.find(Product.class, id);
+		product.setStatus(constant.PRODUCT_STATUS_HIDE);
+		
+		Product transaction = em.merge(product);
+		em.persist(transaction);
+		em.close();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Product> getListOfProducts() {
+		return em.createQuery(
+				"from Product").getResultList();
 	}
 
 }
