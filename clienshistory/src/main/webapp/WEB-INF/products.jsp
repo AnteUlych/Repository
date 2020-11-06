@@ -56,12 +56,13 @@ ${menuForHead}
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 <!-- !PAGE CONTENT! -->
+
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <h5>
-    <b><i class="fa fa-child"></i> Менеджери &nbsp; ${addManager}</b>
+    <b><i class="fa fa-map-signs"></i> Продукти &nbsp; ${addProduct}</b>
      
     
     </h5>
@@ -71,29 +72,15 @@ ${menuForHead}
 <div class="w3-container">
 
  
-    <table class="w3-table w3-striped w3-bordered w3-border w3-white">
-	
-	<th>Ім'я</th>
-<th>Код</th>
-<th>Пошта</th>
-<th>Ранг</th>
-<th>&nbsp;</th>
-	
-	
-		<c:forEach items="${managers}" var="ma" varStatus="theCount">
-<tr class="">
+   
+	<form method="post" >  
+		<c:forEach items="${allProducts}" var="pr" varStatus="theCount">
 
-
-<td>${ma.name}</td>
-<td>${ma.code}</td>
-<td>${ma.mail}</td>
-<td>${ranks[theCount.index]}</td>
-<td><a href="/clientshisory/editmanager/${ma.id}">редагувати</a></td>
-</tr>
-
+${productButtons[theCount.index]}
+<br><br>
 
 </c:forEach>
-</table>
+</form> 
 
 <br><br><br>
   
@@ -105,25 +92,22 @@ ${menuForHead}
   <div class="w3-modal-content  w3-padding-large">
     <div class="w3-container w3-white w3-center">
       <i onclick="document.getElementById('add').style.display='none'" class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent"></i>
-      <h2 class="w3-wide">&nbsp; Новий менеджер</h2>
+      <h2 class="w3-wide">&nbsp; Новий продукт</h2>
 	  <!-- !!!!!!! -->
-	  <form method="post" >
-	  <p><input class="w3-input w3-border" required type="text"  placeholder="Ім'я" name="managerName" maxlength="44" required></p>
-	  <p><input class="w3-input w3-border" required type="email"  placeholder="Електронна пошта" name="managerMail"></p>
-    
-	   <p>                      
-					   <input  type="radio" required name="radioRank" value ="0"> <label> &nbsp; Менеджер</label>
-		               <input  type="radio" required name="radioRank" value ="1"> <label> &nbsp; Керівник</label>
-	  </p>
+	<form method="post" >  
+	  <p><input class="w3-input w3-border" required type="text"  placeholder="Продукт" name="newProduct" maxlength="44" required autocomplete="off"></p>
+	
 	  <br>
-	  <button type="submit" name="addmanager" value="addmanager" class="w3-button w3-padding-large w3-green w3-margin-bottom" >Додати менеджера</button>
-	  </form>	
+	  <button type="submit" name="addproduct" value="addproduct" class="w3-button w3-padding-large w3-green w3-margin-bottom" >Додати продукт</button>
+	</form> 	
     </div>
   </div>
-</div>
 
+</div>
+   
 
 <script>
+${messagealert}
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
 

@@ -32,8 +32,24 @@ public class ProductService {
 		dao.hideProduct(id);
 	}
 	
+	 public void openProduct(int id){
+		 dao.openProduct(id);
+	 }
+	
 	public List<Product> getListOfProducts() {
 		return dao.getListOfProducts();
+	}
+	
+	public boolean isProductsExis(String product) {
+		List<Product> ps = dao.getListOfProducts();
+		
+		for(Product p:ps){
+			if(p.getProduct().equals(product)){
+				return true;
+			}
+		}
+		
+		return false;
 	}
 
 

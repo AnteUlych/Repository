@@ -16,7 +16,7 @@ public class MainTest {
 		DataBaseController db = new DataBaseController();
 		
 	
-		System.out.println(db.generateCodeForManager());
+		System.out.println(db.isProductsExis("дт"));
 	
       
 	

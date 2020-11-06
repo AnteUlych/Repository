@@ -47,10 +47,20 @@ public class ProductDAO {
 		em.close();
 	}
 	
+   public void openProduct(int id){
+		
+		Product product = (Product) em.find(Product.class, id);
+		product.setStatus(constant.PRODUCT_STATUS_OPEN);
+		
+		Product transaction = em.merge(product);
+		em.persist(transaction);
+		em.close();
+	}
+	
 	@SuppressWarnings("unchecked")
 	public List<Product> getListOfProducts() {
 		return em.createQuery(
-				"from Product").getResultList();
+				"from Product order by product").getResultList();
 	}
 
 }

@@ -198,8 +198,16 @@ public String generateCodeForManager(){
 		productService.hideProduct(id);
 	}
 	
+	public void openProduct(int id){
+		productService.openProduct(id);
+	}
+	
 	public List<Product> getListOfProducts() {
 		return productService.getListOfProducts();
+	}
+	
+	public boolean isProductsExis(String product) {
+		return productService.isProductsExis(product);
 	}
 	//Product
 	
@@ -211,6 +219,8 @@ public String generateCodeForManager(){
 	public List<Records> getListOfRecordsByClientId(int clientid) {
 		return recordsService.getListOfRecordsByClientId(clientid);
 	}
+	
+	
 	
 
 }
