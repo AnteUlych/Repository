@@ -108,7 +108,7 @@ ${menuForHead}
       <h2 class="w3-wide">&nbsp; Новий менеджер</h2>
 	  <!-- !!!!!!! -->
 	  <form method="post" >
-	  <p><input class="w3-input w3-border" required type="text"  placeholder="Ім'я" name="managerName" maxlength="44" required></p>
+	  <p><input pattern="[^\\/`,]+" class="w3-input w3-border" required type="text"  placeholder="Ім'я" name="managerName" maxlength="44" required></p>
 	  <p><input class="w3-input w3-border" required type="email"  placeholder="Електронна пошта" name="managerMail"></p>
     
 	   <p>                      

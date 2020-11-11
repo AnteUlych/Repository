@@ -95,7 +95,7 @@ ${productButtons[theCount.index]}
       <h2 class="w3-wide">&nbsp; Новий продукт</h2>
 	  <!-- !!!!!!! -->
 	<form method="post" >  
-	  <p><input class="w3-input w3-border" required type="text"  placeholder="Продукт" name="newProduct" maxlength="44" required autocomplete="off"></p>
+	  <p><input pattern="[^\\/`,]+" class="w3-input w3-border" required type="text"  placeholder="Продукт" name="newProduct" maxlength="44" required autocomplete="off"></p>
 	
 	  <br>
 	  <button type="submit" name="addproduct" value="addproduct" class="w3-button w3-padding-large w3-green w3-margin-bottom" >Додати продукт</button>

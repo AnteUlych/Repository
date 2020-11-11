@@ -71,7 +71,7 @@ ${menuForHead}
 <div class="w3-container">
 
  <form method="POST">
- <p><input class="w3-input w3-border" type="text" placeholder="Компанія" maxlength="99" required name="company" autocomplete="off"></p>
+ <p><input pattern="[^\\/`,]+" class="w3-input w3-border" type="text" placeholder="Компанія" maxlength="99" required name="company" autocomplete="off"></p>
  <p><input class="w3-input w3-border" type="number" placeholder="ЄДРПОУ або код компанії" maxlength="19" required name="edrpo" autocomplete="off"></p>
  <p><input class="w3-input w3-border" type="text" placeholder="ЛПР" maxlength="99" required name="lpr" autocomplete="off"></p>
  <p><input class="w3-input w3-border" type="text" placeholder="Стаціонарний телефон" maxlength="19" required name="phone" autocomplete="off"></p>

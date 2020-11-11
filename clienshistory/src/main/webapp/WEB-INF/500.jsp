@@ -19,7 +19,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i> &nbsp;Menu</button>
   <span class="w3-bar-item w3-right"> <a href="/clientshisory/login" ><i class="fa fa-sign-out fa-fw"></i></a></span>
-${menuForHead}
+
 </div>
 
 <!-- Sidebar/menu -->
@@ -27,14 +27,14 @@ ${menuForHead}
   <div class="w3-container w3-row">
     
     <div class="w3-col s8 w3-bar">
-      <span><strong>${name}</strong></span><br>
+      <span><strong>Помилка на сервері</strong></span><br>
     </div>
   </div>
   <hr>
 
   <div class="w3-bar-block">
     <a href="/clientshisory/plan" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
-    <a href="/clientshisory/plan" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar"></i>&nbsp; Графік дзвінків</a>
+    <a href="/clientshisory/plan" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-calendar"></i>&nbsp; Графік дзвінків</a>
      <a href="/clientshisory/addclient" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-plus"></i>&nbsp; Додати клієнта</a>
     <a href="/clientshisory/find" class="w3-bar-item w3-button w3-padding"><i class="fa fa-search"></i>&nbsp; Пошук </a>
     <a href="/clientshisory/report" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bar-chart"></i>&nbsp; Звіт</a>
@@ -43,10 +43,7 @@ ${menuForHead}
   <hr>
     <div class="w3-bar-block">
     
-    <c:forEach items="${products}" var="prod" varStatus="theCount">
-    <a href="/clientshisory/planproduct/${prod.id}" class="w3-bar-item w3-button w3-padding "><i class="fa fa-minus"></i>&nbsp; ${prod.product}</a>
-    </c:forEach>
-<hr>
+
   </div>
   
 </nav>
@@ -61,47 +58,20 @@ ${menuForHead}
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <h5>
-    <b><i class="fa fa-edit"></i> Редагування клієнта ${company}</b>
+    <b><i class="fa fa-bug"></i> Помилка на сервері</b>
      
     
     </h5>
   </header>
   
 <br>
-<div class="w3-container ${hidden}">
 
- <form method="POST">
- <p><input pattern="[^\\/`,]+" class="w3-input w3-border" type="text" maxlength="99" required name="company" value="${company}" autocomplete="off"></p>
- <p><input class="w3-input w3-border" type="text" maxlength="99" required name="lpr" value="${lpr}" autocomplete="off"></p>
- <p><input class="w3-input w3-border" type="text" maxlength="19" required name="phone" value="${phone}" autocomplete="off"></p>
- <p><input class="w3-input w3-border" type="text" maxlength="44" required name="mobile" value="${mobile}" autocomplete="off"></p>
-  <p><input class="w3-input w3-border" type="email" maxlength="44" required name="mail" value="${mail}" autocomplete="off"></p>
-  <p><input class="w3-input w3-border" type="text" maxlength="199" required name="othercontact" value="${othercontact}" autocomplete="off"></p>
-  <p>
-  <c:forEach items="${products}" var="prod" varStatus="theCount">
-    <input type="checkbox" id="${prod.id}" name="${prod.id}" ${productChecks[theCount.index]} value="${prod.id}">
-    <label for="${prod.id}"> ${prod.product}</label>
-  </c:forEach>
-  </p>
-    <p>
-  <c:forEach items="${managers}" var="mana" varStatus="theCount">
-    <input  type="radio" required name="responsiblemanager" ${managerChecks[theCount.index]} value ="${mana.id}"> <label>${mana.name}</label>
-  </c:forEach>
-  </p>
-  
-  <p><input class="w3-input w3-border" type="text" placeholder="Вантаж" maxlength="44" required name="freight" value="${freight}" autocomplete="off"></p>
-<br>
-${button}
- </form> 
-  </div>
 
   </div>
 
 
 
 <script>
-
-
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
 

@@ -71,7 +71,7 @@ ${menuForHead}
 <div class="w3-container">
 
  <form method="POST">
- <p><input class="w3-input w3-border" type="text" placeholder="Ім'я" maxlength="44" required name="nameOfManager" value="${managerName}" autocomplete="off"></p>
+ <p><input pattern="[^\\/`,]+" class="w3-input w3-border" type="text" placeholder="Ім'я" maxlength="44" required name="nameOfManager" value="${managerName}" autocomplete="off"></p>
   <p><input class="w3-input w3-border" type="email" placeholder="Елктронна пошта" maxlength="44" required name="mail" value="${managerMail}" autocomplete="off"></p>
   <p>
      <input  type="radio" required name="rankManager" ${radio0} value ="0"> <label> &nbsp; Менеджер</label>
