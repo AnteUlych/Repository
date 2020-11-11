@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import box.model.Client;
 import box.model.Records;
 
 
@@ -30,5 +31,14 @@ public class RecordsDAO {
 				"from Records where clientid = '" + clientid + "' order by date desc")
 				.getResultList();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Records> getListOfRecordsByManagerIdIdAndStatusBetweenDates(int managerid, int recordstatus, String start, String finish) {
+		return em.createQuery(
+				"from Records where managerid = '" + managerid + "' and recordstatus ='"+recordstatus+"' and date >='"+start+"' and date <='"+finish+"'")
+				.getResultList();
+	}
+	
+
 
 }

@@ -98,5 +98,20 @@ public class ClientDAO {
 		em.persist(transaction);
 		em.close();
 	}
+	@SuppressWarnings("unchecked")
+    public List<Client> getClientsByFunel(int funel){
+    	return em.createQuery(
+				"from Client where funel = '" + funel + "'")
+				.getResultList();
+
+    }
+	
+	@SuppressWarnings("unchecked")
+    public List<Client> getClientsByManagerIdBetweenDates(int managerid, String start, String finish){
+    	return em.createQuery(
+				"from Client where managerid = '" + managerid + "' and creation >='"+start+"' and creation <='"+finish+"'")
+				.getResultList();
+
+    }
 	
 }

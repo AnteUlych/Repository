@@ -1,5 +1,6 @@
 package box.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -9,6 +10,8 @@ import javax.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+
 
 
 
@@ -63,6 +66,22 @@ public class ClientService {
 	
 	public int getNumberOfClientsByManagerid(int managerid) {
 		return dao.getNumberOfClientsByManagerid(managerid);
+	}
+	
+	public List<Client> getClientsByFunelAndOpenProduct(int funel, String product){
+		List<Client> clientsByFunel = dao.getClientsByFunel(funel);
+		List<Client> clientsByFunelAndProduct = new ArrayList();
+		for(Client client:clientsByFunel){
+			if(client.getProducts().contains(product)){
+				clientsByFunelAndProduct.add(client);
+			}
+		}
+		
+		return clientsByFunelAndProduct;
+	}
+	
+	public List<Client> getClientsByManagerIdBetweenDates(int managerid, String start, String finish){
+		return dao.getClientsByManagerIdBetweenDates(managerid, start, finish);
 	}
 
 }

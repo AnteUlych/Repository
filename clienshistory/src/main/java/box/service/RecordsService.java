@@ -23,4 +23,8 @@ public class RecordsService {
 	public List<Records> getListOfRecordsByClientId(int clientid) {
 		return dao.getListOfRecordsByClientId(clientid);
 	}
+	
+	public List<Records> getListOfRecordsByManagerIdIdAndStatusBetweenDates(int managerid, int recordstatus, String start, String finish) {
+		return dao.getListOfRecordsByManagerIdIdAndStatusBetweenDates(managerid, recordstatus, start, finish);
+	}
 }

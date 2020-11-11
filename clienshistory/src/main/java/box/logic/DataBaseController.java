@@ -179,6 +179,14 @@ public String generateCodeForManager(){
 	public int getNumberOfClientsByManagerid(int managerid) {
 		return clientService.getNumberOfClientsByManagerid(managerid);
 	}
+	
+	public List<Client> getClientsByFunelAndOpenProduct(int funel, String product){
+		return clientService.getClientsByFunelAndOpenProduct(funel, product);
+	}
+	
+	public List<Client> getClientsByManagerIdBetweenDates(int managerid, String start, String finish){
+		return clientService.getClientsByManagerIdBetweenDates(managerid, start, finish);
+	}
 	// Client
 
 	//Product
@@ -218,6 +226,10 @@ public String generateCodeForManager(){
 	
 	public List<Records> getListOfRecordsByClientId(int clientid) {
 		return recordsService.getListOfRecordsByClientId(clientid);
+	}
+	
+	public List<Records> getListOfRecordsByManagerIdIdAndStatusBetweenDates(int managerid, int recordstatus, String start, String finish) {
+		return recordsService.getListOfRecordsByManagerIdIdAndStatusBetweenDates(managerid, recordstatus, start, finish);
 	}
 	
 	
