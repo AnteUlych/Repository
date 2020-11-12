@@ -351,7 +351,7 @@ public class EditclientServlet {
 		 if(!prods.equals(productsForClient)){
 			 newRecord = newRecord + " продукти " + prods + " на " + productsForClient + "; ";
 		 }
-		 if(responsiblemanager != null){
+		 if((responsiblemanager != null)&&(!client.getManager().equals(newManager))){
 			 newRecord = newRecord + " відповідального " + manager + " на " + newManager + "; ";
 		 }
 		 

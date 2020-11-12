@@ -72,10 +72,10 @@ ${menuForHead}
 
  <form method="POST">
  <p><input pattern="[^\\/`,]+" class="w3-input w3-border" type="text" placeholder="Компанія" maxlength="99" required name="company" autocomplete="off"></p>
- <p><input class="w3-input w3-border" type="number" placeholder="ЄДРПОУ або код компанії" maxlength="19" required name="edrpo" autocomplete="off"></p>
+ <p><input class="w3-input w3-border" type="number" placeholder="ЄДРПОУ або код компанії" max="100000000000000" min = "0" required name="edrpo" autocomplete="off"></p>
  <p><input class="w3-input w3-border" type="text" placeholder="ЛПР" maxlength="99" required name="lpr" autocomplete="off"></p>
- <p><input class="w3-input w3-border" type="text" placeholder="Стаціонарний телефон" maxlength="19" required name="phone" autocomplete="off"></p>
- <p><input class="w3-input w3-border" type="text" placeholder="Мобільний телефон" maxlength="44" required name="mobile" autocomplete="off"></p>
+ <p><input class="w3-input w3-border" type="text" placeholder="Стаціонарний телефон" maxlength="19"  required name="phone" autocomplete="off"></p>
+ <p><input class="w3-input w3-border" type="text" placeholder="Мобільний телефон" maxlength="44"  required name="mobile" autocomplete="off"></p>
   <p><input class="w3-input w3-border" type="email" placeholder="Елктронна пошта" maxlength="44" required name="mail" autocomplete="off"></p>
   <p><input class="w3-input w3-border" type="text" placeholder="Інші контактні данні" maxlength="199" required name="othercontact" autocomplete="off"></p>
   <p>

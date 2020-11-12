@@ -220,7 +220,7 @@ public class AddclientServlet {
             
             base1.addRecords(records);
             
-            base.closeConnection();
+            base1.closeConnection();
             
             
 			try {

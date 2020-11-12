@@ -37,7 +37,7 @@ ${menuForHead}
     <a href="/clientshisory/plan" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar"></i>&nbsp; Графік дзвінків</a>
      <a href="/clientshisory/addclient" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-plus"></i>&nbsp; Додати клієнта</a>
     <a href="/clientshisory/find" class="w3-bar-item w3-button w3-padding"><i class="fa fa-search"></i>&nbsp; Пошук </a>
-    <a href="/clientshisory/report" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bar-chart"></i>&nbsp; Звіт</a>
+    <a href="/clientshisory/report" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bar-chart"></i>&nbsp; Звіт</a>
   </div>
 
   <hr>

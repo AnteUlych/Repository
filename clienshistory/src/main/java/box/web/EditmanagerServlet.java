@@ -205,6 +205,8 @@ public class EditmanagerServlet {
  		}
         
         if (request.getParameter("fired") != null) {
+        	String newCode = base.generateCodeForManager();
+ 			base.editManagerById(idOfManager, manager.getName(), manager.getMail(), newCode, manager.getRank());
  			base.firedManagerById(idOfManager);
  		}
         

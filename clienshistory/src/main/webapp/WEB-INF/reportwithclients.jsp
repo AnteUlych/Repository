@@ -34,10 +34,10 @@ ${menuForHead}
 
   <div class="w3-bar-block">
     <a href="/clientshisory/plan" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
-    <a href="/clientshisory/plan" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-calendar"></i>&nbsp; Графік дзвінків</a>
+    <a href="/clientshisory/plan" class="w3-bar-item w3-button w3-padding "><i class="fa fa-calendar"></i>&nbsp; Графік дзвінків</a>
      <a href="/clientshisory/addclient" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-plus"></i>&nbsp; Додати клієнта</a>
     <a href="/clientshisory/find" class="w3-bar-item w3-button w3-padding"><i class="fa fa-search"></i>&nbsp; Пошук </a>
-    <a href="/clientshisory/report" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bar-chart"></i>&nbsp; Звіт</a>
+    <a href="/clientshisory/report" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bar-chart"></i>&nbsp; Звіт</a>
   </div>
 
   <hr>
@@ -78,7 +78,7 @@ ${menuForHead}
 
 <td>${dates[theCount.index]}</td>
 <td><i class="${icons[theCount.index]}"></i></td>
-
+<td><a href="/clientshisory/client/${cli.id}">${cli.company}</a></td>
 <td>${cli.manager}</td>
 <td>${cli.lastrecord}</td>
 
