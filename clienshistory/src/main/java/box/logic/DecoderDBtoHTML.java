@@ -25,6 +25,8 @@ public class DecoderDBtoHTML {
 	public String RECORDS_RECORDSTATUS_ADD_CHANGINGS = "fa fa-edit";
 	public String RECORDS_RECORDSTATUS_HEAD_ORDER = "fa fa-hand-o-right";
 	
+	public String RECORDS_RECORDSTATUS_EMPTY = "";
+	
 	
 	public List<String> translateFotClientsDatesFromDBtoHTML(
 			List<Client> clients) {
@@ -71,7 +73,7 @@ public class DecoderDBtoHTML {
 			int recordStatus = record.getRecordstatus();
 			
 			if(recordStatus == constant.RECORDS_RECORDSTATUS_NEW_RECORD){
-				icons.add(RECORDS_RECORDSTATUS_NEW_RECORD);
+				icons.add(RECORDS_RECORDSTATUS_EMPTY);
 			}else if(recordStatus==constant.RECORDS_RECORDSTATUS_COMUNICATION_WITH_LPR){
 				icons.add(RECORDS_RECORDSTATUS_COMUNICATION_WITH_LPR);
 			}else if(recordStatus==constant.RECORDS_RECORDSTATUS_CONTRACT_DEALING){
