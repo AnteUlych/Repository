@@ -27,7 +27,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-container w3-row">
     
     <div class="w3-col s8 w3-bar">
-      <span><strong>Помилка на сервері</strong></span><br>
+      <span><strong>Помилка на сервері </strong></span><br>
     </div>
   </div>
   <hr>
@@ -58,7 +58,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <h5>
-    <b><i class="fa fa-bug"></i> Помилка на сервері</b>
+    <b><i class="fa fa-bug"></i> Помилка, перезайдіть в систему <a href="/clientshisory/login" ><i class="fa fa-sign-out fa-fw"></i></a></b>
      
     
     </h5>

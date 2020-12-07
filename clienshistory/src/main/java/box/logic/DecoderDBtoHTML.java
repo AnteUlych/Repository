@@ -12,13 +12,13 @@ public class DecoderDBtoHTML {
 	Constants constant = new Constants();
 		
 	public String CLIENT_FUNEL_COLD_CALL = "fa fa-snowflake-o w3-text-blue";
-	public String CLIENT_FUNEL_COMUNICATION_WITH_LPR = "fa fa-user-secret";
+	public String CLIENT_FUNEL_COMUNICATION_WITH_LPR = "fa fa-user-secret w3-text-purple";
 	public String CLIENT_FUNEL_CONTRACT_DEALING = "fa fa-flag-checkered";
 	public String CLIENT_FUNEL_BECAME_CLIENT = "fa fa-check w3-text-green";
 	public String CLIENT_FUNEL_STOP_COWORKING = "fa fa fa-ban w3-text-red";
 	
 	public String RECORDS_RECORDSTATUS_NEW_RECORD = "fa fa-snowflake-o w3-text-blue";
-	public String RECORDS_RECORDSTATUS_COMUNICATION_WITH_LPR = "fa fa-user-secret";
+	public String RECORDS_RECORDSTATUS_COMUNICATION_WITH_LPR = "fa fa-user-secret w3-text-purple";
 	public String RECORDS_RECORDSTATUS_CONTRACT_DEALING = "fa fa-flag-checkered";
 	public String RECORDS_RECORDSTATUS_BECAME_CLIENT = "fa fa-check w3-text-green";
 	public String RECORDS_RECORDSTATUS_STOP_COWORKING = "fa fa fa-ban w3-text-red";

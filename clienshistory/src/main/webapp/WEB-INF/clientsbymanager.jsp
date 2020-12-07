@@ -61,7 +61,7 @@ ${menuForHead}
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <h5>
-    <b><i class="fa fa-child"></i> Менеджери &nbsp; ${addManager}</b>
+    <b><i class="fa fa-child"></i> ${nameOfManager}</b>
      
     
     </h5>
@@ -71,24 +71,17 @@ ${menuForHead}
 <div class="w3-container">
 
  
-    <table class="w3-table w3-striped w3-bordered w3-border w3-white">
+    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
 	
-	<th>Ім'я</th>
-<th>Код</th>
-<th>Пошта</th>
-<th>Ранг</th>
-<th>&nbsp;</th>
-	
-	
-		<c:forEach items="${managers}" var="ma" varStatus="theCount">
+		<c:forEach items="${clients}" var="cli" varStatus="theCount">
 <tr class="">
 
+<td>${dates[theCount.index]}</td>
+<td><i class="${icons[theCount.index]}"></i></td>
+<td><a href="/clientshisory/client/${cli.id}">${cli.company}</a></td>
+<td>${cli.manager}</td>
+<td>${cli.lastrecord}</td>
 
-<td><a href="/clientshisory/clientsbymanager/${ma.id}">${ma.name}</a></td>
-<td>${ma.code}</td>
-<td>${ma.mail}</td>
-<td>${ranks[theCount.index]}</td>
-<td><a href="/clientshisory/editmanager/${ma.id}">редагувати</a></td>
 </tr>
 
 
@@ -101,26 +94,6 @@ ${menuForHead}
 
   </div>
 
-<div id="add" class="w3-modal">
-  <div class="w3-modal-content  w3-padding-large">
-    <div class="w3-container w3-white w3-center">
-      <i onclick="document.getElementById('add').style.display='none'" class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent"></i>
-      <h2 class="w3-wide">&nbsp; Новий менеджер</h2>
-	  <!-- !!!!!!! -->
-	  <form method="post" >
-	  <p><input pattern="[^\\/`,]+" class="w3-input w3-border" required type="text"  placeholder="Ім'я" name="managerName" maxlength="44" required></p>
-	  <p><input class="w3-input w3-border" required type="email"  placeholder="Електронна пошта" name="managerMail"></p>
-    
-	   <p>                      
-					   <input  type="radio" required name="radioRank" value ="0"> <label> &nbsp; Менеджер</label>
-		               <input  type="radio" required name="radioRank" value ="1"> <label> &nbsp; Керівник</label>
-	  </p>
-	  <br>
-	  <button type="submit" name="addmanager" value="addmanager" class="w3-button w3-padding-large w3-green w3-margin-bottom" >Додати менеджера</button>
-	  </form>	
-    </div>
-  </div>
-</div>
 
 
 <script>

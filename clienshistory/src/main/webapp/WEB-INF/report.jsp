@@ -76,7 +76,7 @@ ${menuForHead}
     <table class="w3-table w3-striped w3-bordered w3-border w3-white">
 <tr>	
 	<th>Менеджер</th>
-<th><i class="fa fa-user-secret"></i></th>
+<th><i class="fa fa-user-secret w3-text-purple"></i></th>
 <th><i class="fa fa-flag-checkered"></i></th>
 <th><i class="fa fa-check w3-text-green"></i></th>
 </tr>	
@@ -108,7 +108,7 @@ ${menuForHead}
 <tr>	
 	<th>Продукти</th>
 <th><i class="fa fa-snowflake-o w3-text-blue"></i></th>
-<th><i class="fa fa-user-secret"></i></th>
+<th><i class="fa fa-user-secret w3-text-purple"></i></th>
 <th><i class="fa fa-flag-checkered"></i></th>
 <th><i class="fa fa-check w3-text-green"></i></th>
 </tr>	
