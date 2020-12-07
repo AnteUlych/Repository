@@ -12,6 +12,16 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
 </style>
 <body class="w3-light-grey">
 
@@ -59,69 +69,31 @@ ${menuForHead}
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
   <!-- Header -->
-  <header class="w3-container" style="padding-top:22px">
+  <header class="w3-container noselect" style="padding-top:22px">
     <h5>
-    <form method="POST">
-    <b><i class="fa fa-bar-chart"></i> Звіт по менеджерам з &nbsp; <input type="date" required name="startreport" value="${mondayText}"> по <input type="date" required name="finishreport" value="${saturdayText}">&nbsp;
-    <button class="w3-button"  type="submit" name="add" value="add" ${buttonoff} ><i class="fa fa-search"></i></button> </b>
-     </form>
-    
-    </h5>
-  </header>
-  
-<br>
-<div class="w3-container">
-
+    <b><i class="fa fa-child""></i>&nbsp; ${managerbetweendates} &nbsp;  
  
-    <table class="w3-table w3-striped w3-bordered w3-border w3-white">
-<tr>	
-	<th>Менеджер</th>
-<th><i class="fa fa-user-secret w3-text-purple"></i></th>
-<th><i class="fa fa-flag-checkered"></i></th>
-<th><i class="fa fa-check w3-text-green"></i></th>
-</tr>	
-	
-		<c:forEach items="${managerReports}" var="mr" varStatus="theCount">
-<tr class="">
-
-
-<td><a href="/clientshisory/managerreport/${mr.managerid}&_${mondayText}&_${saturdayText}" style="text-decoration: none" target="_blank">${mr.managerName}</a></td>
-
-<td><a href="/clientshisory/reportwithclients/m&_${mr.managerid}&_1&_${mondayText}&_${saturdayText}" style="text-decoration: none" target="_blank">${mr.kpiLpr}</a></td>
-<td><a href="/clientshisory/reportwithclients/m&_${mr.managerid}&_2&_${mondayText}&_${saturdayText}" style="text-decoration: none" target="_blank">${mr.kpiContract}</a></td>
-<td><a href="/clientshisory/reportwithclients/m&_${mr.managerid}&_3&_${mondayText}&_${saturdayText}" style="text-decoration: none" target="_blank">${mr.kpiClient}</a></td>
-</tr>
-
-
-</c:forEach>
-</table>
-<br>
- <h5>
-  
-    <b><i class="fa fa-pie-chart"></i> Звіт по продуктах</b>
-  
     
+    </b>   
     </h5>
+
+    
+  </header>
+
 <br>
 
-<table class="w3-table w3-striped w3-bordered w3-border w3-white">
-<tr>	
-	<th>Продукти</th>
-<th><i class="fa fa-snowflake-o w3-text-blue"></i></th>
-<th><i class="fa fa-user-secret w3-text-purple"></i></th>
-<th><i class="fa fa-flag-checkered"></i></th>
-<th><i class="fa fa-check w3-text-green"></i></th>
-</tr>	
+<div class="w3-container">
+<h5></h5>
+    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
 	
-		<c:forEach items="${prodReport}" var="pr" varStatus="theCount">
+		<c:forEach items="${records}" var="rec" varStatus="theCount">
 <tr class="">
 
+<td>${rec.date}</td>
+<td><i class="${icons[theCount.index]}"></i></td>
+<td>${companies[theCount.index]}</td>
+<td>${rec.record}</td>
 
-<td>${pr.productName}</td>
-<td><a href="/clientshisory/reportwithclients/p&_${pr.productid}&_0 " style="text-decoration: none" target="_blank">${pr.newClients}</a></td>
-<td><a href="/clientshisory/reportwithclients/p&_${pr.productid}&_1" style="text-decoration: none" target="_blank">${pr.kpiLpr}</a></td>
-<td><a href="/clientshisory/reportwithclients/p&_${pr.productid}&_2" style="text-decoration: none" target="_blank">${pr.kpiContract}</a></td>
-<td><a href="/clientshisory/reportwithclients/p&_${pr.productid}&_3" style="text-decoration: none" target="_blank">${pr.kpiClient}</a></td>
 </tr>
 
 
@@ -133,6 +105,7 @@ ${menuForHead}
   </div>
 
   </div>
+
 
 <script>
 // Get the Sidebar

@@ -39,6 +39,13 @@ public class RecordsDAO {
 				.getResultList();
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Records> getListOfRecordsByManagerIdsBetweenDates(int managerid, String start, String finish) {
+		return em.createQuery(
+				"from Records where managerid = '" + managerid + "' and date >='"+start+"' and date <='"+finish+"' order by date desc")
+				.getResultList();
+	}
+	
 
 
 }

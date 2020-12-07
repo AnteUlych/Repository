@@ -232,6 +232,10 @@ public String generateCodeForManager(){
 		return recordsService.getListOfRecordsByManagerIdIdAndStatusBetweenDates(managerid, recordstatus, start, finish);
 	}
 	
+	public List<Records> getListOfRecordsByManagerIdsBetweenDates(int managerid, String start, String finish) {
+		return recordsService.getListOfRecordsByManagerIdsBetweenDates(managerid, start, finish);
+	}
+	
 	
 	
 

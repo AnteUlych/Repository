@@ -27,7 +27,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-container w3-row">
     
     <div class="w3-col s8 w3-bar">
-      <span><strong>Сторінка не існує</strong></span><br>
+      <span><strong>Сторінки не існує</strong></span><br>
     </div>
   </div>
   <hr>
