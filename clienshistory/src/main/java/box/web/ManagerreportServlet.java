@@ -61,10 +61,13 @@ public class ManagerreportServlet {
 			List<String> icons = decoder.translateForRecordsFunelfromDBtoIcons(records);
 			
 			List<String> companies = new ArrayList();
+			List<Integer> companiesid = new ArrayList();
 			
 			for(Records r:records){
 				String company = base.getClientById(r.getClientid()).getCompany();
+				int comId = base.getClientById(r.getClientid()).getId();
 				companies.add(company);
+				companiesid.add(comId);
 			}
 			
 			base.closeConnection();
@@ -76,6 +79,7 @@ public class ManagerreportServlet {
 			 model.addAttribute("records", records);
 			 model.addAttribute("icons", icons);
 			 model.addAttribute("companies", companies);
+			 model.addAttribute("companiesid", companiesid);
 			 model.addAttribute("managerbetweendates", managerbetweendates);
 			 
 			

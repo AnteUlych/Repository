@@ -91,7 +91,7 @@ ${menuForHead}
 
 <td>${rec.date}</td>
 <td><i class="${icons[theCount.index]}"></i></td>
-<td>${companies[theCount.index]}</td>
+<td><a href="/clientshisory/client/${companiesid[theCount.index]}">${companies[theCount.index]}</a></td>
 <td>${rec.record}</td>
 
 </tr>
