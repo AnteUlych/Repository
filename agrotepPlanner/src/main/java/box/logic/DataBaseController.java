@@ -1,5 +1,6 @@
 package box.logic;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
@@ -42,10 +43,24 @@ public class DataBaseController {
 		((AbstractApplicationContext) ctx).close();
 	}
 	
-	//truckTest
-	public List<Truck> getListOfTrucks() {
-		return truckService.getListOfTrucks();
+	//truck
+	public List<Truck> getListOfTrucksSortedByManager() {
+		return truckService.getListOfTrucksSortedByManager();
 	}
+	
+	public void editTruckPriorityToHighById(int id) {
+		truckService.editTruckPriorityToHighById(id);
+	}
+	
+	public void editTruckPriorityToRegularById(int id) {
+		truckService.editTruckPriorityToRegularById(id);
+	}
+	
+	public void editTruckCommentById(int id, String comment) {
+		truckService.editTruckCommentById(id, comment);
+	}
+	//truck
+	
 	//clientTest
 	public List<Client> getListOfClients(){
 		return clientService.getListOfClients();
@@ -58,14 +73,25 @@ public class DataBaseController {
 	public List<History> getListOfHistory() {
 		return historyService.getListOfHistory();
 	}
-	//routeTest
-	public List<Route> getListOfRoutes() {
-		return routeService.getListOfRoutes();
+	
+	//route
+	public List<Route> getListOfRoutesBetweenDatesByTruckId(int truckid, String start, String finish) {
+		return routeService.getListOfRoutesBetweenDatesByTruckId(truckid, start, finish);
 	}
 	
-	//managerTest
-	public List<Manager> getListOfManagers(){
-		return managerService.getListOfManagers();
+	public boolean isListOfRoutesBetweenDatesByTruckIdExist(int truckid, String start, String finish) {
+		return routeService.isListOfRoutesBetweenDatesByTruckIdExist(truckid, start, finish);
 	}
+	//route
+	
+	//manager
+	public boolean isManagerExisByLoginPass(String loginPass){
+		return managerService.isManagerExisByLoginPass(loginPass);
+	}
+	
+	public Manager getManagersByLoginPass(String loginPass) {
+		return managerService.getManagersByLoginPass(loginPass);
+	}
+	//manager
 
 }

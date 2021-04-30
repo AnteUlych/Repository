@@ -1,5 +1,6 @@
 package box.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -17,8 +18,8 @@ public class RouteDAO {
 	private EntityManager em;
 	
 	@SuppressWarnings("unchecked")
-	public List<Route> getListOfRoutes() {
-		return em.createQuery("from Route").getResultList();
+	public List<Route> getListOfRoutesBetweenDatesByTruckId(int truckid, String start, String finish) {
+		return em.createQuery("from Route where truckid='"+truckid+"' and fromDate >='"+start+"' and fromDate <='"+finish+"'").getResultList();
 	}
 
 }

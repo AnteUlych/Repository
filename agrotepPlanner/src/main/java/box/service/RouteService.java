@@ -1,5 +1,6 @@
 package box.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,18 @@ public class RouteService {
 	@Autowired
 	private RouteDAO dao;
 	
-	public List<Route> getListOfRoutes() {
-		return dao.getListOfRoutes();
+	public List<Route> getListOfRoutesBetweenDatesByTruckId(int truckid, String start, String finish) {
+		return dao.getListOfRoutesBetweenDatesByTruckId(truckid, start, finish);
+	}
+	
+	public boolean isListOfRoutesBetweenDatesByTruckIdExist(int truckid, String start, String finish) {
+		
+		int routes = dao.getListOfRoutesBetweenDatesByTruckId(truckid, start, finish).size();
+		
+		if(routes==0){
+			return false;
+		}	
+		return true;
 	}
 	
 }

@@ -1,6 +1,6 @@
 package box.service;
 
-import java.util.List;
+import javax.persistence.NoResultException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,8 +16,19 @@ public class ManagerService {
 	@Autowired
 	private ManagerDAO dao;
 	
-	public List<Manager> getListOfManagers(){
-		return dao.getListOfManagers();
+	public boolean isManagerExisByLoginPass(String loginPass){
+		
+		try {
+			dao.getManagersByLoginPass(loginPass);
+			return true;
+		} catch (NoResultException e) {
+			return false;
+		}
+	}
+	
+	public Manager getManagersByLoginPass(String loginPass) {
+		Manager manager = dao.getManagersByLoginPass(loginPass);
+		return manager;
 	}
 	
 }

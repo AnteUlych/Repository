@@ -43,6 +43,8 @@ public class Route {
 	private int piceForKilometr;
 	@Column
 	private String info;
+	@Column
+	private int routeStatus;
 	
 	public int getId() {
 		return id;
@@ -139,6 +141,12 @@ public class Route {
 	}
 	public void setInfo(String info) {
 		this.info = info;
+	}
+	public int getRouteStatus() {
+		return routeStatus;
+	}
+	public void setRouteStatus(int routeStatus) {
+		this.routeStatus = routeStatus;
 	}
 	
 }
