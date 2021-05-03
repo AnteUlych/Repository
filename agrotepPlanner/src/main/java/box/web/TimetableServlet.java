@@ -1,7 +1,6 @@
 package box.web;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import box.logic.CalendarLogic;
 import box.logic.Constants;
 import box.logic.DataBaseController;
+import box.model.CalendarTruckHtml;
 import box.model.Truck;
 
 @Controller
@@ -137,7 +137,49 @@ public class TimetableServlet {
 		}
 		
 		//filter done without checking
-		// total information with dates
+		
+		
+		
+		List<CalendarTruckHtml> htmlTrucks = new ArrayList();
+		
+		for(Truck truck:trucks){
+			CalendarTruckHtml htmlTruck = new CalendarTruckHtml();
+			
+			htmlTruck.setId(truck.getId());
+			htmlTruck.setTracktor(truck.getTracktor());
+			htmlTruck.setTrailer(truck.getTrailer());
+			htmlTruck.setDriver(truck.getDriver());
+			htmlTruck.setPhone(truck.getPhone());
+			htmlTruck.setType(truck.getType());
+			htmlTruck.setManagerName(truck.getManagerName());
+			htmlTruck.setManagerid(truck.getManagerid());
+			htmlTruck.setPriority(truck.getPriority());
+			htmlTruck.setNotReady(truck.getNotReady());
+			htmlTruck.setStatusTruck(truck.getStatusTruck());
+			htmlTruck.setComment(truck.getComment());
+			
+			if(truck.getPriority()==Constants.TRUCK_PRIORITY_HIGH){
+				htmlTruck.setColumnUrgentClass("checked");
+				htmlTruck.setColumnUrgentColorClass("w3-lime");
+			}else{
+				htmlTruck.setColumnUrgentClass("");
+				htmlTruck.setColumnUrgentColorClass("");
+			}
+			
+			if(base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), firstDay, secondDay)){
+				htmlTruck.setFromOblastStatusStyle("color:green");
+				htmlTruck.setFromLastOblast("-> "+base.getLastRouteByTruckId(truck.getId(), secondDay).getToOblast());
+			}else{
+				htmlTruck.setFromOblastStatusStyle("color:red");
+				htmlTruck.setFromLastOblast(base.getLastRouteByTruckId(truck.getId(), secondDay).getToOblast());
+			}
+		     //test from to Oblasts
+			//comment and days
+			
+			htmlTrucks.add(htmlTruck);
+			
+		}
+		
 		
 		
 		
@@ -159,6 +201,8 @@ public class TimetableServlet {
 		model.addAttribute("weekendStringHeadThirdDay", weekendStringHeadThirdDay);
 		model.addAttribute("weekendStringHeadFourthDay", weekendStringHeadFourthDay);
 		model.addAttribute("weekendStringHeadFifthDay", weekendStringHeadFifthDay);
+		
+		model.addAttribute("htmlTrucks", htmlTrucks);
 		
 		return "timetable";
 	}

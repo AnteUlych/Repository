@@ -19,15 +19,14 @@ public class MainCoon {
 
 	public static void main(String[] args) {
 		
-		// DataBaseController d = new DataBaseController();
+		 DataBaseController d = new DataBaseController();
        // String text = "1112";
 		//System.out.println(d.isManagerExisByLoginPass(text));
 		//System.out.println(d.getManagersByLoginPass(text).getName());
-		
-		CalendarLogic c = new CalendarLogic();
-		//System.out.println(c.isDayTheWeekend("2021-05-03"));
-		System.out.println(c.getHeaderDate("2021-05-03"));
-		
+
+		 System.out.println(d.getLastRouteByTruckId(1, "2021-07-04").getToOblast());
+		 System.out.println(d.getLastRouteByTruckId(2, "2021-07-04").getToOblast());
+		 System.out.println(d.getLastRouteByTruckId(3, "2021-07-04").getToOblast());
 		
 		//System.out.println(now);
 		//System.out.println(need);

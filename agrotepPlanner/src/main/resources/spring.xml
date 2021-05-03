@@ -26,7 +26,7 @@
 		<!-- 11/08/2018 -->
         <property name="initialSize" value="10" />
         <property name="maxActive" value="150" /> 
-        <property name="maxWait" value="20000" />
+        <property name="maxWait" value="90000" />
         <property name="maxIdle" value="1" />
        
 

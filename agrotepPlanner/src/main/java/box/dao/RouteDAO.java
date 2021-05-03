@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import box.model.Route;
@@ -20,6 +21,12 @@ public class RouteDAO {
 	@SuppressWarnings("unchecked")
 	public List<Route> getListOfRoutesBetweenDatesByTruckId(int truckid, String start, String finish) {
 		return em.createQuery("from Route where truckid='"+truckid+"' and fromDate >='"+start+"' and fromDate <='"+finish+"'").getResultList();
+	}
+	
+	public List<Route> getLastRouteByTruckId(int truckid, String finish){
+		return em.createQuery("from Route where truckid='"+truckid+"' and fromDate <='"+finish+"' order by id").setMaxResults(1).getResultList();
+		
+		
 	}
 
 }

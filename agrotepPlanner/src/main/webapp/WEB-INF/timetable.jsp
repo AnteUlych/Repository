@@ -114,6 +114,34 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	  <th class="${weekendStringHeadFourthDay}">${fourthTableHeadDay}</th>
 	  <th class="${weekendStringHeadFifthDay}">${fifthTableHeadDay}</th>
     </tr>
+    <c:forEach items="${htmlTrucks}" var="trucksh" varStatus="theCount">
+    <tr  class="${trucksh.columnUrgentColorClass}">
+    <td>${theCount.index+1}</td>
+    <td><input type="checkbox" ${trucksh.columnUrgentClass}></td>
+    <td>${trucksh.managerName}</td>
+    <td>
+    <div class="tooltip">
+    <b>${trucksh.tracktor}</b>
+    <span class="tooltiptext">
+    ${trucksh.tracktor}/${trucksh.trailer}<br>
+    ${trucksh.driver}<br>
+    ${trucksh.phone}
+    </span>
+    </div>
+    </td>
+    <td>${trucksh.type}</td>
+    <td><div style="${trucksh.fromOblastStatusStyle}">${trucksh.fromLastOblast}</div></td>
+    
+    <td>comment</td>
+    <td>1 day</td>
+    <td>2 day</td>
+    <td>3 day</td>
+    <td>4 day</td>
+    <td>5 day</td>
+    
+    </tr>
+    </c:forEach>
+    
     <tr>
       <td>1</td>
       <td><input type="checkbox"></td>

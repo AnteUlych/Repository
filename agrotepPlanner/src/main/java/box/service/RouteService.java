@@ -32,4 +32,10 @@ public class RouteService {
 		return true;
 	}
 	
+	public Route getLastRouteByTruckId(int truckid, String finish){
+		List<Route> routes = dao.getLastRouteByTruckId(truckid, finish);
+		Route route = routes.get(0);
+		return route;
+	}
+	
 }

@@ -82,6 +82,10 @@ public class DataBaseController {
 	public boolean isListOfRoutesBetweenDatesByTruckIdExist(int truckid, String start, String finish) {
 		return routeService.isListOfRoutesBetweenDatesByTruckIdExist(truckid, start, finish);
 	}
+	
+	public Route getLastRouteByTruckId(int truckid, String finish){
+		return routeService.getLastRouteByTruckId(truckid, finish);
+	}
 	//route
 	
 	//manager
