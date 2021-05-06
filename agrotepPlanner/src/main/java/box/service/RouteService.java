@@ -22,6 +22,10 @@ public class RouteService {
 		return dao.getListOfRoutesBetweenDatesByTruckId(truckid, start, finish);
 	}
 	
+	public Route getLastRouteBetweenDatesByTruckId(int truckid, String start, String finish) {
+		return dao.getLastRouteBetweenDatesByTruckId(truckid, start, finish).get(0);
+	}
+	
 	public boolean isListOfRoutesBetweenDatesByTruckIdExist(int truckid, String start, String finish) {
 		
 		int routes = dao.getListOfRoutesBetweenDatesByTruckId(truckid, start, finish).size();

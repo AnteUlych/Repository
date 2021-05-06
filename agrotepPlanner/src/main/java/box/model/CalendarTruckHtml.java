@@ -28,6 +28,12 @@ public class CalendarTruckHtml {
 
 	private String comment;
 	
+	private String day1Link;
+	private String day2Link;
+	private String day3Link;
+	private String day4Link;
+	private String day5Link;
+	
 	private String day1;
 	private String day2;
 	private String day3;
@@ -38,7 +44,7 @@ public class CalendarTruckHtml {
 	private String columnUrgentColorClass;
 	private String fromOblastStatusStyle;
 	private String fromLastOblast;
-	
+		
 	
 	public int getId() {
 		return id;
@@ -167,6 +173,36 @@ public class CalendarTruckHtml {
 	}
 	public void setFromOblastStatusStyle(String fromOblastStatusStyle) {
 		this.fromOblastStatusStyle = fromOblastStatusStyle;
+	}
+	public String getDay1Link() {
+		return day1Link;
+	}
+	public void setDay1Link(String day1Link) {
+		this.day1Link = day1Link;
+	}
+	public String getDay2Link() {
+		return day2Link;
+	}
+	public void setDay2Link(String day2Link) {
+		this.day2Link = day2Link;
+	}
+	public String getDay3Link() {
+		return day3Link;
+	}
+	public void setDay3Link(String day3Link) {
+		this.day3Link = day3Link;
+	}
+	public String getDay4Link() {
+		return day4Link;
+	}
+	public void setDay4Link(String day4Link) {
+		this.day4Link = day4Link;
+	}
+	public String getDay5Link() {
+		return day5Link;
+	}
+	public void setDay5Link(String day5Link) {
+		this.day5Link = day5Link;
 	}
 
 }

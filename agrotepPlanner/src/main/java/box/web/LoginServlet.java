@@ -45,7 +45,6 @@ public class LoginServlet {
 		session.setAttribute("name", manager.getName());
 		
 		session.setAttribute("filterMy", Constants.FILTER_FALSE);
-		session.setAttribute("filterRemont", Constants.FILTER_FALSE);
 		session.setAttribute("filterUrgent", Constants.FILTER_FALSE);
 		session.setAttribute("filterNotClosed", Constants.FILTER_FALSE);
 

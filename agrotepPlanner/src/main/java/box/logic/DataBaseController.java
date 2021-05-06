@@ -86,6 +86,10 @@ public class DataBaseController {
 	public Route getLastRouteByTruckId(int truckid, String finish){
 		return routeService.getLastRouteByTruckId(truckid, finish);
 	}
+	
+	public Route getLastRouteBetweenDatesByTruckId(int truckid, String start, String finish) {
+		return routeService.getLastRouteBetweenDatesByTruckId(truckid, start, finish);
+	}
 	//route
 	
 	//manager
