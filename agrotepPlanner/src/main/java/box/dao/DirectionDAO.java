@@ -17,8 +17,8 @@ public class DirectionDAO {
 	private EntityManager em;
 	
 	@SuppressWarnings("unchecked")
-	public List<Direction> getListOfDirections() {
-		return em.createQuery("from Direction").getResultList();
+	public List<Direction> getListOfDirectionsByOblastAndClientid(int clientId, String oblast) {
+		return em.createQuery("from Direction where oblastFrom='"+oblast+"' and clientId='"+clientId+"'").getResultList();
 	}
 
 }

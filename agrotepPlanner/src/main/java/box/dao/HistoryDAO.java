@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import box.model.History;
 
@@ -19,6 +20,13 @@ public class HistoryDAO {
 	@SuppressWarnings("unchecked")
 	public List<History> getListOfHistory() {
 		return em.createQuery("from History").getResultList();
+	}
+	
+	@Transactional
+	public void persist(History history) {
+		History transaction = em.merge(history);
+		em.persist(transaction);
+		em.close();
 	}
 
 }

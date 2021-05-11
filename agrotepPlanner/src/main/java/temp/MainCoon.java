@@ -3,6 +3,7 @@ package temp;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -14,6 +15,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.http.HttpRequest;
 
 import box.logic.CalendarLogic;
@@ -21,6 +24,8 @@ import box.logic.Constants;
 import box.logic.DataBaseController;
 import box.logic.GoogleLogic;
 import box.model.CalendarTruckHtml;
+import box.model.Client;
+import box.model.ClientForRouteHTML;
 import box.model.Direction;
 import box.model.History;
 import box.model.Manager;
@@ -30,45 +35,74 @@ import box.model.Truck;
 
 public class MainCoon {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args){
 		
-		Double longitudeFrom = 50.4851493;
-		Double latitudeFrom = 30.4721233;
-		Double longitudeTo = 50.3701007;
-		Double latitudeTo = 28.6271224;
+		int truckid = 1;
+		String dateStart = "2021-05-11";
 		
-		GoogleLogic google = new GoogleLogic();
-		System.out.println(google.calculateDistanceInKmBetweenCoordinates(54.0, 29.0, 51.0, 28.0));
-		
-		String googleKey = "AIzaSyDvzr8p07fENAftZAumRG2tdfOE8VJQDwE";
-		
-			/**
-		String requestUrl = "https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins="+longitudeFrom+","+latitudeFrom+"&destinations="+longitudeTo+","+latitudeTo+"&key="+googleKey;
 
 		
-	    URL url = new URL(requestUrl);
-        URLConnection connection = url.openConnection();
-        BufferedReader in = new BufferedReader(
-                                new InputStreamReader(
-                                		connection.getInputStream()));
-     //   StringBuilder sb = new StringBuilder();
-        String inputLine;
-        String resultURL = "";
-        while ((inputLine = in.readLine()) != null){ 
-        	
-        	System.out.println(inputLine);
-        	if(inputLine.contains("value")){
-        		resultURL = inputLine;
-        		break;
-        	}
-        }
-        in.close();
-         
-        resultURL = resultURL.replaceAll("\\s+","").replaceAll("\"value\":", "");
-         
-        int distance = Integer.parseInt(resultURL);  
-        System.out.println(distance);
-	*/
+		double longitude = 46.445911;
+		double latitude = 30.711748;
+		
+		
+
+		
+		DataBaseController base = new DataBaseController(); 
+		
+		Route lastRoute = base.getLastRouteByTruckId(truckid, dateStart);
+		
+		GoogleLogic google = new GoogleLogic();
+		System.out.println(lastRoute.getId());
+		System.out.println(lastRoute.getToLon());
+		System.out.println(lastRoute.getToLat());
+		System.out.println(48.340664);
+		System.out.println(25.947644);
+		
+		//int priceForKilometr = google.calculateDistanceInKmBetweenCoordinates(lastRoute.getToLon(), lastRoute.getToLat(), longitude, latitude);
+       // System.out.println(priceForKilometr);
+        
+        int totalPrice = 8000;
+		int kilometrs = google.calculateDistanceInKmBetweenCoordinates(lastRoute.getToLon(), lastRoute.getToLat(), longitude, latitude);
+        int priceForKilometr1 =totalPrice/kilometrs;
+        
+        System.out.println(priceForKilometr1);
+
+
+		List<Client> clientsFromBase = base.getListOfClients();
+		List<ClientForRouteHTML> clients = new ArrayList();
+		
+		for(Client c:clientsFromBase){
+			
+			if(base.isClientHasOblastFromByDirection(c.getId(), lastRoute.getToOblast())){
+			ClientForRouteHTML client = new ClientForRouteHTML();
+			
+			
+			client.setCargo(c.getCargo());
+			client.setCompany(c.getCompany());
+			client.setId(c.getId());			
+			client.setTypetruck(c.getTypetruck());
+			
+			List<Direction> directions = base.getListOfDirectionsByOblastAndClientid(c.getId(), lastRoute.getToOblast());
+			String whereWeCanGo ="";
+				for(Direction d:directions){
+					whereWeCanGo = whereWeCanGo+d.getOblastTo()+" ";
+				}
+			
+			
+			client.setPosibilityToGo(whereWeCanGo);
+			
+			String blacklist = "";
+			if(c.getBlacklist()==Constants.CLIENT_IN_BLACK_LIST){
+				blacklist = "w3-red";
+			}
+			client.setBlacklist(blacklist);
+			
+			clients.add(client);
+			}
+			
+		}
+
 	}
 
 }

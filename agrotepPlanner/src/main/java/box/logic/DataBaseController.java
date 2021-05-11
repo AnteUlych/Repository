@@ -59,19 +59,32 @@ public class DataBaseController {
 	public void editTruckCommentById(int id, String comment) {
 		truckService.editTruckCommentById(id, comment);
 	}
+	
+	public Truck getTruckbyId(int id){
+		return truckService.getTruckbyId(id);
+	}
 	//truck
 	
 	//clientTest
 	public List<Client> getListOfClients(){
 		return clientService.getListOfClients();
 	}
-	//directionTest
-	public List<Direction> getListOfDirections() {
-		return directionService.getListOfDirections();
+	//direction
+	public List<Direction> getListOfDirectionsByOblastAndClientid(int clientId, String oblast) {
+		return directionService.getListOfDirectionsByOblastAndClientid(clientId, oblast);
 	}
-	//historyTest
+
+	public boolean isClientHasOblastFromByDirection(int clientId, String oblast){
+		return directionService.isClientHasOblastFromByDirection(clientId, oblast);
+	}
+	
+	//history
 	public List<History> getListOfHistory() {
 		return historyService.getListOfHistory();
+	}
+	
+	public void addHistory(History history){
+		historyService.addHistory(history);
 	}
 	
 	//route
@@ -89,6 +102,10 @@ public class DataBaseController {
 	
 	public Route getLastRouteBetweenDatesByTruckId(int truckid, String start, String finish) {
 		return routeService.getLastRouteBetweenDatesByTruckId(truckid, start, finish);
+	}
+	
+	public void addRoute(Route route){
+		routeService.addRoute(route);
 	}
 	//route
 	

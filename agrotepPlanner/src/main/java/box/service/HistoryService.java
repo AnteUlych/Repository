@@ -20,4 +20,8 @@ public class HistoryService {
 	public List<History> getListOfHistory() {
 		return dao.getListOfHistory();
 	}
+	
+	public void addHistory(History history) {
+		dao.persist(history);
+	}
 }

@@ -14,6 +14,8 @@ public class Client {
 	@Column
 	private int id;
 	@Column
+	private String company;
+	@Column
 	private String contactPerson;
 	@Column
 	private String phone;
@@ -131,6 +133,12 @@ public class Client {
 	}
 	public void setSalesId(int salesId) {
 		this.salesId = salesId;
+	}
+	public String getCompany() {
+		return company;
+	}
+	public void setCompany(String company) {
+		this.company = company;
 	}
 	
 

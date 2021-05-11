@@ -42,4 +42,8 @@ public class RouteService {
 		return route;
 	}
 	
+	public void addRoute(Route route){
+		dao.persist(route);
+	}
+	
 }

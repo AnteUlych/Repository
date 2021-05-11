@@ -11,6 +11,24 @@ public class CalendarLogic {
 	String pattern = "yyyy-MM-dd";
 	DateFormat df = new SimpleDateFormat(pattern);
 	
+	public Date addToStringOneMinute(String stringDate){
+		
+		try {
+			
+			Date	date = df.parse(stringDate);
+			Calendar calendar = Calendar.getInstance();
+	        calendar.setTime(date);
+	        calendar.add(Calendar.MINUTE, 1);
+	        
+	        return calendar.getTime();
+	        
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
 	public Date changeStringToDate(String stringDate){		
 	
 		try {
@@ -21,7 +39,7 @@ public class CalendarLogic {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		return new Date();
+		return null;
 	}
 
 	public String getNeedoneDayForDataBasePlusDays(int plusDay) {

@@ -16,8 +16,17 @@ public class DirectionService {
 	@Autowired
 	private DirectionDAO dao;
 	
-	public List<Direction> getListOfDirections() {
-		return dao.getListOfDirections();
+	public List<Direction> getListOfDirectionsByOblastAndClientid(int clientId, String oblast) {
+		return dao.getListOfDirectionsByOblastAndClientid(clientId, oblast);
+	}
+	
+	public boolean isClientHasOblastFromByDirection(int clientId, String oblast){
+		List <Direction> directions = dao.getListOfDirectionsByOblastAndClientid(clientId, oblast);	
+		if(directions.size()==0){
+			return false;
+			}else{
+				return true;	
+		}
 	}
 
 }

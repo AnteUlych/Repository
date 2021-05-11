@@ -34,4 +34,8 @@ public class TruckService {
 	public void editTruckCommentById(int id, String comment) {
 		dao.editTruckCommentById(id, comment);
 	}
+	
+	public Truck getTruckbyId(int id){
+		return dao.getTruckbyId(id);
+	}
 }

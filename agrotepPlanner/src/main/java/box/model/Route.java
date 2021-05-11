@@ -45,6 +45,10 @@ public class Route {
 	private String info;
 	@Column
 	private int routeStatus;
+	@Column
+	private String addressFrom;
+	@Column
+	private String addressTo;
 	
 	public int getId() {
 		return id;
@@ -147,6 +151,18 @@ public class Route {
 	}
 	public void setRouteStatus(int routeStatus) {
 		this.routeStatus = routeStatus;
+	}
+	public String getAddressFrom() {
+		return addressFrom;
+	}
+	public void setAddressFrom(String addressFrom) {
+		this.addressFrom = addressFrom;
+	}
+	public String getAddressTo() {
+		return addressTo;
+	}
+	public void setAddressTo(String addressTo) {
+		this.addressTo = addressTo;
 	}
 	
 }

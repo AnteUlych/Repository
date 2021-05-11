@@ -203,7 +203,7 @@ public class TimetableServlet {
                    //empty space
 				String day1 = "";
 				
-				String day1Link ="/planner/newRoute/"+firstDay+"&"+secondDay;
+				String day1Link ="/planner/newRoute/"+truck.getId()+"&"+firstDay+"&"+secondDay;
 				
 				htmlTruck.setDay1Link(day1Link);
 				htmlTruck.setDay1(day1);
@@ -237,7 +237,7 @@ public class TimetableServlet {
                    //empty space
 				String day2 = "";
 				
-				String day2Link ="/planner/newRoute/"+secondDay+"&"+thirdDay;
+				String day2Link ="/planner/newRoute/"+truck.getId()+"&"+secondDay+"&"+thirdDay;
 				
 				htmlTruck.setDay2Link(day2Link);
 				htmlTruck.setDay2(day2);
@@ -271,7 +271,7 @@ public class TimetableServlet {
                    //empty space
 				String day3 = "";
 				
-				String day3Link ="/planner/newRoute/"+thirdDay+"&"+fourthDay;
+				String day3Link ="/planner/newRoute/"+truck.getId()+"&"+thirdDay+"&"+fourthDay;
 				
 				htmlTruck.setDay3Link(day3Link);
 				htmlTruck.setDay3(day3);
@@ -304,7 +304,7 @@ public class TimetableServlet {
                    //empty space
 				String day4 = "";
 				
-				String day4Link ="/planner/newRoute/"+fourthDay+"&"+fifthDay;
+				String day4Link ="/planner/newRoute/"+truck.getId()+"&"+fourthDay+"&"+fifthDay;
 				
 				htmlTruck.setDay4Link(day4Link);
 				htmlTruck.setDay4(day4);
@@ -339,7 +339,7 @@ public class TimetableServlet {
                    //empty space
 				String day5 = "";
 				
-				String day5Link ="/planner/newRoute/"+fifthDay+"&"+sixthDay;
+				String day5Link ="/planner/newRoute/"+truck.getId()+"&"+fifthDay+"&"+sixthDay;
 				
 				htmlTruck.setDay5Link(day5Link);
 				htmlTruck.setDay5(day5);
@@ -619,7 +619,7 @@ public class TimetableServlet {
                    //empty space
 				String day1 = "";
 				
-				String day1Link ="/planner/newRoute/"+firstDay+"&"+secondDay;
+				String day1Link ="/planner/newRoute/"+truck.getId()+"&"+firstDay+"&"+secondDay;
 				
 				htmlTruck.setDay1Link(day1Link);
 				htmlTruck.setDay1(day1);
@@ -653,7 +653,7 @@ public class TimetableServlet {
                    //empty space
 				String day2 = "";
 				
-				String day2Link ="/planner/newRoute/"+secondDay+"&"+thirdDay;
+				String day2Link ="/planner/newRoute/"+truck.getId()+"&"+secondDay+"&"+thirdDay;
 				
 				htmlTruck.setDay2Link(day2Link);
 				htmlTruck.setDay2(day2);
@@ -687,7 +687,7 @@ public class TimetableServlet {
                    //empty space
 				String day3 = "";
 				
-				String day3Link ="/planner/newRoute/"+thirdDay+"&"+fourthDay;
+				String day3Link ="/planner/newRoute/"+truck.getId()+"&"+thirdDay+"&"+fourthDay;
 				
 				htmlTruck.setDay3Link(day3Link);
 				htmlTruck.setDay3(day3);
@@ -720,7 +720,7 @@ public class TimetableServlet {
                    //empty space
 				String day4 = "";
 				
-				String day4Link ="/planner/newRoute/"+fourthDay+"&"+fifthDay;
+				String day4Link ="/planner/newRoute/"+truck.getId()+"&"+fourthDay+"&"+fifthDay;
 				
 				htmlTruck.setDay4Link(day4Link);
 				htmlTruck.setDay4(day4);
@@ -755,7 +755,7 @@ public class TimetableServlet {
                    //empty space
 				String day5 = "";
 				
-				String day5Link ="/planner/newRoute/"+fifthDay+"&"+sixthDay;
+				String day5Link ="/planner/newRoute/"+truck.getId()+"&"+fifthDay+"&"+sixthDay;
 				
 				htmlTruck.setDay5Link(day5Link);
 				htmlTruck.setDay5(day5);

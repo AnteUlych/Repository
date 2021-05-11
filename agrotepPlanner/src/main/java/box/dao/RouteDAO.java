@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import box.model.Route;
 
@@ -30,9 +31,14 @@ public class RouteDAO {
 	
 	@SuppressWarnings("unchecked")
 	public List<Route> getLastRouteByTruckId(int truckid, String finish){
-		return em.createQuery("from Route where truckid='"+truckid+"' and fromDate <='"+finish+"' order by id").setMaxResults(1).getResultList();
-		
-		
+		return em.createQuery("from Route where truckid='"+truckid+"' and fromDate <='"+finish+"' order by id").setMaxResults(1).getResultList();		
+	}
+	
+	@Transactional
+	public void persist(Route route) {
+		Route transaction = em.merge(route);
+		em.persist(transaction);
+		em.close();
 	}
 
 }

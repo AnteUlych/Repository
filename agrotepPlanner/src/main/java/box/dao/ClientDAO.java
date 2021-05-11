@@ -20,4 +20,5 @@ public class ClientDAO {
 		return em.createQuery("from Client").getResultList();
 	}
 
+
 }
