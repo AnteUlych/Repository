@@ -78,46 +78,27 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-truck w3-text-green"></i> Бронювання авто ${truckHtml} на ${dateStart}</b></h5>
+    <h5><b><i class="fa fa-check"></i>  ${truckHtml} від ${dateStart}</b></h5>
   </header>
  <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
-        <h5>Остання точка: ${lastAddress}</h5>
-        
-        <form method="post">
-        
-		<button type="submit" class="w3-button w3-round-xxlarge w3-blue-grey" name="wait" formnovalidate>Очікувати</button>
-		
-		<div id="locationField">
-        <p><input id="autocomplete" name="googleAddress" class="w3-input w3-border" type="text" placeholder="наступне вивантаження" required>   </p>
-        </div>
-		<p><input class="w3-input w3-border" name="priceFromClient" type="number" placeholder="грн" value="${valuePrice}" required>  </p>
-		<p><input class="w3-input w3-border" name="infoClient" type="text" placeholder="Коментар" value="${valueInfo}" required>  </p>
+        <h5>Точка початку руху:</h5>
+        <h5>${getAddressFrom}</h5>
+        <br>
+        <h5>Точка закінчення руху:</h5>
+         <h5>${getAddressTo}</h5>
+        <br>
+        <h5>Ціна клієнта - ${getPrice} грн</h5>
+        <h5>KPI - ${getPiceForKilometr} грн/км</h5>
+	    <br>
+	    (${info})
 		<br>
-        <p>${calculateTo}</p>
-		<p>${priceForKm}</p>
 		<br>
 		<div class='container'>
-          <div class="align-left"><button type="submit" class="w3-button w3-round-xxlarge w3-blue" name="calculate">Розрахувати</button></div>
-          <div class="align-right"><button class="w3-button w3-round-xxlarge w3-green" name="book">Бронювати</button></div>
-          
-             <p id="demo1"></p>
-	<p id="demo2"></p>
-	
-		
-			
-			<input type="hidden" class="field" name ="street_number" id="street_number" disabled="true">
-			
-			<input type="hidden" class="field" name ="route" id="route" disabled="true">
-		
-			<input type="hidden" class="field" name ="locality" id="locality" disabled="true"></input>
-		<input type="hidden" class="field" name ="administrative_area_level_1" id="administrative_area_level_1" disabled="true">
-		<input type="hidden" class="field" name ="postal_code" id="postal_code" disabled="true">
-		<input type="hidden" class="field" name ="country" id="country" disabled="true">
-	
-	</form>
-	
+		<form method="post">
+          <div class="align-left"><button type="submit" class="w3-button w3-round-xxlarge w3-red"  name="delete">Відмінити</button></div>
+	    </form>
 </div>
 		<br>
 		
@@ -150,54 +131,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <hr>
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvzr8p07fENAftZAumRG2tdfOE8VJQDwE&libraries=places&callback=initAutocomplete&language=uk" async defer></script>
 
 
 <script>
-
-var placeSearch, autocomplete;
-var componentForm = {
-	street_number: 'short_name',
-	route: 'long_name',
-	locality: 'long_name',
-	administrative_area_level_1: 'short_name',
-	country: 'long_name',
-	postal_code: 'short_name'
-};
-
-function initAutocomplete() {
-	autocomplete = new google.maps.places.Autocomplete(
-		(document.getElementById('autocomplete')), {
-			types: ['geocode'],			
-componentRestrictions: {country: "UA"}
-		});
-	autocomplete.addListener('place_changed', fillInAddress);
-}
-
-function fillInAddress() {
-
-	var place = autocomplete.getPlace();
-	
-	for (var component in componentForm) {
-		document.getElementById(component).value = '';
-		document.getElementById(component).disabled = false;
-	}
-	for (var i = 0; i < place.address_components.length; i++) {
-		var addressType = place.address_components[i].types[0];
-		if (componentForm[addressType]) {
-			var val = place.address_components[i][componentForm[addressType]];
-			document.getElementById(addressType).value = val;
-		}
-	}
-	
-	console.log(place.geometry.location.lng());
-	console.log(place.geometry.location.lat());
-	var longitude= place.geometry.location.lng();
-	var latitude= place.geometry.location.lat();
-	document.getElementById('demo1').innerHTML = '<input type="hidden" name="lng"  id="demo1" value="'+longitude+'"></input>';
-	document.getElementById('demo2').innerHTML = '<input type="hidden" name="lat" id="demo2" value="'+latitude+'"></input>';
-}
-
 
 
 // Get the Sidebar

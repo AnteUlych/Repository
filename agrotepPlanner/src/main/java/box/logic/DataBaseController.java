@@ -107,6 +107,14 @@ public class DataBaseController {
 	public void addRoute(Route route){
 		routeService.addRoute(route);
 	}
+	
+	public void deleteRoute(int id) {
+		routeService.deleteRoute(id);
+	}
+	
+	public Route getRouteById(int id){
+		return routeService.getRouteById(id);
+	}
 	//route
 	
 	//manager

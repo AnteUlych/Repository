@@ -46,4 +46,12 @@ public class RouteService {
 		dao.persist(route);
 	}
 	
+	public void deleteRoute(int id) {
+		dao.deleteRoute(id);
+	}
+	
+	public Route getRouteById(int id){
+		return dao.getRouteById(id);
+	}
+	
 }

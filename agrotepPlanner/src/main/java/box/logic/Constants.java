@@ -13,5 +13,13 @@ public class Constants {
 	
 	public static final int TRUCK_NOT_READY = 1;
 	public static final int TRUCK_READY = 0;
+	
+	public static final int ACTION_BOOKING = 1;
+	public static final int ACTION_CLIENT_EDIT = 2;
+	public static final int ACTION_FIXING = 3;
+	public static final int ACTION_HELP = 4;
+	public static final int ACTION_CALCULATE = 5;
+	public static final int ACTION_DELETE = 6;
+	public static final int ACTION_NEW_CLIENT = 7;
 
 }

@@ -37,72 +37,10 @@ public class MainCoon {
 
 	public static void main(String[] args){
 		
-		int truckid = 1;
-		String dateStart = "2021-05-11";
-		
-
-		
-		double longitude = 46.445911;
-		double latitude = 30.711748;
-		
-		
-
-		
-		DataBaseController base = new DataBaseController(); 
-		
-		Route lastRoute = base.getLastRouteByTruckId(truckid, dateStart);
-		
-		GoogleLogic google = new GoogleLogic();
-		System.out.println(lastRoute.getId());
-		System.out.println(lastRoute.getToLon());
-		System.out.println(lastRoute.getToLat());
-		System.out.println(48.340664);
-		System.out.println(25.947644);
-		
-		//int priceForKilometr = google.calculateDistanceInKmBetweenCoordinates(lastRoute.getToLon(), lastRoute.getToLat(), longitude, latitude);
-       // System.out.println(priceForKilometr);
-        
-        int totalPrice = 8000;
-		int kilometrs = google.calculateDistanceInKmBetweenCoordinates(lastRoute.getToLon(), lastRoute.getToLat(), longitude, latitude);
-        int priceForKilometr1 =totalPrice/kilometrs;
-        
-        System.out.println(priceForKilometr1);
-
-
-		List<Client> clientsFromBase = base.getListOfClients();
-		List<ClientForRouteHTML> clients = new ArrayList();
-		
-		for(Client c:clientsFromBase){
-			
-			if(base.isClientHasOblastFromByDirection(c.getId(), lastRoute.getToOblast())){
-			ClientForRouteHTML client = new ClientForRouteHTML();
-			
-			
-			client.setCargo(c.getCargo());
-			client.setCompany(c.getCompany());
-			client.setId(c.getId());			
-			client.setTypetruck(c.getTypetruck());
-			
-			List<Direction> directions = base.getListOfDirectionsByOblastAndClientid(c.getId(), lastRoute.getToOblast());
-			String whereWeCanGo ="";
-				for(Direction d:directions){
-					whereWeCanGo = whereWeCanGo+d.getOblastTo()+" ";
-				}
-			
-			
-			client.setPosibilityToGo(whereWeCanGo);
-			
-			String blacklist = "";
-			if(c.getBlacklist()==Constants.CLIENT_IN_BLACK_LIST){
-				blacklist = "w3-red";
-			}
-			client.setBlacklist(blacklist);
-			
-			clients.add(client);
-			}
-			
-		}
-
+		//GoogleLogic g = new GoogleLogic();
+		//int i  = g.calculateDistanceInKmBetweenCoordinates(50.426202, 30.415924, 46.482526, 30.7233095);
+		DataBaseController b = new DataBaseController();
+	  //  b.deleteRoute(13);
 	}
 
 }

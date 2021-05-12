@@ -1,7 +1,9 @@
 package box.web;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,12 +16,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import box.logic.CalendarLogic;
 import box.logic.Constants;
 import box.logic.DataBaseController;
 import box.logic.GoogleLogic;
 import box.model.Client;
 import box.model.ClientForRouteHTML;
 import box.model.Direction;
+import box.model.History;
 import box.model.Route;
 import box.model.Truck;
 
@@ -92,12 +96,15 @@ public class NewRouteServlet {
 		
 		model.addAttribute("lastOblast", lastRoute.getToOblast());
 		model.addAttribute("lastAddress", lastRoute.getAddressTo());
+		
+		
 	
 		model.addAttribute("calculateTo", lastRoute.getAddressTo() + " - "+lastRoute.getAddressTo());
 		model.addAttribute("priceForKm", 0 + " грн/км");
 		
 		
 		model.addAttribute("valuePrice", "");
+		model.addAttribute("valueInfo", "");
 		
 		return "newroute";
 	}
@@ -116,6 +123,64 @@ public class NewRouteServlet {
 		
 		int truckid = Integer.parseInt(cell [0]);
 		String dateStart = cell [1];
+		String dateFinish = cell [2];
+		
+		DataBaseController base = new DataBaseController(); 
+		Route lastRoute = base.getLastRouteByTruckId(truckid, dateStart);
+		
+		if (request.getParameter("wait") != null) {
+			
+             Route route = new Route();
+			
+			route.setAddressFrom(lastRoute.getAddressTo());
+			route.setAddressTo(lastRoute.getAddressTo());
+			route.setFromCity(lastRoute.getToCity());
+			
+			CalendarLogic calendar = new CalendarLogic();
+			Date fromDate = calendar.addToStringOneMinute(dateStart);
+				
+			route.setFromDate(fromDate);
+			route.setFromLat(lastRoute.getToLat());
+			route.setFromLon(lastRoute.getToLon());
+			route.setFromOblast(lastRoute.getToOblast());
+			route.setInfo("тех.обробка");
+			route.setKilometrs(0);
+			route.setPiceForKilometr(0);
+			route.setPrice(0);
+			route.setRouteStatus(Constants.TRUCK_NOT_READY);
+			route.setToCity(lastRoute.getToCity());
+			
+			Date toDate = calendar.changeStringToDate(dateFinish);
+			
+			route.setToDate(toDate);
+			route.setToLat(lastRoute.getToLat());
+			route.setToLon(lastRoute.getToLon());
+			route.setToOblast(lastRoute.getToOblast());
+			route.setTruckid(truckid);
+			
+			base.addRoute(route);
+			
+			History history = new History();
+			
+			history.setAction(Constants.ACTION_FIXING);
+			history.setActionDate(new Date());
+			history.setInfo("тех.очікування");
+			history.setManager(name);
+			history.setManagerid(id);
+			
+			base.addHistory(history);
+			
+			base.closeConnection();
+			
+			try {
+				response.sendRedirect("/planner/timetable");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			return "timetable";
+			
+		}
 		
 		String requestEnc = "ISO-8859-1";
 		String clientEnc = request.getParameter("charset");
@@ -125,18 +190,26 @@ public class NewRouteServlet {
 		String lng = request.getParameter("lng");
 		String lat = request.getParameter("lat");
 		
-		double longitude = Double.parseDouble(lng);
-		double latitude = Double.parseDouble(lat);
+		double longitude = Double.parseDouble(lat);
+		double latitude = Double.parseDouble(lng);
 		
 		String googleAddress = request.getParameter("googleAddress");
 		int totalPrice = Integer.parseInt(request.getParameter("priceFromClient"));
 		
 		String city = request.getParameter("locality");
 		String oblast = request.getParameter("administrative_area_level_1");
+		String valueInfo = request.getParameter("infoClient");
 		
 		if (googleAddress != null){
 			try {
 				googleAddress = new String(googleAddress.getBytes(requestEnc), clientEnc);
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+		}
+		if (valueInfo != null){
+			try {
+				valueInfo = new String(valueInfo.getBytes(requestEnc), clientEnc);
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
 			}
@@ -157,12 +230,12 @@ public class NewRouteServlet {
 		}
 		
 		if(city.equals("Київ")){
-			oblast = "Київська обл.";
+			oblast = "Київська область";
 		}
 		
-		DataBaseController base = new DataBaseController(); 
 		
-		Route lastRoute = base.getLastRouteByTruckId(truckid, dateStart);
+		
+		
 		
 		GoogleLogic google = new GoogleLogic();
 		int kilometrs = google.calculateDistanceInKmBetweenCoordinates(lastRoute.getToLon(), lastRoute.getToLat(), longitude, latitude);
@@ -175,9 +248,74 @@ public class NewRouteServlet {
 		List<Client> clientsFromBase = base.getListOfClients();
 		List<ClientForRouteHTML> clients = new ArrayList();
 		
-		//add
-		//calculate
-		//ifremont
+		if (request.getParameter("book") != null) {
+			
+			Route route = new Route();
+			
+			route.setAddressFrom(lastRoute.getAddressTo());
+			route.setAddressTo(googleAddress);
+			route.setFromCity(lastRoute.getToCity());
+			
+			CalendarLogic calendar = new CalendarLogic();
+			Date fromDate = calendar.addToStringOneMinute(dateStart);
+				
+			route.setFromDate(fromDate);
+			route.setFromLat(lastRoute.getToLat());
+			route.setFromLon(lastRoute.getToLon());
+			route.setFromOblast(lastRoute.getToOblast());
+			route.setInfo(valueInfo);
+			route.setKilometrs(kilometrs);
+			route.setPiceForKilometr(priceForKilometr);
+			route.setPrice(totalPrice);
+			route.setRouteStatus(Constants.TRUCK_READY);
+			route.setToCity(city);
+			
+			Date toDate = calendar.changeStringToDate(dateFinish);
+			
+			route.setToDate(toDate);
+			route.setToLat(latitude);
+			route.setToLon(longitude);
+			route.setToOblast(oblast);
+			route.setTruckid(truckid);
+			
+			base.addRoute(route);
+			
+            History history = new History();
+            
+            Truck truck = base.getTruckbyId(truckid);
+            
+            if(truck.getManagerid()==id){
+			history.setAction(Constants.ACTION_BOOKING);
+            }else{
+            	history.setAction(Constants.ACTION_HELP);
+            }
+			history.setActionDate(new Date());
+			history.setInfo(lastRoute.getToOblast()+" - "+oblast+" "+priceForKilometr+" грн/км");
+			history.setManager(name);
+			history.setManagerid(id);
+			
+			base.addHistory(history);
+			
+			base.closeConnection();
+			
+			try {
+				response.sendRedirect("/planner/timetable");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			return "timetable";
+		}
+		
+		History history = new History();
+		
+		history.setAction(Constants.ACTION_CALCULATE);
+		history.setActionDate(new Date());
+		history.setInfo(lastRoute.getToOblast()+" - "+oblast+" "+priceForKilometr+" грн/км");
+		history.setManager(name);
+		history.setManagerid(id);
+		
+		base.addHistory(history);
 		
 		for(Client c:clientsFromBase){
 			
@@ -229,6 +367,7 @@ public class NewRouteServlet {
 		
 
 		model.addAttribute("valuePrice", totalPrice);
+		model.addAttribute("valueInfo", valueInfo);
 		
 		return "newroute";
 	}

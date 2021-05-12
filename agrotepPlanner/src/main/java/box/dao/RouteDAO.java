@@ -31,7 +31,7 @@ public class RouteDAO {
 	
 	@SuppressWarnings("unchecked")
 	public List<Route> getLastRouteByTruckId(int truckid, String finish){
-		return em.createQuery("from Route where truckid='"+truckid+"' and fromDate <='"+finish+"' order by id").setMaxResults(1).getResultList();		
+		return em.createQuery("from Route where truckid='"+truckid+"' and fromDate <='"+finish+"' order by fromDate desc").setMaxResults(1).getResultList();		
 	}
 	
 	@Transactional
@@ -39,6 +39,19 @@ public class RouteDAO {
 		Route transaction = em.merge(route);
 		em.persist(transaction);
 		em.close();
+	}
+	
+	@Transactional
+	public void deleteRoute(int id) {
+		Route route = (Route) em.find(Route.class, id);
+		Route transaction = em.merge(route);
+		em.remove(transaction);
+		em.close();
+	}
+	
+	public Route getRouteById(int id){
+		Route route = (Route) em.find(Route.class, id);
+		return route;
 	}
 
 }

@@ -67,7 +67,7 @@ public class GoogleLogic {
 					+ ","
 					+ latitudeFrom
 					+ "&destinations="
-					+ latitudeTo + "," +  longitudeTo+ "&key=" + API_KEU;
+					+ longitudeTo + "," + latitudeTo + "&key=" + API_KEU;
 
 			URL url = new URL(requestUrl);
 			URLConnection connection = url.openConnection();
