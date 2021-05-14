@@ -9,6 +9,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -35,12 +36,16 @@ import box.model.Truck;
 
 public class MainCoon {
 
-	public static void main(String[] args){
+	public static void main(String[] args) throws ParseException{
 		
-		//GoogleLogic g = new GoogleLogic();
-		//int i  = g.calculateDistanceInKmBetweenCoordinates(50.426202, 30.415924, 46.482526, 30.7233095);
-		DataBaseController b = new DataBaseController();
-	  //  b.deleteRoute(13);
+		GoogleLogic g = new GoogleLogic();
+		//int i  = g.calculateDistanceInKmBetweenCoordinates(50.426202, 30.415924, 45.182872, 33.726518);
+		DataBaseController base = new DataBaseController();
+		
+		base.deleteDirection(5);
+		
+	
+		
 	}
 
 }

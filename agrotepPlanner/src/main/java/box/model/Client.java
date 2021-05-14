@@ -43,6 +43,8 @@ public class Client {
 	private String salesName;
 	@Column
 	private int salesId;
+	@Column
+	private String code;
 	
 	public int getId() {
 		return id;
@@ -139,6 +141,12 @@ public class Client {
 	}
 	public void setCompany(String company) {
 		this.company = company;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
 	}
 	
 

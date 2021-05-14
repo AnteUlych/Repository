@@ -48,9 +48,7 @@ public class TruckDAO {
 
 	}
 	
-	@Transactional
 	public Truck getTruckbyId(int id) {
-
 		return em.find(Truck.class, id);	
 
 	}

@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import box.model.Direction;
 
@@ -19,6 +20,26 @@ public class DirectionDAO {
 	@SuppressWarnings("unchecked")
 	public List<Direction> getListOfDirectionsByOblastAndClientid(int clientId, String oblast) {
 		return em.createQuery("from Direction where oblastFrom='"+oblast+"' and clientId='"+clientId+"'").getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Direction> getListOfDirectionsByClientId(int clientId){
+		return em.createQuery("from Direction where clientId='"+clientId+"'").getResultList();
+	}
+	
+	@Transactional
+	public void persist(Direction direction) {
+		Direction transaction = em.merge(direction);
+		em.persist(transaction);
+		em.close();
+	}
+	
+	@Transactional
+	public void deleteDirection(int id) {
+		Direction direction = (Direction) em.find(Direction.class, id);
+		Direction transaction = em.merge(direction);
+		em.remove(transaction);
+		em.close();
 	}
 
 }

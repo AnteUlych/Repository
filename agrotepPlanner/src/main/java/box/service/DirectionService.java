@@ -28,5 +28,19 @@ public class DirectionService {
 				return true;	
 		}
 	}
+	
+	public List<Direction> getListOfDirectionsByClientId(int clientId){
+		return dao.getListOfDirectionsByClientId(clientId);
+	}
+	
+	public void deleteDirection(int id) {
+		dao.deleteDirection(id);
+	}
+	
+	public void addDirection(Direction direction) {
+		dao.persist(direction);
+	}
+	
+	
 
 }

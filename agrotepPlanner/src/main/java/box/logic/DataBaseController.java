@@ -65,10 +65,31 @@ public class DataBaseController {
 	}
 	//truck
 	
-	//clientTest
+	//client
 	public List<Client> getListOfClients(){
 		return clientService.getListOfClients();
 	}
+	
+	public void addClient(Client client) {
+		clientService.addClient(client);
+	}
+	
+	public int getClientIdByCode(String code){
+		return clientService.getClientIdByCode(code);
+	}
+	
+	public boolean isClientExistbyCode(String code){
+		return clientService.isClientExistbyCode(code);
+	}
+	
+	public Client getClientById(int id){
+		return clientService.getClientById(id);
+	}
+	
+	public void editClientById(int id, int blacklist, String cargo, String company, String contactPerson, String email, String otherInfo, String payment, String phone, String season, String transportVolume, String typetruck, String warning){
+		clientService.editClientById(id, blacklist, cargo, company, contactPerson, email, otherInfo, payment, phone, season, transportVolume, typetruck, warning);
+	}
+	
 	//direction
 	public List<Direction> getListOfDirectionsByOblastAndClientid(int clientId, String oblast) {
 		return directionService.getListOfDirectionsByOblastAndClientid(clientId, oblast);
@@ -76,6 +97,18 @@ public class DataBaseController {
 
 	public boolean isClientHasOblastFromByDirection(int clientId, String oblast){
 		return directionService.isClientHasOblastFromByDirection(clientId, oblast);
+	}
+	
+	public List<Direction> getListOfDirectionsByClientId(int clientId){
+		return directionService.getListOfDirectionsByClientId(clientId);
+	}
+	
+	public void deleteDirection(int id) {
+		directionService.deleteDirection(id);
+	}
+	
+	public void addDirection(Direction direction) {
+		directionService.addDirection(direction);
 	}
 	
 	//history

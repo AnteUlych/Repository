@@ -28,5 +28,13 @@ public class HistoryDAO {
 		em.persist(transaction);
 		em.close();
 	}
+	
+	@Transactional
+	public void deleteHistory(int id) {
+		History history = (History) em.find(History.class, id);
+		History transaction = em.merge(history);
+		em.remove(transaction);
+		em.close();
+	}
 
 }

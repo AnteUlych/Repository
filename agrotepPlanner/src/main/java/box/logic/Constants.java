@@ -21,5 +21,7 @@ public class Constants {
 	public static final int ACTION_CALCULATE = 5;
 	public static final int ACTION_DELETE = 6;
 	public static final int ACTION_NEW_CLIENT = 7;
+	
+	
 
 }
