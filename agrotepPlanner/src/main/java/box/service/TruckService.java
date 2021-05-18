@@ -23,6 +23,18 @@ public class TruckService {
 		return dao.getListOfTrucksSortedByManager();
 	}
 	
+	public void addTruck(Truck truck){
+		dao.persist(truck);
+	}
+	
+	public void editTruckById(int id, String driver, int managerid, int notReady, String phone, String tracktor, String trailer, String type, String managerName) {
+		dao.editTruckById(id, driver, managerid, notReady, phone, tracktor, trailer, type, managerName);
+	}
+	
+	public List<Truck> getListOfReadyTrucksSortedByManager() {
+		return dao.getListOfReadyTrucksSortedByManager();
+	}
+	
 	public void editTruckPriorityToHighById(int id) {
 		dao.editTruckPriorityById(id, Constants.TRUCK_PRIORITY_HIGH);
 	}
@@ -37,5 +49,9 @@ public class TruckService {
 	
 	public Truck getTruckbyId(int id){
 		return dao.getTruckbyId(id);
+	}
+	
+	public Truck gettruckByTracktorAndTrailer(String tracktor, String trailer) {
+		return dao.gettruckByTracktorAndTrailer(tracktor, trailer);
 	}
 }

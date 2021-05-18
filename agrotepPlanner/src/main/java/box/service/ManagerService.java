@@ -1,5 +1,7 @@
 package box.service;
 
+import java.util.List;
+
 import javax.persistence.NoResultException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,18 @@ public class ManagerService {
 	public Manager getManagersByLoginPass(String loginPass) {
 		Manager manager = dao.getManagersByLoginPass(loginPass);
 		return manager;
+	}
+	
+	public List<Manager> getListOfManagers(){
+		return dao.getListOfManagers();
+	}
+	
+	public Manager getManagerById(int id){
+		return dao.getManagerById(id);
+	}
+	
+	public Manager getManagersByName(String name) {
+		return dao.getManagersByName(name);
 	}
 	
 }

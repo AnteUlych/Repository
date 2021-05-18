@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import box.model.Manager;
 
 
+
 @Repository
 public class ManagerDAO {
 
@@ -26,5 +27,16 @@ public class ManagerDAO {
 		Query query = em
 				.createQuery("from Manager where loginPass = '" + loginPass + "'");
 		return (Manager) query.getSingleResult();
+	}
+	
+	public Manager getManagersByName(String name) {
+		Query query = em
+				.createQuery("from Manager where name = '" + name + "'");
+		return (Manager) query.getSingleResult();
+	}
+	
+	public Manager getManagerById(int id){
+		Manager manager = (Manager) em.find(Manager.class, id);
+		return manager;
 	}
 }

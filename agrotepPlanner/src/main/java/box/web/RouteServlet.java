@@ -2,6 +2,7 @@ package box.web;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,7 @@ import box.logic.DataBaseController;
 import box.model.Client;
 import box.model.ClientForRouteHTML;
 import box.model.Direction;
+import box.model.History;
 import box.model.Route;
 import box.model.Truck;
 
@@ -105,6 +107,12 @@ public class RouteServlet {
 	public String doPost(@PathVariable("cellForNewRoute") String cellForNewRoute,
 			ModelMap model, HttpServletRequest request, HttpServletResponse response) {
 		
+HttpSession session = request.getSession();
+		
+		int id = (Integer) session.getAttribute("id");
+		int status = (Integer) session.getAttribute("status");
+		String name = (String) session.getAttribute("name");
+		
 		  String cell [] = cellForNewRoute.split("&");
 			
 			int truckid = Integer.parseInt(cell [0]);
@@ -113,6 +121,17 @@ public class RouteServlet {
 			
 			DataBaseController base = new DataBaseController();
 			Route lastRoute = base.getLastRouteBetweenDatesByTruckId(truckid, dateStart, dateFinish);
+			
+			
+			
+			History h = new History();
+			h.setAction(Constants.ACTION_DELETE);
+			h.setActionDate(new Date());
+			h.setInfo("відміна "+ lastRoute.getAddressFrom()+" - "+lastRoute.getAddressTo()+" "+lastRoute.getPiceForKilometr()+" грн/км");
+			h.setManager(name);
+			h.setManagerid(id);
+			
+			base.addHistory(h);
 			
 			base.deleteRoute(lastRoute.getId());
 			

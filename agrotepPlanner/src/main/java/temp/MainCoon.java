@@ -41,8 +41,12 @@ public class MainCoon {
 		GoogleLogic g = new GoogleLogic();
 		//int i  = g.calculateDistanceInKmBetweenCoordinates(50.426202, 30.415924, 45.182872, 33.726518);
 		DataBaseController base = new DataBaseController();
+		Truck m = base.gettruckByTracktorAndTrailer("KK9090KK", "ÒÒ5555ÆÆ");
+			System.out.println(m.getId());
 		
-		base.deleteDirection(5);
+		
+		//base.editTruckById(2, "Âàñÿ Ë", 3, 1, "2323333", "KK9090KK", "ÒÒ5555ÆÆ", "ðåô");
+	
 		
 	
 		

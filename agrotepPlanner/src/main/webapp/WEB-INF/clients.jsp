@@ -93,7 +93,7 @@ th, td {
   <table>
   <c:forEach items="${clientsODESA}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -108,7 +108,7 @@ th, td {
   <table>
   <c:forEach items="${clientsDNIPRO}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -123,7 +123,7 @@ th, td {
 <table>
   <c:forEach items="${clientsCHERNIGIV}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -138,7 +138,7 @@ th, td {
 <table>
   <c:forEach items="${clientsKHARKIV}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -153,7 +153,7 @@ th, td {
  <table>
   <c:forEach items="${clientsZHYTOMYR}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -168,7 +168,7 @@ th, td {
   <table>
   <c:forEach items="${clientsPOLTAVA}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -183,7 +183,7 @@ th, td {
   <table>
   <c:forEach items="${clientsKHERSON}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -198,7 +198,7 @@ th, td {
   <table>
   <c:forEach items="${clientsKYIV}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -213,7 +213,7 @@ th, td {
   <table>
   <c:forEach items="${clientsZAPORIZZA}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -228,7 +228,7 @@ th, td {
   <table>
   <c:forEach items="${clientsLUGANSK}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -243,7 +243,7 @@ th, td {
   <table>
   <c:forEach items="${clientsDONETSK}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -258,7 +258,7 @@ th, td {
   <table>
   <c:forEach items="${clientsVINNITSA}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -273,7 +273,7 @@ th, td {
   <table>
   <c:forEach items="${clientsKRYM}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -288,7 +288,7 @@ th, td {
   <table>
   <c:forEach items="${clientsMYKOLAIV}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -303,7 +303,7 @@ th, td {
   <table>
   <c:forEach items="${clientsKIROVOGRAD}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -318,7 +318,7 @@ th, td {
   <table>
   <c:forEach items="${clientsSUMY}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -333,7 +333,7 @@ th, td {
   <table>
   <c:forEach items="${clientsLVIV}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -348,7 +348,7 @@ th, td {
   <table>
   <c:forEach items="${clientsCHERKASY}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -363,7 +363,7 @@ th, td {
   <table>
   <c:forEach items="${clientsKHMELNYTSK}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -378,7 +378,7 @@ th, td {
   <table>
   <c:forEach items="${clientsVOLYN}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -393,7 +393,7 @@ th, td {
   <table>
   <c:forEach items="${clientsRIVNE}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -408,7 +408,7 @@ th, td {
   <table>
   <c:forEach items="${clientsFRANKIVSK}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -423,7 +423,7 @@ th, td {
   <table>
   <c:forEach items="${clientsTERNOPIL}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -438,7 +438,7 @@ th, td {
   <table>
   <c:forEach items="${clientsZAKARPATTIA}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>
@@ -453,7 +453,7 @@ th, td {
   <table>
   <c:forEach items="${clientsCHERNIVTSI}" var="client1" varStatus="theCount">
     <tr>
-    <td><a href="/planner/client${client1.id}">${client1.company}</a></td>
+    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
     <td>${client1.transportVolume}</td>

@@ -63,6 +63,22 @@ public class DataBaseController {
 	public Truck getTruckbyId(int id){
 		return truckService.getTruckbyId(id);
 	}
+	
+	public List<Truck> getListOfReadyTrucksSortedByManager() {
+		return truckService.getListOfReadyTrucksSortedByManager();
+	}
+	
+	public void editTruckById(int id, String driver, int managerid, int notReady, String phone, String tracktor, String trailer, String type, String managerName) {
+		truckService.editTruckById(id, driver, managerid, notReady, phone, tracktor, trailer, type, managerName);
+	}
+	
+	public void addTruck(Truck truck){
+		truckService.addTruck(truck);
+	}
+	
+	public Truck gettruckByTracktorAndTrailer(String tracktor, String trailer) {
+		return truckService.gettruckByTracktorAndTrailer(tracktor, trailer);
+	}
 	//truck
 	
 	//client
@@ -157,6 +173,18 @@ public class DataBaseController {
 	
 	public Manager getManagersByLoginPass(String loginPass) {
 		return managerService.getManagersByLoginPass(loginPass);
+	}
+	
+	public List<Manager> getListOfManagers(){
+		return managerService.getListOfManagers();
+	}
+	
+	public Manager getManagerById(int id){
+		return managerService.getManagerById(id);
+	}
+	
+	public Manager getManagersByName(String name) {
+		return managerService.getManagersByName(name);
 	}
 	//manager
 
