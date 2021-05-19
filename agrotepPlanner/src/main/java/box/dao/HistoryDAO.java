@@ -18,6 +18,16 @@ public class HistoryDAO {
 	private EntityManager em;
 	
 	@SuppressWarnings("unchecked")
+	public List<History> getListOfHistoryByActionAndManageridBetweenDates(String start, String finish, int managerid, int action) {
+		return em.createQuery("from History where managerid='"+managerid+"' and action='"+action+"' and actionDate >='"+start+"' and actionDate <='"+finish+"'").getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<History> getListOfHistoryByManageridBetweenDates(String start, String finish, int managerid) {
+		return em.createQuery("from History where managerid='"+managerid+"' and actionDate >='"+start+"' and actionDate <='"+finish+"'").getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
 	public List<History> getListOfHistory() {
 		return em.createQuery("from History").getResultList();
 	}

@@ -54,4 +54,8 @@ public class RouteService {
 		return dao.getRouteById(id);
 	}
 	
+	public List<Route> getListOfRoutesByRouteStatusBetweenDates(int routeStatus, String start, String finish){
+		return dao.getListOfRoutesByRouteStatusBetweenDates(routeStatus, start, finish);
+	}
+	
 }

@@ -36,14 +36,20 @@ import box.model.Truck;
 
 public class MainCoon {
 
-	public static void main(String[] args) throws ParseException{
+	public static void main(String[] args){
 		
 		GoogleLogic g = new GoogleLogic();
+		CalendarLogic calendar = new CalendarLogic();
 		//int i  = g.calculateDistanceInKmBetweenCoordinates(50.426202, 30.415924, 45.182872, 33.726518);
-		DataBaseController base = new DataBaseController();
-		Truck m = base.gettruckByTracktorAndTrailer("KK9090KK", "ÒÒ5555ÆÆ");
-			System.out.println(m.getId());
+		//String firstDay = calendar.getNeedoneDayForDataBasePlusDays(0);
+		//String secondDay = calendar.getNeedoneDayForDataBasePlusDays(1);
 		
+		DataBaseController db = new DataBaseController();
+		List<Route> rs =db.getListOfRoutesByRouteStatusBetweenDates(0, "2020-05-11", "2021-05-29");
+		for(Route r:rs){
+			System.out.println(r.getId()+" "+r.getFromDate()+" "+r.getRouteStatus());	
+		}
+		//System.out.println(secondDay);
 		
 		//base.editTruckById(2, "Âàñÿ Ë", 3, 1, "2323333", "KK9090KK", "ÒÒ5555ÆÆ", "ðåô");
 	

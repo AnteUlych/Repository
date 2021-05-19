@@ -24,4 +24,12 @@ public class HistoryService {
 	public void addHistory(History history) {
 		dao.persist(history);
 	}
+	
+	public List<History> getListOfHistoryByActionAndManageridBetweenDates(String start, String finish, int managerid, int action) {
+		return dao.getListOfHistoryByActionAndManageridBetweenDates(start, finish, managerid, action);
+	}
+	
+	public List<History> getListOfHistoryByManageridBetweenDates(String start, String finish, int managerid) {
+	return dao.getListOfHistoryByManageridBetweenDates(start, finish, managerid);	
+	}
 }

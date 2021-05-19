@@ -34,6 +34,11 @@ public class RouteDAO {
 		return em.createQuery("from Route where truckid='"+truckid+"' and fromDate <='"+finish+"' order by fromDate desc").setMaxResults(1).getResultList();		
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Route> getListOfRoutesByRouteStatusBetweenDates(int routeStatus, String start, String finish){
+		return em.createQuery("from Route where routeStatus='"+routeStatus+"' and fromDate <='"+finish+"' and fromDate >='"+start+"'").getResultList();		
+	}
+	
 	@Transactional
 	public void persist(Route route) {
 		Route transaction = em.merge(route);

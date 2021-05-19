@@ -136,6 +136,14 @@ public class DataBaseController {
 		historyService.addHistory(history);
 	}
 	
+	public List<History> getListOfHistoryByActionAndManageridBetweenDates(String start, String finish, int managerid, int action) {
+		return historyService.getListOfHistoryByActionAndManageridBetweenDates(start, finish, managerid, action);
+	}
+	
+	public List<History> getListOfHistoryByManageridBetweenDates(String start, String finish, int managerid) {
+		return historyService.getListOfHistoryByManageridBetweenDates(start, finish, managerid);
+	}
+	
 	//route
 	public List<Route> getListOfRoutesBetweenDatesByTruckId(int truckid, String start, String finish) {
 		return routeService.getListOfRoutesBetweenDatesByTruckId(truckid, start, finish);
@@ -163,6 +171,10 @@ public class DataBaseController {
 	
 	public Route getRouteById(int id){
 		return routeService.getRouteById(id);
+	}
+	
+	public List<Route> getListOfRoutesByRouteStatusBetweenDates(int routeStatus, String start, String finish){
+		return routeService.getListOfRoutesByRouteStatusBetweenDates(routeStatus, start, finish);
 	}
 	//route
 	
