@@ -1,5 +1,6 @@
 package box.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,17 @@ public class TruckService {
 	
 	@Autowired
 	private TruckDAO dao;
+	
+	public boolean isManagerHasTruck(int managerid){
+		List<Truck> trucks = dao.getListOfTrucksSortedByManager();
+		
+		for(Truck t:trucks){
+			if(t.getManagerid()==managerid){
+				return true;
+			}
+		}
+		return false;
+	}
 	
 	public List<Truck> getListOfTrucksSortedByManager() {
 		return dao.getListOfTrucksSortedByManager();

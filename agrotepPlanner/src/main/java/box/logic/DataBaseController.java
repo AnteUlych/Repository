@@ -2,6 +2,7 @@ package box.logic;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
@@ -78,6 +79,10 @@ public class DataBaseController {
 	
 	public Truck gettruckByTracktorAndTrailer(String tracktor, String trailer) {
 		return truckService.gettruckByTracktorAndTrailer(tracktor, trailer);
+	}
+	
+	public boolean isManagerHasTruck(int managerid){
+		return truckService.isManagerHasTruck(managerid);
 	}
 	//truck
 	
@@ -198,6 +203,37 @@ public class DataBaseController {
 	public Manager getManagersByName(String name) {
 		return managerService.getManagersByName(name);
 	}
+	
+	public void addManager(Manager manager){
+		managerService.addManager(manager);
+	}
+	
+	public void deleteManagerById(int managerid) {
+		managerService.deleteManagerById(managerid);
+	}
+	
+	public void editCodeManagerById(int id, String code) {
+		managerService.editCodeManagerById(id, code);
+	}
+	
+	public String createPassword(){
+		String code;
+		
+		for(;;){
+			
+			int min = 1000;
+			int max = 9999;
+	
+			Random random = new Random();
+			int i = random.nextInt((max-min)+1)+ min;
+			code = i+"";
+		
+			if(!managerService.isManagerExisByLoginPass(code)){
+				return code;
+			}
+		}
+	}
+
 	//manager
 
 }

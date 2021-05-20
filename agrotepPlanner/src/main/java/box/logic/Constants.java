@@ -22,6 +22,6 @@ public class Constants {
 	public static final int ACTION_DELETE = 6;
 	public static final int ACTION_NEW_CLIENT = 7;
 	
-	
+	public static final int TOTAL_ACCESS = 0;
 
 }

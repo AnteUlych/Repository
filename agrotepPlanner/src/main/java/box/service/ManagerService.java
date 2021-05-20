@@ -45,4 +45,16 @@ public class ManagerService {
 		return dao.getManagersByName(name);
 	}
 	
+	public void addManager(Manager manager){
+		dao.persist(manager);
+	}
+	
+	public void deleteManagerById(int managerid) {
+		dao.deleteManagerById(managerid);
+	}
+	
+	public void editCodeManagerById(int id, String code) {
+		dao.editCodeManagerById(id, code);
+	}
+	
 }

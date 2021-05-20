@@ -45,11 +45,8 @@ public class MainCoon {
 		//String secondDay = calendar.getNeedoneDayForDataBasePlusDays(1);
 		
 		DataBaseController db = new DataBaseController();
-		List<Route> rs =db.getListOfRoutesByRouteStatusBetweenDates(0, "2020-05-11", "2021-05-29");
-		for(Route r:rs){
-			System.out.println(r.getId()+" "+r.getFromDate()+" "+r.getRouteStatus());	
-		}
-		//System.out.println(secondDay);
+		System.out.println(db.createPassword());
+		
 		
 		//base.editTruckById(2, "Вася Л", 3, 1, "2323333", "KK9090KK", "ТТ5555ЖЖ", "реф");
 	
