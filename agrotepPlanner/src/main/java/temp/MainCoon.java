@@ -29,6 +29,7 @@ import box.model.Client;
 import box.model.ClientForRouteHTML;
 import box.model.Direction;
 import box.model.History;
+import box.model.HistoryHTML;
 import box.model.Manager;
 import box.model.Route;
 import box.model.Truck;
@@ -37,19 +38,48 @@ import box.model.Truck;
 public class MainCoon {
 
 	public static void main(String[] args){
+		//HttpSession session = request.getSession();
+		//String name = (String) session.getAttribute("name");
 		
-		GoogleLogic g = new GoogleLogic();
-		CalendarLogic calendar = new CalendarLogic();
-		//int i  = g.calculateDistanceInKmBetweenCoordinates(50.426202, 30.415924, 45.182872, 33.726518);
-		//String firstDay = calendar.getNeedoneDayForDataBasePlusDays(0);
-		//String secondDay = calendar.getNeedoneDayForDataBasePlusDays(1);
+        CalendarLogic calendar = new CalendarLogic();	
+		String start = calendar.getNeedoneDayForDataBasePlusDays(0);
+		String finish = calendar.getNeedoneDayForDataBasePlusDays(1);
 		
-		DataBaseController db = new DataBaseController();
-		System.out.println(db.createPassword());
+		DataBaseController base = new DataBaseController(); 
+		
+		List<Truck> trucks = base.getListOfTrucksSortedByManager();
+		List<HistoryHTML> trucksHTML = new ArrayList();
 		
 		
-		//base.editTruckById(2, "Вася Л", 3, 1, "2323333", "KK9090KK", "ТТ5555ЖЖ", "реф");
-	
+		for(Truck t:trucks){
+			List<String> dateText = new ArrayList();
+			HistoryHTML histories = new HistoryHTML();
+			
+			histories.setDriver(t.getDriver());
+			histories.setManagerName(t.getManagerName());
+			histories.setTracktor(t.getTracktor());
+			histories.setTrailer(t.getTrailer());
+			
+			List<Route> routes = base.getListOfRoutesBetweenDatesByTruckId(t.getId(), start, finish);
+			
+			histories.setRoutes(routes);
+			
+			for(Route r:routes){
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+				String s = formatter.format(r.getFromDate());			
+				String datetext = calendar.getHeaderDate(s);
+				System.out.println(datetext);
+				dateText.add(datetext);
+			}
+			
+			histories.setDates(dateText);
+			
+			trucksHTML.add(histories);
+			
+			
+			
+		}
+		
 		
 	
 		

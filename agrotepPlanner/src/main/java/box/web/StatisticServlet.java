@@ -110,7 +110,7 @@ public class StatisticServlet {
 		String name = (String) session.getAttribute("name");
 		
 		String start = request.getParameter("start");
-		String finish = request.getParameter("finish");;
+		String finish = request.getParameter("finish");
 		
 		DataBaseController base = new DataBaseController(); 
 		
