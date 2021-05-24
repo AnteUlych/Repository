@@ -156,7 +156,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <p>&nbsp;</p>
 	     <p><b>Коментар для ${trucksh.tracktor}/${trucksh.trailer}</b></p>
 		
-		 <p><input name="newComment${trucksh.id}" class="w3-input w3-border" type="text" placeholder="Коментар" value="${trucksh.comment}" maxlength="70"></p>
+		 <p><input pattern="[^\\/`\/\x22]+" name="newComment${trucksh.id}" class="w3-input w3-border" type="text" placeholder="Коментар" value="${trucksh.comment}" maxlength="70"></p>
 		
 		  <br>
 		  <p><button name="button${trucksh.id}" type="submit" class="w3-button w3-padding-large w3-blue w3-margin-bottom" onclick="document.getElementById('subscribe${trucksh.id}').style.display='none'">Коментувати</button></p>

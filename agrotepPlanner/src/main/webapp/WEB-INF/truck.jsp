@@ -59,10 +59,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <form method="POST">
   <div class="w3-container">
-	     <p><input name="tracktor" class="w3-input w3-border" type="text" placeholder="Тягач" value="${truck.tracktor}" maxlength="19" required></p>
-	     <p><input name="trailor" class="w3-input w3-border" type="text" placeholder="Причіп" value="${truck.trailer}" maxlength="19" required></p>
-	     <p><input name="driver" class="w3-input w3-border" type="text" placeholder="Водій" value="${truck.driver}" maxlength="40" required></p>
-	     <p><input name="phone" class="w3-input w3-border" type="text" placeholder="Телефон" value="${truck.phone}" maxlength="40" required></p>
+	     <p><input pattern="[^\\/`\/\x22]+" name="tracktor" class="w3-input w3-border" type="text" placeholder="Тягач" value="${truck.tracktor}" maxlength="19" required></p>
+	     <p><input pattern="[^\\/`\/\x22]+" name="trailor" class="w3-input w3-border" type="text" placeholder="Причіп" value="${truck.trailer}" maxlength="19" required></p>
+	     <p><input pattern="[^\\/`\/\x22]+" name="driver" class="w3-input w3-border" type="text" placeholder="Водій" value="${truck.driver}" maxlength="40" required></p>
+	     <p><input  name="phone" class="w3-input w3-border" type="text" placeholder="Телефон" value="${truck.phone}" maxlength="40" required></p>
 	    <br>
 	     <p>Тип:&nbsp;
 	     <input type="radio" id="tilt" name="typetruck" value="тент" ${tilt}>

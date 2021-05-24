@@ -94,9 +94,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <p>&nbsp;</p>
 	     <p><b>Новий Екіпаж</b></p>
 		
-		 <p><input name="tracktor" class="w3-input w3-border" type="text" placeholder="Тягач" maxlength="19" required></p>
-	     <p><input name="trailor" class="w3-input w3-border" type="text" placeholder="Причіп" maxlength="19" required></p>
-	     <p><input name="driver" class="w3-input w3-border" type="text" placeholder="Водій" maxlength="40" required></p>
+		 <p><input pattern="[^\\/`\/\x22]+" name="tracktor" class="w3-input w3-border" type="text" placeholder="Тягач" maxlength="19" required></p>
+	     <p><input pattern="[^\\/`\/\x22]+" name="trailor" class="w3-input w3-border" type="text" placeholder="Причіп" maxlength="19" required></p>
+	     <p><input pattern="[^\\/`\/\x22]+" name="driver" class="w3-input w3-border" type="text" placeholder="Водій" maxlength="40" required></p>
 	     <p><input name="phone" class="w3-input w3-border" type="text" placeholder="Телефон" maxlength="40" required></p>
 	     <p>Тип:&nbsp;
 	     <input type="radio" id="tilt" name="typetruck" value="тент" required>

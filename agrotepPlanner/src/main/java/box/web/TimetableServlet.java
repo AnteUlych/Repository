@@ -74,12 +74,12 @@ public class TimetableServlet {
 		
 		
 		DataBaseController base = new DataBaseController();
-		List <Truck> trucks = base.getListOfTrucksSortedByManager();
+		List <Truck> trucks = base.getListOfReadyTrucksSortedByManager();
 			
 		if(filterMy==Constants.FILTER_TRUE){
 			List <Truck> trucksForRemoveFilterMy = new ArrayList();
 			for(Truck truck:trucks){
-				if(truck.getManagerid()!=id){
+				if((truck.getManagerid())!=id&&(truck.getPriority()!=Constants.TRUCK_PRIORITY_HIGH)){
 					trucksForRemoveFilterMy.add(truck);
 				}
 			}
@@ -101,7 +101,7 @@ public class TimetableServlet {
 		if(filterNotClosed==Constants.FILTER_TRUE){	
 			List <Truck> trucksForRemoveFilterNotClosed = new ArrayList();
 			for(Truck truck:trucks){
-				if(base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), firstDay, secondDay)){
+				if((base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), firstDay, secondDay))&&(truck.getPriority()!=Constants.TRUCK_PRIORITY_HIGH)){
 					trucksForRemoveFilterNotClosed.add(truck);
 				}
 			}
@@ -160,7 +160,9 @@ public class TimetableServlet {
 			if(truck.getPriority()==Constants.TRUCK_PRIORITY_HIGH){
 				htmlTruck.setColumnUrgentClass("checked");
 				htmlTruck.setColumnUrgentColorClass("w3-lime");
-			}else{
+			}
+			
+			if(truck.getPriority()!=Constants.TRUCK_PRIORITY_HIGH){
 				htmlTruck.setColumnUrgentClass("");
 				htmlTruck.setColumnUrgentColorClass("");
 			}
@@ -393,8 +395,9 @@ public class TimetableServlet {
 		
 		
 		//post checkbox urgent
-		List <Truck> trucksUrgent = base.getListOfTrucksSortedByManager();
+		List <Truck> trucksUrgent = base.getListOfReadyTrucksSortedByManager();
 		
+		//if((request.getParameter("checkMy") != null)&&(request.getParameter("checkMy") != null)&&(request.getParameter("checkMy") != null)){
 		for(Truck truck:trucksUrgent){
 			
 			if((request.getParameter("checkUrgentBox"+truck.getId()) != null)&&(truck.getPriority()==Constants.TRUCK_PRIORITY_REGULAR)){
@@ -426,7 +429,7 @@ public class TimetableServlet {
 			}
 					
 		}
-		
+	
 		//post checkbox urgent
 		
 		
@@ -488,14 +491,14 @@ public class TimetableServlet {
 		
 		
 		
-		List <Truck> trucks = base.getListOfTrucksSortedByManager();
+		List <Truck> trucks = base.getListOfReadyTrucksSortedByManager();
 		
 		
 		
 		if(filterMy==Constants.FILTER_TRUE){
 			List <Truck> trucksForRemoveFilterMy = new ArrayList();
 			for(Truck truck:trucks){
-				if(truck.getManagerid()!=id){
+				if((truck.getManagerid()!=id)&&(truck.getPriority()!=Constants.TRUCK_PRIORITY_HIGH)){
 					trucksForRemoveFilterMy.add(truck);
 				}
 			}
@@ -517,7 +520,7 @@ public class TimetableServlet {
 		if(filterNotClosed==Constants.FILTER_TRUE){	
 			List <Truck> trucksForRemoveFilterNotClosed = new ArrayList();
 			for(Truck truck:trucks){
-				if(base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), firstDay, secondDay)){
+				if(base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), firstDay, secondDay)&&(truck.getPriority()!=Constants.TRUCK_PRIORITY_HIGH)){
 					trucksForRemoveFilterNotClosed.add(truck);
 				}
 			}

@@ -27,7 +27,7 @@
 			<div class="design-w3l">
 			<div class="mail-form-agile">
 				<form method="POST">
-					<input type="password"  name="pass" placeholder="Код" required maxlength="9" class="padding"/>
+					<input type="password"  name="pass" placeholder="Код" required maxlength="9" class="padding" pattern="[^\\/`\/\x22]+"/>
 					<input type="submit" value="Вхід">
 				</form>
 			</div>

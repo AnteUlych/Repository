@@ -93,15 +93,14 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <p><input id="autocomplete" name="googleAddress" class="w3-input w3-border" type="text" placeholder="наступне вивантаження" required>   </p>
         </div>
 		<p><input class="w3-input w3-border" name="priceFromClient" type="number" placeholder="грн" value="${valuePrice}" required>  </p>
-		<p><input class="w3-input w3-border" name="infoClient" type="text" placeholder="Коментар" value="${valueInfo}" required>  </p>
+		<p><input class="w3-input w3-border" name="infoClient" type="text" placeholder="Коментар" value="${valueInfo}" required pattern="[^\\/`\/\x22]+">  </p>
 		<br>
         <p>${calculateTo}</p>
 		<p>${priceForKm}</p>
 		<br>
 		<div class='container'>
-          <div class="align-left"><button type="submit" class="w3-button w3-round-xxlarge w3-blue" name="calculate">Розрахувати</button></div>
-          <div class="align-right"><button class="w3-button w3-round-xxlarge w3-green" name="book">Бронювати</button></div>
-          
+
+          <p id="demo0"></p>
              <p id="demo1"></p>
 	<p id="demo2"></p>
 	
@@ -115,7 +114,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		<input type="hidden" class="field" name ="administrative_area_level_1" id="administrative_area_level_1" disabled="true">
 		<input type="hidden" class="field" name ="postal_code" id="postal_code" disabled="true">
 		<input type="hidden" class="field" name ="country" id="country" disabled="true">
-	
+
 	</form>
 	
 </div>
@@ -196,6 +195,7 @@ function fillInAddress() {
 	var latitude= place.geometry.location.lat();
 	document.getElementById('demo1').innerHTML = '<input type="hidden" name="lng"  id="demo1" value="'+longitude+'"></input>';
 	document.getElementById('demo2').innerHTML = '<input type="hidden" name="lat" id="demo2" value="'+latitude+'"></input>';
+	document.getElementById('demo0').innerHTML = '<div class="align-left"><button type="submit" class="w3-button w3-round-xxlarge w3-blue" name="calculate">Розрахувати</button></div><div class="align-right"><button class="w3-button w3-round-xxlarge w3-green" name="book">Бронювати</button></div>';
 }
 
 

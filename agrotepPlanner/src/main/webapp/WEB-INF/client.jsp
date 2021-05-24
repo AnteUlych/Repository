@@ -147,10 +147,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <p>&nbsp;</p>
 	     <p><b>Редагування клієнта</b></p>
 		
-		 <p><input name="company" class="w3-input w3-border" type="text" placeholder="Назва клієнта" value="${clien.company}" maxlength="40" required></p>
-		 <p><input name="code" class="w3-input w3-border" type="number" placeholder="ЄДРПОУ" maxlength="11" value="${clien.code}" required></p>
-		 <p><input name="contactPerson" class="w3-input w3-border" type="text" placeholder="Контактна особа" value="${clien.contactPerson}" maxlength="40" required></p>
-		 <p><input name="phone" class="w3-input w3-border" type="text" placeholder="Телефон" maxlength="40" value="${clien.phone}" required></p>
+		 <p><input pattern="[^\\/`\/\x22]+" name="company" class="w3-input w3-border" type="text" placeholder="Назва клієнта" value="${clien.company}" maxlength="40" required></p>
+		 <p><input pattern="[^\\/`\/\x22]+" name="code" class="w3-input w3-border" type="number" placeholder="ЄДРПОУ" maxlength="11" value="${clien.code}" required></p>
+		 <p><input pattern="[^\\/`\/\x22]+" name="contactPerson" class="w3-input w3-border" type="text" placeholder="Контактна особа" value="${clien.contactPerson}" maxlength="40" required></p>
+		 <p><input  name="phone" class="w3-input w3-border" type="text" placeholder="Телефон" maxlength="40" value="${clien.phone}" required></p>
 		 <p><input name="email" class="w3-input w3-border" type="email" placeholder="Пошта" maxlength="40" value="${clien.email}" required></p>
 		 <p><input name="payment" class="w3-input w3-border" type="text" placeholder="Оплати" maxlength="99" value="${clien.payment}" required></p>
 		 <p><input name="transportVolume" class="w3-input w3-border" type="text" placeholder="Об'єм" maxlength="99" value="${clien.transportVolume}" required></p>
