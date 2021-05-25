@@ -43,6 +43,8 @@ public class ManagersServlet {
 			for(Manager m:managers){
 				if(base.isManagerHasTruck(m.getId())){
 					buttons.add("disabled");
+				}else{
+					buttons.add("");
 				}
 			}
 			base.closeConnection();
@@ -118,6 +120,8 @@ public class ManagersServlet {
 			for(Manager m:managers){
 				if(base.isManagerHasTruck(m.getId())){
 					buttons.add("disabled");
+				}else{
+					buttons.add("");
 				}
 			}
 			
