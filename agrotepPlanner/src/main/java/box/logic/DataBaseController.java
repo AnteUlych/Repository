@@ -141,6 +141,10 @@ public class DataBaseController {
 		historyService.addHistory(history);
 	}
 	
+	public List<History> getListOfHistoryByManageridBetweenDatesReverse(String start, String finish, int managerid) {
+		return historyService.getListOfHistoryByManageridBetweenDatesReverse(start, finish, managerid);
+	}
+	
 	public List<History> getListOfHistoryByActionAndManageridBetweenDates(String start, String finish, int managerid, int action) {
 		return historyService.getListOfHistoryByActionAndManageridBetweenDates(start, finish, managerid, action);
 	}

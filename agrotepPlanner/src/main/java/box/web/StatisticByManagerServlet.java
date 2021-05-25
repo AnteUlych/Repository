@@ -27,25 +27,28 @@ public class StatisticByManagerServlet {
 		int managerId = Integer.parseInt(code [0]);
 		DataBaseController base = new DataBaseController();
 		
-		List<History> histories = base.getListOfHistoryByManageridBetweenDates(code [1], code [2], managerId);
+		List<History> histories = base.getListOfHistoryByManageridBetweenDatesReverse(code [1], code [2], managerId);
+		
 		List<String> logos = new ArrayList();
 		String managername = base.getManagerById(managerId).getName();
 		
 		for(History h:histories){
 			if(h.getAction()==Constants.ACTION_CALCULATE){
 				logos.add("<i class=\"fa fa-calculator w3-text-blue\"></i>");
-			}
+			}else
 			if(h.getAction()==Constants.ACTION_BOOKING){
 				logos.add("<i class=\"fa fa-check w3-text-green\"></i>");
-			}
+			}else
 			if(h.getAction()==Constants.ACTION_HELP){
 				logos.add("<i class=\"fa fa-handshake-o w3-text-lime\"></i>");
-			}
+			}else
 			if(h.getAction()==Constants.ACTION_NEW_CLIENT){
 				logos.add("<i class=\"fa fa-pied-piper-alt w3-text-orange\"></i>");
-			}
+			}else
 			if(h.getAction()==Constants.ACTION_DELETE){
 				logos.add("<i class=\"fa fa-remove w3-text-red\"></i>");
+			}else{
+				logos.add("");
 			}
 			
 		}

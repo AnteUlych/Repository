@@ -25,6 +25,9 @@ public class HistoryService {
 		dao.persist(history);
 	}
 	
+	public List<History> getListOfHistoryByManageridBetweenDatesReverse(String start, String finish, int managerid) {
+		return dao.getListOfHistoryByManageridBetweenDatesReverse(start, finish, managerid);
+	}
 	public List<History> getListOfHistoryByActionAndManageridBetweenDates(String start, String finish, int managerid, int action) {
 		return dao.getListOfHistoryByActionAndManageridBetweenDates(start, finish, managerid, action);
 	}

@@ -28,6 +28,11 @@ public class HistoryDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
+	public List<History> getListOfHistoryByManageridBetweenDatesReverse(String start, String finish, int managerid) {
+		return em.createQuery("from History where managerid='"+managerid+"' and actionDate >='"+start+"' and actionDate <='"+finish+"'order by id desc").getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
 	public List<History> getListOfHistory() {
 		return em.createQuery("from History").getResultList();
 	}

@@ -66,7 +66,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   </header>
  <div class="w3-panel">
-     <div class="w3-container w3-half">
+     <div class="w3-container">
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
     <c:forEach items="${histories}" var="hist" varStatus="theCount">
       <tr>
