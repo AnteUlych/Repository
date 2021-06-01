@@ -143,7 +143,7 @@ public class NewRouteServlet {
 			route.setFromLat(lastRoute.getToLat());
 			route.setFromLon(lastRoute.getToLon());
 			route.setFromOblast(lastRoute.getToOblast());
-			route.setInfo("тех.обробка");
+			route.setInfo("очікування");
 			route.setKilometrs(0);
 			route.setPiceForKilometr(0);
 			route.setPrice(0);
@@ -164,7 +164,7 @@ public class NewRouteServlet {
 			
 			history.setAction(Constants.ACTION_FIXING);
 			history.setActionDate(new Date());
-			history.setInfo("тех.очікування");
+			history.setInfo("очікування");
 			history.setManager(name);
 			history.setManagerid(id);
 			

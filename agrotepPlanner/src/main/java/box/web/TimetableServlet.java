@@ -193,7 +193,7 @@ public class TimetableServlet {
 				}else{
 					//fixing
 					
-					String day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:black\"><span class=\"tooltiptext\">"+
+					String day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:red\"><span class=\"tooltiptext\">"+
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
 					
 					String day1Link ="/planner/route/"+truck.getId()+"&"+firstDay+"&"+secondDay;
@@ -227,7 +227,7 @@ public class TimetableServlet {
 				}else{
 					//fixing
 					
-					String day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:black\"><span class=\"tooltiptext\">"+
+					String day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:red\"><span class=\"tooltiptext\">"+
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
 					
 					String day2Link ="/planner/route/"+truck.getId()+"&"+secondDay+"&"+thirdDay;
@@ -261,7 +261,7 @@ public class TimetableServlet {
 				}else{
 					//fixing
 					
-					String day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:black\"><span class=\"tooltiptext\">"+
+					String day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:red\"><span class=\"tooltiptext\">"+
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
 					
 					String day3Link ="/planner/route/"+truck.getId()+"&"+thirdDay+"&"+fourthDay;
@@ -294,7 +294,7 @@ public class TimetableServlet {
 				}else{
 					//fixing
 					
-					String day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:black\"><span class=\"tooltiptext\">"+
+					String day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:red\"><span class=\"tooltiptext\">"+
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
 					
 					String day4Link ="/planner/route/"+truck.getId()+"&"+fourthDay+"&"+fifthDay;
@@ -329,7 +329,7 @@ public class TimetableServlet {
 				}else{
 					//fixing
 					
-					String day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:black\"><span class=\"tooltiptext\">"+
+					String day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:red\"><span class=\"tooltiptext\">"+
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
 					
 					String day5Link ="/planner/route/"+truck.getId()+"&"+fifthDay+"&"+sixthDay;
@@ -610,7 +610,7 @@ public class TimetableServlet {
 				}else{
 					//fixing
 					
-					String day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:black\"><span class=\"tooltiptext\">"+
+					String day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:red\"><span class=\"tooltiptext\">"+
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
 					
 					String day1Link ="/planner/route/"+truck.getId()+"&"+firstDay+"&"+secondDay;
@@ -644,7 +644,7 @@ public class TimetableServlet {
 				}else{
 					//fixing
 					
-					String day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:black\"><span class=\"tooltiptext\">"+
+					String day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:red\"><span class=\"tooltiptext\">"+
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
 					
 					String day2Link ="/planner/route/"+truck.getId()+"&"+secondDay+"&"+thirdDay;
@@ -678,7 +678,7 @@ public class TimetableServlet {
 				}else{
 					//fixing
 					
-					String day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:black\"><span class=\"tooltiptext\">"+
+					String day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:red\"><span class=\"tooltiptext\">"+
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
 					
 					String day3Link ="/planner/route/"+truck.getId()+"&"+thirdDay+"&"+fourthDay;
@@ -711,7 +711,7 @@ public class TimetableServlet {
 				}else{
 					//fixing
 					
-					String day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:black\"><span class=\"tooltiptext\">"+
+					String day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:red\"><span class=\"tooltiptext\">"+
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
 					
 					String day4Link ="/planner/route/"+truck.getId()+"&"+fourthDay+"&"+fifthDay;
@@ -746,7 +746,7 @@ public class TimetableServlet {
 				}else{
 					//fixing
 					
-					String day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:black\"><span class=\"tooltiptext\">"+
+					String day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:red\"><span class=\"tooltiptext\">"+
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
 					
 					String day5Link ="/planner/route/"+truck.getId()+"&"+fifthDay+"&"+sixthDay;

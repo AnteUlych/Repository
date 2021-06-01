@@ -44,8 +44,11 @@ public class GoogleLogic {
 
 			int distance = Integer.parseInt(resultURL);
 			int kilimetrs = distance / 1000;
+			
+			Double correctkilometr = 1.1;
+			int km =  (int)Math.round(kilimetrs*correctkilometr);
 
-			return kilimetrs;
+			return km;
 
 		} catch (Exception e) {
 			return 0;
@@ -90,8 +93,11 @@ public class GoogleLogic {
 
 			int distance = Integer.parseInt(resultURL);
 			int kilimetrs = distance / 1000;
+			
+			Double correctkilometr = 1.1;
+			int km =  (int)Math.round(kilimetrs*correctkilometr);
 
-			return kilimetrs;
+			return km;
 
 		} catch (Exception e) {
 			return 0;

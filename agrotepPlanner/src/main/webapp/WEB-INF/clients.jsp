@@ -477,13 +477,13 @@ th, td {
 		 <p><input name="company" pattern="[^\\/`\/\x22]+" class="w3-input w3-border" type="text" placeholder="Назва клієнта" maxlength="40" required></p>
 		 <p><input name="code" pattern="[^\\/`\/\x22]+" class="w3-input w3-border" type="number" placeholder="ЄДРПОУ" maxlength="11" required></p>
 		 <p><input name="contactPerson" pattern="[^\\/`\/\x22]+" class="w3-input w3-border" type="text" placeholder="Контактна особа" maxlength="40" required></p>
-		 <p><input name="phone" class="w3-input w3-border" type="text" placeholder="Телефон" maxlength="40" required></p>
-		 <p><input name="email" class="w3-input w3-border" type="email" placeholder="Пошта" maxlength="40" required></p>
-		 <p><input name="payment" pattern="[^\\/`\/\x22]+" class="w3-input w3-border" type="text" placeholder="Оплати" maxlength="99" required></p>
-		 <p><input name="transportVolume" pattern="[^\\/`\/\x22]+" class="w3-input w3-border" type="text" placeholder="Об'єм" maxlength="99" required></p>
-		 <p><input name="season" pattern="[^\\/`\/\x22]+" class="w3-input w3-border" type="text" placeholder="Сезонність" maxlength="40" required></p>
-		 <p><input name="cargo" pattern="[^\\/`\/\x22]+" class="w3-input w3-border" type="text" placeholder="Вантаж" maxlength="40" required></p>
-		 <p><input name="otherInfo" pattern="[^\\/`\/\x22]+" class="w3-input w3-border" type="text" placeholder="Додаткова інформація" maxlength="149" required></p>
+		 <p><input name="phone" class="w3-input w3-border" type="text" placeholder="Телефон" maxlength="99" required></p>
+		 <p><input name="email" class="w3-input w3-border" type="email" placeholder="Пошта" maxlength="99" required></p>
+		 <p><input name="payment"  class="w3-input w3-border" type="text" placeholder="Оплати" maxlength="99" required></p>
+		 <p><input name="transportVolume"  class="w3-input w3-border" type="text" placeholder="Об'єм" maxlength="99" required></p>
+		 <p><input name="season"  class="w3-input w3-border" type="text" placeholder="Сезонність" maxlength="40" required></p>
+		 <p><input name="cargo"  class="w3-input w3-border" type="text" placeholder="Вантаж" maxlength="40" required></p>
+		 <p><input name="otherInfo"  class="w3-input w3-border" type="text" placeholder="Додаткова інформація" maxlength="149" required></p>
 		    <p>
   <input type="radio" id="tilt" name="typetruck" value="тент" required>
   <label for="tilt">тент</label>

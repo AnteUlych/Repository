@@ -150,8 +150,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		 <p><input pattern="[^\\/`\/\x22]+" name="company" class="w3-input w3-border" type="text" placeholder="Назва клієнта" value="${clien.company}" maxlength="40" required></p>
 		 <p><input pattern="[^\\/`\/\x22]+" name="code" class="w3-input w3-border" type="number" placeholder="ЄДРПОУ" maxlength="11" value="${clien.code}" required></p>
 		 <p><input pattern="[^\\/`\/\x22]+" name="contactPerson" class="w3-input w3-border" type="text" placeholder="Контактна особа" value="${clien.contactPerson}" maxlength="40" required></p>
-		 <p><input  name="phone" class="w3-input w3-border" type="text" placeholder="Телефон" maxlength="40" value="${clien.phone}" required></p>
-		 <p><input name="email" class="w3-input w3-border" type="email" placeholder="Пошта" maxlength="40" value="${clien.email}" required></p>
+		 <p><input  name="phone" class="w3-input w3-border" type="text" placeholder="Телефон" maxlength="99" value="${clien.phone}" required></p>
+		 <p><input name="email" class="w3-input w3-border" type="email" placeholder="Пошта" maxlength="99" value="${clien.email}" required></p>
 		 <p><input name="payment" class="w3-input w3-border" type="text" placeholder="Оплати" maxlength="99" value="${clien.payment}" required></p>
 		 <p><input name="transportVolume" class="w3-input w3-border" type="text" placeholder="Об'єм" maxlength="99" value="${clien.transportVolume}" required></p>
 		 <p><input name="season" class="w3-input w3-border" type="text" placeholder="Сезонність" maxlength="40" value="${clien.season}" required></p>
@@ -166,7 +166,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <input type="radio" id="any" name="typetruck" ${any} value="тент або реф">
   <label for="any">тент або реф</label>
 </p>
-<p><textarea name="warning" class="w3-input w3-border" rows="5" placeholder="Застереження" maxlength="999"  required>${clien.cargo}</textarea></p>
+<p><textarea name="warning" class="w3-input w3-border" rows="5" placeholder="Застереження" maxlength="999"  required>${clien.warning}</textarea></p>
 <p><input type="checkbox" name="toblacklist" value="yesToBlackList" ${checkBlackList} > Додати в чорний список</p>
 		  <br>
 		  <p><button name="button" type="submit" class="w3-button w3-padding-large w3-blue w3-margin-bottom" >Змінити</button></p>
