@@ -169,10 +169,11 @@ public class TimetableServlet {
 			
 			if(base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), firstDay, secondDay)){
 				htmlTruck.setFromOblastStatusStyle("color:green");
-				htmlTruck.setFromLastOblast("-> "+base.getLastRouteByTruckId(truck.getId(), secondDay).getToOblast());
+				htmlTruck.setFromLastOblast(base.getLastRouteByTruckId(truck.getId(), secondDay).getFromCity()+" -> "+base.getLastRouteByTruckId(truck.getId(), secondDay).getToCity());
+			//	htmlTruck.setFromLastOblast("-> "+base.getLastRouteByTruckId(truck.getId(), secondDay).getAddressFrom());
 			}else{
 				htmlTruck.setFromOblastStatusStyle("color:red");
-				htmlTruck.setFromLastOblast(base.getLastRouteByTruckId(truck.getId(), secondDay).getToOblast());
+				htmlTruck.setFromLastOblast(base.getLastRouteByTruckId(truck.getId(), secondDay).getToCity());
 			}
 			
 		     //test from to Oblasts
@@ -586,10 +587,11 @@ public class TimetableServlet {
 			
 			if(base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), firstDay, secondDay)){
 				htmlTruck.setFromOblastStatusStyle("color:green");
-				htmlTruck.setFromLastOblast("-> "+base.getLastRouteByTruckId(truck.getId(), secondDay).getToOblast());
+				htmlTruck.setFromLastOblast(base.getLastRouteByTruckId(truck.getId(), secondDay).getFromCity()+" -> "+base.getLastRouteByTruckId(truck.getId(), secondDay).getToCity());
+				//htmlTruck.setFromLastOblast("-> "+base.getLastRouteByTruckId(truck.getId(), secondDay).getAddressFrom());
 			}else{
 				htmlTruck.setFromOblastStatusStyle("color:red");
-				htmlTruck.setFromLastOblast(base.getLastRouteByTruckId(truck.getId(), secondDay).getToOblast());
+				htmlTruck.setFromLastOblast(base.getLastRouteByTruckId(truck.getId(), secondDay).getToCity());
 			}
 			
 		     //test from to Oblasts
