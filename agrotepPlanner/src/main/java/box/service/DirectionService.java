@@ -33,6 +33,10 @@ public class DirectionService {
 		return dao.getListOfDirectionsByClientId(clientId);
 	}
 	
+	public boolean isClientNotWorkByOblastFromAndOblastTo(String oblastFrom, String oblastTo, int clientId) {
+		return dao.isClientNotWorkByOblastFromAndOblastTo(oblastFrom, oblastTo, clientId);
+	}
+	
 	public void deleteDirection(int id) {
 		dao.deleteDirection(id);
 	}

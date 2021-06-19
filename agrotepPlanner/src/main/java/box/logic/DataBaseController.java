@@ -1,5 +1,6 @@
 package box.logic;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -111,6 +112,19 @@ public class DataBaseController {
 		clientService.editClientById(id, blacklist, cargo, company, contactPerson, email, otherInfo, payment, phone, season, transportVolume, typetruck, warning);
 	}
 	
+	public List<Client> getListOfClientsByOblastFtomAndOblastTo(String oblastFrom, String oblastTo){
+		List<Client> clients = clientService.getListOfClients();
+		List<Client> needClients = new ArrayList();
+		
+		for(Client c:clients){
+			if(!directionService.isClientNotWorkByOblastFromAndOblastTo(oblastFrom, oblastTo, c.getId())){
+				needClients.add(c);
+			}			
+		}
+		
+		return needClients;
+	}
+	
 	//direction
 	public List<Direction> getListOfDirectionsByOblastAndClientid(int clientId, String oblast) {
 		return directionService.getListOfDirectionsByOblastAndClientid(clientId, oblast);
@@ -130,6 +144,10 @@ public class DataBaseController {
 	
 	public void addDirection(Direction direction) {
 		directionService.addDirection(direction);
+	}
+	
+	public boolean isClientNotWorkByOblastFromAndOblastTo(String oblastFrom, String oblastTo, int clientId) {
+		return directionService.isClientNotWorkByOblastFromAndOblastTo(oblastFrom, oblastTo, clientId);
 	}
 	
 	//history

@@ -6,7 +6,8 @@
 <html>
 <title>Агротеп</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+<link rel="stylesheet" href="<c:url value="/resources/w3.css" />">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -71,6 +72,7 @@ th, td {
     <a href="/planner/managers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-group w3-text-brown"></i>&nbsp; Логісти</a>
     <a href="/planner/statistic" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-line-chart w3-text-pink"></i>&nbsp; Статистика</a>
     <a href="/planner/history" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-hourglass-3 "></i>&nbsp; Історія</a>
+    <a href="/planner/variants" class="w3-bar-item w3-button w3-padding"><i class="fa fa-arrows w3-text-indigo"></i>&nbsp; Планування</a>
   </div>
 </nav>
 
@@ -98,8 +100,8 @@ th, td {
   <c:forEach items="${truck.routes}" var="route" varStatus="theCount">
     <tr>
     <td>${truck.dates[theCount.index]}</td>
-    <td>${route.fromOblast}</td>
-    <td>${route.toOblast}</td>
+    <td>${route.fromCity}, ${route.fromOblast}</td>
+    <td>${route.toCity}, ${route.toOblast}</td>
     <td>${route.piceForKilometr} грн/км</td>
     <td>${route.info}</td>
   </tr>

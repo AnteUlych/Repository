@@ -61,13 +61,13 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <hr>
   <div class="w3-bar-block">
     <a href="/planner/timetable" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
-    <a href="/planner/timetable" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-heartbeat"></i>&nbsp; Графік</a>
+    <a href="/planner/timetable" class="w3-bar-item w3-button w3-padding"><i class="fa fa-heartbeat w3-text-red"></i>&nbsp; Графік</a>
     <a href="/planner/trucks" class="w3-bar-item w3-button w3-padding"><i class="fa fa-truck w3-text-blue"></i>&nbsp; Автомобілі</a>
     <a href="/planner/clients" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-child w3-text-green"></i>&nbsp;  Клієнти</a>
     <a href="/planner/managers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-group w3-text-brown"></i>&nbsp; Логісти</a>
-    <a href="/planner/statistic" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-line-chart w3-text-pink"></i>&nbsp; Статистика</a>
+    <a href="/planner/statistic" class="w3-bar-item w3-button w3-padding"><i class="fa fa-line-chart"></i>&nbsp; Статистика</a>
     <a href="/planner/history" class="w3-bar-item w3-button w3-padding"><i class="fa fa-hourglass-3 w3-text-yellow"></i>&nbsp; Історія</a>
-    <a href="/planner/variants" class="w3-bar-item w3-button w3-padding"><i class="fa fa-arrows w3-text-indigo"></i>&nbsp; Планування</a>
+    <a href="/planner/variants" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-arrows w3-text-indigo"></i>&nbsp; Планування</a>
   </div>
 </nav>
 
@@ -76,40 +76,52 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 <!-- !PAGE CONTENT! -->
+  <form method="post">
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
   <!-- Header -->
+  
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-truck w3-text-green"></i> Бронювання авто ${truckHtml} на ${dateStart}</b></h5>
-  </header>
- <div class="w3-panel">
-    <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-third">
-        <h5>Остання точка: ${lastAddress}</h5>
-        
-        <form method="post">
-        
-		<button type="submit" class="w3-button w3-round-xxlarge w3-blue-grey" name="wait" formnovalidate>Очікувати</button><br>
-		<div class="align-left"></div><div class="align-right"><a href="/planner/newRoute1/${cellForNewRoute}">Додати пункт вивантаження</a></div><br>
-		<div id="locationField">
-        <p><input id="autocomplete" name="googleAddress" class="w3-input w3-border" type="text" placeholder="наступне вивантаження" required>   </p>
-        </div>
-		<p><input class="w3-input w3-border" name="priceFromClient" type="number" placeholder="грн" value="${valuePrice}" required>  </p>
-		<p><input class="w3-input w3-border" name="infoClient" type="text" placeholder="Коментар" value="${valueInfo}" required pattern="[^\\/`\/\x22]+">  </p>
-		<br>
-        <p>${calculateTo}</p>
-		<p>${priceForKm}</p>
-		<br>
-		<div class='container'>
 
-        <p id="demo0"></p>
+    <h5><b><i class="fa fa-arrows w3-text-indigo"></i>  Прорахунок варіантів</b>&nbsp;<button type="submit"  class="w3-button w3-xlarge w3-circle w3-white"><i class="fa fa-check" style="width:30px"></i></button> </h5>
+    
+    <div id="locationField">
+        <input id="autocomplete" class="w3-input" name="googleAddress"  type="text" placeholder="Адреса прорахунку"  required>
+        </div>  <input name="needPriceForKm" class="w3-input" type="number" placeholder="грн/км" value="${needPriceForKm}" required>  
+  </header>
+  <br>
+ <div class="w3-panel">
+     <div class="w3-container">
+    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+      <tr>
+        <td><b>Пункт відправки</b></td>
+        <td><b>Бажана ціна, грн</b></td>
+        <td><b>К-ть клієнтів по напрямку</b></td>
+        <td><b>Пункт доставки</b></td>
+        <td><b>Бажана ціна, грн</b></td>
+        <td><b>К-ть клієнтів по напрямку</b></td>
+        <td><b>Кінцева точка</b></td>  
+      </tr>
+      <c:forEach items="${listOfVariants}" var="stat" varStatus="theCount">
+      <tr>
+       <td>${stat.startAddress}</td>
+        <td>${stat.nextPrice}</td>
+        <td>${stat.startClients}</td>
+        <td>${stat.nextPoint}</td>
+        <td>${stat.finishPrice}</td>
+        <td>${stat.nextClients}</td>
+        <td>${stat.finishPoint}</td>
+      </tr>
+      </c:forEach>
+      <tr>
+
+    </table><br><br>
+
+
         <p id="demo1"></p>
 	    <p id="demo2"></p>
-
-	
-		
-			
-			<input type="hidden" class="field" name ="street_number" id="street_number" disabled="true">
+	    
+	    	<input type="hidden" class="field" name ="street_number" id="street_number" disabled="true">
 			
 			<input type="hidden" class="field" name ="route" id="route" disabled="true">
 		
@@ -117,43 +129,20 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		<input type="hidden" class="field" name ="administrative_area_level_1" id="administrative_area_level_1" disabled="true">
 		<input type="hidden" class="field" name ="postal_code" id="postal_code" disabled="true">
 		<input type="hidden" class="field" name ="country" id="country" disabled="true">
+  </div> 
 
-	</form>
-	
-</div>
-		<br>
-		
-      </div>
-      <div class="w3-twothird">
-        <h5>Клієнти ${lastOblast}</h5>
-        <table class="w3-table w3-striped w3-white">
-         <c:forEach items="${clients}" var="client" varStatus="theCount">
-          <tr class = "${client.blacklist}" >
-            <td><a href="/planner/client/${client.id}" target="_blank">${client.company}</a></td>
-            <td>${client.typetruck}</td>
-            <td>${client.cargo}</td>
-			<td>${client.posibilityToGo}</td>
-          </tr>
-          </c:forEach>
-        </table>
-      </div>
-    </div>
-  </div>
+ </div>
  
   
 </div>
+</form>
 <br>
-  <div class="w3-container">
 
-    
-
-  </div>
 
   <hr>
 
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvzr8p07fENAftZAumRG2tdfOE8VJQDwE&libraries=places&callback=initAutocomplete&language=uk" async defer></script>
-
 
 <script>
 
@@ -198,9 +187,8 @@ function fillInAddress() {
 	var latitude= place.geometry.location.lat();
 	document.getElementById('demo1').innerHTML = '<input type="hidden" name="lng"  id="demo1" value="'+longitude+'"></input>';
 	document.getElementById('demo2').innerHTML = '<input type="hidden" name="lat" id="demo2" value="'+latitude+'"></input>';
-	document.getElementById('demo0').innerHTML = '<div class="align-left"><button type="submit" class="w3-button w3-round-xxlarge w3-blue" name="calculate">Розрахувати</button></div><div class="align-right"><button class="w3-button w3-round-xxlarge w3-green" name="book">Бронювати</button></div>';
+	
 }
-
 
 
 // Get the Sidebar

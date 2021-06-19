@@ -28,9 +28,9 @@ import box.model.Route;
 import box.model.Truck;
 
 @Controller
-public class NewRouteServlet {
+public class NewRouteServlet1 {
 	
-	@RequestMapping(value = "/newRoute/{cellForNewRoute}", method = RequestMethod.GET)
+	@RequestMapping(value = "/newRoute1/{cellForNewRoute}", method = RequestMethod.GET)
 	public String doGet(@PathVariable("cellForNewRoute") String cellForNewRoute,
 			ModelMap model, HttpServletRequest request) {
 		
@@ -108,10 +108,10 @@ public class NewRouteServlet {
 		model.addAttribute("valuePrice", "");
 		model.addAttribute("valueInfo", "");
 		
-		return "newroute";
+		return "newroute1";
 	}
 	
-	@RequestMapping(value = "/newRoute/{cellForNewRoute}", method = RequestMethod.POST)
+	@RequestMapping(value = "/newRoute1/{cellForNewRoute}", method = RequestMethod.POST)
 	public String doPost(@PathVariable("cellForNewRoute") String cellForNewRoute,
 			ModelMap model, HttpServletRequest request, HttpServletResponse response) {
 		
@@ -192,6 +192,12 @@ public class NewRouteServlet {
 		String lng = request.getParameter("lng");
 		String lat = request.getParameter("lat");
 		
+		String lng3 = request.getParameter("lng3"); //+point
+		String lat4 = request.getParameter("lat4"); //+point
+		
+		double longitude4 = Double.parseDouble(lat4); //+point
+		double latitude3 = Double.parseDouble(lng3);  //+point
+		
 		double longitude = Double.parseDouble(lat);
 		double latitude = Double.parseDouble(lng);
 		
@@ -240,7 +246,12 @@ public class NewRouteServlet {
 		
 		
 		GoogleLogic google = new GoogleLogic();
-		int kilometrs = google.calculateDistanceInKmBetweenCoordinates(lastRoute.getToLon(), lastRoute.getToLat(), longitude, latitude);
+		//int kilometrs = google.calculateDistanceInKmBetweenCoordinates(lastRoute.getToLon(), lastRoute.getToLat(), longitude, latitude);
+		
+		int kilometrs0 = google.calculateDistanceInKmBetweenCoordinates(lastRoute.getToLon(), lastRoute.getToLat(), longitude4, latitude3); //+point
+		int kilometrs1 = google.calculateDistanceInKmBetweenCoordinates(longitude4, latitude3, longitude, latitude); //+point
+		
+		int kilometrs = kilometrs0 + kilometrs1;
 		
 		int	priceForKilometr = 0;
 		
@@ -265,7 +276,7 @@ public class NewRouteServlet {
 			route.setFromLat(lastRoute.getToLat());
 			route.setFromLon(lastRoute.getToLon());
 			route.setFromOblast(lastRoute.getToOblast());
-			route.setInfo(valueInfo);
+			route.setInfo(valueInfo+" + 1 зупинка"); //+point
 			route.setKilometrs(kilometrs);
 			route.setPiceForKilometr(priceForKilometr);
 			route.setPrice(totalPrice);
@@ -372,7 +383,7 @@ public class NewRouteServlet {
 		model.addAttribute("valuePrice", totalPrice);
 		model.addAttribute("valueInfo", valueInfo);
 		
-		return "newroute";
+		return "newroute1";
 	}
 
 }

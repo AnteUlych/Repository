@@ -23,6 +23,11 @@ public class DirectionDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
+	public boolean isClientNotWorkByOblastFromAndOblastTo(String oblastFrom, String oblastTo, int clientId) {
+		return em.createQuery("from Direction where oblastFrom='"+oblastFrom+"' and oblastTo='"+oblastTo+"' and clientId='"+clientId+"'").getResultList().isEmpty();
+	}
+	
+	@SuppressWarnings("unchecked")
 	public List<Direction> getListOfDirectionsByClientId(int clientId){
 		return em.createQuery("from Direction where clientId='"+clientId+"'").getResultList();
 	}

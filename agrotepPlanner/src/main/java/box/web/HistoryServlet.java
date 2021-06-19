@@ -31,12 +31,12 @@ public class HistoryServlet {
 		String name = (String) session.getAttribute("name");
 		
         CalendarLogic calendar = new CalendarLogic();	
-		String start = calendar.getNeedoneDayForDataBasePlusDays(0);
+		String start = calendar.getNeedoneDayForDataBasePlusDays(-6);
 		String finish = calendar.getNeedoneDayForDataBasePlusDays(1);
 		
 		DataBaseController base = new DataBaseController(); 
 		
-		List<Truck> trucks = base.getListOfTrucksSortedByManager();
+		List<Truck> trucks = base.getListOfReadyTrucksSortedByManager();
 		List<HistoryHTML> trucksHTML = new ArrayList();
 		
 		
