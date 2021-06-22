@@ -86,6 +86,10 @@ public class VariantsServlet {
 			}
 		}
 		
+		if(city.equals("Київ")){
+			oblast = "Київська область";
+		}
+		
 		List<VariantsHtml> listOfVariants = new ArrayList();		
 	
 		DataBaseController base = new DataBaseController();

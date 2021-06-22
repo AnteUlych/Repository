@@ -208,12 +208,29 @@ public class NewRouteServlet2 {
 		double latitude = Double.parseDouble(lng);
 		
 		String googleAddress = request.getParameter("googleAddress");
+		String googleAddress2 = request.getParameter("googleAddress2");
+		String googleAddress1 = request.getParameter("googleAddress1");
+		
 		int totalPrice = Integer.parseInt(request.getParameter("priceFromClient"));
 		
 		String city = request.getParameter("locality");
 		String oblast = request.getParameter("administrative_area_level_1");
 		String valueInfo = request.getParameter("infoClient");
 		
+		if (googleAddress2 != null){
+			try {
+				googleAddress2 = new String(googleAddress2.getBytes(requestEnc), clientEnc);
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+		}
+		if (googleAddress1 != null){
+			try {
+				googleAddress1 = new String(googleAddress1.getBytes(requestEnc), clientEnc);
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+		}
 		if (googleAddress != null){
 			try {
 				googleAddress = new String(googleAddress.getBytes(requestEnc), clientEnc);
@@ -283,7 +300,7 @@ public class NewRouteServlet2 {
 			route.setFromLat(lastRoute.getToLat());
 			route.setFromLon(lastRoute.getToLon());
 			route.setFromOblast(lastRoute.getToOblast());
-			route.setInfo(valueInfo+" + 2 зупинки"); //+point
+			route.setInfo(valueInfo+" через "+googleAddress2+"; "+googleAddress1); //+point
 			route.setKilometrs(kilometrs);
 			route.setPiceForKilometr(priceForKilometr);
 			route.setPrice(totalPrice);
@@ -310,7 +327,7 @@ public class NewRouteServlet2 {
             	history.setAction(Constants.ACTION_HELP);
             }
 			history.setActionDate(new Date());
-			history.setInfo(lastRoute.getToOblast()+" - "+oblast+" "+priceForKilometr+" грн/км");
+			history.setInfo(lastRoute.getToOblast()+" - "+googleAddress2+" - "+googleAddress1+" - "+oblast+" "+priceForKilometr+" грн/км");
 			history.setManager(name);
 			history.setManagerid(id);
 			
@@ -331,7 +348,7 @@ public class NewRouteServlet2 {
 		
 		history.setAction(Constants.ACTION_CALCULATE);
 		history.setActionDate(new Date());
-		history.setInfo(lastRoute.getToOblast()+" - "+oblast+" "+priceForKilometr+" грн/км");
+		history.setInfo(lastRoute.getToOblast()+" - "+googleAddress2+" - "+googleAddress1+" - "+oblast+" "+priceForKilometr+" грн/км");
 		history.setManager(name);
 		history.setManagerid(id);
 		

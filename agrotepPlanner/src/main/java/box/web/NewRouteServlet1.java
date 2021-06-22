@@ -202,12 +202,20 @@ public class NewRouteServlet1 {
 		double latitude = Double.parseDouble(lng);
 		
 		String googleAddress = request.getParameter("googleAddress");
+		String googleAddress1 = request.getParameter("googleAddress1");
 		int totalPrice = Integer.parseInt(request.getParameter("priceFromClient"));
 		
 		String city = request.getParameter("locality");
 		String oblast = request.getParameter("administrative_area_level_1");
 		String valueInfo = request.getParameter("infoClient");
 		
+		if (googleAddress1 != null){
+			try {
+				googleAddress1 = new String(googleAddress1.getBytes(requestEnc), clientEnc);
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+		}
 		if (googleAddress != null){
 			try {
 				googleAddress = new String(googleAddress.getBytes(requestEnc), clientEnc);
@@ -276,7 +284,7 @@ public class NewRouteServlet1 {
 			route.setFromLat(lastRoute.getToLat());
 			route.setFromLon(lastRoute.getToLon());
 			route.setFromOblast(lastRoute.getToOblast());
-			route.setInfo(valueInfo+" + 1 зупинка"); //+point
+			route.setInfo(valueInfo+", через "+googleAddress1); //+point
 			route.setKilometrs(kilometrs);
 			route.setPiceForKilometr(priceForKilometr);
 			route.setPrice(totalPrice);
@@ -303,7 +311,7 @@ public class NewRouteServlet1 {
             	history.setAction(Constants.ACTION_HELP);
             }
 			history.setActionDate(new Date());
-			history.setInfo(lastRoute.getToOblast()+" - "+oblast+" "+priceForKilometr+" грн/км");
+			history.setInfo(lastRoute.getToOblast()+" - "+googleAddress1+" - "+oblast+" "+priceForKilometr+" грн/км"); //change
 			history.setManager(name);
 			history.setManagerid(id);
 			
@@ -324,7 +332,7 @@ public class NewRouteServlet1 {
 		
 		history.setAction(Constants.ACTION_CALCULATE);
 		history.setActionDate(new Date());
-		history.setInfo(lastRoute.getToOblast()+" - "+oblast+" "+priceForKilometr+" грн/км");
+		history.setInfo(lastRoute.getToOblast()+" - "+googleAddress1+" - "+oblast+" "+priceForKilometr+" грн/км"); //change
 		history.setManager(name);
 		history.setManagerid(id);
 		
