@@ -87,9 +87,12 @@ th, td {
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <h5><b><i class="fa fa-child  w3-text-green"></i> Клієнти</b> &nbsp; <button onclick="document.getElementById('subscribe').style.display='block'" class="w3-button w3-xlarge w3-circle w3-white">+</button></h5>
+    <a href="/planner/clientslist">Відобразити клієнтів єдиним списком</a>
   </header>
   <br>
+  
 <div class="w3-container">
+
 <button class="accordion">Одеська область</button>
 <div class="panel">
   <table>

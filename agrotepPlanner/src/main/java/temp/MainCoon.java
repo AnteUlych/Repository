@@ -42,7 +42,15 @@ import box.model.VariantsHtml;
 public class MainCoon {
 
 	public static void main(String[] args){
-	
+		
+		DataBaseController base = new DataBaseController();
+		List<Client> cs = base.getListOfOrderClients();
+		
+		for(Client c:cs){
+			System.out.println(c.getCompany());
+		}
+		
+	/**
 		int needPriceForKm = 17;
 		String city = "Черкаси";
 		String oblast = "Черкаська область";
@@ -66,13 +74,13 @@ public class MainCoon {
 				VariantsHtml v3 = new VariantsHtml(); 		
 				v3.setNextClients(1);
 				listOfVariants.add(v3);
-		
+	
 		
 				for(VariantsHtml v:listOfVariants){
 					System.out.println(v.getNextClients());
 				}
 				
-				
+				*/	
                
 		
 		

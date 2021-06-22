@@ -24,6 +24,10 @@ public class ClientService {
 		return dao.getListOfClients();
 	}
 	
+	public List<Client> getListOfOrderClients(){
+		return dao.getListOfOrderClients();
+	}
+	
 	public void addClient(Client client) {
 		dao.persist(client);
 	}

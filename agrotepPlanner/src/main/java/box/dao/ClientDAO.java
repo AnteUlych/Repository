@@ -23,6 +23,11 @@ public class ClientDAO {
 	public List<Client> getListOfClients(){
 		return em.createQuery("from Client").getResultList();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Client> getListOfOrderClients(){
+	    return em.createQuery("from Client order by company").getResultList();
+	}
 
 	@Transactional
 	public void persist(Client client) {

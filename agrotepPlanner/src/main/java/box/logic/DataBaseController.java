@@ -92,6 +92,10 @@ public class DataBaseController {
 		return clientService.getListOfClients();
 	}
 	
+	public List<Client> getListOfOrderClients(){
+		return clientService.getListOfOrderClients();
+	}
+	
 	public void addClient(Client client) {
 		clientService.addClient(client);
 	}
