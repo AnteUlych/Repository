@@ -144,7 +144,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </tr>
     </c:forEach>
   </table><br>
-  <a href="/planner/timetablepast">Попередні відвантаження</a>
+  <a href="/planner/timetable">Назад</a>
    <br>
   </div>
   <hr>
