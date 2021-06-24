@@ -132,7 +132,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
     </td>
     <td>${trucksh.type}</td>
-    <td><div style="${trucksh.fromOblastStatusStyle}">${trucksh.fromLastOblast}</div></td>
+    <td>-</td>
     
     <td onclick="document.getElementById('subscribe${trucksh.id}').style.display='block'">${trucksh.comment} &nbsp;</td>
     <td class="${weekendStringHeadFirstDay}" onclick="window.location.href='${trucksh.day1Link}'">${trucksh.day1}</td>
