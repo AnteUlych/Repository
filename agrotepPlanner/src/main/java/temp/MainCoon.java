@@ -44,11 +44,12 @@ public class MainCoon {
 	public static void main(String[] args){
 		
 		DataBaseController base = new DataBaseController();
-		List<Client> cs = base.getListOfOrderClients();
+		String p = base.getCircleParametrByRoutes(13, "2021-07-09");
+		//List<Route> cs = base.getLastTenRoutesByTruckId(10, "2021-07-09");
 		
-		for(Client c:cs){
-			System.out.println(c.getCompany());
-		}
+		//for(Route c:cs){
+			System.out.println(p);
+		//}
 		
 	/**
 		int needPriceForKm = 17;

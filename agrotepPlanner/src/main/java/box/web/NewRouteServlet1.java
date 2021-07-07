@@ -85,9 +85,15 @@ public class NewRouteServlet1 {
 		
 		Truck truckForHtml = base.getTruckbyId(truckid);
 		String truckHtml = truckForHtml.getTracktor()+"/"+truckForHtml.getTrailer();
+		String circleinfo = base.getCircleParametrByRoutes(truckid, dateStart);
+		
+		List<Route> routescircle= base.getListOfRoutesForCircle(truckid, dateStart);
 		
 		base.closeConnection();
 		
+		model.addAttribute("routescircle", routescircle);
+		
+		model.addAttribute("circleinfo", circleinfo);
 		model.addAttribute("clients", clients);
 		model.addAttribute("name", name);
 		
@@ -372,7 +378,15 @@ public class NewRouteServlet1 {
 		Truck truckForHtml = base.getTruckbyId(truckid);
 		String truckHtml = truckForHtml.getTracktor()+"/"+truckForHtml.getTrailer();
 		
+        String circleinfo = base.getCircleParametrByRoutes(truckid, dateStart);
+		
+		List<Route> routescircle= base.getListOfRoutesForCircle(truckid, dateStart);
+		
 		base.closeConnection();
+		
+		model.addAttribute("routescircle", routescircle);
+		
+		model.addAttribute("circleinfo", circleinfo);
 		
 		model.addAttribute("clients", clients);
 		model.addAttribute("name", name);

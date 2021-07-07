@@ -153,8 +153,8 @@ public class TrucksServlet {
 		
 		CalendarLogic c = new CalendarLogic();
 		Date today = new Date();
-		String twoDaysBefore = c.getNeedoneDayForDataBasePlusDays(-2);
-		String oneDaysBefore = c.getNeedoneDayForDataBasePlusDays(-1);
+		String twoDaysBefore = c.getNeedoneDayForDataBasePlusDays(-12);
+		String oneDaysBefore = c.getNeedoneDayForDataBasePlusDays(-11);
 		
 		routeForNewTruck.setAddressFrom("вулиц€ јкадем≥ка Ѕутлерова, 8,  ињв, 02000");
 		routeForNewTruck.setAddressTo("вулиц€ јкадем≥ка Ѕутлерова, 8,  ињв, 02000");

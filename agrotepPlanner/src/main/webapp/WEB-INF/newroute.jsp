@@ -87,6 +87,13 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <div class="w3-third">
         <h5>Остання точка: ${lastAddress}</h5>
         
+	 
+         <c:forEach items="${routescircle}" var="r" varStatus="theCount">        
+           <h5> ${r.fromCity} - ${r.toCity} ${r.piceForKilometr} грн/км</h5>    
+          </c:forEach>
+        
+        
+        <h5><b>По рейсу: ${circleinfo}</b></h5><br>
         <form method="post">
         
 		<button type="submit" class="w3-button w3-round-xxlarge w3-blue-grey" name="wait" formnovalidate>Очікувати</button><br>
@@ -105,8 +112,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <p id="demo0"></p>
         <p id="demo1"></p>
 	    <p id="demo2"></p>
+<br>
 
-	
 		
 			
 			<input type="hidden" class="field" name ="street_number" id="street_number" disabled="true">

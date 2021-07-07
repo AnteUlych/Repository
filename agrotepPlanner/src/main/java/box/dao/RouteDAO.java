@@ -35,6 +35,11 @@ public class RouteDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
+	public List<Route> getLastTenRoutesByTruckId(int truckid, String finish){
+		return em.createQuery("from Route where truckid='"+truckid+"' and fromDate <='"+finish+"' order by fromDate desc").setMaxResults(10).getResultList();		
+	}
+	
+	@SuppressWarnings("unchecked")
 	public List<Route> getListOfRoutesByRouteStatusBetweenDates(int routeStatus, String start, String finish){
 		return em.createQuery("from Route where routeStatus='"+routeStatus+"' and fromDate <='"+finish+"' and fromDate >='"+start+"'").getResultList();		
 	}

@@ -207,6 +207,53 @@ public class DataBaseController {
 	public List<Route> getListOfRoutesByRouteStatusBetweenDates(int routeStatus, String start, String finish){
 		return routeService.getListOfRoutesByRouteStatusBetweenDates(routeStatus, start, finish);
 	}
+	
+	public String getCircleParametrByRoutes(int truckid, String finish){
+		List<Route> routes = routeService.getLastTenRoutesByTruckId(truckid, finish);		
+		int distence = 1;
+		int price = 0;
+        int count = 0;
+		
+		for(Route r:routes){
+		
+			if(r.getRouteStatus()==0){
+				//hidden
+			//System.out.println(r.getFromDate()+" "+r.getFromOblast()+" - "+r.getToOblast()+" "+r.getPrice()+" ãðí "+r.getKilometrs()+" km");
+			//hidden
+            distence = distence + r.getKilometrs();
+			price = price + r.getPrice();
+			count++;
+			}
+			if(r.getFromOblast().contains("Êè¿â")){
+				break;
+			}
+
+		}
+		
+		int uahForKm = price/distence;
+				
+		return uahForKm+" ãðí/êì ("+count+")";
+	}
+	
+	public List<Route> getListOfRoutesForCircle(int truckid, String finish){
+		List<Route> routes = routeService.getLastTenRoutesByTruckId(truckid, finish);		
+		List<Route> needRoutes = new ArrayList();
+		for(Route r:routes){
+		
+			needRoutes.add(r);
+			
+			if(r.getFromOblast().contains("Êè¿â")){
+				break;
+			}
+		}
+			
+		return needRoutes;
+	}
+	
+	//test route
+	public List<Route> getLastTenRoutesByTruckId(int truckid, String finish){
+		return routeService.getLastTenRoutesByTruckId(truckid, finish);
+	}
 	//route
 	
 	//manager
