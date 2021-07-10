@@ -114,6 +114,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	  <th class="${weekendStringHeadThirdDay}">${thirdTableHeadDay}</th>
 	  <th class="${weekendStringHeadFourthDay}">${fourthTableHeadDay}</th>
 	  <th class="${weekendStringHeadFifthDay}">${fifthTableHeadDay}</th>
+	  <th>...</th>
+	  <th>...</th>
     </tr>
     
     <c:forEach items="${htmlTrucks}" var="trucksh" varStatus="theCount">
@@ -140,7 +142,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <td class="${weekendStringHeadThirdDay}" onclick="window.location.href='${trucksh.day3Link}'">${trucksh.day3}</td>
     <td class="${weekendStringHeadFourthDay}" onclick="window.location.href='${trucksh.day4Link}'">${trucksh.day4}</td>
     <td class="${weekendStringHeadFifthDay}" onclick="window.location.href='${trucksh.day5Link}'">${trucksh.day5}</td>
-    
+    <td>...</td>
+    <td>...</td>
     </tr>
     </c:forEach>
   </table><br>
