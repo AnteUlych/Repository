@@ -92,7 +92,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <h5><b>По рейсу: ${circleinfo}</b></h5><br>
         <form method="post">
         
-		<button type="submit" class="w3-button w3-round-xxlarge w3-blue-grey" name="wait" formnovalidate>Очікувати</button><br><br>
+		
 		<div class="align-left"><a href="/planner/newRoute/${cellForNewRoute}">Прибрати</a></div><div class="align-right"><a href="/planner/newRoute2/${cellForNewRoute}">Додати пункт вивантаження</a></div><br>
 		<div id="locationField">
 		<p><input id="autocomplete1" name="googleAddress1" class="w3-input w3-border" type="text" placeholder="місце зупинки" required>   </p>
@@ -111,7 +111,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	    <p id="demo2"></p>
 		<p id="demo3"></p>
 	    <p id="demo4"></p>
-		
+		<br><br><button type="submit" class="w3-button w3-round-xxlarge w3-blue-grey" name="wait" formnovalidate>Очікувати</button><br><br>
 			
 			<input type="hidden" class="field" name ="street_number" id="street_number" disabled="true">
 			
@@ -218,7 +218,7 @@ function fillInAddress() {
 	var latitude= place.geometry.location.lat();
 	document.getElementById('demo1').innerHTML = '<input type="hidden" name="lng"  id="demo1" value="'+longitude+'"></input>';
 	document.getElementById('demo2').innerHTML = '<input type="hidden" name="lat" id="demo2" value="'+latitude+'"></input>';
-	document.getElementById('demo0').innerHTML = '<div class="align-left"><button type="submit" class="w3-button w3-round-xxlarge w3-blue" name="calculate">Розрахувати</button></div><div class="align-right"><button class="w3-button w3-round-xxlarge w3-green" name="book">Бронювати</button></div>';
+	document.getElementById('demo0').innerHTML = '<div class="align-left"><button class="w3-button w3-round-xxlarge w3-green" name="book">Бронювати</button></div><div class="align-right"><button type="submit" class="w3-button w3-round-xxlarge w3-blue" name="calculate">Розрахувати</button></div>';
 }
 
 function fillInAddress1() {

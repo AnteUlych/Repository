@@ -155,7 +155,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div id="subscribe${trucksh.id}" class="w3-modal">
   <div class="w3-modal-content  w3-padding-large">
     <div class="w3-container w3-white w3-center">
-      <i onclick="document.getElementById('subscribe${trucksh.id}').style.display='none'" class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent"></i>
+    <i onclick="document.getElementById('subscribe${trucksh.id}').style.display='none'" class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent"></i>
       <p>&nbsp;</p>
 	     <p><b>Коментар для ${trucksh.tracktor}/${trucksh.trailer}</b></p>
 		

@@ -54,7 +54,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-bug"></i> Сталася помилка на стороні сервера, спробуйте зайти в систему знову або покличте дорослих <a href="/planner/login" ><i class="fa fa-sign-out fa-fw"></i></a></b></h5>
+    <h5><b><i class="fa fa-bug"></i> Перезайдіть в систему <a href="/planner/login" ><i class="fa fa-sign-out fa-fw"></i></a></b></h5>
   </header>
 
   <br>
