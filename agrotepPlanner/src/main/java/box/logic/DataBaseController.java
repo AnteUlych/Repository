@@ -240,10 +240,12 @@ public class DataBaseController {
 		List<Route> needRoutes = new ArrayList();
 		for(Route r:routes){
 		
+			if(r.getRouteStatus()==0){ //can`t remember right constant
 			needRoutes.add(r);
 			
 			if(r.getFromOblast().contains("Êè¿â")){
 				break;
+			}
 			}
 		}
 			

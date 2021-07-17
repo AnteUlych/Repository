@@ -87,7 +87,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <div class="w3-third">
         <h5>Остання точка: ${lastAddress}</h5>
                <c:forEach items="${routescircle}" var="r" varStatus="theCount">        
-           <h5> ${r.fromCity} - ${r.toCity} ${r.piceForKilometr} грн/км</h5>    
+           <h5> ${routescircledates[theCount.index]} ${r.fromCity} - ${r.toCity} ${r.piceForKilometr} грн/км</h5>    
           </c:forEach>
         <h5><b>По рейсу: ${circleinfo}</b></h5><br>
         <form method="post">

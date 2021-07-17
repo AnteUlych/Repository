@@ -3,13 +3,34 @@ package box.logic;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+
+import box.model.Route;
 
 public class CalendarLogic {
 
 	String pattern = "yyyy-MM-dd";
 	DateFormat df = new SimpleDateFormat(pattern);
+	
+	public List<String> convertRoutesCircle(List<Route> routes){
+		
+		List <String> dates = new ArrayList();
+				
+		for(Route r:routes){
+			
+			Date date = r.getFromDate();
+			DateFormat df = new SimpleDateFormat("dd.MM");      
+			String stringDate = df.format(date);
+			
+			dates.add(stringDate);
+		}
+		
+		return dates;
+		
+	}
 	
 	public Date addToStringOneMinute(String stringDate){
 		

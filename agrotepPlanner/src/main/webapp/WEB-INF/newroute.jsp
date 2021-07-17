@@ -89,7 +89,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         
 	 
          <c:forEach items="${routescircle}" var="r" varStatus="theCount">        
-           <h5> ${r.fromCity} - ${r.toCity} ${r.piceForKilometr} грн/км</h5>    
+           <h5> ${routescircledates[theCount.index]} ${r.fromCity} - ${r.toCity} ${r.piceForKilometr} грн/км</h5>    
           </c:forEach>
         
         

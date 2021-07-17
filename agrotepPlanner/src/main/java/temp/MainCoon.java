@@ -44,11 +44,18 @@ public class MainCoon {
 	public static void main(String[] args){
 		
 		DataBaseController base = new DataBaseController();
-		String p = base.getCircleParametrByRoutes(13, "2021-07-09");
+		
+		List<Route> routescircle= base.getListOfRoutesForCircle(9, "2021-07-20");
+		CalendarLogic l = new CalendarLogic();
+		
+		List<String> dates = l.convertRoutesCircle(routescircle);
+		for(String d:dates){
+		System.out.println(d);
+		}
 		//List<Route> cs = base.getLastTenRoutesByTruckId(10, "2021-07-09");
 		
 		//for(Route c:cs){
-			System.out.println(p);
+			//System.out.println(p);
 		//}
 		
 	/**

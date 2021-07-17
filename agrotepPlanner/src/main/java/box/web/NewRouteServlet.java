@@ -88,8 +88,12 @@ public class NewRouteServlet {
 		String circleinfo = base.getCircleParametrByRoutes(truckid, dateStart);
 		List<Route> routescircle= base.getListOfRoutesForCircle(truckid, dateStart);
 		
+		CalendarLogic calendar = new CalendarLogic();
+		List<String> routescircledates = calendar.convertRoutesCircle(routescircle);
+		
 		base.closeConnection();
 		
+		model.addAttribute("routescircledates", routescircledates);
 		model.addAttribute("routescircle", routescircle);
 		model.addAttribute("circleinfo", circleinfo);
 	
@@ -240,6 +244,9 @@ public class NewRouteServlet {
 			oblast = "Київська область";
 		}
 		
+		if(oblast.equals("Київська обл.")){
+			oblast = "Київська область";
+		}
 		
 		
 		
@@ -361,7 +368,12 @@ public class NewRouteServlet {
 		
 		List<Route> routescircle= base.getListOfRoutesForCircle(truckid, dateStart);
 		
+		CalendarLogic calendar = new CalendarLogic();
+		List<String> routescircledates = calendar.convertRoutesCircle(routescircle);
+		
 		base.closeConnection();
+		
+		model.addAttribute("routescircledates", routescircledates);
 		
 		model.addAttribute("routescircle", routescircle);
 		
