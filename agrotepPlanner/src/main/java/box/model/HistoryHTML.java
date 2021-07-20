@@ -10,6 +10,7 @@ public class HistoryHTML {
 	private String managerName;
 	private List<Route> routes;
 	private List<String> dates;
+	private int totalKm;
 	
 	public String getTracktor() {
 		return tracktor;
@@ -46,6 +47,12 @@ public class HistoryHTML {
 	}
 	public void setDates(List<String> dates) {
 		this.dates = dates;
+	}
+	public int getTotalKm() {
+		return totalKm;
+	}
+	public void setTotalKm(int totalKm) {
+		this.totalKm = totalKm;
 	}
 
 }

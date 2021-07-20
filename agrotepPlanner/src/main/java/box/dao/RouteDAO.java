@@ -20,6 +20,11 @@ public class RouteDAO {
 	private EntityManager em;
 	
 	@SuppressWarnings("unchecked")
+	public List<Route> getListOfRoutesBetweenDatesByTruckIdForHistory(int truckid, String start, String finish) {
+		return em.createQuery("from Route where truckid='"+truckid+"' and fromDate >='"+start+"' and routeStatus ='0' and fromDate <='"+finish+"'").getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
 	public List<Route> getListOfRoutesBetweenDatesByTruckId(int truckid, String start, String finish) {
 		return em.createQuery("from Route where truckid='"+truckid+"' and fromDate >='"+start+"' and fromDate <='"+finish+"'").getResultList();
 	}

@@ -49,17 +49,21 @@ public class HistoryServlet {
 			histories.setTracktor(t.getTracktor());
 			histories.setTrailer(t.getTrailer());
 			
-			List<Route> routes = base.getListOfRoutesBetweenDatesByTruckId(t.getId(), start, finish);
+			List<Route> routes = base.getListOfRoutesBetweenDatesByTruckIdForHistory(t.getId(), start, finish);
 			
 			histories.setRoutes(routes);
 			
+			int totalKm = 0;
 			for(Route r:routes){
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 				String s = formatter.format(r.getFromDate());			
 				String datetext = calendar.getHeaderDate(s);
 				dateText.add(datetext);
+				
+				totalKm = totalKm + r.getKilometrs();
 			}
 			
+			histories.setTotalKm(totalKm);
 			histories.setDates(dateText);
 			
 			trucksHTML.add(histories);
@@ -68,6 +72,7 @@ public class HistoryServlet {
 		
 		base.closeConnection();
 		
+		model.addAttribute("name", name);
 		model.addAttribute("name", name);
 		model.addAttribute("trucksHTML", trucksHTML);
 		
@@ -89,7 +94,7 @@ public class HistoryServlet {
 		
 		DataBaseController base = new DataBaseController(); 
 		
-		List<Truck> trucks = base.getListOfTrucksSortedByManager();
+		List<Truck> trucks = base.getListOfReadyTrucksSortedByManager();
 		List<HistoryHTML> trucksHTML = new ArrayList();
 		
 		
@@ -102,17 +107,21 @@ public class HistoryServlet {
 			histories.setTracktor(t.getTracktor());
 			histories.setTrailer(t.getTrailer());
 			
-			List<Route> routes = base.getListOfRoutesBetweenDatesByTruckId(t.getId(), start, finish);
+			List<Route> routes = base.getListOfRoutesBetweenDatesByTruckIdForHistory(t.getId(), start, finish);
 			
 			histories.setRoutes(routes);
 			
+			int totalKm = 0;
 			for(Route r:routes){
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 				String s = formatter.format(r.getFromDate());			
 				String datetext = calendar.getHeaderDate(s);
 				dateText.add(datetext);
+				
+				totalKm = totalKm + r.getKilometrs();
 			}
 			
+			histories.setTotalKm(totalKm);
 			histories.setDates(dateText);
 			
 			trucksHTML.add(histories);

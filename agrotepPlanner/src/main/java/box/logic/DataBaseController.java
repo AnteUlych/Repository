@@ -176,8 +176,12 @@ public class DataBaseController {
 	}
 	
 	//route
-	public List<Route> getListOfRoutesBetweenDatesByTruckId(int truckid, String start, String finish) {
+    public List<Route> getListOfRoutesBetweenDatesByTruckId(int truckid, String start, String finish) {
 		return routeService.getListOfRoutesBetweenDatesByTruckId(truckid, start, finish);
+	}
+    
+	public List<Route> getListOfRoutesBetweenDatesByTruckIdForHistory(int truckid, String start, String finish) {
+		return routeService.getListOfRoutesBetweenDatesByTruckIdForHistory(truckid, start, finish);
 	}
 	
 	public boolean isListOfRoutesBetweenDatesByTruckIdExist(int truckid, String start, String finish) {

@@ -18,6 +18,10 @@ public class RouteService {
 	@Autowired
 	private RouteDAO dao;
 	
+	public List<Route> getListOfRoutesBetweenDatesByTruckIdForHistory(int truckid, String start, String finish) {
+		return dao.getListOfRoutesBetweenDatesByTruckIdForHistory(truckid, start, finish);
+	}
+	
 	public List<Route> getListOfRoutesBetweenDatesByTruckId(int truckid, String start, String finish) {
 		return dao.getListOfRoutesBetweenDatesByTruckId(truckid, start, finish);
 	}

@@ -45,12 +45,11 @@ public class MainCoon {
 		
 		DataBaseController base = new DataBaseController();
 		
-		List<Route> routescircle= base.getListOfRoutesForCircle(9, "2021-07-20");
-		CalendarLogic l = new CalendarLogic();
+		List<Route> routes = base.getListOfRoutesBetweenDatesByTruckId(7, "2021-07-09", "2021-07-29");
 		
-		List<String> dates = l.convertRoutesCircle(routescircle);
-		for(String d:dates){
-		System.out.println(d);
+		
+		for(Route d:routes){
+		System.out.println(d.getKilometrs()+" - "+d.getToCity());
 		}
 		//List<Route> cs = base.getLastTenRoutesByTruckId(10, "2021-07-09");
 		
