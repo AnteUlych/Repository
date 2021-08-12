@@ -11,6 +11,8 @@ public class HistoryHTML {
 	private List<Route> routes;
 	private List<String> dates;
 	private int totalKm;
+	private int totalUAH;
+	private double totalUAHforKm;
 	
 	public String getTracktor() {
 		return tracktor;
@@ -53,6 +55,18 @@ public class HistoryHTML {
 	}
 	public void setTotalKm(int totalKm) {
 		this.totalKm = totalKm;
+	}
+	public int getTotalUAH() {
+		return totalUAH;
+	}
+	public void setTotalUAH(int totalUAH) {
+		this.totalUAH = totalUAH;
+	}
+	public double getTotalUAHforKm() {
+		return totalUAHforKm;
+	}
+	public void setTotalUAHforKm(double totalUAHforKm) {
+		this.totalUAHforKm = totalUAHforKm;
 	}
 
 }

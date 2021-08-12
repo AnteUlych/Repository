@@ -1,6 +1,9 @@
 package box.logic;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -254,6 +257,37 @@ public class DataBaseController {
 		}
 			
 		return needRoutes;
+	}
+	
+	public double getMounthUAHforKMByTruckId(int truckid){
+		
+		Date today = new Date();
+		Calendar c = Calendar.getInstance();
+		Calendar c1 = Calendar.getInstance();
+		c.setTime(today);
+		c1.setTime(today);
+		c.add(Calendar.MONTH, -1);
+		c1.add(Calendar.DATE, 1);
+		Date tomorrow = c1.getTime();
+		Date mounthAgo = c.getTime();
+		
+		Format formatter = new SimpleDateFormat("yyyy-MM-dd");
+		String start = formatter.format(mounthAgo);
+		String finish = formatter.format(tomorrow);
+		
+		List<Route> routes = routeService.getListOfRoutesBetweenDatesByTruckIdForHistory(truckid, start, finish);
+		
+		int uah = 0;
+		int km = 1;
+		
+		for(Route r:routes){
+			uah = uah + r.getPrice();
+			km = km + r.getKilometrs();		
+		}
+		
+		double UAHforKm = (int)(Math.round((double)uah/(double)km * 100))/100.0;
+		//System.out.println(start+" "+finish+" "+ uah+ " " + km);
+		return UAHforKm;
 	}
 	
 	//test route

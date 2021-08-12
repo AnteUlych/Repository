@@ -28,9 +28,9 @@ import box.model.Route;
 import box.model.Truck;
 
 @Controller
-public class NewRouteServlet2 {
+public class NewRouteServlet3 {
 	
-	@RequestMapping(value = "/newRoute2/{cellForNewRoute}", method = RequestMethod.GET)
+	@RequestMapping(value = "/newRoute3/{cellForNewRoute}", method = RequestMethod.GET)
 	public String doGet(@PathVariable("cellForNewRoute") String cellForNewRoute,
 			ModelMap model, HttpServletRequest request) {
 		
@@ -121,10 +121,10 @@ public class NewRouteServlet2 {
 		model.addAttribute("valuePrice", "");
 		model.addAttribute("valueInfo", "");
 		
-		return "newroute2";
+		return "newroute3";
 	}
 	
-	@RequestMapping(value = "/newRoute2/{cellForNewRoute}", method = RequestMethod.POST)
+	@RequestMapping(value = "/newRoute3/{cellForNewRoute}", method = RequestMethod.POST)
 	public String doPost(@PathVariable("cellForNewRoute") String cellForNewRoute,
 			ModelMap model, HttpServletRequest request, HttpServletResponse response) {
 		
@@ -212,7 +212,7 @@ if (request.getParameter("repeat") != null) {
 			route.setFromLat(lastRoute.getFromLat());
 			route.setFromLon(lastRoute.getFromLon());
 			route.setFromOblast(lastRoute.getFromOblast());
-			route.setInfo("продовження руху "+lastRoute.getInfo());
+			route.setInfo("продовження руху  "+lastRoute.getInfo());
 			route.setKilometrs(0);
 			route.setPiceForKilometr(lastRoute.getPiceForKilometr());
 			route.setPrice(0);
@@ -255,6 +255,12 @@ if (request.getParameter("repeat") != null) {
 		String lng5 = request.getParameter("lng5"); //+point
 		String lat6 = request.getParameter("lat6"); //+point
 		
+		String lng7 = request.getParameter("lng7"); //+point
+		String lat8 = request.getParameter("lat8"); //+point
+		
+		double longitude8 = Double.parseDouble(lat8); //+point
+		double latitude7 = Double.parseDouble(lng7);  //+point
+		
 		double longitude6 = Double.parseDouble(lat6); //+point
 		double latitude5 = Double.parseDouble(lng5);  //+point
 		
@@ -265,6 +271,7 @@ if (request.getParameter("repeat") != null) {
 		double latitude = Double.parseDouble(lng);
 		
 		String googleAddress = request.getParameter("googleAddress");
+		String googleAddress3 = request.getParameter("googleAddress3");
 		String googleAddress2 = request.getParameter("googleAddress2");
 		String googleAddress1 = request.getParameter("googleAddress1");
 		
@@ -273,6 +280,14 @@ if (request.getParameter("repeat") != null) {
 		String city = request.getParameter("locality");
 		String oblast = request.getParameter("administrative_area_level_1");
 		String valueInfo = request.getParameter("infoClient");
+		
+		if (googleAddress3 != null){
+			try {
+				googleAddress3 = new String(googleAddress3.getBytes(requestEnc), clientEnc);
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+		}
 		
 		if (googleAddress2 != null){
 			try {
@@ -319,6 +334,7 @@ if (request.getParameter("repeat") != null) {
 		
 		googleAddress1 = googleAddress1.split(",")[0];
 		googleAddress2 = googleAddress2.split(",")[0];
+		googleAddress3 = googleAddress3.split(",")[0];
 		
 		if(city.equals("Київ")){
 			oblast = "Київська область";
@@ -334,11 +350,12 @@ if (request.getParameter("repeat") != null) {
 		GoogleLogic google = new GoogleLogic();
 		//int kilometrs = google.calculateDistanceInKmBetweenCoordinates(lastRoute.getToLon(), lastRoute.getToLat(), longitude, latitude);
 		
-		int kilometrs0 = google.calculateDistanceInKmBetweenCoordinates(lastRoute.getToLon(), lastRoute.getToLat(), longitude6, latitude5); //+point
+		int kilometrs0 = google.calculateDistanceInKmBetweenCoordinates(lastRoute.getToLon(), lastRoute.getToLat(), longitude8, latitude7); //+point
+		int kilometrs3 = google.calculateDistanceInKmBetweenCoordinates(longitude8, latitude7, longitude6, latitude5); //+point
 		int kilometrs2 = google.calculateDistanceInKmBetweenCoordinates(longitude6, latitude5, longitude4, latitude3); //+point
 		int kilometrs1 = google.calculateDistanceInKmBetweenCoordinates(longitude4, latitude3, longitude, latitude); //+point
 		
-		int kilometrs = kilometrs0 + kilometrs1+kilometrs2;
+		int kilometrs = kilometrs0 + kilometrs1+kilometrs2+kilometrs3;
 		
 		int	priceForKilometr = 0;
 		
@@ -363,7 +380,7 @@ if (request.getParameter("repeat") != null) {
 			route.setFromLat(lastRoute.getToLat());
 			route.setFromLon(lastRoute.getToLon());
 			route.setFromOblast(lastRoute.getToOblast());
-			route.setInfo(valueInfo+" через "+googleAddress2+"; "+googleAddress1); //+point
+			route.setInfo(valueInfo+" через "+googleAddress3+"; "+googleAddress2+"; "+googleAddress1); //+point
 			route.setKilometrs(kilometrs);
 			route.setPiceForKilometr(priceForKilometr);
 			route.setPrice(totalPrice);
@@ -390,7 +407,7 @@ if (request.getParameter("repeat") != null) {
             	history.setAction(Constants.ACTION_HELP);
             }
 			history.setActionDate(new Date());
-			history.setInfo(lastRoute.getToOblast()+" - "+googleAddress2+" - "+googleAddress1+" - "+oblast+" "+priceForKilometr+" грн/км");
+			history.setInfo(lastRoute.getToOblast()+" - "+googleAddress3+" - "+googleAddress2+" - "+googleAddress1+" - "+oblast+" "+priceForKilometr+" грн/км");
 			history.setManager(name);
 			history.setManagerid(id);
 			
@@ -411,7 +428,7 @@ if (request.getParameter("repeat") != null) {
 		
 		history.setAction(Constants.ACTION_CALCULATE);
 		history.setActionDate(new Date());
-		history.setInfo(lastRoute.getToOblast()+" - "+googleAddress2+" - "+googleAddress1+" - "+oblast+" "+priceForKilometr+" грн/км");
+		history.setInfo(lastRoute.getToOblast()+" - "+googleAddress3+" - "+googleAddress2+" - "+googleAddress1+" - "+oblast+" "+priceForKilometr+" грн/км");
 		history.setManager(name);
 		history.setManagerid(id);
 		
@@ -483,7 +500,7 @@ if (request.getParameter("repeat") != null) {
 		model.addAttribute("valuePrice", totalPrice);
 		model.addAttribute("valueInfo", valueInfo);
 		
-		return "newroute2";
+		return "newroute3";
 	}
 
 }

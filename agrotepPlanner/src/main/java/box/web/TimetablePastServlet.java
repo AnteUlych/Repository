@@ -157,6 +157,9 @@ public class TimetablePastServlet {
 			htmlTruck.setStatusTruck(truck.getStatusTruck());
 			htmlTruck.setComment(truck.getComment());
 			
+			double mounthUAHforKm = base.getMounthUAHforKMByTruckId(truck.getId());
+			htmlTruck.setMounthUAHforKm(mounthUAHforKm);
+			
 			if(truck.getPriority()==Constants.TRUCK_PRIORITY_HIGH){
 				htmlTruck.setColumnUrgentClass("checked");
 				htmlTruck.setColumnUrgentColorClass("w3-lime");
@@ -181,7 +184,7 @@ public class TimetablePastServlet {
 			//first day
 			if(base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), firstDay, secondDay)){
 				Route route = base.getLastRouteBetweenDatesByTruckId(truck.getId(), firstDay, secondDay);
-				if(route.getRouteStatus()==Constants.TRUCK_READY){
+				if(route.getRouteStatus()==Constants.TRUCK_READY||route.getRouteStatus()==Constants.TRUCK_REPEAT){
 					
 					//inRoad					
 					String day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:green\"><span class=\"tooltiptext\">"+
@@ -215,7 +218,7 @@ public class TimetablePastServlet {
 			//second day
 			if(base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), secondDay, thirdDay)){
 				Route route = base.getLastRouteBetweenDatesByTruckId(truck.getId(), secondDay, thirdDay);
-				if(route.getRouteStatus()==Constants.TRUCK_READY){
+				if(route.getRouteStatus()==Constants.TRUCK_READY||route.getRouteStatus()==Constants.TRUCK_REPEAT){
 					
 					//inRoad					
 					String day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:green\"><span class=\"tooltiptext\">"+
@@ -249,7 +252,7 @@ public class TimetablePastServlet {
 			//third day
 			if(base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), thirdDay, fourthDay)){
 				Route route = base.getLastRouteBetweenDatesByTruckId(truck.getId(), thirdDay, fourthDay);
-				if(route.getRouteStatus()==Constants.TRUCK_READY){
+				if(route.getRouteStatus()==Constants.TRUCK_READY||route.getRouteStatus()==Constants.TRUCK_REPEAT){
 					
 					//inRoad					
 					String day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:green\"><span class=\"tooltiptext\">"+
@@ -282,7 +285,7 @@ public class TimetablePastServlet {
 			//fourth
 			if(base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), fourthDay, fifthDay)){
 				Route route = base.getLastRouteBetweenDatesByTruckId(truck.getId(), fourthDay, fifthDay);
-				if(route.getRouteStatus()==Constants.TRUCK_READY){
+				if(route.getRouteStatus()==Constants.TRUCK_READY||route.getRouteStatus()==Constants.TRUCK_REPEAT){
 					
 					//inRoad					
 					String day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:green\"><span class=\"tooltiptext\">"+
@@ -317,7 +320,7 @@ public class TimetablePastServlet {
 			
 			if(base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), fifthDay, sixthDay)){
 				Route route = base.getLastRouteBetweenDatesByTruckId(truck.getId(), fifthDay, sixthDay);
-				if(route.getRouteStatus()==Constants.TRUCK_READY){
+				if(route.getRouteStatus()==Constants.TRUCK_READY||route.getRouteStatus()==Constants.TRUCK_REPEAT){
 					
 					//inRoad					
 					String day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:green\"><span class=\"tooltiptext\">"+
@@ -577,6 +580,9 @@ public class TimetablePastServlet {
 			htmlTruck.setStatusTruck(truck.getStatusTruck());
 			htmlTruck.setComment(truck.getComment());
 			
+			double mounthUAHforKm = base.getMounthUAHforKMByTruckId(truck.getId());
+			htmlTruck.setMounthUAHforKm(mounthUAHforKm);
+			
 			if(truck.getPriority()==Constants.TRUCK_PRIORITY_HIGH){
 				htmlTruck.setColumnUrgentClass("checked");
 				htmlTruck.setColumnUrgentColorClass("w3-lime");
@@ -599,7 +605,7 @@ public class TimetablePastServlet {
 			//first day
 			if(base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), firstDay, secondDay)){
 				Route route = base.getLastRouteBetweenDatesByTruckId(truck.getId(), firstDay, secondDay);
-				if(route.getRouteStatus()==Constants.TRUCK_READY){
+				if(route.getRouteStatus()==Constants.TRUCK_READY||route.getRouteStatus()==Constants.TRUCK_REPEAT){
 					
 					//inRoad					
 					String day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:green\"><span class=\"tooltiptext\">"+
@@ -633,7 +639,7 @@ public class TimetablePastServlet {
 			//second day
 			if(base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), secondDay, thirdDay)){
 				Route route = base.getLastRouteBetweenDatesByTruckId(truck.getId(), secondDay, thirdDay);
-				if(route.getRouteStatus()==Constants.TRUCK_READY){
+				if(route.getRouteStatus()==Constants.TRUCK_READY||route.getRouteStatus()==Constants.TRUCK_REPEAT){
 					
 					//inRoad					
 					String day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:green\"><span class=\"tooltiptext\">"+
@@ -667,7 +673,7 @@ public class TimetablePastServlet {
 			//third day
 			if(base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), thirdDay, fourthDay)){
 				Route route = base.getLastRouteBetweenDatesByTruckId(truck.getId(), thirdDay, fourthDay);
-				if(route.getRouteStatus()==Constants.TRUCK_READY){
+				if(route.getRouteStatus()==Constants.TRUCK_READY||route.getRouteStatus()==Constants.TRUCK_REPEAT){
 					
 					//inRoad					
 					String day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:green\"><span class=\"tooltiptext\">"+
@@ -700,7 +706,7 @@ public class TimetablePastServlet {
 			//fourth
 			if(base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), fourthDay, fifthDay)){
 				Route route = base.getLastRouteBetweenDatesByTruckId(truck.getId(), fourthDay, fifthDay);
-				if(route.getRouteStatus()==Constants.TRUCK_READY){
+				if(route.getRouteStatus()==Constants.TRUCK_READY||route.getRouteStatus()==Constants.TRUCK_REPEAT){
 					
 					//inRoad					
 					String day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:green\"><span class=\"tooltiptext\">"+
@@ -735,7 +741,7 @@ public class TimetablePastServlet {
 			
 			if(base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), fifthDay, sixthDay)){
 				Route route = base.getLastRouteBetweenDatesByTruckId(truck.getId(), fifthDay, sixthDay);
-				if(route.getRouteStatus()==Constants.TRUCK_READY){
+				if(route.getRouteStatus()==Constants.TRUCK_READY||route.getRouteStatus()==Constants.TRUCK_REPEAT){
 					
 					//inRoad					
 					String day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:green\"><span class=\"tooltiptext\">"+

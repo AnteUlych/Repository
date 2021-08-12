@@ -11,6 +11,7 @@ public class Constants {
 	public static final int CLIENT_IN_BLACK_LIST = 1;
 	public static final int CLIENT_NOT_IN_BLACK_LIST  = 0;
 	
+	public static final int TRUCK_REPEAT = 2;
 	public static final int TRUCK_NOT_READY = 1;
 	public static final int TRUCK_READY = 0;
 	

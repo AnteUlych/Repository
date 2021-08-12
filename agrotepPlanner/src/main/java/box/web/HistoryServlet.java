@@ -53,7 +53,9 @@ public class HistoryServlet {
 			
 			histories.setRoutes(routes);
 			
-			int totalKm = 0;
+			int totalKm = 1;
+			int totalUAH = 0; 
+			
 			for(Route r:routes){
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 				String s = formatter.format(r.getFromDate());			
@@ -61,8 +63,13 @@ public class HistoryServlet {
 				dateText.add(datetext);
 				
 				totalKm = totalKm + r.getKilometrs();
+				totalUAH = totalUAH + r.getPrice(); 
 			}
 			
+			double totalUAHforKm = (int)(Math.round((double)totalUAH/(double)totalKm * 100))/100.0; 
+			
+			histories.setTotalUAHforKm(totalUAHforKm); 
+			histories.setTotalUAH(totalUAH); 
 			histories.setTotalKm(totalKm);
 			histories.setDates(dateText);
 			
@@ -111,7 +118,9 @@ public class HistoryServlet {
 			
 			histories.setRoutes(routes);
 			
-			int totalKm = 0;
+			int totalKm = 1;
+			int totalUAH = 0; 
+			
 			for(Route r:routes){
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 				String s = formatter.format(r.getFromDate());			
@@ -119,8 +128,13 @@ public class HistoryServlet {
 				dateText.add(datetext);
 				
 				totalKm = totalKm + r.getKilometrs();
+				totalUAH = totalUAH + r.getPrice(); 
 			}
 			
+            double totalUAHforKm = (int)(Math.round((double)totalUAH/(double)totalKm * 100))/100.0; 
+			
+			histories.setTotalUAHforKm(totalUAHforKm); 
+			histories.setTotalUAH(totalUAH);
 			histories.setTotalKm(totalKm);
 			histories.setDates(dateText);
 			

@@ -195,6 +195,50 @@ public class NewRouteServlet1 {
 			
 		}
 		
+if (request.getParameter("repeat") != null) {
+			
+            Route route = new Route();
+			
+			route.setAddressFrom(lastRoute.getAddressFrom());
+			route.setAddressTo(lastRoute.getAddressTo());
+			route.setFromCity(lastRoute.getFromCity());
+			
+			CalendarLogic calendar = new CalendarLogic();
+			Date fromDate = calendar.addToStringOneMinute(dateStart);
+				
+			route.setFromDate(fromDate);
+			route.setFromLat(lastRoute.getFromLat());
+			route.setFromLon(lastRoute.getFromLon());
+			route.setFromOblast(lastRoute.getFromOblast());
+			route.setInfo("продовження руху "+lastRoute.getInfo());
+			route.setKilometrs(0);
+			route.setPiceForKilometr(lastRoute.getPiceForKilometr());
+			route.setPrice(0);
+			route.setRouteStatus(Constants.TRUCK_REPEAT);
+			route.setToCity(lastRoute.getToCity());
+			
+			Date toDate = calendar.changeStringToDate(dateFinish);
+			
+			route.setToDate(toDate);
+			route.setToLat(lastRoute.getToLat());
+			route.setToLon(lastRoute.getToLon());
+			route.setToOblast(lastRoute.getToOblast());
+			route.setTruckid(truckid);
+			
+			base.addRoute(route);
+			
+			base.closeConnection();
+			
+			try {
+				response.sendRedirect("/planner/timetable");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			return "timetable";
+			
+		}
+		
 		String requestEnc = "ISO-8859-1";
 		String clientEnc = request.getParameter("charset");
 		if (clientEnc == null)
@@ -255,6 +299,8 @@ public class NewRouteServlet1 {
 				e.printStackTrace();
 			}
 		}
+		
+		googleAddress1 = googleAddress1.split(",")[0];
 		
 		if(city.equals("Київ")){
 			oblast = "Київська область";

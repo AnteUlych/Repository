@@ -86,19 +86,18 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
         <h5>Остання точка: ${lastAddress}</h5>
-        
-	 
-         <c:forEach items="${routescircle}" var="r" varStatus="theCount">        
+               <c:forEach items="${routescircle}" var="r" varStatus="theCount">        
            <h5> ${routescircledates[theCount.index]} ${r.fromCity} - ${r.toCity} ${r.piceForKilometr} грн/км</h5>    
           </c:forEach>
-        
-        
-        <h5><b>По рейсу: ${circleinfo}</b></h5><br>
+       <h5><b>По рейсу: ${circleinfo}</b></h5><br>
         <form method="post">
         
-
-		<div class="align-left"></div><div class="align-right"><a href="/planner/newRoute1/${cellForNewRoute}">Додати пункт вивантаження</a></div><br>
+		
+		<div class="align-left"><a href="/planner/newRoute2/${cellForNewRoute}">Прибрати</a></div><div class="align-right"><a href="/planner/newRoute4/${cellForNewRoute}">Додати пункт вивантаження</a></div><br>
 		<div id="locationField">
+		<p><input id="autocomplete3" name="googleAddress3" class="w3-input w3-border" type="text" placeholder="місце зупинки" required>   </p>
+		<p><input id="autocomplete2" name="googleAddress2" class="w3-input w3-border" type="text" placeholder="місце зупинки" required>   </p>
+		<p><input id="autocomplete1" name="googleAddress1" class="w3-input w3-border" type="text" placeholder="місце зупинки" required>   </p>	
         <p><input id="autocomplete" name="googleAddress" class="w3-input w3-border" type="text" placeholder="кінцева точка" required>   </p>
         </div>
 		<p><input class="w3-input w3-border" name="priceFromClient" type="number" placeholder="грн" value="${valuePrice}" required>  </p>
@@ -112,10 +111,14 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <p id="demo0"></p>
         <p id="demo1"></p>
 	    <p id="demo2"></p>
+		<p id="demo3"></p>
+	    <p id="demo4"></p>
+	    <p id="demo5"></p>
+	    <p id="demo6"></p>
+	    <p id="demo7"></p>
+	    <p id="demo8"></p>
+	    
 <br><br><div class="align-left"><button type="submit" class="w3-button w3-round-xxlarge w3-blue-grey" name="wait" formnovalidate>Очікувати</button></div><div class="align-right"><button type="submit" class="w3-button w3-round-xxlarge w3-teal" name="repeat" formnovalidate>Рух</button></div><br>
-<br>
-
-		
 			
 			<input type="hidden" class="field" name ="street_number" id="street_number" disabled="true">
 			
@@ -165,7 +168,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <script>
 
-var placeSearch, autocomplete;
+var placeSearch, autocomplete, autocomplete1, autocomplete2;
 var componentForm = {
 	street_number: 'short_name',
 	route: 'long_name',
@@ -175,12 +178,60 @@ var componentForm = {
 	postal_code: 'short_name'
 };
 
+var componentForm1 = {
+		street_number: 'short_name',
+		route: 'long_name',
+		locality: 'long_name',
+		administrative_area_level_1: 'short_name',
+		country: 'long_name',
+		postal_code: 'short_name'
+	};
+	
+var componentForm2 = {
+		street_number: 'short_name',
+		route: 'long_name',
+		locality: 'long_name',
+		administrative_area_level_1: 'short_name',
+		country: 'long_name',
+		postal_code: 'short_name'
+	};
+var componentForm3 = {
+		street_number: 'short_name',
+		route: 'long_name',
+		locality: 'long_name',
+		administrative_area_level_1: 'short_name',
+		country: 'long_name',
+		postal_code: 'short_name'
+	};
+
 function initAutocomplete() {
 	autocomplete = new google.maps.places.Autocomplete(
 		(document.getElementById('autocomplete')), {
 			types: ['geocode'],			
 componentRestrictions: {country: "UA"}
 		});
+	
+	autocomplete1 = new google.maps.places.Autocomplete(
+			(document.getElementById('autocomplete1')), {
+				types: ['geocode'],			
+componentRestrictions: {country: "UA"}
+			});
+	
+	autocomplete2 = new google.maps.places.Autocomplete(
+			(document.getElementById('autocomplete2')), {
+				types: ['geocode'],			
+componentRestrictions: {country: "UA"}
+			});
+	
+	autocomplete3 = new google.maps.places.Autocomplete(
+			(document.getElementById('autocomplete3')), {
+				types: ['geocode'],			
+componentRestrictions: {country: "UA"}
+			});
+	
+	autocomplete3.addListener('place_changed', fillInAddress3);
+	autocomplete2.addListener('place_changed', fillInAddress2);
+	autocomplete1.addListener('place_changed', fillInAddress1);
 	autocomplete.addListener('place_changed', fillInAddress);
 }
 
@@ -208,6 +259,45 @@ function fillInAddress() {
 	document.getElementById('demo2').innerHTML = '<input type="hidden" name="lat" id="demo2" value="'+latitude+'"></input>';
 	document.getElementById('demo0').innerHTML = '<div class="align-left"><button class="w3-button w3-round-xxlarge w3-green" name="book">Бронювати</button></div><div class="align-right"><button type="submit" class="w3-button w3-round-xxlarge w3-blue" name="calculate">Розрахувати</button></div>';
 }
+
+function fillInAddress1() {
+	
+	var place1 = autocomplete1.getPlace();
+	
+
+			
+	console.log(place1.geometry.location.lng());
+	console.log(place1.geometry.location.lat());
+	var longitude3= place1.geometry.location.lng();
+	var latitude4= place1.geometry.location.lat();
+	document.getElementById('demo3').innerHTML = '<input type="hidden" name="lng3"  id="demo3" value="'+longitude3+'"></input>';
+	document.getElementById('demo4').innerHTML = '<input type="hidden" name="lat4" id="demo4" value="'+latitude4+'"></input>';
+}
+
+function fillInAddress2() {
+	
+	var place2 = autocomplete2.getPlace();
+			
+	console.log(place2.geometry.location.lng());
+	console.log(place2.geometry.location.lat());
+	var longitude5= place2.geometry.location.lng();
+	var latitude6= place2.geometry.location.lat();
+	document.getElementById('demo5').innerHTML = '<input type="hidden" name="lng5"  id="demo5" value="'+longitude5+'"></input>';
+	document.getElementById('demo6').innerHTML = '<input type="hidden" name="lat6" id="demo6" value="'+latitude6+'"></input>';
+}
+
+function fillInAddress3() {
+	
+	var place3 = autocomplete3.getPlace();
+			
+	console.log(place3.geometry.location.lng());
+	console.log(place3.geometry.location.lat());
+	var longitude7= place3.geometry.location.lng();
+	var latitude8= place3.geometry.location.lat();
+	document.getElementById('demo7').innerHTML = '<input type="hidden" name="lng7"  id="demo7" value="'+longitude7+'"></input>';
+	document.getElementById('demo8').innerHTML = '<input type="hidden" name="lat8" id="demo8" value="'+latitude8+'"></input>';
+}
+
 
 
 

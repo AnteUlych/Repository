@@ -43,6 +43,11 @@ public class MainCoon {
 
 	public static void main(String[] args){
 		
+		String input = "â,à";
+		input = input.split("-")[0];
+		System.out.println(input);
+		
+		/**
 		DataBaseController base = new DataBaseController();
 		
 		List<Route> routes = base.getListOfRoutesBetweenDatesByTruckId(7, "2021-07-09", "2021-07-29");

@@ -93,11 +93,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <form method="post">
         
 		
-		<div class="align-left"><a href="/planner/newRoute1/${cellForNewRoute}">Прибрати</a></div><div class="align-right"></div><br>
+		<div class="align-left"><a href="/planner/newRoute1/${cellForNewRoute}">Прибрати</a></div><div class="align-right"><a href="/planner/newRoute3/${cellForNewRoute}">Додати пункт вивантаження</a></div><br>
 		<div id="locationField">
 		<p><input id="autocomplete2" name="googleAddress2" class="w3-input w3-border" type="text" placeholder="місце зупинки" required>   </p>
 		<p><input id="autocomplete1" name="googleAddress1" class="w3-input w3-border" type="text" placeholder="місце зупинки" required>   </p>	
-        <p><input id="autocomplete" name="googleAddress" class="w3-input w3-border" type="text" placeholder="наступне вивантаження" required>   </p>
+        <p><input id="autocomplete" name="googleAddress" class="w3-input w3-border" type="text" placeholder="кінцева точка" required>   </p>
         </div>
 		<p><input class="w3-input w3-border" name="priceFromClient" type="number" placeholder="грн" value="${valuePrice}" required>  </p>
 		<p><input class="w3-input w3-border" name="infoClient" type="text" placeholder="Коментар" value="${valueInfo}" required pattern="[^\\/`\/\x22]+">  </p>
@@ -114,7 +114,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	    <p id="demo4"></p>
 	    <p id="demo5"></p>
 	    <p id="demo6"></p>
-		<br><br><button type="submit" class="w3-button w3-round-xxlarge w3-blue-grey" name="wait" formnovalidate>Очікувати</button><br><br>
+<br><br><div class="align-left"><button type="submit" class="w3-button w3-round-xxlarge w3-blue-grey" name="wait" formnovalidate>Очікувати</button></div><div class="align-right"><button type="submit" class="w3-button w3-round-xxlarge w3-teal" name="repeat" formnovalidate>Рух</button></div><br>
 			
 			<input type="hidden" class="field" name ="street_number" id="street_number" disabled="true">
 			
