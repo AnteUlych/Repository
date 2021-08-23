@@ -29,6 +29,7 @@ public class CalendarTruckHtml {
 	private String comment;
 	
 	private double mounthUAHforKm;
+	private int mounthKm;
 	
 	private String day1Link;
 	private String day2Link;
@@ -211,6 +212,12 @@ public class CalendarTruckHtml {
 	}
 	public void setMounthUAHforKm(double mounthUAHforKm) {
 		this.mounthUAHforKm = mounthUAHforKm;
+	}
+	public int getMounthKm() {
+		return mounthKm;
+	}
+	public void setMounthKm(int mounthKm) {
+		this.mounthKm = mounthKm;
 	}
 
 }

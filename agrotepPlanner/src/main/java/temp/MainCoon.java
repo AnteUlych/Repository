@@ -43,57 +43,10 @@ public class MainCoon {
 
 	public static void main(String[] args){
 		
-		String input = "в,а";
-		input = input.split("-")[0];
-		System.out.println(input);
-		
-		/**
-		DataBaseController base = new DataBaseController();
-		
-		List<Route> routes = base.getListOfRoutesBetweenDatesByTruckId(7, "2021-07-09", "2021-07-29");
+		DataBaseController d = new DataBaseController();
 		
 		
-		for(Route d:routes){
-		System.out.println(d.getKilometrs()+" - "+d.getToCity());
-		}
-		//List<Route> cs = base.getLastTenRoutesByTruckId(10, "2021-07-09");
-		
-		//for(Route c:cs){
-			//System.out.println(p);
-		//}
-		
-	/**
-		int needPriceForKm = 17;
-		String city = "Черкаси";
-		String oblast = "Черкаська область";
-		
-		double longitude = 49.408268;
-		double latitude = 32.016262;
-		
-
-		
-		DataBaseController base = new DataBaseController();
-		List<VariantsHtml> listOfVariants = new ArrayList();
-
-				VariantsHtml v1 = new VariantsHtml(); 		
-				v1.setNextClients(1);
-				listOfVariants.add(v1);
-				
-				VariantsHtml v2 = new VariantsHtml(); 		
-				v2.setNextClients(3);
-				listOfVariants.add(v2);
-				
-				VariantsHtml v3 = new VariantsHtml(); 		
-				v3.setNextClients(1);
-				listOfVariants.add(v3);
-	
-		
-				for(VariantsHtml v:listOfVariants){
-					System.out.println(v.getNextClients());
-				}
-				
-				*/	
-               
+		System.out.println(d.getMounthKm(8));
 		
 		
 	}

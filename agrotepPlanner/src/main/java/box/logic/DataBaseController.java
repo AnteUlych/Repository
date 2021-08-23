@@ -259,6 +259,7 @@ public class DataBaseController {
 		return needRoutes;
 	}
 	
+	//changed from 30 mounth to o1 of each mounth
 	public double getMounthUAHforKMByTruckId(int truckid){
 		
 		Date today = new Date();
@@ -266,7 +267,8 @@ public class DataBaseController {
 		Calendar c1 = Calendar.getInstance();
 		c.setTime(today);
 		c1.setTime(today);
-		c.add(Calendar.MONTH, -1);
+		//c.add(Calendar.MONTH, -1);
+		c.set(Calendar.DAY_OF_MONTH, 1);
 		c1.add(Calendar.DATE, 1);
 		Date tomorrow = c1.getTime();
 		Date mounthAgo = c.getTime();
@@ -286,8 +288,36 @@ public class DataBaseController {
 		}
 		
 		double UAHforKm = (int)(Math.round((double)uah/(double)km * 100))/100.0;
-		//System.out.println(start+" "+finish+" "+ uah+ " " + km);
+		//System.out.println(start+" "+finish+" "+ uah+ " " + km+" "+UAHforKm);
 		return UAHforKm;
+	}
+	
+
+	public int getMounthKm(int truckid){
+		
+		Date today = new Date();
+		Calendar c = Calendar.getInstance();
+		Calendar c1 = Calendar.getInstance();
+		c.setTime(today);
+		c1.setTime(today);
+	
+		c.set(Calendar.DAY_OF_MONTH, 1);
+		c1.add(Calendar.DATE, 1);
+		Date tomorrow = c1.getTime();
+		Date mounthAgo = c.getTime();
+		
+		Format formatter = new SimpleDateFormat("yyyy-MM-dd");
+		String start = formatter.format(mounthAgo);
+		String finish = formatter.format(tomorrow);
+		
+		List<Route> routes = routeService.getListOfRoutesBetweenDatesByTruckIdForHistory(truckid, start, finish);
+
+		int km = 1;
+		
+		for(Route r:routes){
+			km = km + r.getKilometrs();		
+		}
+		return km;
 	}
 	
 	//test route

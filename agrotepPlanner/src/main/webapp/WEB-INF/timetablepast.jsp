@@ -105,7 +105,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <th>№</th>
       <th >!</th>
 	  <th>Логіст</th>
-	  <th>За місяць</th>
+	  <th>[грн/км]</th>
+	  <th>[км]</th>
 	  <th>Авто</th>
 	  <th>Тип</th>
 	  <th>Область</th>
@@ -124,7 +125,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <td>${theCount.index+1}</td>
     <td><input onChange="this.form.submit()" name="checkUrgentBox${trucksh.id}" type="checkbox" ${trucksh.columnUrgentClass}></td>
     <td>${trucksh.managerName}</td>
-      <td>${trucksh.mounthUAHforKm} грн/км</td>
+      <td>${trucksh.mounthUAHforKm}</td>
+      <td>${trucksh.mounthKm}</td>
     <td>
     <div class="tooltip">
     <b>${trucksh.tracktor}</b>

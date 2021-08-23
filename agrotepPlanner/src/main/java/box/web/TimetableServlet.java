@@ -158,7 +158,9 @@ public class TimetableServlet {
 			htmlTruck.setComment(truck.getComment());
 			
 			double mounthUAHforKm = base.getMounthUAHforKMByTruckId(truck.getId());
+			int mounthKm = base.getMounthKm(truck.getId());
 			htmlTruck.setMounthUAHforKm(mounthUAHforKm);
+			htmlTruck.setMounthKm(mounthKm);
 			
 			if(truck.getPriority()==Constants.TRUCK_PRIORITY_HIGH){
 				htmlTruck.setColumnUrgentClass("checked");
@@ -581,7 +583,9 @@ public class TimetableServlet {
 			htmlTruck.setComment(truck.getComment());
 			
 			double mounthUAHforKm = base.getMounthUAHforKMByTruckId(truck.getId());
+			int mounthKm = base.getMounthKm(truck.getId());
 			htmlTruck.setMounthUAHforKm(mounthUAHforKm);
+			htmlTruck.setMounthKm(mounthKm);
 			
 			if(truck.getPriority()==Constants.TRUCK_PRIORITY_HIGH){
 				htmlTruck.setColumnUrgentClass("checked");
