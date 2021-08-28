@@ -8,7 +8,7 @@ import java.net.URLConnection;
 public class GoogleLogic {
 
 	public static final String API_KEU = "AIzaSyDvzr8p07fENAftZAumRG2tdfOE8VJQDwE";
-	public final Double correctkilometr = 1.1;
+	public final Double correctkilometr = 1.15;
 
 	public int calclulatePriceForKilometr(int price, int distance){
 		 int priceForkilometr = price/distance;

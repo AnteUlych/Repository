@@ -34,6 +34,8 @@ public class Truck {
 	private String statusTruck;
 	@Column
 	private String comment;
+	@Column
+	private String truckKey;
 	
 	public int getId() {
 		return id;
@@ -106,5 +108,11 @@ public class Truck {
 	}
 	public void setComment(String comment) {
 		this.comment = comment;
+	}
+	public String getTruckKey() {
+		return truckKey;
+	}
+	public void setTruckKey(String truckKey) {
+		this.truckKey = truckKey;
 	}
 }

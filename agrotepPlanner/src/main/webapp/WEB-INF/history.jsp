@@ -87,7 +87,7 @@ th, td {
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <form method="post">
-    <h5><b><i class="fa fa-hourglass-3   w3-text-yellow"></i> Історія по ТЗ</b> &nbsp; <input type="date" name="start" value="${start}" required> &nbsp; - &nbsp; <input type="date" name="finish" value="${finish}" required> &nbsp; <button type="submit"  class="w3-button w3-xlarge w3-circle w3-white"><i class="fa fa-check" style="width:30px"></i></button></h5>
+    <h5><b><i class="fa fa-hourglass-3   w3-text-yellow"></i> Історія по ТЗ</b> &nbsp; <input type="date" name="start" value="${start}" min="2021-08-01" max="${finish}" required> &nbsp; - &nbsp; <input type="date" name="finish" min="2021-08-01" max="${finish}" value="${finish}" required> &nbsp; <button type="submit"  class="w3-button w3-xlarge w3-circle w3-white"><i class="fa fa-check" style="width:30px"></i></button></h5>
       </form>
   </header>
   <br>
@@ -103,7 +103,6 @@ th, td {
     <td>${route.fromCity}</td>
     <td>${route.toCity}</td>
     <td>${route.price} грн</td>
-    <td>${route.kilometrs} км</td>
     <td>${route.piceForKilometr} грн/км</td>
     <td>${route.info}</td>
   </tr>

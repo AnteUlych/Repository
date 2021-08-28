@@ -260,7 +260,7 @@ public class DataBaseController {
 	}
 	
 	//changed from 30 mounth to o1 of each mounth
-	public double getMounthUAHforKMByTruckId(int truckid){
+	public double getMounthUAHforKMByTruckId(int truckid, int km){
 		
 		Date today = new Date();
 		Calendar c = Calendar.getInstance();
@@ -269,7 +269,7 @@ public class DataBaseController {
 		c1.setTime(today);
 		//c.add(Calendar.MONTH, -1);
 		c.set(Calendar.DAY_OF_MONTH, 1);
-		c1.add(Calendar.DATE, 1);
+		//c1.add(Calendar.DATE, 1);
 		Date tomorrow = c1.getTime();
 		Date mounthAgo = c.getTime();
 		
@@ -280,20 +280,22 @@ public class DataBaseController {
 		List<Route> routes = routeService.getListOfRoutesBetweenDatesByTruckIdForHistory(truckid, start, finish);
 		
 		int uah = 0;
-		int km = 1;
 		
 		for(Route r:routes){
-			uah = uah + r.getPrice();
-			km = km + r.getKilometrs();		
+			uah = uah + r.getPrice();	
 		}
 		
-		double UAHforKm = (int)(Math.round((double)uah/((double)km*1.15) * 100))/100.0; //correction by 15%
-		//System.out.println(start+" "+finish+" "+ uah+ " " + km+" "+UAHforKm);
+		double UAHforKm = (int)(Math.round((double)uah/((double)km) * 100))/100.0; 
+
+		if(km==1){
+			UAHforKm = 0;
+		}
+		
 		return UAHforKm;
 	}
 	
 
-	public int getMounthKm(int truckid){
+	public int getMounthKm(String truckKey){
 		
 		Date today = new Date();
 		Calendar c = Calendar.getInstance();
@@ -302,14 +304,22 @@ public class DataBaseController {
 		c1.setTime(today);
 	
 		c.set(Calendar.DAY_OF_MONTH, 1);
-		c1.add(Calendar.DATE, 1);
+		c1.add(Calendar.DATE, -1);
 		Date tomorrow = c1.getTime();
 		Date mounthAgo = c.getTime();
 		
 		Format formatter = new SimpleDateFormat("yyyy-MM-dd");
 		String start = formatter.format(mounthAgo);
-		String finish = formatter.format(tomorrow);
+		String finish = formatter.format(tomorrow); //yesterday
 		
+		RuptelaLogic ruptela = new RuptelaLogic();
+		int km = ruptela.getKmFromRuptela(start, finish, truckKey);
+		
+		if(km==0){
+			km=1;
+		}
+		
+		/**
 		List<Route> routes = routeService.getListOfRoutesBetweenDatesByTruckIdForHistory(truckid, start, finish);
 
 		int km = 1;
@@ -317,10 +327,12 @@ public class DataBaseController {
 		for(Route r:routes){
 			km = km + r.getKilometrs();		
 		}
-		double doublekm = km*1.15;    //correction by 15% 
-		int resultkm = (int)doublekm; //correction by 15% 
-		return resultkm;              //correction by 15% 
-		//return km;
+		double doublekm = km*1.05;     //correction by 5% 
+		int resultkm = (int)doublekm; //correction by 5% 
+		return resultkm;              //correction by 5% 
+		*/
+		
+		return km;
 	}
 	
 	//test route

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import box.logic.CalendarLogic;
 import box.logic.DataBaseController;
+import box.logic.RuptelaLogic;
 import box.model.HistoryHTML;
 import box.model.Route;
 import box.model.Truck;
@@ -32,7 +33,7 @@ public class HistoryServlet {
 		
         CalendarLogic calendar = new CalendarLogic();	
 		String start = calendar.getNeedoneDayForDataBasePlusDays(-6);
-		String finish = calendar.getNeedoneDayForDataBasePlusDays(1);
+		String finish = calendar.getNeedoneDayForDataBasePlusDays(0);
 		
 		DataBaseController base = new DataBaseController(); 
 		
@@ -53,7 +54,6 @@ public class HistoryServlet {
 			
 			histories.setRoutes(routes);
 			
-			int totalKm = 1;
 			int totalUAH = 0; 
 			
 			for(Route r:routes){
@@ -61,10 +61,12 @@ public class HistoryServlet {
 				String s = formatter.format(r.getFromDate());			
 				String datetext = calendar.getHeaderDate(s);
 				dateText.add(datetext);
-				
-				totalKm = totalKm + r.getKilometrs();
+			
 				totalUAH = totalUAH + r.getPrice(); 
 			}
+			
+			RuptelaLogic ruptela = new RuptelaLogic();
+			int totalKm = ruptela.getKmFromRuptela(start, finish, t.getTruckKey());
 			
 			double totalUAHforKm = (int)(Math.round((double)totalUAH/(double)totalKm * 100))/100.0; 
 			
@@ -118,7 +120,7 @@ public class HistoryServlet {
 			
 			histories.setRoutes(routes);
 			
-			int totalKm = 1;
+	
 			int totalUAH = 0; 
 			
 			for(Route r:routes){
@@ -126,11 +128,12 @@ public class HistoryServlet {
 				String s = formatter.format(r.getFromDate());			
 				String datetext = calendar.getHeaderDate(s);
 				dateText.add(datetext);
-				
-				totalKm = totalKm + r.getKilometrs();
+	
 				totalUAH = totalUAH + r.getPrice(); 
 			}
 			
+			RuptelaLogic ruptela = new RuptelaLogic();
+			int totalKm = ruptela.getKmFromRuptela(start, finish, t.getTruckKey());
             double totalUAHforKm = (int)(Math.round((double)totalUAH/(double)totalKm * 100))/100.0; 
 			
 			histories.setTotalUAHforKm(totalUAHforKm); 

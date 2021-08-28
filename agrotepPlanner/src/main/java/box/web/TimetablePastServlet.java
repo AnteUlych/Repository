@@ -157,8 +157,9 @@ public class TimetablePastServlet {
 			htmlTruck.setStatusTruck(truck.getStatusTruck());
 			htmlTruck.setComment(truck.getComment());
 			
-			double mounthUAHforKm = base.getMounthUAHforKMByTruckId(truck.getId());
-			int mounthKm = base.getMounthKm(truck.getId());
+			
+			int mounthKm = base.getMounthKm(truck.getTruckKey());
+			double mounthUAHforKm = base.getMounthUAHforKMByTruckId(truck.getId(), mounthKm);
 			htmlTruck.setMounthUAHforKm(mounthUAHforKm);
 			htmlTruck.setMounthKm(mounthKm);
 			
@@ -582,8 +583,9 @@ public class TimetablePastServlet {
 			htmlTruck.setStatusTruck(truck.getStatusTruck());
 			htmlTruck.setComment(truck.getComment());
 			
-			double mounthUAHforKm = base.getMounthUAHforKMByTruckId(truck.getId());
-			int mounthKm = base.getMounthKm(truck.getId());
+			
+			int mounthKm = base.getMounthKm(truck.getTruckKey());
+			double mounthUAHforKm = base.getMounthUAHforKMByTruckId(truck.getId(), mounthKm);
 			htmlTruck.setMounthUAHforKm(mounthUAHforKm);
 			htmlTruck.setMounthKm(mounthKm);
 			
