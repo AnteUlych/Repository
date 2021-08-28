@@ -287,7 +287,7 @@ public class DataBaseController {
 			km = km + r.getKilometrs();		
 		}
 		
-		double UAHforKm = (int)(Math.round((double)uah/(double)km * 100))/100.0;
+		double UAHforKm = (int)(Math.round((double)uah/((double)km*1.15) * 100))/100.0; //correction by 15%
 		//System.out.println(start+" "+finish+" "+ uah+ " " + km+" "+UAHforKm);
 		return UAHforKm;
 	}
@@ -317,7 +317,10 @@ public class DataBaseController {
 		for(Route r:routes){
 			km = km + r.getKilometrs();		
 		}
-		return km;
+		double doublekm = km*1.15;    //correction by 15% 
+		int resultkm = (int)doublekm; //correction by 15% 
+		return resultkm;              //correction by 15% 
+		//return km;
 	}
 	
 	//test route
