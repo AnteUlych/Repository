@@ -46,6 +46,13 @@ public class MainCoon {
 		
 			//String requestUrl = "https://api.fm-track.com/objects/a7bad126-1436-11eb-809d-ffcd6f0d46e5/coordinates?version=2&from_datetime=2021-02-15T00:00:01.000Z&to_datetime=2021-02-15T03:00:00.000Z&api_key=A82MBFH6QijEY1RnKTkDL-u3uqdm9nJS";
 		
+		DataBaseController db = new DataBaseController();
+		
+		db.editTruckKmruptela0131tById(16, 5);
+		
+		System.out.println("done");
+		
+		/**
 		RuptelaLogic rl = new RuptelaLogic();
 		
 		List <String> list = new ArrayList();
@@ -92,6 +99,7 @@ public class MainCoon {
 		for(String k:list){
 			System.out.println(rl.getKmFromRuptela("2021-08-01", "2021-08-28", k));
 		}
+		*/
 	}
 	
 	   private static VariantsHtml calculateTheVariant(double cityLongitude, double cityLatitude, int cityCity, String cityName, DataBaseController base, int needPriceForKm, String oblast, String city, double longitude, double latitude){

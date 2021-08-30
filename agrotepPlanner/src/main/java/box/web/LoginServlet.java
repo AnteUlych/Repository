@@ -1,6 +1,7 @@
 package box.web;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import box.logic.Constants;
 import box.logic.DataBaseController;
 import box.model.Manager;
+import box.model.Truck;
 
 @Controller
 @RequestMapping("/login")
@@ -37,6 +39,12 @@ public class LoginServlet {
 		}
 
 		Manager manager = base.getManagersByLoginPass(pass);
+		
+		List <Truck> trucksUrgent = base.getListOfReadyTrucksSortedByManager();
+		for(Truck truck:trucksUrgent){
+			int mounthKm = base.getMounthKm(truck.getTruckKey());
+			base.editTruckKmruptela0131tById(truck.getId(), mounthKm);
+		}
 
 		HttpSession session = request.getSession();
 

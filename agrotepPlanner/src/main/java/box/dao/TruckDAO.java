@@ -81,6 +81,18 @@ public class TruckDAO {
 
 	}
 	
+	@Transactional
+	public void editTruckKmruptela0131tById(int id, int kmruptela0131) {
+		
+		Truck truck = (Truck) em.find(Truck.class, id);
+		truck.setKmruptela0131(kmruptela0131);
+		
+		Truck transaction = em.merge(truck);
+		em.persist(transaction);
+		em.close();
+
+	}
+	
 	public Truck getTruckbyId(int id) {
 		return em.find(Truck.class, id);	
 
@@ -91,5 +103,7 @@ public class TruckDAO {
 				.createQuery("from Truck where tracktor = '" + tracktor + "' and trailer='"+trailer+"'");
 		return (Truck) query.getSingleResult();
 	}
+	
+
 
 }

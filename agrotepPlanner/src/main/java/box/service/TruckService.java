@@ -66,4 +66,8 @@ public class TruckService {
 	public Truck gettruckByTracktorAndTrailer(String tracktor, String trailer) {
 		return dao.gettruckByTracktorAndTrailer(tracktor, trailer);
 	}
+	
+	public void editTruckKmruptela0131tById(int id, int kmruptela0131) {
+		dao.editTruckKmruptela0131tById(id, kmruptela0131);
+	}
 }
