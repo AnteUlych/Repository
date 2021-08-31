@@ -43,7 +43,8 @@ public class LoginServlet {
 		List <Truck> trucksUrgent = base.getListOfReadyTrucksSortedByManager();
 		for(Truck truck:trucksUrgent){
 			int mounthKm = base.getMounthKm(truck.getTruckKey());
-			base.editTruckKmruptela0131tById(truck.getId(), mounthKm);
+			double uahkmruptela0131 = base.getMounthUAHforKMByTruckId(truck.getId(), mounthKm);
+			base.editTruckKmruptela0131tById(truck.getId(), mounthKm, uahkmruptela0131);
 		}
 
 		HttpSession session = request.getSession();

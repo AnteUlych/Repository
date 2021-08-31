@@ -82,10 +82,11 @@ public class TruckDAO {
 	}
 	
 	@Transactional
-	public void editTruckKmruptela0131tById(int id, int kmruptela0131) {
+	public void editTruckKmruptela0131tById(int id, int kmruptela0131, double uahkmruptela0131) {
 		
 		Truck truck = (Truck) em.find(Truck.class, id);
 		truck.setKmruptela0131(kmruptela0131);
+		truck.setUahkmruptela0131(uahkmruptela0131);
 		
 		Truck transaction = em.merge(truck);
 		em.persist(transaction);

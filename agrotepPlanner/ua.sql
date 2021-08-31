@@ -79,7 +79,7 @@ CREATE TABLE `history` (
   `info` varchar(250) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2371 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2373 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,7 +128,7 @@ CREATE TABLE `route` (
   `addressTo` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2097 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2101 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,10 +152,11 @@ CREATE TABLE `truck` (
   `statusTruck` varchar(45) DEFAULT NULL,
   `comment` varchar(100) DEFAULT NULL,
   `truckKey` varchar(100) DEFAULT NULL,
-  `kmruptela0131` int(11) DEFAULT NULL,
+  `kmruptela0131` int(11) DEFAULT '0',
+  `uahkmruptela0131` double DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -171,4 +172,4 @@ CREATE TABLE `truck` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-30 19:57:17
+-- Dump completed on 2021-08-31 17:47:25

@@ -38,6 +38,8 @@ public class Truck {
 	private String truckKey;
 	@Column
 	private int kmruptela0131;
+	@Column
+	private double uahkmruptela0131;
 	
 	public int getId() {
 		return id;
@@ -123,4 +125,11 @@ public class Truck {
 	public void setKmruptela0131(int kmruptela0131) {
 		this.kmruptela0131 = kmruptela0131;
 	}
+	public double getUahkmruptela0131() {
+		return uahkmruptela0131;
+	}
+	public void setUahkmruptela0131(double uahkmruptela0131) {
+		this.uahkmruptela0131 = uahkmruptela0131;
+	}
+
 }

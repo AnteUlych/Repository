@@ -145,7 +145,7 @@ public class TrucksServlet {
 		newTruck.setTracktor(tracktor);
 		newTruck.setTrailer(trailor);
 		newTruck.setType(typetruck);
-		newTruck.setKmruptela0131(0);
+		newTruck.setKmruptela0131(1);
 		
 		base.addTruck(newTruck);
 		int idOfNewTruck = base.gettruckByTracktorAndTrailer(tracktor, trailor).getId();

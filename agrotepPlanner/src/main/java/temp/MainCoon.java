@@ -48,7 +48,7 @@ public class MainCoon {
 		
 		DataBaseController db = new DataBaseController();
 		
-		db.editTruckKmruptela0131tById(16, 5);
+		db.editTruckKmruptela0131tById(16, 101, 101);
 		
 		System.out.println("done");
 		
