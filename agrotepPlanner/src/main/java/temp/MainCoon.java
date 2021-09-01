@@ -48,9 +48,9 @@ public class MainCoon {
 		
 		DataBaseController db = new DataBaseController();
 		
-		db.editTruckKmruptela0131tById(16, 101, 101);
+		System.out.println(db.getMounthKm("7088ac5a-1dc7-11e7-8fff-6be60e3f0f4f"));
 		
-		System.out.println("done");
+		
 		
 		/**
 		RuptelaLogic rl = new RuptelaLogic();

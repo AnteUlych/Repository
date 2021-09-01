@@ -308,13 +308,13 @@ public class DataBaseController {
 		c1.setTime(today);
 	
 		c.set(Calendar.DAY_OF_MONTH, 1);
-		c1.add(Calendar.DATE, -1);
+		//c1.add(Calendar.DATE, 0);  // today
 		Date tomorrow = c1.getTime();
 		Date mounthAgo = c.getTime();
 		
 		Format formatter = new SimpleDateFormat("yyyy-MM-dd");
 		String start = formatter.format(mounthAgo);
-		String finish = formatter.format(tomorrow); //yesterday
+		String finish = formatter.format(tomorrow); //today
 		
 		RuptelaLogic ruptela = new RuptelaLogic();
 		int km = ruptela.getKmFromRuptela(start, finish, truckKey);
