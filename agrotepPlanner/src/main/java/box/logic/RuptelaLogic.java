@@ -14,6 +14,10 @@ public class RuptelaLogic {
 		
 		int km = finishKm-startKm;
 		
+		if(km<0){
+			km = 1;
+		}
+		
 		return km;
 		
 	}
