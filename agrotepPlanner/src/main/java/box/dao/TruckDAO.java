@@ -39,7 +39,7 @@ public class TruckDAO {
 	}
 	
 	@Transactional
-	public void editTruckById(int id, String driver, int managerid, int notReady, String phone, String tracktor, String trailer, String type, String managerName) {
+	public void editTruckById(int id, String driver, int managerid, int notReady, String phone, String tracktor, String trailer, String type, String managerName, String truckKey) {
 		
 		Truck truck = (Truck) em.find(Truck.class, id);	
 		
@@ -51,6 +51,7 @@ public class TruckDAO {
 		truck.setTracktor(tracktor);
 		truck.setTrailer(trailer);
 		truck.setType(type);
+		truck.setTruckKey(truckKey);
 		
 		Truck transaction = em.merge(truck);
 		em.persist(transaction);

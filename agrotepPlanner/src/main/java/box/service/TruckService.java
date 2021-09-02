@@ -39,8 +39,8 @@ public class TruckService {
 		dao.persist(truck);
 	}
 	
-	public void editTruckById(int id, String driver, int managerid, int notReady, String phone, String tracktor, String trailer, String type, String managerName) {
-		dao.editTruckById(id, driver, managerid, notReady, phone, tracktor, trailer, type, managerName);
+	public void editTruckById(int id, String driver, int managerid, int notReady, String phone, String tracktor, String trailer, String type, String managerName, String truckKey) {
+		dao.editTruckById(id, driver, managerid, notReady, phone, tracktor, trailer, type, managerName, truckKey);
 	}
 	
 	public List<Truck> getListOfReadyTrucksSortedByManager() {

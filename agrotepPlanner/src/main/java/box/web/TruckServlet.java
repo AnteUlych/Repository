@@ -100,6 +100,11 @@ public class TruckServlet {
 		String phone = request.getParameter("phone");
 		String typetruck = request.getParameter("typetruck");
 		String manager = request.getParameter("manar");
+		String truckKey = request.getParameter("truckKey");
+		
+		if (truckKey == null){
+			truckKey = "";
+		}
 		
 		if (tracktor != null){
 			try {
@@ -157,7 +162,7 @@ public class TruckServlet {
 		
 		int idOfmanager = m.getId();
 		
-		base.editTruckById(idOfTruck, driver, idOfmanager, notReady, phone, tracktor, trailor, typetruck, manager);
+		base.editTruckById(idOfTruck, driver, idOfmanager, notReady, phone, tracktor, trailor, typetruck, manager, truckKey);
 		base.closeConnection();
 		
 		try {

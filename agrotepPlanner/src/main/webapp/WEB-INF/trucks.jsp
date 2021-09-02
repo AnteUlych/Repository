@@ -70,6 +70,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	  <th>Водій</th>
 	  <th>Телефон</th>
 	  <th>Відповідальний</th>
+	  <th>Руптела</th>
     </tr>
     
     <c:forEach items="${trucks}" var="trucksh" varStatus="theCount">
@@ -80,6 +81,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <td>${trucksh.driver}</td>
     <td>${trucksh.phone}</td>
     <td>${trucksh.managerName}</td>
+    <td>${trucksh.truckKey}</td>
   
     </tr>
     </c:forEach>
@@ -100,6 +102,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	     <p><input pattern="[^\\/`\/\x22]+" name="trailor" class="w3-input w3-border" type="text" placeholder="Причіп" maxlength="19" required></p>
 	     <p><input pattern="[^\\/`\/\x22]+" name="driver" class="w3-input w3-border" type="text" placeholder="Водій" maxlength="40" required></p>
 	     <p><input name="phone" class="w3-input w3-border" type="text" placeholder="Телефон" maxlength="40" required></p>
+	     <p><input pattern="[^\\/`\/\x22]+" name="truckKey" class="w3-input w3-border" type="text" placeholder="Руптела" maxlength="99"></p>
 	     <p>Тип:&nbsp;
 	     <input type="radio" id="tilt" name="typetruck" value="тент" required>
          <label for="tilt">тент</label>

@@ -73,8 +73,8 @@ public class DataBaseController {
 		return truckService.getListOfReadyTrucksSortedByManager();
 	}
 	
-	public void editTruckById(int id, String driver, int managerid, int notReady, String phone, String tracktor, String trailer, String type, String managerName) {
-		truckService.editTruckById(id, driver, managerid, notReady, phone, tracktor, trailer, type, managerName);
+	public void editTruckById(int id, String driver, int managerid, int notReady, String phone, String tracktor, String trailer, String type, String managerName, String truckKey) {
+		truckService.editTruckById(id, driver, managerid, notReady, phone, tracktor, trailer, type, managerName, truckKey);
 	}
 	
 	public void addTruck(Truck truck){

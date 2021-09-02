@@ -78,6 +78,12 @@ public class TrucksServlet {
 		String phone = request.getParameter("phone");
 		String typetruck = request.getParameter("typetruck");
 		String manager = request.getParameter("manar");
+	    String truckKey = request.getParameter("truckKey");
+		
+		if (truckKey == null){
+			truckKey = "";
+		}
+		
 		
 		if (tracktor != null){
 			try {
@@ -146,6 +152,7 @@ public class TrucksServlet {
 		newTruck.setTrailer(trailor);
 		newTruck.setType(typetruck);
 		newTruck.setKmruptela0131(1);
+		newTruck.setTruckKey(truckKey);
 		
 		base.addTruck(newTruck);
 		int idOfNewTruck = base.gettruckByTracktorAndTrailer(tracktor, trailor).getId();
