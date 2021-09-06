@@ -34,6 +34,7 @@ public class LoginServlet {
 		String pass = request.getParameter("pass");
 
 		if (!base.isManagerExisByLoginPass(pass)) {
+	
 			base.closeConnection();
 			return "login";
 		}
