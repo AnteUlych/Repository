@@ -10,6 +10,19 @@
 <link rel="stylesheet" href="<c:url value="/resources/w3.css" />">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
@@ -95,7 +108,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   
   <input onChange="this.form.submit()" value="turnOn" type="checkbox" id="checkNotClosed" name="checkNotClosed" ${htmlFilterNotClosed}>
   <label for="checkNotClosed">Незакриті</label>
-  
+  &nbsp; 
+  &nbsp;
+  <i class="fa fa-search"></i><input style="border: 0px none;" id="myInput" type="text" >
 </div>
 <br>
   <div class="w3-container">
@@ -117,7 +132,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	  <th class="${weekendStringHeadFourthDay}">${fourthTableHeadDay}</th>
 	  <th class="${weekendStringHeadFifthDay}">${fifthTableHeadDay}</th>
     </tr>
-    
+    <tbody id="myTable">
     <c:forEach items="${htmlTrucks}" var="trucksh" varStatus="theCount">
     <tr  class="${trucksh.columnUrgentColorClass}">
     <td>${theCount.index+1}</td>
@@ -147,6 +162,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     
     </tr>
     </c:forEach>
+    </tbody>
   </table><br>
   <a href="/planner/timetablepast">Попередні відвантаження</a>
    <br>
