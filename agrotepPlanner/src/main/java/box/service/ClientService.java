@@ -49,8 +49,12 @@ public class ClientService {
 		return dao.getClientById(id);
 	}
 	
-	public void editClientById(int id, int blacklist, String cargo, String company, String contactPerson, String email, String otherInfo, String payment, String phone, String season, String transportVolume, String typetruck, String warning){
-		dao.editClientById(id, blacklist, cargo, company, contactPerson, email, otherInfo, payment, phone, season, transportVolume, typetruck, warning);
+	public Client getClientByCompany(String company){
+		return dao.getClientByCompany(company);
+	}
+	
+	public void editClientById(int id, int blacklist, String cargo, String company, String contactPerson, String email, String otherInfo, String payment, String phone, String season, String transportVolume, String typetruck, String warning, String driverInstruction){
+		dao.editClientById(id, blacklist, cargo, company, contactPerson, email, otherInfo, payment, phone, season, transportVolume, typetruck, warning, driverInstruction);
 	}
 	
 	

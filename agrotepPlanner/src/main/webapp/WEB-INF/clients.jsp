@@ -68,7 +68,7 @@ th, td {
     <a href="/planner/timetable" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
     <a href="/planner/timetable" class="w3-bar-item w3-button w3-padding"><i class="fa fa-heartbeat w3-text-red"></i>&nbsp; Графік</a>
     <a href="/planner/trucks" class="w3-bar-item w3-button w3-padding"><i class="fa fa-truck w3-text-blue"></i>&nbsp; Автомобілі</a>
-    <a href="/planner/clients" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-child"></i>&nbsp; Клієнти</a>
+    <a href="/planner/clientslist" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-child"></i>&nbsp; Клієнти</a>
     <a href="/planner/managers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-group w3-text-brown"></i>&nbsp; Логісти</a>
     <a href="/planner/statistic" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-line-chart w3-text-pink"></i>&nbsp; Статистика</a>
     <a href="/planner/history" class="w3-bar-item w3-button w3-padding"><i class="fa fa-hourglass-3 w3-text-yellow"></i>&nbsp; Історія</a>
@@ -489,6 +489,7 @@ th, td {
 		 <p><input name="season"  class="w3-input w3-border" type="text" placeholder="Сезонність" maxlength="40" required></p>
 		 <p><input name="cargo"  class="w3-input w3-border" type="text" placeholder="Вантаж" maxlength="40" required></p>
 		 <p><input name="otherInfo"  class="w3-input w3-border" type="text" placeholder="Додаткова інформація" maxlength="149" required></p>
+		 
 		    <p>
   <input type="radio" id="tilt" name="typetruck" value="тент" required>
   <label for="tilt">тент</label>
@@ -498,6 +499,7 @@ th, td {
   <label for="any">тент або реф</label>
 </p>
 <p><textarea name="warning"  class="w3-input w3-border" rows="5" placeholder="Застереження" maxlength="999" required></textarea></p>
+<p><textarea name="driverInstruction" class="w3-input w3-border" rows="5" placeholder="Інструкція для водія" maxlength="999"  required>${clien.driverInstruction}</textarea></p>
 
 		  <br>
 		  <p><button name="button" type="submit" class="w3-button w3-padding-large w3-green w3-margin-bottom" >Створити</button></p>

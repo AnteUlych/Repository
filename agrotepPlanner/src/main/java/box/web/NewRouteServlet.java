@@ -52,6 +52,8 @@ public class NewRouteServlet {
 		List<Client> clientsFromBase = base.getListOfClients();
 		List<ClientForRouteHTML> clients = new ArrayList();
 		
+		List<Client> listOfClientsForChoose = base.getListOfOrderClients();
+
 		for(Client c:clientsFromBase){
 			
 			if(base.isClientHasOblastFromByDirection(c.getId(), lastRoute.getToOblast())){
@@ -93,6 +95,7 @@ public class NewRouteServlet {
 		
 		base.closeConnection();
 		
+		model.addAttribute("listOfClientsForChoose", listOfClientsForChoose);
 		model.addAttribute("routescircledates", routescircledates);
 		model.addAttribute("routescircle", routescircle);
 		model.addAttribute("circleinfo", circleinfo);
@@ -168,6 +171,7 @@ public class NewRouteServlet {
 			route.setToLon(lastRoute.getToLon());
 			route.setToOblast(lastRoute.getToOblast());
 			route.setTruckid(truckid);
+			route.setDriverInstruction("");
 			
 			base.addRoute(route);
 			
@@ -222,6 +226,7 @@ public class NewRouteServlet {
 			route.setToLon(lastRoute.getToLon());
 			route.setToOblast(lastRoute.getToOblast());
 			route.setTruckid(truckid);
+			route.setDriverInstruction(lastRoute.getDriverInstruction());
 			
 			base.addRoute(route);
 			
@@ -292,8 +297,10 @@ public class NewRouteServlet {
 			oblast = "Київська область";
 		}
 		
-		
-		
+		String driverInstruction = "";
+		if(!valueInfo.equals("Клієнт")){
+		driverInstruction = base.getClientByCompany(valueInfo).getDriverInstruction();
+		}
 		
 		GoogleLogic google = new GoogleLogic();
 		int kilometrs = google.calculateDistanceInKmBetweenCoordinates(lastRoute.getToLon(), lastRoute.getToLat(), longitude, latitude);
@@ -327,6 +334,7 @@ public class NewRouteServlet {
 			route.setPrice(totalPrice);
 			route.setRouteStatus(Constants.TRUCK_READY);
 			route.setToCity(city);
+			route.setDriverInstruction(driverInstruction);
 			
 			Date toDate = calendar.changeStringToDate(dateFinish);
 			
@@ -414,9 +422,11 @@ public class NewRouteServlet {
 		
 		CalendarLogic calendar = new CalendarLogic();
 		List<String> routescircledates = calendar.convertRoutesCircle(routescircle);
+		List<Client> listOfClientsForChoose = base.getListOfOrderClients();
 		
 		base.closeConnection();
 		
+		model.addAttribute("listOfClientsForChoose", listOfClientsForChoose);
 		model.addAttribute("routescircledates", routescircledates);
 		
 		model.addAttribute("routescircle", routescircle);

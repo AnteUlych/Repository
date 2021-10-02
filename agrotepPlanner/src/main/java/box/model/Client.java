@@ -45,6 +45,8 @@ public class Client {
 	private int salesId;
 	@Column
 	private String code;
+	@Column
+	private String driverInstruction;
 	
 	public int getId() {
 		return id;
@@ -147,6 +149,12 @@ public class Client {
 	}
 	public void setCode(String code) {
 		this.code = code;
+	}
+	public String getDriverInstruction() {
+		return driverInstruction;
+	}
+	public void setDriverInstruction(String driverInstruction) {
+		this.driverInstruction = driverInstruction;
 	}
 	
 

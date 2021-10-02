@@ -95,6 +95,10 @@ public class DataBaseController {
 	//truck
 	
 	//client
+	public Client getClientByCompany(String company){
+		return clientService.getClientByCompany(company);
+	}
+	
 	public List<Client> getListOfClients(){
 		return clientService.getListOfClients();
 	}
@@ -119,8 +123,8 @@ public class DataBaseController {
 		return clientService.getClientById(id);
 	}
 	
-	public void editClientById(int id, int blacklist, String cargo, String company, String contactPerson, String email, String otherInfo, String payment, String phone, String season, String transportVolume, String typetruck, String warning){
-		clientService.editClientById(id, blacklist, cargo, company, contactPerson, email, otherInfo, payment, phone, season, transportVolume, typetruck, warning);
+	public void editClientById(int id, int blacklist, String cargo, String company, String contactPerson, String email, String otherInfo, String payment, String phone, String season, String transportVolume, String typetruck, String warning, String driverInstruction){
+		clientService.editClientById(id, blacklist, cargo, company, contactPerson, email, otherInfo, payment, phone, season, transportVolume, typetruck, warning, driverInstruction);
 	}
 	
 	public List<Client> getListOfClientsByOblastFtomAndOblastTo(String oblastFrom, String oblastTo){

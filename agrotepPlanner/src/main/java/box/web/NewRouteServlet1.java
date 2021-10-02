@@ -52,6 +52,8 @@ public class NewRouteServlet1 {
 		List<Client> clientsFromBase = base.getListOfClients();
 		List<ClientForRouteHTML> clients = new ArrayList();
 		
+		List<Client> listOfClientsForChoose = base.getListOfOrderClients();
+		
 		for(Client c:clientsFromBase){
 			
 			if(base.isClientHasOblastFromByDirection(c.getId(), lastRoute.getToOblast())){
@@ -94,6 +96,7 @@ public class NewRouteServlet1 {
 		
 		base.closeConnection();
 		
+		model.addAttribute("listOfClientsForChoose", listOfClientsForChoose);
 		model.addAttribute("routescircledates", routescircledates);
 		
 		model.addAttribute("routescircle", routescircle);
@@ -170,6 +173,7 @@ public class NewRouteServlet1 {
 			route.setToLon(lastRoute.getToLon());
 			route.setToOblast(lastRoute.getToOblast());
 			route.setTruckid(truckid);
+			route.setDriverInstruction("");
 			
 			base.addRoute(route);
 			
@@ -224,6 +228,7 @@ if (request.getParameter("repeat") != null) {
 			route.setToLon(lastRoute.getToLon());
 			route.setToOblast(lastRoute.getToOblast());
 			route.setTruckid(truckid);
+			route.setDriverInstruction(lastRoute.getDriverInstruction());
 			
 			base.addRoute(route);
 			
@@ -301,6 +306,7 @@ if (request.getParameter("repeat") != null) {
 		}
 		
 		googleAddress1 = googleAddress1.split(",")[0];
+	//	googleAddress1 = googleAddress1.replaceAll(", Україна", "");
 		
 		if(city.equals("Київ")){
 			oblast = "Київська область";
@@ -310,6 +316,10 @@ if (request.getParameter("repeat") != null) {
 			oblast = "Київська область";
 		}
 		
+		String driverInstruction = "";
+		if(!valueInfo.equals("Клієнт")){
+		driverInstruction = base.getClientByCompany(valueInfo).getDriverInstruction();
+		}
 		
 		
 		
@@ -350,6 +360,7 @@ if (request.getParameter("repeat") != null) {
 			route.setPrice(totalPrice);
 			route.setRouteStatus(Constants.TRUCK_READY);
 			route.setToCity(city);
+			route.setDriverInstruction(driverInstruction);
 			
 			Date toDate = calendar.changeStringToDate(dateFinish);
 			
@@ -438,9 +449,11 @@ if (request.getParameter("repeat") != null) {
 		
 		CalendarLogic calendar = new CalendarLogic();
 		List<String> routescircledates = calendar.convertRoutesCircle(routescircle);
+		List<Client> listOfClientsForChoose = base.getListOfOrderClients();
 		
 		base.closeConnection();
 		
+		model.addAttribute("listOfClientsForChoose", listOfClientsForChoose);
 		model.addAttribute("routescircledates", routescircledates);
 		
 		model.addAttribute("routescircle", routescircle);

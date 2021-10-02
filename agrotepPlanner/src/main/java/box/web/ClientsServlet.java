@@ -253,6 +253,15 @@ public class ClientsServlet {
 		String otherInfo = request.getParameter("otherInfo");
 		String typetruck = request.getParameter("typetruck");
 		String warning = request.getParameter("warning");
+		String driverInstruction = request.getParameter("driverInstruction");
+		
+		if (driverInstruction != null){
+			try {
+				driverInstruction = new String(driverInstruction.getBytes(requestEnc), clientEnc);
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+		}
 		
 		if (company != null){
 			try {
@@ -353,6 +362,7 @@ public class ClientsServlet {
 			client.setTransportVolume(transportVolume);
 			client.setTypetruck(typetruck);
 			client.setWarning(warning);
+			client.setDriverInstruction(driverInstruction);
 			
 			base.addClient(client);
 			

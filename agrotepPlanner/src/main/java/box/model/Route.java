@@ -49,6 +49,8 @@ public class Route {
 	private String addressFrom;
 	@Column
 	private String addressTo;
+	@Column
+	private String driverInstruction;
 	
 	public int getId() {
 		return id;
@@ -163,6 +165,12 @@ public class Route {
 	}
 	public void setAddressTo(String addressTo) {
 		this.addressTo = addressTo;
+	}
+	public String getDriverInstruction() {
+		return driverInstruction;
+	}
+	public void setDriverInstruction(String driverInstruction) {
+		this.driverInstruction = driverInstruction;
 	}
 	
 }

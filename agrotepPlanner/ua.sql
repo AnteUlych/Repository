@@ -40,9 +40,10 @@ CREATE TABLE `client` (
   `salesId` int(11) NOT NULL,
   `company` varchar(45) DEFAULT NULL,
   `code` varchar(11) NOT NULL,
+  `driverInstruction` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -79,7 +80,7 @@ CREATE TABLE `history` (
   `info` varchar(250) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2373 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2404 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,13 +123,14 @@ CREATE TABLE `route` (
   `price` int(11) DEFAULT NULL,
   `kilometrs` int(11) DEFAULT NULL,
   `piceForKilometr` int(11) DEFAULT NULL,
-  `info` varchar(400) DEFAULT NULL,
+  `info` varchar(700) DEFAULT NULL,
   `routeStatus` int(11) DEFAULT NULL,
   `addressFrom` varchar(100) DEFAULT NULL,
   `addressTo` varchar(100) DEFAULT NULL,
+  `driverInstruction` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2101 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2127 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -156,7 +158,7 @@ CREATE TABLE `truck` (
   `uahkmruptela0131` double DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -172,4 +174,4 @@ CREATE TABLE `truck` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-31 17:47:25
+-- Dump completed on 2021-10-02 17:18:52

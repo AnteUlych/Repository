@@ -63,7 +63,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="/planner/timetable" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
     <a href="/planner/timetable" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-heartbeat"></i>&nbsp; Графік</a>
     <a href="/planner/trucks" class="w3-bar-item w3-button w3-padding"><i class="fa fa-truck w3-text-blue"></i>&nbsp; Автомобілі</a>
-    <a href="/planner/clients" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-child w3-text-green"></i>&nbsp;  Клієнти</a>
+    <a href="/planner/clientslist" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-child w3-text-green"></i>&nbsp;  Клієнти</a>
     <a href="/planner/managers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-group w3-text-brown"></i>&nbsp; Логісти</a>
     <a href="/planner/statistic" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-line-chart w3-text-pink"></i>&nbsp; Статистика</a>
     <a href="/planner/history" class="w3-bar-item w3-button w3-padding"><i class="fa fa-hourglass-3 w3-text-yellow"></i>&nbsp; Історія</a>
@@ -101,7 +101,14 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <p><input id="autocomplete" name="googleAddress" class="w3-input w3-border" type="text" placeholder="кінцева точка" required>   </p>
         </div>
 		<p><input class="w3-input w3-border" name="priceFromClient" type="number" placeholder="грн" value="${valuePrice}" required>  </p>
-		<p><input class="w3-input w3-border" name="infoClient" type="text" placeholder="Коментар" value="${valueInfo}" required pattern="[^\\/`\/\x22]+">  </p>
+			<p>
+		   <select class="w3-input w3-border"  name="infoClient">
+           <option value="Клієнт" selected>Клієнт</option>
+           <c:forEach items="${listOfClientsForChoose}" var="comp" varStatus="theCount">
+           <option value="${comp.company}">${comp.company}</option>
+           </c:forEach>
+           </select>
+       </p>
 		<br>
         <p>${calculateTo}</p>
 		<p>${priceForKm}</p>

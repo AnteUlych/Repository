@@ -63,7 +63,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="/planner/timetable" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
     <a href="/planner/timetable" class="w3-bar-item w3-button w3-padding"><i class="fa fa-heartbeat w3-text-red"></i>&nbsp; Графік</a>
     <a href="/planner/trucks" class="w3-bar-item w3-button w3-padding"><i class="fa fa-truck w3-text-blue"></i>&nbsp; Автомобілі</a>
-    <a href="/planner/clients" class="w3-bar-item w3-button w3-padding  w3-blue"><i class="	fa fa-child"></i>&nbsp;  Клієнти</a>
+    <a href="/planner/clientslist" class="w3-bar-item w3-button w3-padding  w3-blue"><i class="	fa fa-child"></i>&nbsp;  Клієнти</a>
     <a href="/planner/managers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-group w3-text-brown"></i>&nbsp; Логісти</a>
     <a href="/planner/statistic" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-line-chart w3-text-pink"></i>&nbsp; Статистика</a>
     <a href="/planner/history" class="w3-bar-item w3-button w3-padding"><i class="fa fa-hourglass-3 w3-text-yellow"></i>&nbsp; Історія</a>
@@ -102,6 +102,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
    <br>
    <i class="fa fa-bullhorn" style="width:30px"> </i> Застереження:<br>
    ${clien.warning}<br><br>
+   <i class="fa fa-fax" style="width:30px"> </i> Інструкція для водія:<br>
+   ${clien.driverInstruction}<br>
+   <br>
    ${clien.creatingDate}
    <br>
    <br>
@@ -169,6 +172,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <label for="any">тент або реф</label>
 </p>
 <p><textarea name="warning" class="w3-input w3-border" rows="5" placeholder="Застереження" maxlength="999"  required>${clien.warning}</textarea></p>
+<p><textarea name="driverInstruction" class="w3-input w3-border" rows="5" placeholder="Інструкція для водія" maxlength="999"  required>${clien.driverInstruction}</textarea></p>
 <p><input type="checkbox" name="toblacklist" value="yesToBlackList" ${checkBlackList} > Додати в чорний список</p>
 		  <br>
 		  <p><button name="button" type="submit" class="w3-button w3-padding-large w3-blue w3-margin-bottom" >Змінити</button></p>

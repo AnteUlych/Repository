@@ -99,6 +99,7 @@ public class ClientServlet {
 			String oblastFrom = request.getParameter("oblastFrom");
 			String oblastTo = request.getParameter("oblastTo");
 			String directioninfo = request.getParameter("directioninfo");
+		
 			
 			if (oblastFrom == null){
 				oblastFrom=" ";
@@ -156,10 +157,19 @@ public class ClientServlet {
 			String typetruck = request.getParameter("typetruck");
 			String warning = request.getParameter("warning");
 			String toblacklist = request.getParameter("toblacklist");
+			String driverInstruction = request.getParameter("driverInstruction");
 			
 			int blackListForClient = Constants.CLIENT_NOT_IN_BLACK_LIST;
 			if(toblacklist!=null){
 				blackListForClient = Constants.CLIENT_IN_BLACK_LIST;
+			}
+			
+			if (driverInstruction != null){
+				try {
+					driverInstruction = new String(driverInstruction.getBytes(requestEnc), clientEnc);
+				} catch (UnsupportedEncodingException e) {
+					e.printStackTrace();
+				}
 			}
 			
 			if (company != null){
@@ -240,7 +250,7 @@ public class ClientServlet {
 				}
 			}
 			
-			base.editClientById(idOfClient, blackListForClient, cargo, company, contactPerson, email, otherInfo, payment, phone, season, transportVolume, typetruck, warning);
+			base.editClientById(idOfClient, blackListForClient, cargo, company, contactPerson, email, otherInfo, payment, phone, season, transportVolume, typetruck, warning, driverInstruction);
 			
 			
 		}

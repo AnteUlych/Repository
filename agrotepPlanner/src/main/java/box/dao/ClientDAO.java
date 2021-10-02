@@ -42,12 +42,18 @@ public class ClientDAO {
 		return (Client) query.getSingleResult();
 	}
 	
+	public Client getClientByCompany(String company){
+		Query query = em
+				.createQuery("from Client where company = '" + company + "'");
+		return (Client) query.getSingleResult();
+	}
+	
 	public Client getClientById(int id){
 		Client client = (Client) em.find(Client.class, id);
 		return client;
 	}
 	
-	public void editClientById(int id, int blacklist, String cargo, String company, String contactPerson, String email, String otherInfo, String payment, String phone, String season, String transportVolume, String typetruck, String warning){
+	public void editClientById(int id, int blacklist, String cargo, String company, String contactPerson, String email, String otherInfo, String payment, String phone, String season, String transportVolume, String typetruck, String warning, String driverInstruction){
 		
 		Client client = (Client) em.find(Client.class, id);
 
@@ -63,6 +69,7 @@ public class ClientDAO {
 		client.setTransportVolume(transportVolume);
 		client.setTypetruck(typetruck);
 		client.setWarning(warning);
+		client.setDriverInstruction(driverInstruction);
 
 		Client transaction = em.merge(client);
 		em.persist(transaction);

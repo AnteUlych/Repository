@@ -46,9 +46,10 @@ public class MainCoon {
 		
 			//String requestUrl = "https://api.fm-track.com/objects/a7bad126-1436-11eb-809d-ffcd6f0d46e5/coordinates?version=2&from_datetime=2021-02-15T00:00:01.000Z&to_datetime=2021-02-15T03:00:00.000Z&api_key=A82MBFH6QijEY1RnKTkDL-u3uqdm9nJS";
 		
-		DataBaseController db = new DataBaseController();
-		
-		System.out.println(db.getMounthKm("7088ac5a-1dc7-11e7-8fff-6be60e3f0f4f"));
+		    String str = "Сонячне Закарпаття Плюс ; II. Київ, Україна; III. Житомир, Житомирська область, Україна; IV. Хмельницький, Хмельницька область, Україна; V. Тернопіль, Тернопільська область, Україна";
+		     str = str.replaceAll(", Україна", "");
+		     System.out.println(str);
+		//System.out.println(db.getMounthKm("7088ac5a-1dc7-11e7-8fff-6be60e3f0f4f"));
 		
 		
 		
