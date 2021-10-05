@@ -192,9 +192,8 @@ public class TimetableServlet {
 					//inRoad					
 					String day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:green\"><span class=\"tooltiptext\">"+
 							route.getFromCity()+" - "+ route.getToCity()+",<br>"+ route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км"+
-							"<br><br><button onclick='navigator.clipboard.writeText(\""+
-					route.getDriverInstruction()+
-					"\")' "+ "class=\"w3-button w3-padding-small w3-black\"><i style=\"color:white\" class=\"fa fa-skype\"></i></button>"+
+							"<br><br><button onclick=\"myFunctionAlert('"+"До уваги водія: "+route.getDriverInstruction()+"')\" "+
+					 "class=\"w3-button w3-padding-small w3-black\"><i style=\"color:white\" class=\"fa fa-skype\"></i></button>"+
 							 "</span></i></center>";
 					
 					String day1Link ="/planner/route/"+truck.getId()+"&"+firstDay+"&"+secondDay;
@@ -230,9 +229,8 @@ public class TimetableServlet {
 					//inRoad					
 					String day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:green\"><span class=\"tooltiptext\">"+
 							route.getFromCity()+" - "+ route.getToCity()+",<br>"+ route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км"+
-							"<br><br><button onclick='navigator.clipboard.writeText(\""+
-					route.getDriverInstruction()+
-					"\")' "+ "class=\"w3-button w3-padding-small w3-black\"><i style=\"color:white\" class=\"fa fa-skype\"></i></button>"+
+							"<br><br><button onclick=\"myFunctionAlert('"+"До уваги водія: "+route.getDriverInstruction()+"')\" "+
+					 "class=\"w3-button w3-padding-small w3-black\"><i style=\"color:white\" class=\"fa fa-skype\"></i></button>"+
 							 "</span></i></center>";
 					
 					String day2Link ="/planner/route/"+truck.getId()+"&"+secondDay+"&"+thirdDay;
@@ -268,10 +266,9 @@ public class TimetableServlet {
 					//inRoad					
 					String day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:green\"><span class=\"tooltiptext\">"+
 							route.getFromCity()+" - "+ route.getToCity()+",<br>"+ route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км"+
-									"<br><br><button onclick='navigator.clipboard.writeText(\""+
-							route.getDriverInstruction()+
-							"\")' "+ "class=\"w3-button w3-padding-small w3-black\"><i style=\"color:white\" class=\"fa fa-skype\"></i></button>"+
-									 "</span></i></center>";
+							"<br><br><button onclick=\"myFunctionAlert('"+"До уваги водія: "+route.getDriverInstruction()+"')\" "+
+					 "class=\"w3-button w3-padding-small w3-black\"><i style=\"color:white\" class=\"fa fa-skype\"></i></button>"+
+							 "</span></i></center>";
 					
 					String day3Link ="/planner/route/"+truck.getId()+"&"+thirdDay+"&"+fourthDay;
 					
@@ -305,9 +302,8 @@ public class TimetableServlet {
 					//inRoad					
 					String day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:green\"><span class=\"tooltiptext\">"+
 							route.getFromCity()+" - "+ route.getToCity()+",<br>"+ route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км"+
-							"<br><br><button onclick='navigator.clipboard.writeText(\""+
-					route.getDriverInstruction()+
-					"\")' "+ "class=\"w3-button w3-padding-small w3-black\"><i style=\"color:white\" class=\"fa fa-skype\"></i></button>"+
+							"<br><br><button onclick=\"myFunctionAlert('"+"До уваги водія: "+route.getDriverInstruction()+"')\" "+
+					 "class=\"w3-button w3-padding-small w3-black\"><i style=\"color:white\" class=\"fa fa-skype\"></i></button>"+
 							 "</span></i></center>";
 					
 					String day4Link ="/planner/route/"+truck.getId()+"&"+fourthDay+"&"+fifthDay;
@@ -344,9 +340,8 @@ public class TimetableServlet {
 					//inRoad					
 					String day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:green\"><span class=\"tooltiptext\">"+
 							route.getFromCity()+" - "+ route.getToCity()+",<br>"+ route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км"+
-							"<br><br><button onclick='navigator.clipboard.writeText(\""+
-					route.getDriverInstruction()+
-					"\")' "+ "class=\"w3-button w3-padding-small w3-black\"><i style=\"color:white\" class=\"fa fa-skype\"></i></button>"+
+							"<br><br><button onclick=\"myFunctionAlert('"+"До уваги водія: "+route.getDriverInstruction()+"')\" "+
+					 "class=\"w3-button w3-padding-small w3-black\"><i style=\"color:white\" class=\"fa fa-skype\"></i></button>"+
 							 "</span></i></center>";
 					
 					String day5Link ="/planner/route/"+truck.getId()+"&"+fifthDay+"&"+sixthDay;
@@ -636,9 +631,8 @@ public class TimetableServlet {
 					//inRoad					
 					String day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:green\"><span class=\"tooltiptext\">"+
 							route.getFromCity()+" - "+ route.getToCity()+",<br>"+ route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км"+
-							"<br><br><button onclick='navigator.clipboard.writeText(\""+
-					route.getDriverInstruction()+
-					"\")' "+ "class=\"w3-button w3-padding-small w3-black\"><i style=\"color:white\" class=\"fa fa-skype\"></i></button>"+
+							"<br><br><button onclick=\"myFunctionAlert('"+"До уваги водія: "+route.getDriverInstruction()+"')\" "+
+					 "class=\"w3-button w3-padding-small w3-black\"><i style=\"color:white\" class=\"fa fa-skype\"></i></button>"+
 							 "</span></i></center>";
 					
 					String day1Link ="/planner/route/"+truck.getId()+"&"+firstDay+"&"+secondDay;
@@ -674,9 +668,8 @@ public class TimetableServlet {
 					//inRoad					
 					String day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:green\"><span class=\"tooltiptext\">"+
 							route.getFromCity()+" - "+ route.getToCity()+",<br>"+ route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км"+
-							"<br><br><button onclick='navigator.clipboard.writeText(\""+
-					route.getDriverInstruction()+
-					"\")' "+ "class=\"w3-button w3-padding-small w3-black\"><i style=\"color:white\" class=\"fa fa-skype\"></i></button>"+
+							"<br><br><button onclick=\"myFunctionAlert('"+"До уваги водія: "+route.getDriverInstruction()+"')\" "+
+					 "class=\"w3-button w3-padding-small w3-black\"><i style=\"color:white\" class=\"fa fa-skype\"></i></button>"+
 							 "</span></i></center>";
 					
 					String day2Link ="/planner/route/"+truck.getId()+"&"+secondDay+"&"+thirdDay;
@@ -712,9 +705,8 @@ public class TimetableServlet {
 					//inRoad					
 					String day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:green\"><span class=\"tooltiptext\">"+
 							route.getFromCity()+" - "+ route.getToCity()+",<br>"+ route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км"+
-							"<br><br><button onclick='navigator.clipboard.writeText(\""+
-					route.getDriverInstruction()+
-					"\")' "+ "class=\"w3-button w3-padding-small w3-black\"><i style=\"color:white\" class=\"fa fa-skype\"></i></button>"+
+							"<br><br><button onclick=\"myFunctionAlert('"+"До уваги водія: "+route.getDriverInstruction()+"')\" "+
+					 "class=\"w3-button w3-padding-small w3-black\"><i style=\"color:white\" class=\"fa fa-skype\"></i></button>"+
 							 "</span></i></center>";
 					
 					String day3Link ="/planner/route/"+truck.getId()+"&"+thirdDay+"&"+fourthDay;
@@ -749,9 +741,8 @@ public class TimetableServlet {
 					//inRoad					
 					String day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:green\"><span class=\"tooltiptext\">"+
 							route.getFromCity()+" - "+ route.getToCity()+",<br>"+ route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км"+
-							"<br><br><button onclick='navigator.clipboard.writeText(\""+
-					route.getDriverInstruction()+
-					"\")' "+ "class=\"w3-button w3-padding-small w3-black\"><i style=\"color:white\" class=\"fa fa-skype\"></i></button>"+
+							"<br><br><button onclick=\"myFunctionAlert('"+"До уваги водія: "+route.getDriverInstruction()+"')\" "+
+					 "class=\"w3-button w3-padding-small w3-black\"><i style=\"color:white\" class=\"fa fa-skype\"></i></button>"+
 							 "</span></i></center>";
 					
 					String day4Link ="/planner/route/"+truck.getId()+"&"+fourthDay+"&"+fifthDay;
@@ -788,9 +779,8 @@ public class TimetableServlet {
 					//inRoad					
 					String day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:green\"><span class=\"tooltiptext\">"+
 							route.getFromCity()+" - "+ route.getToCity()+",<br>"+ route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км"+
-							"<br><br><button onclick='navigator.clipboard.writeText(\""+
-					route.getDriverInstruction()+
-					"\")' "+ "class=\"w3-button w3-padding-small w3-black\"><i style=\"color:white\" class=\"fa fa-skype\"></i></button>"+
+							"<br><br><button onclick=\"myFunctionAlert('"+"До уваги водія: "+route.getDriverInstruction()+"')\" "+
+					 "class=\"w3-button w3-padding-small w3-black\"><i style=\"color:white\" class=\"fa fa-skype\"></i></button>"+
 							 "</span></i></center>";
 					
 					String day5Link ="/planner/route/"+truck.getId()+"&"+fifthDay+"&"+sixthDay;

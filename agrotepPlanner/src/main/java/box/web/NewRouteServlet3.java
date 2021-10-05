@@ -284,7 +284,7 @@ if (request.getParameter("repeat") != null) {
 		
 		String city = request.getParameter("locality");
 		String oblast = request.getParameter("administrative_area_level_1");
-		String valueInfo = request.getParameter("infoClient");
+		String valueInfo1 = request.getParameter("infoClient");
 		
 		if (googleAddress3 != null){
 			try {
@@ -315,6 +315,7 @@ if (request.getParameter("repeat") != null) {
 				e.printStackTrace();
 			}
 		}
+		/**
 		if (valueInfo != null){
 			try {
 				valueInfo = new String(valueInfo.getBytes(requestEnc), clientEnc);
@@ -322,6 +323,8 @@ if (request.getParameter("repeat") != null) {
 				e.printStackTrace();
 			}
 		}
+		*/
+		int clientId = Integer.parseInt(valueInfo1);
 		if (city != null){
 			try {
 				city = new String(city.getBytes(requestEnc), clientEnc);
@@ -354,9 +357,12 @@ if (request.getParameter("repeat") != null) {
 			oblast = "Київська область";
 		}
 		
+		String valueInfo = "";
 		String driverInstruction = "";
-		if(!valueInfo.equals("Клієнт")){
-		driverInstruction = base.getClientByCompany(valueInfo).getDriverInstruction();
+		if(clientId>0){
+        Client cl = base.getClientById(clientId);
+        valueInfo = cl.getCompany();
+		driverInstruction = cl.getDriverInstruction();
 		}
 		
 		GoogleLogic google = new GoogleLogic();

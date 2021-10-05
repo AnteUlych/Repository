@@ -172,7 +172,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <label for="any">тент або реф</label>
 </p>
 <p><textarea name="warning" class="w3-input w3-border" rows="5" placeholder="Застереження" maxlength="999"  required>${clien.warning}</textarea></p>
-<p><textarea name="driverInstruction" class="w3-input w3-border" rows="5" placeholder="Інструкція для водія" maxlength="999"  required>${clien.driverInstruction}</textarea></p>
+<p><input type="text" pattern="[^\\/`\/\x22]+" name="driverInstruction" class="w3-input w3-border" placeholder="Інструкція для водія" value="${clien.driverInstruction}" maxlength="999"  required></p>
 <p><input type="checkbox" name="toblacklist" value="yesToBlackList" ${checkBlackList} > Додати в чорний список</p>
 		  <br>
 		  <p><button name="button" type="submit" class="w3-button w3-padding-large w3-blue w3-margin-bottom" >Змінити</button></p>

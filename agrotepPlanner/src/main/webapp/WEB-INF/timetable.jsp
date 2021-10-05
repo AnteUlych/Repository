@@ -113,6 +113,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <i class="fa fa-search"></i><input style="border: 0px none;" id="myInput" type="text" >
 </div>
 <br>
+
   <div class="w3-container">
 
     <table class="w3-table w3-bordered" id="myTable1">
@@ -277,6 +278,10 @@ function w3_close() {
   mySidebar.style.display = "none";
   overlayBg.style.display = "none";
 }
+
+function myFunctionAlert(x) {
+	  alert(x);
+	}
 </script>
 
 </body>

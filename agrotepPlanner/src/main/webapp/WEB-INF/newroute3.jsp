@@ -103,9 +103,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		<p><input class="w3-input w3-border" name="priceFromClient" type="number" placeholder="„Ì" value="${valuePrice}" required>  </p>
 			<p>
 		   <select class="w3-input w3-border"  name="infoClient">
-           <option value=" Î≥∫ÌÚ" selected> Î≥∫ÌÚ</option>
+           <option value="0" selected> Î≥∫ÌÚ</option>
            <c:forEach items="${listOfClientsForChoose}" var="comp" varStatus="theCount">
-           <option value="${comp.company}">${comp.company}</option>
+           <option value="${comp.id}">${comp.company}</option>
            </c:forEach>
            </select>
        </p>
