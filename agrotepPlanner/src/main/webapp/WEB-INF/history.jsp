@@ -73,6 +73,7 @@ th, td {
     <a href="/planner/statistic" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-line-chart w3-text-pink"></i>&nbsp; Статистика</a>
     <a href="/planner/history" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-hourglass-3 "></i>&nbsp; Історія</a>
     <a href="/planner/variants" class="w3-bar-item w3-button w3-padding"><i class="fa fa-arrows w3-text-indigo"></i>&nbsp; Планування</a>
+    <a href="/planner/trucksmap" class="w3-bar-item w3-button w3-padding"><i class="fa fa-compass w3-text-orange"></i>&nbsp; Мапа</a>
   </div>
 </nav>
 
@@ -94,7 +95,7 @@ th, td {
 <div class="w3-container">
 
  <c:forEach items="${trucksHTML}" var="truck" varStatus="theCount">
-<button class="accordion">${truck.tracktor}/${truck.trailer} - ${truck.driver} (${truck.managerName}) - ${truck.totalKm} км, ${truck.totalUAHforKm} грн/км</button>
+<button class="accordion">${truck.tracktor}/${truck.trailer} - ${truck.driver} (${truck.managerName}) - ${truck.totalKm} км, ${truck.totalUAHforKm} грн/км, ${truck.totalStops} д. очікування</button>
 <div class="panel">
   <table>
   <c:forEach items="${truck.routes}" var="route" varStatus="theCount">

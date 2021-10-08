@@ -21,7 +21,7 @@ public class RouteDAO {
 	
 	@SuppressWarnings("unchecked")
 	public List<Route> getListOfRoutesBetweenDatesByTruckIdForHistory(int truckid, String start, String finish) {
-		return em.createQuery("from Route where truckid='"+truckid+"' and fromDate >='"+start+"' and routeStatus ='0' and fromDate <='"+finish+"'").getResultList();
+		return em.createQuery("from Route where truckid='"+truckid+"' and fromDate >='"+start+"' and routeStatus <'2' and fromDate <='"+finish+"'").getResultList();
 	}
 	
 	@SuppressWarnings("unchecked")

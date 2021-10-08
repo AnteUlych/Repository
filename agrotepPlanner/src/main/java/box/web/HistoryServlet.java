@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import box.logic.CalendarLogic;
+import box.logic.Constants;
 import box.logic.DataBaseController;
 import box.logic.RuptelaLogic;
 import box.model.HistoryHTML;
@@ -55,6 +56,7 @@ public class HistoryServlet {
 			histories.setRoutes(routes);
 			
 			int totalUAH = 0; 
+			int totalStops = 0;
 			
 			for(Route r:routes){
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -63,6 +65,10 @@ public class HistoryServlet {
 				dateText.add(datetext);
 			
 				totalUAH = totalUAH + r.getPrice(); 
+				
+				if(r.getRouteStatus()==Constants.TRUCK_NOT_READY){
+					totalStops=totalStops+1;
+				}
 			}
 			
 			RuptelaLogic ruptela = new RuptelaLogic();
@@ -74,6 +80,7 @@ public class HistoryServlet {
 			histories.setTotalUAH(totalUAH); 
 			histories.setTotalKm(totalKm);
 			histories.setDates(dateText);
+			histories.setTotalStops(totalStops);
 			
 			trucksHTML.add(histories);
 		
@@ -122,6 +129,7 @@ public class HistoryServlet {
 			
 	
 			int totalUAH = 0; 
+			int totalStops = 0;
 			
 			for(Route r:routes){
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -130,6 +138,10 @@ public class HistoryServlet {
 				dateText.add(datetext);
 	
 				totalUAH = totalUAH + r.getPrice(); 
+				
+				if(r.getRouteStatus()==Constants.TRUCK_NOT_READY){
+					totalStops=totalStops+1;
+				}
 			}
 			
 			RuptelaLogic ruptela = new RuptelaLogic();
@@ -140,6 +152,7 @@ public class HistoryServlet {
 			histories.setTotalUAH(totalUAH);
 			histories.setTotalKm(totalKm);
 			histories.setDates(dateText);
+			histories.setTotalStops(totalStops);
 			
 			trucksHTML.add(histories);
 		

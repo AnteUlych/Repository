@@ -61,6 +61,7 @@
      <bean id="historyDAO" class="box.dao.HistoryDAO" />
      <bean id="routeDAO" class="box.dao.RouteDAO" />
      <bean id="managerDAO" class="box.dao.ManagerDAO" />
+     <bean id="maplinkDAO" class="box.dao.MaplinkDAO" />
    
 	 <bean id="truckService" class="box.service.TruckService" />
 	 <bean id="clientService" class="box.service.ClientService" />
@@ -68,6 +69,7 @@
 	 <bean id="historyService" class="box.service.HistoryService" />
 	 <bean id="routeService" class="box.service.RouteService" />
 	 <bean id="managerService" class="box.service.ManagerService" />
+	 <bean id="maplinkService" class="box.service.MaplinkService" />
      	 
 
 </beans>

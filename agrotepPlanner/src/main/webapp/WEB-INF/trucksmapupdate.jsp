@@ -11,41 +11,36 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
-table {
-  border-collapse: collapse;
-  width: 100%;
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
 }
 
-th, td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 180px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
 }
 
-.accordion {
-  background-color: #fff ;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-  transition: 0.4s;
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 
-.active, .accordion:hover {
-  background-color: #ccc; 
-}
+.container{ width:100%; }    
+.align-left{ float: left;width:50%; }
+.align-right{ float: right;width:50%; }
 
-.panel {
-  padding: 0 18px;
-  display: none;
-  background-color: white;
-  overflow: hidden;
-}
 </style>
 <body class="w3-white">
 
@@ -68,12 +63,12 @@ th, td {
     <a href="/planner/timetable" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
     <a href="/planner/timetable" class="w3-bar-item w3-button w3-padding"><i class="fa fa-heartbeat w3-text-red"></i>&nbsp; Графік</a>
     <a href="/planner/trucks" class="w3-bar-item w3-button w3-padding"><i class="fa fa-truck w3-text-blue"></i>&nbsp; Автомобілі</a>
-    <a href="/planner/clientslist" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-child"></i>&nbsp; Клієнти</a>
+    <a href="/planner/clientslist" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-child w3-text-green"></i>&nbsp;  Клієнти</a>
     <a href="/planner/managers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-group w3-text-brown"></i>&nbsp; Логісти</a>
-    <a href="/planner/statistic" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-line-chart w3-text-pink"></i>&nbsp; Статистика</a>
+    <a href="/planner/statistic" class="w3-bar-item w3-button w3-padding"><i class="fa fa-line-chart w3-text-pink"></i>&nbsp; Статистика</a>
     <a href="/planner/history" class="w3-bar-item w3-button w3-padding"><i class="fa fa-hourglass-3 w3-text-yellow"></i>&nbsp; Історія</a>
     <a href="/planner/variants" class="w3-bar-item w3-button w3-padding"><i class="fa fa-arrows w3-text-indigo"></i>&nbsp; Планування</a>
-    <a href="/planner/trucksmap" class="w3-bar-item w3-button w3-padding"><i class="fa fa-compass w3-text-orange"></i>&nbsp; Мапа</a>
+    <a href="/planner/trucksmap" class="w3-bar-item w3-button w3-padding  w3-blue"><i class="fa fa-compass"></i>&nbsp; Мапа</a>
   </div>
 </nav>
 
@@ -82,56 +77,35 @@ th, td {
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 <!-- !PAGE CONTENT! -->
-
+  <form method="post">
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
   <!-- Header -->
+  
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-child  w3-text-green"></i> Клієнти</b></h5>
-    <a href="/planner/clients">Сортувати клієнтів по областях</a>
+
+    <h5><b><i class="fa fa-compass w3-text-orange"></i>  Оновити мапу</b>&nbsp;<button type="submit"  class="w3-button w3-xlarge w3-circle w3-white"><i class="fa fa-check" style="width:30px"></i></button> </h5>
+    
+    <input name="maplink" class="w3-input" type="text" placeholder="Посилання на мапу" value="${maplink}" required>  
   </header>
   <br>
-  
-<div class="w3-container">
 
-  <table>
-  <c:forEach items="${clients}" var="client1" varStatus="theCount">
-    <tr>
-    <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
-    <td>${client1.cargo}</td>
-    <td>${client1.typetruck}</td>
-    <td>${client1.transportVolume}</td>
-    <td>${client1.season}</td>
-  </tr>
-  </c:forEach>
-</table>
-</div>
 
-</div>
 
-  <hr>
+  </div> 
 
-  
-  <!-- End page content -->
-</div>
+
+</form>
+<br>
+
 
 
 
 <script>
-var acc = document.getElementsByClassName("accordion");
-var i;
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
-  });
-}
+
+
+
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
 

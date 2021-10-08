@@ -13,6 +13,7 @@ public class HistoryHTML {
 	private int totalKm;
 	private int totalUAH;
 	private double totalUAHforKm;
+	private int totalStops;
 	
 	public String getTracktor() {
 		return tracktor;
@@ -67,6 +68,12 @@ public class HistoryHTML {
 	}
 	public void setTotalUAHforKm(double totalUAHforKm) {
 		this.totalUAHforKm = totalUAHforKm;
+	}
+	public int getTotalStops() {
+		return totalStops;
+	}
+	public void setTotalStops(int totalStops) {
+		this.totalStops = totalStops;
 	}
 
 }

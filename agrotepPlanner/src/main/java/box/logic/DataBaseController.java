@@ -16,12 +16,14 @@ import box.model.Client;
 import box.model.Direction;
 import box.model.History;
 import box.model.Manager;
+import box.model.Maplink;
 import box.model.Route;
 import box.model.Truck;
 import box.service.ClientService;
 import box.service.DirectionService;
 import box.service.HistoryService;
 import box.service.ManagerService;
+import box.service.MaplinkService;
 import box.service.RouteService;
 import box.service.TruckService;
 
@@ -43,9 +45,20 @@ public class DataBaseController {
 			.getBean("routeService");
 	ManagerService managerService = (ManagerService) ctx
 			.getBean("managerService");
+	MaplinkService maplinkService = (MaplinkService)ctx
+			.getBean("maplinkService");
 	
 	public void closeConnection() {
 		((AbstractApplicationContext) ctx).close();
+	}
+	
+	//maplink
+	public Maplink getMaplinkById(int id) {
+		return maplinkService.getMaplinkById(id);
+	}
+	
+	public void editMaplinkById(int id, String link) {
+		maplinkService.editMaplinkById(id, link);
 	}
 	
 	//truck
