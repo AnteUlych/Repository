@@ -35,14 +35,14 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-bar-block">
     <a href="/planner/timetable" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
     <a href="/planner/timetable" class="w3-bar-item w3-button w3-padding "><i class="fa fa-heartbeat w3-text-red"></i>&nbsp; Графік</a>
-    <a href="/planner/trucks" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-truck "></i>&nbsp; Автомобілі</a>
+    <a href="/planner/trucks" class="w3-bar-item w3-button w3-padding"><i class="fa fa-truck "></i>&nbsp; Автомобілі</a>
     <a href="/planner/clientslist" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-child w3-text-green"></i>&nbsp; Клієнти</a>
     <a href="/planner/managers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-group w3-text-brown"></i>&nbsp; Логісти</a>
     <a href="/planner/statistic" class="w3-bar-item w3-button w3-padding"><i class="	fa fa-line-chart w3-text-pink"></i>&nbsp; Статистика</a>
     <a href="/planner/history" class="w3-bar-item w3-button w3-padding"><i class="fa fa-hourglass-3 w3-text-yellow"></i>&nbsp; Історія</a>
     <a href="/planner/variants" class="w3-bar-item w3-button w3-padding"><i class="fa fa-arrows w3-text-indigo"></i>&nbsp; Планування</a>
     <a href="/planner/trucksmap" class="w3-bar-item w3-button w3-padding"><i class="fa fa-compass w3-text-orange"></i>&nbsp; Мапа</a>
-    <a href="/planner/documents" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope-open w3-text-purple"></i>&nbsp; Документи</a>
+    <a href="/planner/documents" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-envelope-open"></i>&nbsp; Документи</a>
   </div>
 </nav>
 
@@ -56,45 +56,58 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-truck  w3-text-blue"></i> Редагувати екіпаж</b></h5>
+    <h5><b><i class="fa fa-envelope-open  w3-text-purple"></i> Архів документів по запитам</b></h5>
+      <a href="/planner/documents">Запит на документи</a>
   </header>
 
   <br>
 
-<form method="POST">
+
   <div class="w3-container">
-	     <p><input pattern="[^\\/`\/\x22]+" name="tracktor" class="w3-input w3-border" type="text" placeholder="Тягач" value="${truck.tracktor}" maxlength="19" required></p>
-	     <p><input pattern="[^\\/`\/\x22]+" name="trailor" class="w3-input w3-border" type="text" placeholder="Причіп" value="${truck.trailer}" maxlength="19" required></p>
-	     <p><input pattern="[^\\/`\/\x22]+" name="driver" class="w3-input w3-border" type="text" placeholder="Водій" value="${truck.driver}" maxlength="40" required></p>
-	     <p><input  name="phone" class="w3-input w3-border" type="text" placeholder="Телефон" value="${truck.phone}" maxlength="40" required></p>
-	     <p><input pattern="[^\\/`\/\x22]+" name="truckKey" class="w3-input w3-border" type="text" placeholder="Руптела" value="${truck.truckKey}" maxlength="99"></p>
-	    <br>
-	     <p>Тип:&nbsp;
-	     <input type="radio" id="tilt" name="typetruck" value="тент" ${tilt}>
-         <label for="tilt">тент</label>
-         <input type="radio" id="ref" name="typetruck" value="реф" ${ref}>
-         <label for="ref">реф</label>
-         <input type="radio" id="total" name="typetruck" value="цільномет" ${total}>
-         <label for="total">цільномет</label>
-	     </p>
-	     <br>
-	       <p>Відповідальний:&nbsp; 
-	       <c:forEach items="${managers}" var="manager" varStatus="theCount">       
-	     <input type="radio" id="${manager.id}" name="manar" value="${manager.name}" ${responsibleManager[theCount.index]} required>
-         <label for="${manager.id}">${manager.name}</label>
-         </c:forEach>
-	     </p>
-	     <br>
-	     <p class="w3-text-red"> Призупинити роботу &nbsp;<input type="checkbox" name="toblacklist" value="yesToBlackList" ${checkBlackList} ></p>
-		  <br>
-		  <p><button name="edit" type="submit" class="w3-button w3-padding-large w3-blue w3-margin-bottom">Редагувати</button></p>
+    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+    <tr>
+      
+      <th>Компанія</th>
+      <th>DR</th>
+	  <th>Автомобіль</th>
+	  <th>Клієнт</th>
+	  <th>Маршрут</th>
+	  <th>Нестача</th>
+	  <th>Реєстрація</th>
+	  <th>Отримано</th>
+	  <th>Відповідальний</th>
+	  <th>Прийнято</th>
+	  
 
 
- <br>
+    </tr>
+    
+    <c:forEach items="${docs}" var="doc" varStatus="theCount">
+    <tr>
+
+    <td>${doc.weclient}</td>
+    <td>${doc.drnumber}</td>
+    <td>${doc.truck}</td>
+    <td>${doc.client}</td>
+    <td>${doc.aboutroute}</td>
+    <td>${doc.whatneed}</td>
+    <td>${doc.datecreating}</td>
+    <td class="w3-text-green"><b>${doc.datesolvving}</b></td>
+    <td>${doc.responsiblename}</td>
+    <td>${doc.whoaskingname}</td>
+    
+    
+
+    </tr>
+    </c:forEach>
+  </table>
+ 
+
+  <br>
 
   </div>
-  </form>
   <hr>
+
 
   <!-- End page content -->
 </div>

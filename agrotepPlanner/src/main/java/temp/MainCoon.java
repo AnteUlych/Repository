@@ -32,6 +32,7 @@ import box.model.CalendarTruckHtml;
 import box.model.Client;
 import box.model.ClientForRouteHTML;
 import box.model.Direction;
+import box.model.Documents;
 import box.model.History;
 import box.model.HistoryHTML;
 import box.model.Manager;
@@ -47,9 +48,7 @@ public class MainCoon {
 			//String requestUrl = "https://api.fm-track.com/objects/a7bad126-1436-11eb-809d-ffcd6f0d46e5/coordinates?version=2&from_datetime=2021-02-15T00:00:01.000Z&to_datetime=2021-02-15T03:00:00.000Z&api_key=A82MBFH6QijEY1RnKTkDL-u3uqdm9nJS";
 		
 		   DataBaseController db = new DataBaseController();
-		   db.editMaplinkById(1, "http://corndog.io/");
-		   System.out.println(db.getMaplinkById(1).getLink());
-	
+		   db.editDocumentsById(3, new Date(), "º", "º");
 	}
 	
 	   private static VariantsHtml calculateTheVariant(double cityLongitude, double cityLatitude, int cityCity, String cityName, DataBaseController base, int needPriceForKm, String oblast, String city, double longitude, double latitude){

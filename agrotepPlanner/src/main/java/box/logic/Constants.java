@@ -24,5 +24,13 @@ public class Constants {
 	public static final int ACTION_NEW_CLIENT = 7;
 	
 	public static final int TOTAL_ACCESS = 0;
+	public static final int DOCUMENTS_ACCESS = 2;
+	
+	public static final String DOCUMENTS_STATUS_FINISH = "отримано";
+	public static final String DOCUMENTS_STATUS_START = "очікування";
+	public static final String DOCUMENTS_STATUS_DELETED = "відміна";
+	public static final String DOCUMENTS_STATUS_FINISH_COLOR = "w3-green";
+	public static final String DOCUMENTS_STATUS_DELETE_COLOR = "w3-red";
+	
 
 }

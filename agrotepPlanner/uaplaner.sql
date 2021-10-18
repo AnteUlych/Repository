@@ -65,6 +65,33 @@ CREATE TABLE `direction` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `documents`
+--
+
+DROP TABLE IF EXISTS `documents`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `documents` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `drnumber` int(11) NOT NULL,
+  `truck` varchar(45) NOT NULL,
+  `client` varchar(45) DEFAULT NULL,
+  `weclient` varchar(45) NOT NULL,
+  `aboutroute` varchar(500) DEFAULT NULL,
+  `responsibleid` int(11) DEFAULT NULL,
+  `responsiblename` varchar(45) DEFAULT NULL,
+  `whoaskingid` int(11) DEFAULT NULL,
+  `whoaskingname` varchar(45) DEFAULT NULL,
+  `whatneed` varchar(500) DEFAULT NULL,
+  `datecreating` datetime DEFAULT NULL,
+  `datesolvving` datetime DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `color` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `history`
 --
 
@@ -80,7 +107,7 @@ CREATE TABLE `history` (
   `info` varchar(250) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2422 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2424 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -144,7 +171,7 @@ CREATE TABLE `route` (
   `driverInstruction` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2141 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2142 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -188,4 +215,4 @@ CREATE TABLE `truck` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-08 15:15:57
+-- Dump completed on 2021-10-18 18:45:00

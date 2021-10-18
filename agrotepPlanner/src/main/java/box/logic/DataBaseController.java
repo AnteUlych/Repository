@@ -14,6 +14,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import box.model.Client;
 import box.model.Direction;
+import box.model.Documents;
 import box.model.History;
 import box.model.Manager;
 import box.model.Maplink;
@@ -21,6 +22,7 @@ import box.model.Route;
 import box.model.Truck;
 import box.service.ClientService;
 import box.service.DirectionService;
+import box.service.DocumentsService;
 import box.service.HistoryService;
 import box.service.ManagerService;
 import box.service.MaplinkService;
@@ -47,10 +49,31 @@ public class DataBaseController {
 			.getBean("managerService");
 	MaplinkService maplinkService = (MaplinkService)ctx
 			.getBean("maplinkService");
+	DocumentsService documentsService = (DocumentsService) ctx
+			.getBean("documentsService");
 	
 	public void closeConnection() {
 		((AbstractApplicationContext) ctx).close();
 	}
+	
+	//documents
+	public void addDocuments(Documents documents) {
+		documentsService.addDocuments(documents);
+	}
+	
+	public List<Documents> getListOfDocumentsWithStatus(String status){
+		return documentsService.getListOfDocumentsWithStatus(status);
+	}
+	
+	public List<Documents> getListOfDocumentsWithStatusByResponsibleId(String status, int responsibleid){
+		return documentsService.getListOfDocumentsWithStatusByResponsibleId(status, responsibleid);
+	}
+	
+	public void editDocumentsById(int id, Date datesolvving, String status, String color){
+		documentsService.editDocumentsById(id, datesolvving, status, color);
+	}
+	
+	//documents
 	
 	//maplink
 	public Maplink getMaplinkById(int id) {
@@ -60,6 +83,7 @@ public class DataBaseController {
 	public void editMaplinkById(int id, String link) {
 		maplinkService.editMaplinkById(id, link);
 	}
+	//maplink
 	
 	//truck
 	public List<Truck> getListOfTrucksSortedByManager() {
