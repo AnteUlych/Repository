@@ -61,7 +61,12 @@ public class LoginServlet {
 		base.closeConnection();
 
 		try {
+			if(manager.getStatus()==Constants.DOCUMENTS_ACCESS){
+				response.sendRedirect("/planner/documents");
+				return "documents";
+			}else{
 			response.sendRedirect("/planner/timetable");
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
