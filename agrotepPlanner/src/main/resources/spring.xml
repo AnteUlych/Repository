@@ -63,6 +63,7 @@
      <bean id="managerDAO" class="box.dao.ManagerDAO" />
      <bean id="maplinkDAO" class="box.dao.MaplinkDAO" />
      <bean id="docunemtsDAO" class="box.dao.DocumentsDAO" />
+     <bean id="garantDAO" class="box.dao.GarantDAO" />
    
 	 <bean id="truckService" class="box.service.TruckService" />
 	 <bean id="clientService" class="box.service.ClientService" />
@@ -72,5 +73,6 @@
 	 <bean id="managerService" class="box.service.ManagerService" />
 	 <bean id="maplinkService" class="box.service.MaplinkService" />
      <bean id="documentsService" class="box.service.DocumentsService" />	 
+     <bean id="garantService" class="box.service.GarantService" />	
 
 </beans>

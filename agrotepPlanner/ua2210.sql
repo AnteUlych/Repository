@@ -88,7 +88,27 @@ CREATE TABLE `documents` (
   `status` varchar(45) DEFAULT NULL,
   `color` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `garant`
+--
+
+DROP TABLE IF EXISTS `garant`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `garant` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `client` varchar(100) DEFAULT NULL,
+  `route` varchar(200) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `truckandmanager` varchar(100) DEFAULT NULL,
+  `dayofweek` int(11) DEFAULT NULL,
+  `color` varchar(45) DEFAULT NULL,
+  `plandate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,7 +144,7 @@ CREATE TABLE `manager` (
   `loginPass` varchar(10) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -215,4 +235,4 @@ CREATE TABLE `truck` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-18 18:45:00
+-- Dump completed on 2021-10-22 15:17:07

@@ -101,8 +101,7 @@ th, td {
     <td><a href="/planner/client/${client1.id}">${client1.company}</a></td>
     <td>${client1.cargo}</td>
     <td>${client1.typetruck}</td>
-    <td>${client1.transportVolume}</td>
-    <td>${client1.season}</td>
+    <td>${client1.driverInstruction}</td>
   </tr>
   </c:forEach>
 </table>

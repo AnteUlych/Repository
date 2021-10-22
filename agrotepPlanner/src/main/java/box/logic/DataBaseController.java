@@ -15,6 +15,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import box.model.Client;
 import box.model.Direction;
 import box.model.Documents;
+import box.model.Garant;
 import box.model.History;
 import box.model.Manager;
 import box.model.Maplink;
@@ -23,6 +24,7 @@ import box.model.Truck;
 import box.service.ClientService;
 import box.service.DirectionService;
 import box.service.DocumentsService;
+import box.service.GarantService;
 import box.service.HistoryService;
 import box.service.ManagerService;
 import box.service.MaplinkService;
@@ -51,10 +53,36 @@ public class DataBaseController {
 			.getBean("maplinkService");
 	DocumentsService documentsService = (DocumentsService) ctx
 			.getBean("documentsService");
+	GarantService garantService = (GarantService) ctx
+			.getBean("garantService");
 	
 	public void closeConnection() {
 		((AbstractApplicationContext) ctx).close();
 	}
+	
+	//garant
+	
+	public List<Garant> getListOfGarants(){
+		return garantService.getListOfGarants();
+	}
+	
+	public void addGarant(Garant garant){
+		garantService.addGarant(garant);
+	}
+	
+	public void deleteGarantById(int id) {
+		garantService.deleteGarantById(id);
+	}
+	
+	public void editGarantById(int id, String truckandmanager, String color, Date plandate) {
+		garantService.editGarantById(id, truckandmanager, color, plandate);
+	}
+	
+	public Garant getGarantById(int id){
+		return garantService.getGarantById(id);
+	}
+	
+	//garant
 	
 	//documents
 	public void addDocuments(Documents documents) {
