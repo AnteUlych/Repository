@@ -41,6 +41,8 @@ public class Documents {
 	private String status;
 	@Column
 	private String color;
+	@Column
+	private String logistcoment;
 	
 	public int getId() {
 		return id;
@@ -131,6 +133,12 @@ public class Documents {
 	}
 	public void setColor(String color) {
 		this.color = color;
+	}
+	public String getLogistcoment() {
+		return logistcoment;
+	}
+	public void setLogistcoment(String logistcoment) {
+		this.logistcoment = logistcoment;
 	}
 
 }

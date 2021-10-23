@@ -87,8 +87,9 @@ CREATE TABLE `documents` (
   `datesolvving` datetime DEFAULT NULL,
   `status` varchar(45) DEFAULT NULL,
   `color` varchar(45) DEFAULT NULL,
+  `logistcoment` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -235,4 +236,4 @@ CREATE TABLE `truck` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-22 15:17:07
+-- Dump completed on 2021-10-23 14:56:16

@@ -73,6 +73,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	  <th>Клієнт</th>
 	  <th>Маршрут</th>
 	  <th>Нестача</th>
+	  <th>Коментар логіста</th>
 	  <th>Реєстрація</th>
 	  <th>Отримано</th>
 	  <th>Відповідальний</th>
@@ -91,6 +92,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <td>${doc.client}</td>
     <td>${doc.aboutroute}</td>
     <td>${doc.whatneed}</td>
+    <td>${doc.logistcoment}</td>
     <td>${doc.datecreating}</td>
     <td class="w3-text-green"><b>${doc.datesolvving}</b></td>
     <td>${doc.responsiblename}</td>

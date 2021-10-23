@@ -47,11 +47,13 @@ public class DocumentsServlet {
 		//very bad code!!!!!!!!!!
 		String addButton = "";
 		String buttonPermission = "disabled";
+		String cancoment = "";
 		
 		if(status==0||status==2){
 			docs = base.getListOfDocumentsWithStatus(Constants.DOCUMENTS_STATUS_START);
 			addButton = "<button onclick=\"document.getElementById('subscribe').style.display='block'\" class=\"w3-button w3-xlarge w3-circle w3-white\">+</button>";
 			buttonPermission = "";
+			cancoment = "disabled";
 		}else{
 			docs = base.getListOfDocumentsWithStatusByResponsibleId(Constants.DOCUMENTS_STATUS_START, managerid);
 		}
@@ -63,6 +65,7 @@ public class DocumentsServlet {
 		model.addAttribute("managers", managers);
 		model.addAttribute("addButton", addButton);
 		model.addAttribute("buttonPermission", buttonPermission);
+		model.addAttribute("cancoment", cancoment);
 		
 		return "documents";
 	}
@@ -85,6 +88,25 @@ public class DocumentsServlet {
 			} else 
 			if(request.getParameter("bad"+d.getId()) != null){
 				base.editDocumentsById(d.getId(), new Date(), Constants.DOCUMENTS_STATUS_DELETED, Constants.DOCUMENTS_STATUS_DELETE_COLOR);
+			}else
+			if(request.getParameter("button"+d.getId()) != null){
+				
+				String requestEnc = "ISO-8859-1";
+				String clientEnc = request.getParameter("charset");
+				if (clientEnc == null)
+					clientEnc = "Cp1251";
+				
+				String logistcoment = request.getParameter("logistcoment"+d.getId());
+				
+				if (logistcoment != null){
+					try {
+						logistcoment = new String(logistcoment.getBytes(requestEnc), clientEnc);
+					} catch (UnsupportedEncodingException e) {
+						e.printStackTrace();
+					}
+				}
+				
+				base.editDocumentsLogistcomentById(d.getId(), logistcoment+" - "+name);
 			}
 		}
 		
@@ -183,11 +205,13 @@ public class DocumentsServlet {
 		//very bad code!!!!!!!!!!
 		String addButton = "";
 		String buttonPermission = "disabled";
+		String cancoment = "";
 		
 		if(status==0||status==2){
 			docs = base.getListOfDocumentsWithStatus(Constants.DOCUMENTS_STATUS_START);
 			addButton = "<button onclick=\"document.getElementById('subscribe').style.display='block'\" class=\"w3-button w3-xlarge w3-circle w3-white\">+</button>";
 			buttonPermission = "";
+			cancoment = "disabled";
 		}else{
 			docs = base.getListOfDocumentsWithStatusByResponsibleId(Constants.DOCUMENTS_STATUS_START, managerid);
 		}
@@ -199,6 +223,7 @@ public class DocumentsServlet {
 		model.addAttribute("managers", managers);
 		model.addAttribute("addButton", addButton);
 		model.addAttribute("buttonPermission", buttonPermission);
+		model.addAttribute("cancoment", cancoment);
 		
 		return "documents";
 	}

@@ -30,6 +30,10 @@ public class DocumentsService {
 		dao.editDocumentsById(id, datesolvving, status, color);
 	}
 	
+	public void editDocumentsLogistcomentById(int id, String logistcoment){
+		dao.editDocumentsLogistcomentById(id, logistcoment);
+	}
+	
 	public void addDocuments(Documents documents) {
 		dao.persist(documents);
 	}

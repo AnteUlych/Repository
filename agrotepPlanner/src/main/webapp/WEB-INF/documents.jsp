@@ -67,7 +67,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <form method="POST">
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
     <tr>
-      <th>#</th>
+     
       <th>Компанія</th>
       <th>DR</th>
 	  <th>Автомобіль</th>
@@ -76,6 +76,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	  <th>Нестача</th>
 	  <th>Реєстрація</th>
 	  <th>Відповідальний</th>
+	  <th>Коментар логіста</th>
 	  <th>Очікує</th>
 	  <th>Отримано</th>
 	  <th>Видалено</th>
@@ -84,7 +85,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     
     <c:forEach items="${docs}" var="doc" varStatus="theCount">
     <tr>
-    <td>${theCount.index+1}.</td>
+ 
     <td>${doc.weclient}</td>
     <td>${doc.drnumber}</td>
     <td>${doc.truck}</td>
@@ -93,6 +94,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <td>${doc.whatneed}</td>
     <td class="w3-text-red">${doc.datecreating}</td>
     <td>${doc.responsiblename}</td>
+    <td onclick="document.getElementById('subscribe${doc.id}').style.display='block'" class="w3-text-indigo">${doc.logistcoment}</td>
     <td>${doc.whoaskingname}</td>
     <td><button ${buttonPermission} type="submit" name="good${doc.id}" class="w3-button w3-hover-green w3-tiny"><i class="fa fa-check"></i></button></td>
     <td><button ${buttonPermission} type="submit" name="bad${doc.id}" class="w3-button w3-hover-red w3-tiny"><i class="fa fa-remove"></i></button></td>
@@ -142,6 +144,31 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
 </div>
 </form>
+
+<!-- START com -->
+<form method="POST">
+<c:forEach items="${docs}" var="doc" varStatus="theCount">
+<div id="subscribe${doc.id}" class="w3-modal">
+  <div class="w3-modal-content  w3-padding-large">
+    <div class="w3-container w3-white w3-center">
+    <i onclick="document.getElementById('subscribe${doc.id}').style.display='none'" class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent"></i>
+      <p>&nbsp;</p>
+	     <p><b>Коментар логіста</b></p>
+		
+		 <p><input onkeypress="return event.keyCode != 13;" pattern="[^\\/`\/\x22]+" name="logistcoment${doc.id}" class="w3-input w3-border" type="text" placeholder="Коментар" value="${doc.logistcoment}" maxlength="400"></p>
+		
+		  <br>
+		  <p><button ${cancoment} name="button${doc.id}" type="submit" class="w3-button w3-padding-large w3-blue w3-margin-bottom" onclick="document.getElementById('subscribe${doc.id}').style.display='none'">Коментувати</button></p>
+		 
+        
+
+    </div>
+  </div>
+</div>
+ </c:forEach>
+ </form>  
+  <!-- END com -->
+
   <!-- End page content -->
 </div>
 

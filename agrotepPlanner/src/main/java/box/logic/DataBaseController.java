@@ -101,6 +101,10 @@ public class DataBaseController {
 		documentsService.editDocumentsById(id, datesolvving, status, color);
 	}
 	
+	public void editDocumentsLogistcomentById(int id, String logistcoment){
+		documentsService.editDocumentsLogistcomentById(id, logistcoment);
+	}
+	
 	//documents
 	
 	//maplink

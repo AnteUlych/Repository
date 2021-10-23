@@ -55,6 +55,9 @@ public class MainCoon {
 	    Date yesterday = calendar.getTime();
 
 	    System.out.println(yesterday);
+	    
+	    DataBaseController b = new DataBaseController();
+	    b.editDocumentsLogistcomentById(9, "тест");
 	
 		
 		

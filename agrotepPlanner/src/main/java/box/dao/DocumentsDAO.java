@@ -42,6 +42,17 @@ public class DocumentsDAO {
 		em.close();
 	}
 	
+	public void editDocumentsLogistcomentById(int id, String logistcoment){
+		
+		Documents documents = (Documents) em.find(Documents.class, id);
+
+		documents.setLogistcoment(logistcoment);
+		
+		Documents transaction = em.merge(documents);
+		em.persist(transaction);
+		em.close();
+	}
+	
 	@Transactional
 	public void persist(Documents documents) {
 		Documents transaction = em.merge(documents);
