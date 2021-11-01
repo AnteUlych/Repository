@@ -116,15 +116,29 @@ public class GarantsServlet {
 			
 			Garant garant = new Garant();
 			garant.setClient(client);
-			garant.setColor("");
+			garant.setColor("w3-light-grey");
 			garant.setDayofweek(dayofweek);
 			
 			Calendar calendar = Calendar.getInstance();
-		    calendar.setTime(new Date());
-		    calendar.add(Calendar.DATE, -1);
-		    Date yesterday = calendar.getTime();
+	
+			if(dayofweek==2){
+				calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+			}else if(dayofweek==3){
+					calendar.set(Calendar.DAY_OF_WEEK, Calendar.TUESDAY);
+			}else if(dayofweek==4){
+					calendar.set(Calendar.DAY_OF_WEEK, Calendar.WEDNESDAY);
+			}else if(dayofweek==5){
+					calendar.set(Calendar.DAY_OF_WEEK, Calendar.THURSDAY);
+			}else if(dayofweek==6){
+					calendar.set(Calendar.DAY_OF_WEEK, Calendar.FRIDAY);
+			}else if(dayofweek==7){
+					calendar.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
+			}else if(dayofweek==1){
+					calendar.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+			}
+		    Date needDate = calendar.getTime();
 		    
-			garant.setPlandate(yesterday);
+			garant.setPlandate(needDate);
 			garant.setPrice(price);
 			garant.setRoute(route);
 			garant.setTruckandmanager("");

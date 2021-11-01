@@ -43,7 +43,7 @@ public class GarantDAO {
 		
 		garant.setTruckandmanager(truckandmanager);
 		garant.setColor(color);
-		garant.setColor(color);
+		garant.setPlandate(plandate);
 		
 		Garant transaction = em.merge(garant);
 		em.persist(transaction);

@@ -45,23 +45,29 @@ import box.model.VariantsHtml;
 public class MainCoon {
 
 	public static void main(String[] args){
-		
-		//String requestUrl = "https://api.fm-track.com/objects/a7bad126-1436-11eb-809d-ffcd6f0d46e5/coordinates?version=2&from_datetime=2021-02-15T00:00:01.000Z&to_datetime=2021-02-15T03:00:00.000Z&api_key=A82MBFH6QijEY1RnKTkDL-u3uqdm9nJS";
-   
+		Calendar c = Calendar.getInstance();
+		c.add(Calendar.DATE, 2);
+		System.out.println(c.getTime());
+		c.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+		System.out.println(c.getTime());
+		c.set(Calendar.DAY_OF_WEEK, Calendar.TUESDAY);
+		System.out.println(c.getTime());
+		c.set(Calendar.DAY_OF_WEEK, Calendar.WEDNESDAY);
+		System.out.println(c.getTime());
+		c.set(Calendar.DAY_OF_WEEK, Calendar.THURSDAY);
+		System.out.println(c.getTime());
+		c.set(Calendar.DAY_OF_WEEK, Calendar.FRIDAY);
+		System.out.println(c.getTime());
+		c.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
+		System.out.println(c.getTime());
+		c.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+		System.out.println(c.getTime());
 
-	    Calendar calendar = Calendar.getInstance();
-	    calendar.setTime(new Date());
-	    calendar.add(Calendar.DATE, -1);
-	    Date yesterday = calendar.getTime();
+			
+		}
+		
+		
 
-	    System.out.println(yesterday);
-	    
-	    DataBaseController b = new DataBaseController();
-	    b.editDocumentsLogistcomentById(9, "тест");
-	
-		
-		
-	}
 	
 	   private static VariantsHtml calculateTheVariant(double cityLongitude, double cityLatitude, int cityCity, String cityName, DataBaseController base, int needPriceForKm, String oblast, String city, double longitude, double latitude){
 			

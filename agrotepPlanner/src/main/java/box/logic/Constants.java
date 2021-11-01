@@ -32,5 +32,6 @@ public class Constants {
 	public static final String DOCUMENTS_STATUS_FINISH_COLOR = "w3-green";
 	public static final String DOCUMENTS_STATUS_DELETE_COLOR = "w3-red";
 	
+	public static final String GARANTS_STATUS_NO_COLOR = "w3-light-grey";
 
 }

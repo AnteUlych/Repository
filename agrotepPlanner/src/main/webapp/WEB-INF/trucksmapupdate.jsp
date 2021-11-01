@@ -70,6 +70,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="/planner/variants" class="w3-bar-item w3-button w3-padding"><i class="fa fa-arrows w3-text-indigo"></i>&nbsp; Планування</a>
     <a href="/planner/trucksmap" class="w3-bar-item w3-button w3-padding  w3-blue"><i class="fa fa-compass"></i>&nbsp; Мапа</a>
     <a href="/planner/documents" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope-open w3-text-purple"></i>&nbsp; Документи</a>
+        <a href="/planner/garantcalendar" class="w3-bar-item w3-button w3-padding"><i class="fa fa-gavel w3-text-brown"></i>&nbsp; Гаранти</a>
   </div>
 </nav>
 
