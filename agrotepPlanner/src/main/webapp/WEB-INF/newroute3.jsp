@@ -130,7 +130,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	    
 <br><div class="align-left"><button type="submit" class="w3-button w3-round-xxlarge w3-red" name="wait" formnovalidate><i class="fa fa-hourglass-end"></i></button>&nbsp;<button type="submit" class="w3-button w3-round-xxlarge w3-blue" name="remont" formnovalidate><i class="fa fa-wrench"></i></button>&nbsp;<button type="submit" class="w3-button w3-round-xxlarge w3-purple" name="colona" formnovalidate><i class="fa fa-suitcase"></i></button></div>
 <div class="align-right">
-<button type="submit" class="w3-button w3-round-xxlarge w3-teal w3-right" name="repeat" formnovalidate><i class="fa fa-truck"></i></button></div><br>
+<button type="submit" class="w3-button w3-round-xxlarge w3-teal w3-right" name="repeat" formnovalidate><i class="fa fa-thumbs-up"></i></button></div><br>
 	<br>
 <p id="demo0"></p>		
 			<input type="hidden" class="field" name ="street_number" id="street_number" disabled="true">

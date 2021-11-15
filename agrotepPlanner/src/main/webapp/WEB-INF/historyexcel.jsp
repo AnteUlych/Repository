@@ -90,32 +90,42 @@ th, td {
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <form method="post">
-    <h5><b><i class="fa fa-hourglass-3   w3-text-yellow"></i> Історія по ТЗ</b> &nbsp; <input type="date" name="start" value="${start}" min="2021-08-01" max="${finish}" required> &nbsp; - &nbsp; <input type="date" name="finish" min="2021-08-01" max="${finish}" value="${finish}" required> &nbsp; <button type="submit"  class="w3-button w3-xlarge w3-circle w3-white"><i class="fa fa-check" style="width:30px"></i></button>
-    &nbsp;<a href="/planner/historyexcel/${start}&_${finish}" style="text-decoration: none"><i class="fa fa-file-excel-o"></i>&nbsp;</a>
-    </h5>
+    <h5><b><i class="fa fa-hourglass-3   w3-text-yellow"></i> ${start} - ${finish}</b></h5>
       </form>
   </header>
   <br>
 <div class="w3-container">
 
- <c:forEach items="${trucksHTML}" var="truck" varStatus="theCount">
-<button class="accordion">${truck.tracktor}/${truck.trailer} - ${truck.driver} (${truck.managerName}) - ${truck.totalKm} км, ${truck.totalUAHforKm} грн/км, &nbsp;<i class="fa fa-hourglass-end"></i> ${truck.totalStops} &nbsp;<i class="fa fa-wrench"></i> ${truck.totalColona} &nbsp;<i class="fa fa-suitcase"></i> ${truck.totalRemont}</button>
-<div class="panel">
-  <table>
-  <c:forEach items="${truck.routes}" var="route" varStatus="theCount">
-    <tr>
-    <td>${truck.dates[theCount.index]}</td>
-    <td>${route.fromCity}</td>
-    <td>${route.toCity}</td>
-    <td>${route.price} грн</td>
-    <td>${route.piceForKilometr} грн/км</td>
-    <td>${route.info}</td>
-  </tr>
-  </c:forEach>
-</table>
-</div>
-</c:forEach>
+     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+      <tr>
+        <th>Тягач</th>
+        <th>Причіп</th>
+        <th>Водій</th>
+        <th>Менеджер</th>
+        <th>км</th>
+        <th><i class="fa fa-money"></i></th>
+        <th><i class="fa fa-hourglass-end"></i></th>
+        <th><i class="fa fa-wrench"></i></th>
+        <th><i class="fa fa-suitcase"></i></th>
+  
+      </tr>
+       <c:forEach items="${trucksHTML}" var="truck" varStatus="theCount">
+      <tr>
+        <td>${truck.tracktor}</td>
+        <td>${truck.trailer}</td>
+        <td>${truck.driver}</td>
+        <td>${truck.managerName}</td>
+        <td>${truck.totalKm}</td>
+        <td>${truck.totalUAHforKm}</td>
+        <td>${truck.totalStops}</td>
+        <td>${truck.totalColona}</td>
+        <td>${truck.totalRemont}</td>
+      </tr>
+      </c:forEach>
+      <tr>
 
+    </table>
+ 
 </div>
 
   <hr>
