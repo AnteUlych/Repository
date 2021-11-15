@@ -200,8 +200,17 @@ public class TimetablePastServlet {
 				}else{
 					//fixing
 					
-					String day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:red\"><span class=\"tooltiptext\">"+
+					String day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-hourglass-end\" style=\"color:red\"><span class=\"tooltiptext\">"+
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
+					
+					if(route.getRouteStatus()==Constants.TRUCK_COLONA){
+						day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:red\"><span class=\"tooltiptext\">"+
+								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
+					}
+					if(route.getRouteStatus()==Constants.TRUCK_REMOMT){
+						day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:red\"><span class=\"tooltiptext\">"+
+								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
+					}
 					
 					String day1Link ="/planner/route/"+truck.getId()+"&"+firstDay+"&"+secondDay;
 					
@@ -227,6 +236,7 @@ public class TimetablePastServlet {
 					String day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:green\"><span class=\"tooltiptext\">"+
 							route.getFromCity()+" - "+ route.getToCity()+",<br>"+ route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
 					
+					
 					String day2Link ="/planner/route/"+truck.getId()+"&"+secondDay+"&"+thirdDay;
 					
 					htmlTruck.setDay2Link(day2Link);
@@ -234,8 +244,17 @@ public class TimetablePastServlet {
 				}else{
 					//fixing
 					
-					String day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:red\"><span class=\"tooltiptext\">"+
+					String day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-hourglass-end\" style=\"color:red\"><span class=\"tooltiptext\">"+
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
+					
+					if(route.getRouteStatus()==Constants.TRUCK_COLONA){
+						day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:red\"><span class=\"tooltiptext\">"+
+								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
+					}
+					if(route.getRouteStatus()==Constants.TRUCK_REMOMT){
+						day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:red\"><span class=\"tooltiptext\">"+
+								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
+					}
 					
 					String day2Link ="/planner/route/"+truck.getId()+"&"+secondDay+"&"+thirdDay;
 					
@@ -268,8 +287,17 @@ public class TimetablePastServlet {
 				}else{
 					//fixing
 					
-					String day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:red\"><span class=\"tooltiptext\">"+
+					String day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-hourglass-end\" style=\"color:red\"><span class=\"tooltiptext\">"+
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
+					
+					if(route.getRouteStatus()==Constants.TRUCK_COLONA){
+						day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:red\"><span class=\"tooltiptext\">"+
+								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
+					}
+					if(route.getRouteStatus()==Constants.TRUCK_REMOMT){
+						day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:red\"><span class=\"tooltiptext\">"+
+								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
+					}
 					
 					String day3Link ="/planner/route/"+truck.getId()+"&"+thirdDay+"&"+fourthDay;
 					
@@ -301,8 +329,17 @@ public class TimetablePastServlet {
 				}else{
 					//fixing
 					
-					String day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:red\"><span class=\"tooltiptext\">"+
+					String day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-hourglass-end\" style=\"color:red\"><span class=\"tooltiptext\">"+
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
+					
+					if(route.getRouteStatus()==Constants.TRUCK_COLONA){
+						day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:red\"><span class=\"tooltiptext\">"+
+								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
+					}
+					if(route.getRouteStatus()==Constants.TRUCK_REMOMT){
+						day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:red\"><span class=\"tooltiptext\">"+
+								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
+					}
 					
 					String day4Link ="/planner/route/"+truck.getId()+"&"+fourthDay+"&"+fifthDay;
 					
@@ -336,8 +373,17 @@ public class TimetablePastServlet {
 				}else{
 					//fixing
 					
-					String day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:red\"><span class=\"tooltiptext\">"+
+					String day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-hourglass-end\" style=\"color:red\"><span class=\"tooltiptext\">"+
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
+					
+					if(route.getRouteStatus()==Constants.TRUCK_COLONA){
+						day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:red\"><span class=\"tooltiptext\">"+
+								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
+					}
+					if(route.getRouteStatus()==Constants.TRUCK_REMOMT){
+						day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:red\"><span class=\"tooltiptext\">"+
+								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
+					}
 					
 					String day5Link ="/planner/route/"+truck.getId()+"&"+fifthDay+"&"+sixthDay;
 					
@@ -624,8 +670,17 @@ public class TimetablePastServlet {
 				}else{
 					//fixing
 					
-					String day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:red\"><span class=\"tooltiptext\">"+
+					String day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-hourglass-end\" style=\"color:red\"><span class=\"tooltiptext\">"+
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
+					
+					if(route.getRouteStatus()==Constants.TRUCK_COLONA){
+						day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:red\"><span class=\"tooltiptext\">"+
+								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
+					}
+					if(route.getRouteStatus()==Constants.TRUCK_REMOMT){
+						day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:red\"><span class=\"tooltiptext\">"+
+								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
+					}
 					
 					String day1Link ="/planner/route/"+truck.getId()+"&"+firstDay+"&"+secondDay;
 					
@@ -658,8 +713,17 @@ public class TimetablePastServlet {
 				}else{
 					//fixing
 					
-					String day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:red\"><span class=\"tooltiptext\">"+
+					String day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-hourglass-end\" style=\"color:red\"><span class=\"tooltiptext\">"+
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
+					
+					if(route.getRouteStatus()==Constants.TRUCK_COLONA){
+						day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:red\"><span class=\"tooltiptext\">"+
+								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
+					}
+					if(route.getRouteStatus()==Constants.TRUCK_REMOMT){
+						day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:red\"><span class=\"tooltiptext\">"+
+								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
+					}
 					
 					String day2Link ="/planner/route/"+truck.getId()+"&"+secondDay+"&"+thirdDay;
 					
@@ -692,8 +756,17 @@ public class TimetablePastServlet {
 				}else{
 					//fixing
 					
-					String day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:red\"><span class=\"tooltiptext\">"+
+					String day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-hourglass-end\" style=\"color:red\"><span class=\"tooltiptext\">"+
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
+					
+					if(route.getRouteStatus()==Constants.TRUCK_COLONA){
+						day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:red\"><span class=\"tooltiptext\">"+
+								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
+					}
+					if(route.getRouteStatus()==Constants.TRUCK_REMOMT){
+						day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:red\"><span class=\"tooltiptext\">"+
+								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
+					}
 					
 					String day3Link ="/planner/route/"+truck.getId()+"&"+thirdDay+"&"+fourthDay;
 					
@@ -725,8 +798,17 @@ public class TimetablePastServlet {
 				}else{
 					//fixing
 					
-					String day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:red\"><span class=\"tooltiptext\">"+
+					String day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-hourglass-end\" style=\"color:red\"><span class=\"tooltiptext\">"+
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
+					
+					if(route.getRouteStatus()==Constants.TRUCK_COLONA){
+						day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:red\"><span class=\"tooltiptext\">"+
+								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
+					}
+					if(route.getRouteStatus()==Constants.TRUCK_REMOMT){
+						day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:red\"><span class=\"tooltiptext\">"+
+								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
+					}
 					
 					String day4Link ="/planner/route/"+truck.getId()+"&"+fourthDay+"&"+fifthDay;
 					
@@ -760,8 +842,17 @@ public class TimetablePastServlet {
 				}else{
 					//fixing
 					
-					String day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-truck\" style=\"color:red\"><span class=\"tooltiptext\">"+
+					String day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-hourglass-end\" style=\"color:red\"><span class=\"tooltiptext\">"+
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
+					
+					if(route.getRouteStatus()==Constants.TRUCK_COLONA){
+						day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:red\"><span class=\"tooltiptext\">"+
+								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
+					}
+					if(route.getRouteStatus()==Constants.TRUCK_REMOMT){
+						day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:red\"><span class=\"tooltiptext\">"+
+								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
+					}
 					
 					String day5Link ="/planner/route/"+truck.getId()+"&"+fifthDay+"&"+sixthDay;
 					

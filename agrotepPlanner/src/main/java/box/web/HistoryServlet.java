@@ -57,6 +57,8 @@ public class HistoryServlet {
 			
 			int totalUAH = 0; 
 			int totalStops = 0;
+			int totalColona = 0;
+			int totalRemont = 0;
 			
 			for(Route r:routes){
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -68,6 +70,12 @@ public class HistoryServlet {
 				
 				if(r.getRouteStatus()==Constants.TRUCK_NOT_READY){
 					totalStops=totalStops+1;
+				}
+				if(r.getRouteStatus()==Constants.TRUCK_COLONA){
+					totalColona=totalColona+1;
+				}
+				if(r.getRouteStatus()==Constants.TRUCK_REMOMT){
+					totalRemont=totalRemont+1;
 				}
 			}
 			
@@ -81,6 +89,8 @@ public class HistoryServlet {
 			histories.setTotalKm(totalKm);
 			histories.setDates(dateText);
 			histories.setTotalStops(totalStops);
+			histories.setTotalColona(totalColona);
+			histories.setTotalRemont(totalRemont);
 			
 			trucksHTML.add(histories);
 		
@@ -130,6 +140,8 @@ public class HistoryServlet {
 	
 			int totalUAH = 0; 
 			int totalStops = 0;
+			int totalColona = 0;
+			int totalRemont = 0;
 			
 			for(Route r:routes){
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -142,6 +154,12 @@ public class HistoryServlet {
 				if(r.getRouteStatus()==Constants.TRUCK_NOT_READY){
 					totalStops=totalStops+1;
 				}
+				if(r.getRouteStatus()==Constants.TRUCK_COLONA){
+					totalColona=totalColona+1;
+				}
+				if(r.getRouteStatus()==Constants.TRUCK_REMOMT){
+					totalRemont=totalRemont+1;
+				}
 			}
 			
 			RuptelaLogic ruptela = new RuptelaLogic();
@@ -153,6 +171,8 @@ public class HistoryServlet {
 			histories.setTotalKm(totalKm);
 			histories.setDates(dateText);
 			histories.setTotalStops(totalStops);
+			histories.setTotalColona(totalColona);
+			histories.setTotalRemont(totalRemont);
 			
 			trucksHTML.add(histories);
 		

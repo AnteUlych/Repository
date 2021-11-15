@@ -119,7 +119,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		<br>
 		<div class='container'>
 
-        <p id="demo0"></p>
+     
         <p id="demo1"></p>
 	    <p id="demo2"></p>
 		<p id="demo3"></p>
@@ -131,8 +131,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	    <p id="demo9"></p>
 	    <p id="demo10"></p>
 	    
-<br><br><div class="align-left"><button type="submit" class="w3-button w3-round-xxlarge w3-blue-grey" name="wait" formnovalidate>Очікувати</button></div><div class="align-right"><button type="submit" class="w3-button w3-round-xxlarge w3-teal" name="repeat" formnovalidate>Рух</button></div><br>
-			
+<br><div class="align-left"><button type="submit" class="w3-button w3-round-xxlarge w3-red" name="wait" formnovalidate><i class="fa fa-hourglass-end"></i></button>&nbsp;<button type="submit" class="w3-button w3-round-xxlarge w3-blue" name="remont" formnovalidate><i class="fa fa-wrench"></i></button>&nbsp;<button type="submit" class="w3-button w3-round-xxlarge w3-purple" name="colona" formnovalidate><i class="fa fa-suitcase"></i></button></div>
+<div class="align-right">
+<button type="submit" class="w3-button w3-round-xxlarge w3-teal w3-right" name="repeat" formnovalidate><i class="fa fa-truck"></i></button></div><br>
+	<br>
+<p id="demo0"></p>		
 			<input type="hidden" class="field" name ="street_number" id="street_number" disabled="true">
 			
 			<input type="hidden" class="field" name ="route" id="route" disabled="true">
@@ -286,7 +289,7 @@ function fillInAddress() {
 	var latitude= place.geometry.location.lat();
 	document.getElementById('demo1').innerHTML = '<input type="hidden" name="lng"  id="demo1" value="'+longitude+'"></input>';
 	document.getElementById('demo2').innerHTML = '<input type="hidden" name="lat" id="demo2" value="'+latitude+'"></input>';
-	document.getElementById('demo0').innerHTML = '<div class="align-left"><button class="w3-button w3-round-xxlarge w3-green" name="book">Бронювати</button></div><div class="align-right"><button type="submit" class="w3-button w3-round-xxlarge w3-blue" name="calculate">Розрахувати</button></div>';
+	document.getElementById('demo0').innerHTML = '<div class="align-left"><button class="w3-button w3-round-xxlarge w3-green" name="book"><i class="fa fa-truck"></i></button></div><div class="align-right"><button type="submit" class="w3-button w3-round-xxlarge w3-blue w3-right" name="calculate"><i class="fa fa-calculator"></i></button></div>';
 }
 
 function fillInAddress1() {

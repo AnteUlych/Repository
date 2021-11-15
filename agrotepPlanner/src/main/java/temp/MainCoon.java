@@ -45,23 +45,13 @@ import box.model.VariantsHtml;
 public class MainCoon {
 
 	public static void main(String[] args){
-		Calendar c = Calendar.getInstance();
-		c.add(Calendar.DATE, 2);
-		System.out.println(c.getTime());
-		c.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
-		System.out.println(c.getTime());
-		c.set(Calendar.DAY_OF_WEEK, Calendar.TUESDAY);
-		System.out.println(c.getTime());
-		c.set(Calendar.DAY_OF_WEEK, Calendar.WEDNESDAY);
-		System.out.println(c.getTime());
-		c.set(Calendar.DAY_OF_WEEK, Calendar.THURSDAY);
-		System.out.println(c.getTime());
-		c.set(Calendar.DAY_OF_WEEK, Calendar.FRIDAY);
-		System.out.println(c.getTime());
-		c.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
-		System.out.println(c.getTime());
-		c.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
-		System.out.println(c.getTime());
+	
+		DataBaseController b = new DataBaseController();
+	    List <Route> rs = b.getListOfRoutesBetweenDatesByTruckIdForHistory(29, "2021-11-01", "2021-11-15");
+	    
+	    for(Route r:rs){
+	    	System.out.println(r.getFromDate()+" "+r.getInfo());
+	    }
 
 			
 		}

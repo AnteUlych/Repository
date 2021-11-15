@@ -201,6 +201,116 @@ public class NewRouteServlet2 {
 			
 		}
 		
+		if (request.getParameter("colona") != null) {
+			
+            Route route = new Route();
+			
+			route.setAddressFrom(lastRoute.getAddressTo());
+			route.setAddressTo(lastRoute.getAddressTo());
+			route.setFromCity(lastRoute.getToCity());
+			
+			CalendarLogic calendar = new CalendarLogic();
+			Date fromDate = calendar.addToStringOneMinute(dateStart);
+				
+			route.setFromDate(fromDate);
+			route.setFromLat(lastRoute.getToLat());
+			route.setFromLon(lastRoute.getToLon());
+			route.setFromOblast(lastRoute.getToOblast());
+			route.setInfo("колонний");
+			route.setKilometrs(0);
+			route.setPiceForKilometr(0);
+			route.setPrice(0);
+			route.setRouteStatus(Constants.TRUCK_COLONA);
+			route.setToCity(lastRoute.getToCity());
+			
+			Date toDate = calendar.changeStringToDate(dateFinish);
+			
+			route.setToDate(toDate);
+			route.setToLat(lastRoute.getToLat());
+			route.setToLon(lastRoute.getToLon());
+			route.setToOblast(lastRoute.getToOblast());
+			route.setTruckid(truckid);
+			route.setDriverInstruction("");
+			
+			base.addRoute(route);
+			
+			History history = new History();
+			
+			history.setAction(Constants.ACTION_COLONA);
+			history.setActionDate(new Date());
+			history.setInfo("колонний");
+			history.setManager(name);
+			history.setManagerid(id);
+			
+			base.addHistory(history);
+			
+			base.closeConnection();
+			
+			try {
+				response.sendRedirect("/planner/timetable");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			return "timetable";
+			
+		}
+		
+           if (request.getParameter("remont") != null) {
+			
+            Route route = new Route();
+			
+			route.setAddressFrom(lastRoute.getAddressTo());
+			route.setAddressTo(lastRoute.getAddressTo());
+			route.setFromCity(lastRoute.getToCity());
+			
+			CalendarLogic calendar = new CalendarLogic();
+			Date fromDate = calendar.addToStringOneMinute(dateStart);
+				
+			route.setFromDate(fromDate);
+			route.setFromLat(lastRoute.getToLat());
+			route.setFromLon(lastRoute.getToLon());
+			route.setFromOblast(lastRoute.getToOblast());
+			route.setInfo("ремонт");
+			route.setKilometrs(0);
+			route.setPiceForKilometr(0);
+			route.setPrice(0);
+			route.setRouteStatus(Constants.TRUCK_REMOMT);
+			route.setToCity(lastRoute.getToCity());
+			
+			Date toDate = calendar.changeStringToDate(dateFinish);
+			
+			route.setToDate(toDate);
+			route.setToLat(lastRoute.getToLat());
+			route.setToLon(lastRoute.getToLon());
+			route.setToOblast(lastRoute.getToOblast());
+			route.setTruckid(truckid);
+			route.setDriverInstruction("");
+			
+			base.addRoute(route);
+			
+			History history = new History();
+			
+			history.setAction(Constants.ACTION_REMONT);
+			history.setActionDate(new Date());
+			history.setInfo("ремонт");
+			history.setManager(name);
+			history.setManagerid(id);
+			
+			base.addHistory(history);
+			
+			base.closeConnection();
+			
+			try {
+				response.sendRedirect("/planner/timetable");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			return "timetable";
+			
+		}
+		
 if (request.getParameter("repeat") != null) {
 			
             Route route = new Route();
