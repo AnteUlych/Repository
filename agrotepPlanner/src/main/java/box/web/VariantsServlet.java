@@ -90,6 +90,10 @@ public class VariantsServlet {
 			oblast = "Київська область";
 		}
 		
+		if(oblast.equals("Київська обл.")){
+			oblast = "Київська область";
+		}
+		
 		List<VariantsHtml> listOfVariants = new ArrayList();		
 	
 		DataBaseController base = new DataBaseController();
