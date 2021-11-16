@@ -204,11 +204,11 @@ public class TimetablePastServlet {
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
 					
 					if(route.getRouteStatus()==Constants.TRUCK_COLONA){
-						day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:red\"><span class=\"tooltiptext\">"+
+						day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:purple\"><span class=\"tooltiptext\">"+
 								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
 					}
 					if(route.getRouteStatus()==Constants.TRUCK_REMOMT){
-						day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:red\"><span class=\"tooltiptext\">"+
+						day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:blue\"><span class=\"tooltiptext\">"+
 								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
 					}
 					
@@ -248,11 +248,11 @@ public class TimetablePastServlet {
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
 					
 					if(route.getRouteStatus()==Constants.TRUCK_COLONA){
-						day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:red\"><span class=\"tooltiptext\">"+
+						day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:purple\"><span class=\"tooltiptext\">"+
 								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
 					}
 					if(route.getRouteStatus()==Constants.TRUCK_REMOMT){
-						day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:red\"><span class=\"tooltiptext\">"+
+						day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:blue\"><span class=\"tooltiptext\">"+
 								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
 					}
 					
@@ -291,11 +291,11 @@ public class TimetablePastServlet {
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
 					
 					if(route.getRouteStatus()==Constants.TRUCK_COLONA){
-						day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:red\"><span class=\"tooltiptext\">"+
+						day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:purple\"><span class=\"tooltiptext\">"+
 								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
 					}
 					if(route.getRouteStatus()==Constants.TRUCK_REMOMT){
-						day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:red\"><span class=\"tooltiptext\">"+
+						day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:blue\"><span class=\"tooltiptext\">"+
 								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
 					}
 					
@@ -333,11 +333,11 @@ public class TimetablePastServlet {
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
 					
 					if(route.getRouteStatus()==Constants.TRUCK_COLONA){
-						day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:red\"><span class=\"tooltiptext\">"+
+						day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:purple\"><span class=\"tooltiptext\">"+
 								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
 					}
 					if(route.getRouteStatus()==Constants.TRUCK_REMOMT){
-						day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:red\"><span class=\"tooltiptext\">"+
+						day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:blue\"><span class=\"tooltiptext\">"+
 								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
 					}
 					
@@ -377,11 +377,11 @@ public class TimetablePastServlet {
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
 					
 					if(route.getRouteStatus()==Constants.TRUCK_COLONA){
-						day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:red\"><span class=\"tooltiptext\">"+
+						day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:purple\"><span class=\"tooltiptext\">"+
 								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
 					}
 					if(route.getRouteStatus()==Constants.TRUCK_REMOMT){
-						day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:red\"><span class=\"tooltiptext\">"+
+						day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:blue\"><span class=\"tooltiptext\">"+
 								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
 					}
 					
@@ -674,11 +674,11 @@ public class TimetablePastServlet {
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
 					
 					if(route.getRouteStatus()==Constants.TRUCK_COLONA){
-						day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:red\"><span class=\"tooltiptext\">"+
+						day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:purple\"><span class=\"tooltiptext\">"+
 								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
 					}
 					if(route.getRouteStatus()==Constants.TRUCK_REMOMT){
-						day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:red\"><span class=\"tooltiptext\">"+
+						day1 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:blue\"><span class=\"tooltiptext\">"+
 								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
 					}
 					
@@ -717,11 +717,11 @@ public class TimetablePastServlet {
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
 					
 					if(route.getRouteStatus()==Constants.TRUCK_COLONA){
-						day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:red\"><span class=\"tooltiptext\">"+
+						day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:purple\"><span class=\"tooltiptext\">"+
 								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
 					}
 					if(route.getRouteStatus()==Constants.TRUCK_REMOMT){
-						day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:red\"><span class=\"tooltiptext\">"+
+						day2 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:blue\"><span class=\"tooltiptext\">"+
 								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
 					}
 					
@@ -760,11 +760,11 @@ public class TimetablePastServlet {
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
 					
 					if(route.getRouteStatus()==Constants.TRUCK_COLONA){
-						day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:red\"><span class=\"tooltiptext\">"+
+						day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:purple\"><span class=\"tooltiptext\">"+
 								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
 					}
 					if(route.getRouteStatus()==Constants.TRUCK_REMOMT){
-						day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:red\"><span class=\"tooltiptext\">"+
+						day3 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:blue\"><span class=\"tooltiptext\">"+
 								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
 					}
 					
@@ -802,11 +802,11 @@ public class TimetablePastServlet {
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
 					
 					if(route.getRouteStatus()==Constants.TRUCK_COLONA){
-						day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:red\"><span class=\"tooltiptext\">"+
+						day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:purple\"><span class=\"tooltiptext\">"+
 								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
 					}
 					if(route.getRouteStatus()==Constants.TRUCK_REMOMT){
-						day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:red\"><span class=\"tooltiptext\">"+
+						day4 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:blue\"><span class=\"tooltiptext\">"+
 								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
 					}
 					
@@ -846,11 +846,11 @@ public class TimetablePastServlet {
 							route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";
 					
 					if(route.getRouteStatus()==Constants.TRUCK_COLONA){
-						day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:red\"><span class=\"tooltiptext\">"+
+						day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-suitcase\" style=\"color:purple\"><span class=\"tooltiptext\">"+
 								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
 					}
 					if(route.getRouteStatus()==Constants.TRUCK_REMOMT){
-						day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:red\"><span class=\"tooltiptext\">"+
+						day5 = "<center><div class=\"tooltip\"><i class=\"fa fa-wrench\" style=\"color:blue\"><span class=\"tooltiptext\">"+
 								route.getInfo()+ ",<br>"+route.getPiceForKilometr()+" грн/км</span></i></center>";	
 					}
 					
