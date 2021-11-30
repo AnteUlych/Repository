@@ -279,7 +279,7 @@ function fillInAddress() {
 	var latitude= place.geometry.location.lat();
 	document.getElementById('demo1').innerHTML = '<input type="hidden" name="lng"  id="demo1" value="'+longitude+'"></input>';
 	document.getElementById('demo2').innerHTML = '<input type="hidden" name="lat" id="demo2" value="'+latitude+'"></input>';
-	document.getElementById('demo0').innerHTML = '<div class="align-left"><button class="w3-button w3-round-xxlarge w3-green" name="book"><i class="fa fa-truck"></i></button></div><div class="align-right"><button type="submit" class="w3-button w3-round-xxlarge w3-blue w3-right" name="calculate"><i class="fa fa-calculator"></i></button></div>';
+	document.getElementById('demo0').innerHTML = '<div class="align-left"><button onclick="this.style.display=\'none\';" class="w3-button w3-round-xxlarge w3-green" name="book"><i class="fa fa-truck"></i></button></div><div class="align-right"><button type="submit" class="w3-button w3-round-xxlarge w3-blue w3-right" name="calculate"><i class="fa fa-calculator"></i></button></div>';
 }
 
 function fillInAddress1() {
