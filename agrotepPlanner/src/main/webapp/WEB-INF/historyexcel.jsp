@@ -118,8 +118,8 @@ th, td {
         <td>${truck.totalKm}</td>
         <td>${truck.totalUAHforKm}</td>
         <td>${truck.totalStops}</td>
-        <td>${truck.totalColona}</td>
         <td>${truck.totalRemont}</td>
+        <td>${truck.totalColona}</td>
       </tr>
       </c:forEach>
       <tr>
