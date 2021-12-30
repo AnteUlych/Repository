@@ -40,11 +40,13 @@ public class TimetableServlet {
 		int filterMy = (Integer) session.getAttribute("filterMy");
 		int filterUrgent = (Integer) session.getAttribute("filterUrgent");
 		int filterNotClosed = (Integer) session.getAttribute("filterNotClosed");
+		int filterNextDayNotClosed = (Integer) session.getAttribute("filterNextDayNotClosed"); //filterNextDayNotClosed
 		
 		String htmlFilterMy = "";
 		String htmlFilterRemont = "";
 		String htmlFilterUrgent = "";
 		String htmlFilterNotClosed = "";
+		String htmlFilterNextDayNotClosed = ""; //filterNextDayNotClosed
 		
 		if(filterMy==Constants.FILTER_TRUE){
 			htmlFilterMy = checked;
@@ -56,6 +58,12 @@ public class TimetableServlet {
 		if(filterNotClosed==Constants.FILTER_TRUE){
 			htmlFilterNotClosed = checked;
 		}
+		
+		//filterNextDayNotClosed
+		if(filterNextDayNotClosed==Constants.FILTER_TRUE){ 
+			htmlFilterNextDayNotClosed = checked;  
+		} 
+		//filterNextDayNotClosed
 		
 		CalendarLogic calendar = new CalendarLogic();
 		
@@ -107,6 +115,17 @@ public class TimetableServlet {
 			}
 			trucks.removeAll(trucksForRemoveFilterNotClosed);
 		}
+		//filterNextDayNotClosed
+		if(filterNextDayNotClosed==Constants.FILTER_TRUE){	
+			List <Truck> trucksForRemoveFilterNotClosed = new ArrayList();
+			for(Truck truck:trucks){
+				if((base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), secondDay, thirdDay))&&(truck.getPriority()!=Constants.TRUCK_PRIORITY_HIGH)){
+					trucksForRemoveFilterNotClosed.add(truck);
+				}
+			}
+			trucks.removeAll(trucksForRemoveFilterNotClosed);
+		}
+		//filterNextDayNotClosed
 		
 		boolean weekendHeadFirstDay = calendar.isDayTheWeekend(firstDay);
 		boolean weekendHeadSecondDay = calendar.isDayTheWeekend(secondDay);
@@ -428,6 +447,7 @@ public class TimetableServlet {
 		model.addAttribute("htmlFilterRemont", htmlFilterRemont);
 		model.addAttribute("htmlFilterUrgent", htmlFilterUrgent);
 		model.addAttribute("htmlFilterNotClosed", htmlFilterNotClosed);
+		model.addAttribute("htmlFilterNextDayNotClosed", htmlFilterNextDayNotClosed); //filterNextDayNotClosed
 		
 		model.addAttribute("firstTableHeadDay", firstTableHeadDay);
 		model.addAttribute("secondTableHeadDay", secondTableHeadDay);
@@ -458,6 +478,7 @@ public class TimetableServlet {
 		int filterMy = (Integer) session.getAttribute("filterMy");
 		int filterUrgent = (Integer) session.getAttribute("filterUrgent");
 		int filterNotClosed = (Integer) session.getAttribute("filterNotClosed");
+		int filterNextDayNotClosed = (Integer) session.getAttribute("filterNextDayNotClosed"); //filterNextDayNotClosed
 		
 		DataBaseController base = new DataBaseController();
 		
@@ -519,7 +540,14 @@ public class TimetableServlet {
 		}else if((request.getParameter("checkNotClosed") == null)&&(filterNotClosed==Constants.FILTER_TRUE)){
 			filterNotClosed=Constants.FILTER_FALSE;
 		}
-
+		
+		//filterNextDayNotClosed
+		if((request.getParameter("checkNextDayNotClosed") != null)&&(filterNextDayNotClosed==Constants.FILTER_FALSE)){
+			filterNextDayNotClosed=Constants.FILTER_TRUE;
+		}else if((request.getParameter("checkNextDayNotClosed") == null)&&(filterNextDayNotClosed==Constants.FILTER_TRUE)){
+			filterNextDayNotClosed=Constants.FILTER_FALSE;
+		}
+		//filterNextDayNotClosed
 		
 		//post from here
 		
@@ -527,6 +555,7 @@ public class TimetableServlet {
 		String htmlFilterRemont = "";
 		String htmlFilterUrgent = "";
 		String htmlFilterNotClosed = "";
+		String htmlFilterNextDayNotClosed = ""; //filterNextDayNotClosed
 		
 		if(filterMy==Constants.FILTER_TRUE){
 			htmlFilterMy = checked;
@@ -538,6 +567,12 @@ public class TimetableServlet {
 		if(filterNotClosed==Constants.FILTER_TRUE){
 			htmlFilterNotClosed = checked;
 		}
+		
+		//filterNextDayNotClosed
+		if(filterNextDayNotClosed==Constants.FILTER_TRUE){ 
+			htmlFilterNextDayNotClosed = checked;  
+		} 
+		//filterNextDayNotClosed
 		
 		CalendarLogic calendar = new CalendarLogic();
 		
@@ -594,6 +629,18 @@ public class TimetableServlet {
 			}
 			trucks.removeAll(trucksForRemoveFilterNotClosed);
 		}
+		
+		//filterNextDayNotClosed
+		if(filterNextDayNotClosed==Constants.FILTER_TRUE){	
+			List <Truck> trucksForRemoveFilterNotClosed = new ArrayList();
+			for(Truck truck:trucks){
+				if((base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), secondDay, thirdDay))&&(truck.getPriority()!=Constants.TRUCK_PRIORITY_HIGH)){
+					trucksForRemoveFilterNotClosed.add(truck);
+				}
+			}
+			trucks.removeAll(trucksForRemoveFilterNotClosed);
+		}
+		//filterNextDayNotClosed
 		
 		boolean weekendHeadFirstDay = calendar.isDayTheWeekend(firstDay);
 		boolean weekendHeadSecondDay = calendar.isDayTheWeekend(secondDay);
@@ -913,6 +960,7 @@ public class TimetableServlet {
 		model.addAttribute("htmlFilterRemont", htmlFilterRemont);
 		model.addAttribute("htmlFilterUrgent", htmlFilterUrgent);
 		model.addAttribute("htmlFilterNotClosed", htmlFilterNotClosed);
+		model.addAttribute("htmlFilterNextDayNotClosed", htmlFilterNextDayNotClosed); //filterNextDayNotClosed
 		
 		model.addAttribute("firstTableHeadDay", firstTableHeadDay);
 		model.addAttribute("secondTableHeadDay", secondTableHeadDay);

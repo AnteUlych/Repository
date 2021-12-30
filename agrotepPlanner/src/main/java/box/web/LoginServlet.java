@@ -57,6 +57,7 @@ public class LoginServlet {
 		session.setAttribute("filterMy", Constants.FILTER_FALSE);
 		session.setAttribute("filterUrgent", Constants.FILTER_FALSE);
 		session.setAttribute("filterNotClosed", Constants.FILTER_FALSE);
+		session.setAttribute("filterNextDayNotClosed", Constants.FILTER_FALSE);//filterNextDayNotClosed
 
 		base.closeConnection();
 

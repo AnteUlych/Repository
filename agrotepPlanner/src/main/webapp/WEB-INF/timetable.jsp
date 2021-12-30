@@ -111,7 +111,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   
   <input onChange="this.form.submit()" value="turnOn" type="checkbox" id="checkNotClosed" name="checkNotClosed" ${htmlFilterNotClosed}>
   <label for="checkNotClosed">Незакриті</label>
+  
   &nbsp; 
+  <input onChange="this.form.submit()" value="turnOn" type="checkbox" id="checkNextDayNotClosed" name="checkNextDayNotClosed" ${htmlFilterNextDayNotClosed}>
+  <label for="checkNextDayNotClosed">Незакриті на наступний день</label>
+  &nbsp;
   &nbsp;
   <i class="fa fa-search"></i><input style="border: 0px none;" id="myInput" type="text" >
 </div>
