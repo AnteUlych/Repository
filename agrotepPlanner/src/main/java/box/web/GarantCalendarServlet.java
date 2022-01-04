@@ -67,13 +67,21 @@ public class GarantCalendarServlet {
 		
 		List<Garant> garantsCheckDates = base.getListOfGarants(); //check old dates
 		for(Garant g:garantsCheckDates){
-		if(g.getPlandate().before(rubiconDate)){		
+		if(g.getPlandate().before(rubiconDate)){
+		
+			//delete onetimegarants from calendar
+			if(g.getOnetimeuse()== Constants.ONETIMEUSE_GARANT){
+				base.deleteGarantById(g.getId());
+			}else{
+			
 			Calendar cal = Calendar.getInstance();
 			cal.setTime(g.getPlandate());
 			cal.add(Calendar.DATE, 7);
 			Date nextPlanDate = cal.getTime();
 			
 			base.editGarantById(g.getId(), "", Constants.GARANTS_STATUS_NO_COLOR, nextPlanDate);
+			}
+		
 		}
 		} 
 		

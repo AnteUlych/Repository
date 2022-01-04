@@ -28,6 +28,8 @@ public class Garant {
 	private String color;
 	@Column
 	private Date plandate;
+	@Column
+	private int onetimeuse;
 	
 	public int getId() {
 		return id;
@@ -76,6 +78,12 @@ public class Garant {
 	}
 	public void setPlandate(Date plandate) {
 		this.plandate = plandate;
+	}
+	public int getOnetimeuse() {
+		return onetimeuse;
+	}
+	public void setOnetimeuse(int onetimeuse) {
+		this.onetimeuse = onetimeuse;
 	}
 
 }

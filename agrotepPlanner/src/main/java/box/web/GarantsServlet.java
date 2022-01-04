@@ -15,6 +15,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import box.logic.Constants;
 import box.logic.DataBaseController;
 import box.model.Client;
 import box.model.Garant;
@@ -114,10 +115,20 @@ public class GarantsServlet {
 			int numberoftrucks = Integer.parseInt(request.getParameter("numberoftrucks"));
 			int dayofweek = Integer.parseInt(request.getParameter("dayofweek"));
 			
+			int onetimeuse = Constants.NOT_ONETIMEUSE_GARANT;
+			String color = "w3-light-grey";
+			
+			if (request.getParameter("onetimeuse") != null) {
+				onetimeuse = Constants.ONETIMEUSE_GARANT;
+				color = "w3-yellow";
+				client = client+ " - разове";
+			}
+			
 			Garant garant = new Garant();
 			garant.setClient(client);
-			garant.setColor("w3-light-grey");
+			garant.setColor(color);
 			garant.setDayofweek(dayofweek);
+			garant.setOnetimeuse(onetimeuse);
 			
 			Calendar calendar = Calendar.getInstance();
 	
@@ -137,6 +148,27 @@ public class GarantsServlet {
 					calendar.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
 			}
 		    Date needDate = calendar.getTime();
+		    
+			if (request.getParameter("onetimeuse") != null) {
+            
+				Calendar c = Calendar.getInstance();	
+				c.set(Calendar.HOUR_OF_DAY, 0);
+				c.set(Calendar.MILLISECOND, 0);
+		        c.set(Calendar.SECOND, 0);
+		        c.set(Calendar.MINUTE, 0);
+				Date rubiconDate = c.getTime();
+
+				if(needDate.before(rubiconDate)){		
+					Calendar cal = Calendar.getInstance();
+					cal.setTime(needDate);
+					cal.add(Calendar.DATE, 7);
+					Date nextPlanDate = cal.getTime();
+					
+					needDate=nextPlanDate;
+				}
+		 
+				
+			}
 		    
 			garant.setPlandate(needDate);
 			garant.setPrice(price);

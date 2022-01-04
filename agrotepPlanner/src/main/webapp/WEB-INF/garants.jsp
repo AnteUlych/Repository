@@ -124,7 +124,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
          <label for="total1">неділя &nbsp;</label>
         
 	     </p>
-
+         <p> <input type="checkbox" name="onetimeuse" value="1"> &nbsp; разове перевезення<br></p>
 		  <br>
 		  <p><button name="add" type="submit" class="w3-button w3-padding-large w3-green w3-margin-bottom">Додати</button></p>
 		 

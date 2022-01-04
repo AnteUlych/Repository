@@ -108,8 +108,9 @@ CREATE TABLE `garant` (
   `dayofweek` int(11) DEFAULT NULL,
   `color` varchar(45) DEFAULT NULL,
   `plandate` datetime DEFAULT NULL,
+  `onetimeuse` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,7 +129,7 @@ CREATE TABLE `history` (
   `info` varchar(250) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2424 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2484 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -192,7 +193,7 @@ CREATE TABLE `route` (
   `driverInstruction` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2142 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2188 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -236,4 +237,4 @@ CREATE TABLE `truck` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-23 14:56:16
+-- Dump completed on 2022-01-04  9:58:27
