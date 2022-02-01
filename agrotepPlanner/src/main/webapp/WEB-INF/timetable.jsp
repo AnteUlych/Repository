@@ -21,6 +21,8 @@ $(document).ready(function(){
     });
   });
 });
+
+
 </script>
 
 <style>
@@ -131,8 +133,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	  <th onclick="sortNumberTable(3)">[грн/км]  <i class="fa fa-sort"></i></th>
 	  <th onclick="sortNumberTable(4)">[км]  <i class="fa fa-sort"></i></th>
 	  <th onclick="sortTable(5)">Авто <i class="fa fa-sort"></i></th>
-	  <th onclick="sortTable(6)">Тип <i class="fa fa-sort"></i></th>
-	  <th onclick="sortTable(7)">Область <i class="fa fa-sort"></i></th>
+	  <th onclick="sortNumberTable(6)"> <i class="fa fa-wrench" style="color:red"></i>  <i class="fa fa-sort"></i></th>
+	  <th onclick="sortTable(7)">Тип <i class="fa fa-sort"></i></th>
+	  <th onclick="sortTable(8)">Область <i class="fa fa-sort"></i></th>
 	  <th>Завдання</th>
 	  <th class="${weekendStringHeadFirstDay}">${firstTableHeadDay}</th>
 	  <th class="${weekendStringHeadSecondDay}">${secondTableHeadDay}</th>
@@ -159,6 +162,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </span>
     </div>
     </td>
+    <td>${trucksh.noremontdays}</td>
     <td>${trucksh.type}</td>
     <td><div style="${trucksh.fromOblastStatusStyle}">${trucksh.fromLastOblast}</div></td>
     

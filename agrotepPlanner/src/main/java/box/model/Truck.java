@@ -40,6 +40,8 @@ public class Truck {
 	private int kmruptela0131;
 	@Column
 	private double uahkmruptela0131;
+	@Column
+	private int noremontdays;
 	
 	public int getId() {
 		return id;
@@ -130,6 +132,12 @@ public class Truck {
 	}
 	public void setUahkmruptela0131(double uahkmruptela0131) {
 		this.uahkmruptela0131 = uahkmruptela0131;
+	}
+	public int getNoremontdays() {
+		return noremontdays;
+	}
+	public void setNoremontdays(int noremontdays) {
+		this.noremontdays = noremontdays;
 	}
 
 }

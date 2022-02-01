@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import box.dao.RouteDAO;
+import box.logic.Constants;
 import box.model.Route;
 
 
@@ -64,6 +65,10 @@ public class RouteService {
 	
 	public List<Route> getLastTenRoutesByTruckId(int truckid, String finish){
 		return dao.getLastTenRoutesByTruckId(truckid, finish);
+	}
+	
+	public List<Route> getLastRemontRouteByTruckId(int truckid, String finish){
+		return dao.getLastRemontRouteByTruckId(truckid, finish);		
 	}
 	
 }

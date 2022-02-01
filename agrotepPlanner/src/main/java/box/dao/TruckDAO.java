@@ -71,6 +71,18 @@ public class TruckDAO {
 	}
 	
 	@Transactional
+	public void editTruckNoremontdaysById(int id, int noremontdays) {
+
+		Truck truck = (Truck) em.find(Truck.class, id);	
+		truck.setNoremontdays(noremontdays);
+		
+		Truck transaction = em.merge(truck);
+		em.persist(transaction);
+		em.close();
+
+	}
+	
+	@Transactional
 	public void editTruckCommentById(int id, String comment) {
 		
 		Truck truck = (Truck) em.find(Truck.class, id);

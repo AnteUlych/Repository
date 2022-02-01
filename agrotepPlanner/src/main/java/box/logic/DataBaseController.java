@@ -1,12 +1,15 @@
 package box.logic;
 
+import java.text.DateFormat;
 import java.text.Format;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
@@ -160,6 +163,10 @@ public class DataBaseController {
 	
 	public void editTruckKmruptela0131tById(int id, int kmruptela0131, double uahkmruptela0131) {
 		truckService.editTruckKmruptela0131tById(id, kmruptela0131, uahkmruptela0131);
+	}
+	
+	public void editTruckNoremontdaysById(int id, int noremontdays) {
+		truckService.editTruckNoremontdaysById(id, noremontdays);
 	}
 	//truck
 	
@@ -411,6 +418,39 @@ public class DataBaseController {
 		
 		return km;
 	}
+	
+	public int getHowManyDaysAgoTruckWasInService(int truckid, String finish){
+		
+		try {	
+			
+	    List<Route> routes = routeService.getLastRemontRouteByTruckId(truckid, finish);
+	    
+	    if(routes.size()==0){
+	    	return 99;
+	    }
+	    
+	    Route r =routes.get(0);
+	  
+	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	    Date remontDate = r.getFromDate();        
+	    String dateOfRemont = sdf.format(remontDate);
+	    		
+	    Date firstDate = sdf.parse(finish);
+	    Date secondDate = sdf.parse(dateOfRemont);
+			
+
+	    long diffInMillies = Math.abs(secondDate.getTime() - firstDate.getTime());
+	    long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+	    int days = (int) diff;
+	    	
+	    return days;
+	    
+	    } catch (ParseException e) {
+					e.printStackTrace();
+		}
+		return 0;
+	}
+	
 	
 	//test route
 	public List<Route> getLastTenRoutesByTruckId(int truckid, String finish){

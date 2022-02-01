@@ -30,6 +30,7 @@ public class CalendarTruckHtml {
 	
 	private double mounthUAHforKm;
 	private int mounthKm;
+	private int noremontdays;
 	
 	private String day1Link;
 	private String day2Link;
@@ -218,6 +219,12 @@ public class CalendarTruckHtml {
 	}
 	public void setMounthKm(int mounthKm) {
 		this.mounthKm = mounthKm;
+	}
+	public int getNoremontdays() {
+		return noremontdays;
+	}
+	public void setNoremontdays(int noremontdays) {
+		this.noremontdays = noremontdays;
 	}
 
 }

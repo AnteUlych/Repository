@@ -11,12 +11,15 @@ import java.net.URLConnection;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 import javax.servlet.http.HttpSession;
 
@@ -44,17 +47,12 @@ import box.model.VariantsHtml;
 
 public class MainCoon {
 
-	public static void main(String[] args){
+	public static void main(String[] args) throws ParseException{
 	
-		DataBaseController b = new DataBaseController();
-	    List <Route> rs = b.getListOfRoutesBetweenDatesByTruckIdForHistory(29, "2021-11-01", "2021-11-15");
-	    
-	    for(Route r:rs){
-	    	System.out.println(r.getFromDate()+" "+r.getInfo());
-	    }
-
-			
-		}
+		Date today = new Date();
+		System.out.println(today);
+		    
+	}
 		
 		
 

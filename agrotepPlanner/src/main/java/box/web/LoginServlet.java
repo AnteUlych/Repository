@@ -1,6 +1,9 @@
 package box.web;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -41,11 +44,22 @@ public class LoginServlet {
 
 		Manager manager = base.getManagersByLoginPass(pass);
 		
+		String pattern = "yyyy-MM-dd";
+		DateFormat df = new SimpleDateFormat(pattern);
+		Date today = new Date();
+		String todayAsString = df.format(today);
+		
 		List <Truck> trucksUrgent = base.getListOfReadyTrucksSortedByManager();
 		for(Truck truck:trucksUrgent){
+			
 			int mounthKm = base.getMounthKm(truck.getTruckKey());
 			double uahkmruptela0131 = base.getMounthUAHforKMByTruckId(truck.getId(), mounthKm);
 			base.editTruckKmruptela0131tById(truck.getId(), mounthKm, uahkmruptela0131);
+			
+			//days after remont
+			int noremontdays = base.getHowManyDaysAgoTruckWasInService(truck.getId(), todayAsString);
+			base.editTruckNoremontdaysById(truck.getId(), noremontdays);
+			
 		}
 
 		HttpSession session = request.getSession();

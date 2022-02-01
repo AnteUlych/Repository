@@ -70,4 +70,8 @@ public class TruckService {
 	public void editTruckKmruptela0131tById(int id, int kmruptela0131, double uahkmruptela0131) {
 		dao.editTruckKmruptela0131tById(id, kmruptela0131, uahkmruptela0131);
 	}
+	
+	public void editTruckNoremontdaysById(int id, int noremontdays) {
+		dao.editTruckNoremontdaysById(id, noremontdays);
+	}
 }

@@ -10,6 +10,7 @@ import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import box.logic.Constants;
 import box.model.Route;
 
 
@@ -68,5 +69,11 @@ public class RouteDAO {
 		Route route = (Route) em.find(Route.class, id);
 		return route;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Route> getLastRemontRouteByTruckId(int truckid, String finish){
+		return em.createQuery("from Route where truckid='"+truckid+"' and fromDate <='"+finish+"' and routeStatus ='"+Constants.TRUCK_REMOMT+"' order by fromDate desc").setMaxResults(1).getResultList();		
+	}
+	
 
 }
