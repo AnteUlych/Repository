@@ -162,7 +162,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </span>
     </div>
     </td>
-    <td>${trucksh.noremontdays}</td>
+    <td name="remontcolumn">${trucksh.noremontdays}</td>
     <td>${trucksh.type}</td>
     <td><div style="${trucksh.fromOblastStatusStyle}">${trucksh.fromLastOblast}</div></td>
     
@@ -210,6 +210,17 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 
 <script>
+
+ elements = document.getElementsByName("remontcolumn");
+   for (var i = elements.length; i--;) {
+   if (elements[i].innerHTML < 11) {
+       elements[i].style.color = "green";
+   } else if (elements[i].innerHTML > 10 && elements[i].innerHTML < 19){
+       elements[i].style.color = "orange";
+   } else if (elements[i].innerHTML > 18){
+     elements[i].style.color = "red";
+     }
+   }
 
 function sortNumberTable(n) {
 	  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
