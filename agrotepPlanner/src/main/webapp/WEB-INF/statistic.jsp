@@ -85,7 +85,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
   <form method="post">
-    <h5><b><i class="fa fa-line-chart w3-text-red"></i>  Статистика за період</b> &nbsp;<input type="date" name="start" value="${start}" required> &nbsp; - &nbsp; <input type="date" name="finish" value="${finish}" required> &nbsp; <button type="submit"  class="w3-button w3-xlarge w3-circle w3-white"><i class="fa fa-check" style="width:30px"></i></button></h5>
+    <h5><b><i class="fa fa-line-chart w3-text-red"></i>  Середні показники та автодні за період</b> &nbsp;<input type="date" name="start" value="${start}" min="2021-08-01" max="${finish}"  required> &nbsp; - &nbsp; <input type="date" name="finish" value="${finish}" min="${start}" required> &nbsp; <button type="submit"  class="w3-button w3-xlarge w3-circle w3-white"><i class="fa fa-check" style="width:30px"></i></button></h5>
   </form>
   </header>
  <div class="w3-panel">
@@ -93,34 +93,101 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
       <tr>
         <td><b>Менеджер</b></td>
-        <td><i class="fa fa-calculator w3-text-blue"></i></td>
-        <td><i class="fa fa-check w3-text-green"></i></td>
-        <td><i class="fa fa-handshake-o w3-text-lime"></i></td>
-        <td><i class="fa fa-pied-piper-alt w3-text-orange"></i></td>
-        <td><i class="fa fa-remove w3-text-red"></i></td>
-  
+        <td><b>авто</b></td>
+        <td><b>км</b></td>
+        <td><b>грн/км</b></td>
+        <td><b>км/день</b></td>
+        <td><i class="fa fa-truck"></i></td>
+        <td><i class="fa fa-hourglass-end"></i></td>
+        <td><i class="fa fa-wrench"></i></td>
+        <td><i class="fa fa-suitcase"></i></td>
+        <td><b><i class="fa fa-truck"></i>&nbsp;/&nbsp;<i class="fa fa-anchor"></i></b></td>
+        <td><b><i class="fa fa-truck"></i>&nbsp;/&nbsp;<i class="fa fa-hourglass-end"></i></b></td>
       </tr>
-      <c:forEach items="${statistics}" var="stat" varStatus="theCount">
+        <c:forEach items="${managersKPI}" var="stat" varStatus="theCount">
       <tr>
-        <td><a href="/planner/statisticbymanager/${stat.id}&_${start}&_${finish}" style="text-decoration: none" target="_blank">${stat.managerName}</a></a></td>
-        <td>${stat.numberOfCalculating}</td>
-        <td>${stat.numberOfbooking}</td>
-        <td>${stat.numberOfHelp}</td>
-        <td>${stat.numberOfNewClients}</td>
-        <td>${stat.numberOfDeletes}</td>
+        <td>${stat.indicator}</td>
+        <td>${stat.trucks}</td>
+        <td>${stat.km}</td>
+        <td>${stat.uahkm}</td>
+        <td>${stat.kmday}</td>
+        <td>${stat.totalWork}</td>
+        <td>${stat.totalStops}</td>
+        <td>${stat.totalRemont}</td>
+        <td>${stat.totalColona}</td>
+        <td>${stat.percentLogisticColonaRemomt}%</td>
+        <td>${stat.percentLogisticNoStops}%</td>
       </tr>
       </c:forEach>
-      <tr>
 
     </table><br><br>
 
+   <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+      <tr>
+        <td><b>РС</b></td>
+        <td><b>авто</b></td>
+        <td><b>км</b></td>
+        <td><b>грн/км</b></td>
+        <td><b>км/день</b></td>
+        <td><i class="fa fa-truck"></i></td>
+        <td><i class="fa fa-hourglass-end"></i></td>
+        <td><i class="fa fa-wrench"></i></td>
+        <td><i class="fa fa-suitcase"></i></td>
+        <td><b><i class="fa fa-truck"></i>&nbsp;/&nbsp;<i class="fa fa-anchor"></i></b></td>
+        <td><b><i class="fa fa-truck"></i>&nbsp;/&nbsp;<i class="fa fa-hourglass-end"></i></b></td>
+      </tr>
+        <c:forEach items="${trucksKPI}" var="stat" varStatus="theCount">
+      <tr>
+        <td>${stat.indicator}</td>
+        <td>${stat.trucks}</td>
+        <td>${stat.km}</td>
+        <td>${stat.uahkm}</td>
+        <td>${stat.kmday}</td>
+        <td>${stat.totalWork}</td>
+        <td>${stat.totalStops}</td>
+        <td>${stat.totalRemont}</td>
+        <td>${stat.totalColona}</td>
+        <td>${stat.percentLogisticColonaRemomt}%</td>
+        <td>${stat.percentLogisticNoStops}%</td>
+      </tr>
+      </c:forEach>
+    
+
+    </table><br><br>
+    
+     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+      <tr>
+        <td><b>Загалом</b></td>
+        <td><b>авто</b></td>
+        <td><b>км</b></td>
+        <td><b>грн/км</b></td>
+        <td><b>км/день</b></td>
+        <td><i class="fa fa-truck"></i></td>
+        <td><i class="fa fa-hourglass-end"></i></td>
+        <td><i class="fa fa-wrench"></i></td>
+        <td><i class="fa fa-suitcase"></i></td>
+        <td><b><i class="fa fa-truck"></i>&nbsp;/&nbsp;<i class="fa fa-anchor"></i></b></td>
+        <td><b><i class="fa fa-truck"></i>&nbsp;/&nbsp;<i class="fa fa-hourglass-end"></i></b></td>
+      </tr>
+
+      <tr>
+        <td>${totalKPI.indicator}</td>
+        <td>${totalKPI.trucks}</td>
+        <td>${totalKPI.km}</td>
+        <td>${totalKPI.uahkm}</td>
+        <td>${totalKPI.kmday}</td>
+        <td>${totalKPI.totalWork}</td>
+        <td>${totalKPI.totalStops}</td>
+        <td>${totalKPI.totalRemont}</td>
+        <td>${totalKPI.totalColona}</td>
+        <td>${totalKPI.percentLogisticColonaRemomt}%</td>
+        <td>${totalKPI.percentLogisticNoStops}%</td>
+      </tr>
+
+    </table><br><br>
+    
   </div> 
-   <div class="w3-container">
-  <p>Середня ціна за кілометр по відділу</p>
-    <div class="w3-light-grey">
-      <div class="w3-container w3-center w3-padding ${colorkm}" style="width:${avaragePricesForKmInPercent}%">${avaragePricesForKm} грн/км</div>
-    </div>
-  </div>
+
  </div>
  
   

@@ -20,6 +20,21 @@ public class TruckService {
 	@Autowired
 	private TruckDAO dao;
 	
+	public List<Truck> getListOfReadyTrucksByManagerId(int managerid) {
+		return dao.getListOfReadyTrucksByManagerId(managerid);
+	}
+	
+	public boolean isManagerHasReadyTruck(int managerid){
+	List<Truck> trucks = dao.getListOfReadyTrucksSortedByManager();
+		
+		for(Truck t:trucks){
+			if(t.getManagerid()==managerid){
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public boolean isManagerHasTruck(int managerid){
 		List<Truck> trucks = dao.getListOfTrucksSortedByManager();
 		

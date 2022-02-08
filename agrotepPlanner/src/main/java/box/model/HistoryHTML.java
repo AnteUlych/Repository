@@ -7,6 +7,7 @@ public class HistoryHTML {
 	private String tracktor;
 	private String trailer;
 	private String driver;
+	private String type; //check if no problems with that
 	private String managerName;
 	private List<Route> routes;
 	private List<String> dates;
@@ -16,6 +17,8 @@ public class HistoryHTML {
 	private int totalStops;
 	private int totalColona;
 	private int totalRemont;
+	private int totalWork; //check if no problems with that
+	private int avarageKmDay; //created only that field + getter and setter
 	
 	public String getTracktor() {
 		return tracktor;
@@ -88,6 +91,24 @@ public class HistoryHTML {
 	}
 	public void setTotalRemont(int totalRemont) {
 		this.totalRemont = totalRemont;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public int getTotalWork() {
+		return totalWork;
+	}
+	public void setTotalWork(int totalWork) {
+		this.totalWork = totalWork;
+	}
+	public int getAvarageKmDay() {
+		return avarageKmDay;
+	}
+	public void setAvarageKmDay(int avarageKmDay) {
+		this.avarageKmDay = avarageKmDay;
 	}
 
 }

@@ -20,6 +20,7 @@ public class RouteDAO {
 	@PersistenceContext
 	private EntityManager em;
 	
+
 	@SuppressWarnings("unchecked")
 	public List<Route> getListOfRoutesBetweenDatesByTruckIdForHistory(int truckid, String start, String finish) {
 		return em.createQuery("from Route where truckid='"+truckid+"' and fromDate >='"+start+"' and routeStatus <>'2' and fromDate <='"+finish+"'").getResultList();

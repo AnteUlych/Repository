@@ -74,6 +74,18 @@ public class CalendarLogic {
 		return textDay;
 
 	}
+	
+	public String getFirstDateOfThatMounth() {
+
+		Date today = new Date();
+		Calendar c = Calendar.getInstance();
+		c.setTime(today);
+		c.set(Calendar.DAY_OF_MONTH, 1);
+		Date needDate = c.getTime();
+		String textDay = df.format(needDate);
+		return textDay;
+
+	}
 
 	public boolean isDayTheWeekend(String stringDay) {
 

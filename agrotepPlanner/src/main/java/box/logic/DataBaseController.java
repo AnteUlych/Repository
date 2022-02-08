@@ -121,6 +121,10 @@ public class DataBaseController {
 	//maplink
 	
 	//truck
+	public List<Truck> getListOfReadyTrucksByManagerId(int managerid) {
+		return truckService.getListOfReadyTrucksByManagerId(managerid);
+	}
+	
 	public List<Truck> getListOfTrucksSortedByManager() {
 		return truckService.getListOfTrucksSortedByManager();
 	}
@@ -167,6 +171,10 @@ public class DataBaseController {
 	
 	public void editTruckNoremontdaysById(int id, int noremontdays) {
 		truckService.editTruckNoremontdaysById(id, noremontdays);
+	}
+	
+	public boolean isManagerHasReadyTruck(int managerid){
+		return truckService.isManagerHasReadyTruck(managerid);
 	}
 	//truck
 	
@@ -459,6 +467,7 @@ public class DataBaseController {
 	//route
 	
 	//manager
+
 	public boolean isManagerExisByLoginPass(String loginPass){
 		return managerService.isManagerExisByLoginPass(loginPass);
 	}

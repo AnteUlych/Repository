@@ -19,9 +19,16 @@ public class TruckDAO {
 	@PersistenceContext
 	private EntityManager em;
 
+	
 	@SuppressWarnings("unchecked")
 	public List<Truck> getListOfTrucksSortedByManager() {
 		return em.createQuery("from Truck order by managerName")
+				.getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Truck> getListOfReadyTrucksByManagerId(int managerid) {
+		return em.createQuery("from Truck where notReady='"+0+"' and managerid='"+managerid+"'")
 				.getResultList();
 	}
 	
