@@ -76,5 +76,10 @@ public class RouteDAO {
 		return em.createQuery("from Route where truckid='"+truckid+"' and fromDate <='"+finish+"' and routeStatus ='"+Constants.TRUCK_REMOMT+"' order by fromDate desc").setMaxResults(1).getResultList();		
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Route> getListWorkAndRepeatRouteByTruckId(int truckid, String start, String finish) {
+		return em.createQuery("from Route where (truckid='"+truckid+"' and fromDate >='"+start+"' and routeStatus ='"+Constants.TRUCK_READY+"' and fromDate <='"+finish+"') or (truckid='"+truckid+"' and fromDate >='"+start+"' and routeStatus ='"+Constants.TRUCK_REPEAT+"' and fromDate <='"+finish+"')").getResultList();
+	}
+	
 
 }

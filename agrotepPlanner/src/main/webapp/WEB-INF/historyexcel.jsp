@@ -104,6 +104,7 @@ th, td {
         <th>Менеджер</th>
         <th>км</th>
         <th><i class="fa fa-money"></i></th>
+        <th><i class="fa fa-truck"></i></th>
         <th><i class="fa fa-hourglass-end"></i></th>
         <th><i class="fa fa-wrench"></i></th>
         <th><i class="fa fa-suitcase"></i></th>
@@ -117,6 +118,7 @@ th, td {
         <td>${truck.managerName}</td>
         <td>${truck.totalKm}</td>
         <td>${truck.totalUAHforKm}</td>
+        <td>${truck.avarageKmDay}</td>
         <td>${truck.totalStops}</td>
         <td>${truck.totalRemont}</td>
         <td>${truck.totalColona}</td>

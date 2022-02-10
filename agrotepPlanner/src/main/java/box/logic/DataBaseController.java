@@ -271,6 +271,10 @@ public class DataBaseController {
 	}
 	
 	//route
+	public int calculateWorkDaysByTruckIdBetweenDates(int truckid, String start, String finish){		
+		return routeService.getListWorkAndRepeatRouteByTruckId(truckid, start, finish).size();
+	}
+	
     public List<Route> getListOfRoutesBetweenDatesByTruckId(int truckid, String start, String finish) {
 		return routeService.getListOfRoutesBetweenDatesByTruckId(truckid, start, finish);
 	}

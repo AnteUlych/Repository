@@ -99,7 +99,7 @@ th, td {
 <div class="w3-container">
 
  <c:forEach items="${trucksHTML}" var="truck" varStatus="theCount">
-<button class="accordion">${truck.tracktor}/${truck.trailer} - ${truck.driver} (${truck.managerName}) - ${truck.totalKm} ךל, ${truck.totalUAHforKm} דנם/ךל, &nbsp;<i class="fa fa-hourglass-end"></i> ${truck.totalStops} &nbsp;<i class="fa fa-wrench"></i> ${truck.totalRemont} &nbsp;<i class="fa fa-suitcase"></i> ${truck.totalColona}</button>
+<button class="accordion">${truck.tracktor}/${truck.trailer} - ${truck.driver} (${truck.managerName}) - ${truck.totalKm} ךל, ${truck.totalUAHforKm} דנם/ךל, ${truck.avarageKmDay} ךל/הוםü,&nbsp;<i class="fa fa-hourglass-end"></i> ${truck.totalStops} &nbsp;<i class="fa fa-wrench"></i> ${truck.totalRemont} &nbsp;<i class="fa fa-suitcase"></i> ${truck.totalColona}</button>
 <div class="panel">
   <table>
   <c:forEach items="${truck.routes}" var="route" varStatus="theCount">

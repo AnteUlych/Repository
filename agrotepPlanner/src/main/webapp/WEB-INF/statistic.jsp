@@ -90,6 +90,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </header>
  <div class="w3-panel">
      <div class="w3-container">
+    
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
       <tr>
         <td><b>Менеджер</b></td>
@@ -122,6 +123,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
     </table><br><br>
 
+ 
    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
       <tr>
         <td><b>РС</b></td>
@@ -154,7 +156,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     
 
     </table><br><br>
-    
+
      <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
       <tr>
         <td><b>Загалом</b></td>

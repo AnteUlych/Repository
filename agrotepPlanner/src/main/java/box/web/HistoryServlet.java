@@ -35,6 +35,8 @@ public class HistoryServlet {
         CalendarLogic calendar = new CalendarLogic();	
 		String start = calendar.getNeedoneDayForDataBasePlusDays(-6);
 		String finish = calendar.getNeedoneDayForDataBasePlusDays(0);
+		int days = calendar.calculateWorkingDaysBetweenDates(start, finish);
+		
 		
 		DataBaseController base = new DataBaseController(); 
 		
@@ -92,6 +94,14 @@ public class HistoryServlet {
 			histories.setTotalColona(totalColona);
 			histories.setTotalRemont(totalRemont);
 			
+			int workdays = days-totalStops-totalColona-totalRemont;
+			if(workdays==0){
+				workdays=-1;
+			}
+			int kmday = totalKm/workdays;
+			histories.setAvarageKmDay(kmday);
+			histories.setTotalWork(workdays);
+			
 			trucksHTML.add(histories);
 		
 		}
@@ -117,6 +127,7 @@ public class HistoryServlet {
         CalendarLogic calendar = new CalendarLogic();	
         String start = request.getParameter("start");
 		String finish = request.getParameter("finish");
+		int days = calendar.calculateWorkingDaysBetweenDates(start, finish);
 		
 		DataBaseController base = new DataBaseController(); 
 		
@@ -173,6 +184,14 @@ public class HistoryServlet {
 			histories.setTotalStops(totalStops);
 			histories.setTotalColona(totalColona);
 			histories.setTotalRemont(totalRemont);
+			
+			int workdays = days-totalStops-totalColona-totalRemont;
+			if(workdays==0){
+				workdays=-1;
+			}
+			int kmday = totalKm/workdays;
+			histories.setAvarageKmDay(kmday);
+			histories.setTotalWork(workdays);
 			
 			trucksHTML.add(histories);
 		

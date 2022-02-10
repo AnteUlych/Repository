@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import box.logic.CalendarLogic;
 import box.logic.Constants;
 import box.logic.DataBaseController;
 import box.logic.RuptelaLogic;
@@ -30,7 +31,10 @@ public class HistoryExcelServlet {
 		String code [] = somecode.split("&_");
 				
 		String start = code[0];
-		String finish = code[1];;
+		String finish = code[1];
+		
+		CalendarLogic calendar = new CalendarLogic();	
+		int days = calendar.calculateWorkingDaysBetweenDates(start, finish);
 		
 		DataBaseController base = new DataBaseController(); 
 		
@@ -80,6 +84,14 @@ public class HistoryExcelServlet {
 			histories.setTotalStops(totalStops);
 			histories.setTotalColona(totalColona);
 			histories.setTotalRemont(totalRemont);
+			
+			int workdays = days-totalStops-totalColona-totalRemont;
+			if(workdays==0){
+				workdays=-1;
+			}
+			int kmday = totalKm/workdays;
+			histories.setAvarageKmDay(kmday);
+			histories.setTotalWork(workdays);
 			
 			trucksHTML.add(histories);
 		

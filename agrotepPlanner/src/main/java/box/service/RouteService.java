@@ -1,5 +1,6 @@
 package box.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -71,6 +72,11 @@ public class RouteService {
 	
 	public List<Route> getLastRemontRouteByTruckId(int truckid, String finish){
 		return dao.getLastRemontRouteByTruckId(truckid, finish);		
+	}
+	
+	public List<Route> getListWorkAndRepeatRouteByTruckId(int truckid, String start, String finish){
+		return dao.getListWorkAndRepeatRouteByTruckId(truckid, start, finish);
+		
 	}
 	
 }

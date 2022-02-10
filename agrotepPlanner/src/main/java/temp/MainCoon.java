@@ -55,32 +55,27 @@ CalendarLogic calendar = new CalendarLogic();
 		String start = calendar.getFirstDateOfThatMounth();
 		String finish = calendar.getNeedoneDayForDataBasePlusDays(0);
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");	    		
-	    Date firstDate = sdf.parse(start);
-	    Date secondDate = sdf.parse(finish);
-			
-
-	    long diffInMillies = Math.abs(secondDate.getTime() - firstDate.getTime());
-	    long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
-	    int days = (int) diff;
+	    int days = calendar.calculateWorkingDaysBetweenDates(start, finish);
 			
 		DataBaseController base = new DataBaseController(); 
  		
 		List<Truck> trucks = base.getListOfReadyTrucksSortedByManager();
 		List<HistoryHTML> trucksHTML = new ArrayList();
 		
+		List<HistoryHTML> trucksHTMLtilt = new ArrayList();
+		List<HistoryHTML> trucksHTMLref = new ArrayList();
+		List<HistoryHTML> trucksHTMLbox = new ArrayList();
+		
 		
 		for(Truck t:trucks){
-			List<String> dateText = new ArrayList();
 			HistoryHTML histories = new HistoryHTML();
 			
 			histories.setDriver(t.getDriver());
 			histories.setManagerName(t.getManagerName());
-			histories.setType(t.getType());
 			histories.setTracktor(t.getTracktor());
 			histories.setTrailer(t.getTrailer());
 			
-			List<Route> routes = base.getListOfRoutesBetweenDatesByTruckId(t.getId(), start, finish);
+			List<Route> routes = base.getListOfRoutesBetweenDatesByTruckIdForHistory(t.getId(), start, finish);
 			
 			histories.setRoutes(routes);
 			
@@ -88,14 +83,8 @@ CalendarLogic calendar = new CalendarLogic();
 			int totalStops = 0;
 			int totalColona = 0;
 			int totalRemont = 0;
-			int totalWork = 0;
 			
-			for(Route r:routes){
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-				String s = formatter.format(r.getFromDate());			
-				String datetext = calendar.getHeaderDate(s);
-				dateText.add(datetext);
-			
+			for(Route r:routes){		
 				totalUAH = totalUAH + r.getPrice(); 
 				
 				if(r.getRouteStatus()==Constants.TRUCK_NOT_READY){
@@ -107,9 +96,6 @@ CalendarLogic calendar = new CalendarLogic();
 				if(r.getRouteStatus()==Constants.TRUCK_REMOMT){
 					totalRemont=totalRemont+1;
 				}
-				if(r.getRouteStatus()==Constants.TRUCK_READY||r.getRouteStatus()==Constants.TRUCK_REPEAT){
-					totalWork = totalWork+1;
-				}
 			}
 			
 			RuptelaLogic ruptela = new RuptelaLogic();
@@ -120,124 +106,161 @@ CalendarLogic calendar = new CalendarLogic();
 			histories.setTotalUAHforKm(totalUAHforKm); 
 			histories.setTotalUAH(totalUAH); 
 			histories.setTotalKm(totalKm);
-			histories.setDates(dateText);
 			histories.setTotalStops(totalStops);
 			histories.setTotalColona(totalColona);
 			histories.setTotalRemont(totalRemont);
-			histories.setTotalWork(totalWork);
+			
+			int workdays = days-totalStops-totalColona-totalRemont;
+			if(workdays==0){
+				workdays=-1;
+			}
+			int kmday = totalKm/workdays;
+			histories.setAvarageKmDay(kmday);
+			histories.setTotalWork(workdays);
 			
 			trucksHTML.add(histories);
+			
+			if(t.getType().equals("тент")){
+				trucksHTMLtilt.add(histories);
+			}else 
+			
+			if(t.getType().equals("реф")){
+				trucksHTMLref.add(histories);
+			}else
+			
+			if(t.getType().equals("цільномет")){
+				trucksHTMLbox.add(histories);
+			}
 		
 		}
 		
-		//before was history and no start statistic
-		
-		StatisticKPI refKPI = calculateKPIbyTruckType(days, trucksHTML, "цільномет");
-		
-		
-		
-		//
 	
+		StatisticKPI tiltKPI = calculateKPI("тент", start, finish, days, trucksHTMLtilt);
+		StatisticKPI refKPI  = calculateKPI("реф", start, finish, days, trucksHTMLref);
+		StatisticKPI boxKPI  = calculateKPI("цільномет", start, finish, days, trucksHTMLbox);
+		
+		List<StatisticKPI> trucksKPI = new ArrayList();
+		trucksKPI.add(tiltKPI);
+		trucksKPI.add(refKPI);
+		trucksKPI.add(boxKPI);
+		
+		StatisticKPI totalKPI = calculateKPI("", start, finish, days, trucksHTML);
+		
+		
+		
+		System.out.println(totalKPI.getIndicator()+" "+totalKPI.getKm()+" "+totalKPI.getKmday()+" "+totalKPI.getUahkm());
+		System.out.println(tiltKPI.getIndicator()+" "+tiltKPI.getKm()+" "+tiltKPI.getKmday()+" "+tiltKPI.getUahkm());
+		System.out.println(refKPI.getIndicator()+" "+refKPI.getKm()+" "+refKPI.getKmday()+" "+refKPI.getUahkm());
+		System.out.println(boxKPI.getIndicator()+" "+boxKPI.getKm()+" "+boxKPI.getKmday()+" "+boxKPI.getUahkm());
+		
+		for(StatisticKPI t: trucksKPI){
+			System.out.println(t.getIndicator());
+		}
+		  
+		List<StatisticKPI> managersKPI = new ArrayList();
+		List<Manager> managers = base.getListOfManagers();
+		for(Manager m:managers){
+			
+			if(base.isManagerHasReadyTruck(m.getId())){
+			List<HistoryHTML> managerHistoryHTML = new ArrayList();
+		      for(HistoryHTML h:trucksHTML){
+			  if(h.getManagerName().equals(m.getName())){
+				  managerHistoryHTML.add(h);
+			  }
+		      }
+		      StatisticKPI managerKPI = calculateKPI(m.getName(), start, finish, days, managerHistoryHTML);
+		      managersKPI.add(managerKPI);
+		}
+		
+		}
+		
+		for(StatisticKPI mkpi:managersKPI){
+			System.out.println(mkpi.getIndicator()+" - "+mkpi.getKm());
+		}
 		
 		base.closeConnection();
-		
-		
-			System.out.println(refKPI.getIndicator()+" "+refKPI.getTrucks());
-		
-		    
 	}
 		
-	private static StatisticKPI calculateKPIbyTruckType(int days, List<HistoryHTML> trucksHTML,
-			String typeOftruck) {
-		int km = 0;
-		double uahkm = 0;
-		//int kmday = 0;
+	private static StatisticKPI calculateKPI(String name, String start,
+			String finish, int days, List<HistoryHTML> trucksHTML) {
+		
+		 String indicator = name;
+	     double uahkm = 0;
+	     int kmday = 0;
+	     int km = 0;
+	     int totalStops = 0;
+	     int totalColona = 0;
+	     int totalRemont = 0;
+	     int totalWork = 0;
+	
+	     
+	     int notConnectedTrucks = 0;
 		 
-    	int totalStops = 0;
-		int totalColona = 0;
-		int totalRemont = 0;
-		//int percentLogisticColonaRemomt = 0;
-		//int percentLogisticNoStops = 0;
-		
-		int totalWork = 0;
-		int count = 0;
-		//int countOfTrucks = 0;
-		
-		StatisticKPI truckKpi = new StatisticKPI();
-		
-		for(HistoryHTML th : trucksHTML){
-			if(th.getType().equals(typeOftruck)){
+		StatisticKPI kpi = new StatisticKPI();
 				
-			count++;
+		kpi.setIndicator(indicator);
+		
+		if(trucksHTML.size()==0){
 			
-			km = km+th.getTotalKm();
-			uahkm = uahkm+th.getTotalUAHforKm();
-			totalStops = totalStops+th.getTotalStops();
-			totalColona = totalColona + th.getTotalColona();
-			totalRemont = totalRemont + th.getTotalRemont();
-			totalWork = totalWork + th.getTotalWork();
-		}
+			kpi.setKm(0);
+			kpi.setUahkm(0);
+			kpi.setKmday(0);
+			kpi.setTotalWork(0);
+			kpi.setTotalStops(0);
+			kpi.setTotalRemont(0);
+			kpi.setTotalColona(0);
+		    kpi.setPercentLogisticColonaRemomt(0);
+		    kpi.setPercentLogisticNoStops(0);
+		    
+		    return kpi;
+			
 		}
 		
-		if(count==0){
-			truckKpi.setIndicator(typeOftruck);
-			truckKpi.setKm(0);
-			truckKpi.setKmday(0);
-			truckKpi.setTotalColona(0);
-			truckKpi.setTotalRemont(0);
-			truckKpi.setTotalStops(0);
-			truckKpi.setTotalWork(0);
-			truckKpi.setUahkm(0);
+		for(HistoryHTML h:trucksHTML){
+			
+			uahkm = uahkm+h.getTotalUAHforKm();
+			kmday = kmday+h.getAvarageKmDay();
+			km = km+h.getTotalKm();
+			totalStops = totalStops+h.getTotalStops();
+			totalColona = totalColona+h.getTotalColona();
+			totalRemont = totalRemont+h.getTotalRemont();
+			totalWork = totalWork+h.getTotalWork();
+			
+			
+			if(h.getTotalKm()<10){
+				notConnectedTrucks++;
+			}	
+		}
 
-			truckKpi.setPercentLogisticColonaRemomt(0);
-			truckKpi.setPercentLogisticNoStops(0);
-			truckKpi.setTrucks(count);
+		kpi.setTrucks(trucksHTML.size());
+		
+		if(km==0||days==0||trucksHTML.size()-notConnectedTrucks==0){
 			
-			return truckKpi;
+			kpi.setKm(0);
+			kpi.setUahkm(0);
+			kpi.setKmday(0);
+			
+		}else{
+			
+			kpi.setKm(km/(trucksHTML.size()-notConnectedTrucks));
+			kpi.setUahkm((int)(Math.round((double)uahkm/(double)(trucksHTML.size()-notConnectedTrucks) * 100))/100.0);
+			kpi.setKmday(kmday/(trucksHTML.size()-notConnectedTrucks)); 
+		
 		}
 		
-		truckKpi.setIndicator(typeOftruck);
-		truckKpi.setKm(km/count);
-		truckKpi.setKmday(km/(days-totalColona-totalRemont));
-		truckKpi.setTotalColona(totalColona);
-		truckKpi.setTotalRemont(totalRemont);
-		truckKpi.setTotalStops(totalStops);
-		truckKpi.setTotalWork(totalWork);
-		truckKpi.setUahkm((Math.round((double)uahkm/(double)count * 100))/100.0);
-		double percentLogisticColonaRemomt = 100*((double)totalWork/(double)(totalStops+totalColona+totalRemont+totalWork));
-		double percentPercentLogisticNoStops = 100*((double)totalWork/(double)(totalStops+totalWork));
-		truckKpi.setPercentLogisticColonaRemomt((int)percentLogisticColonaRemomt);
-		truckKpi.setPercentLogisticNoStops((int)percentPercentLogisticNoStops);
-		truckKpi.setTrucks(count);
-	
-		return truckKpi;
+		kpi.setTotalWork(totalWork);
+		kpi.setTotalStops(totalStops);
+		kpi.setTotalRemont(totalRemont);
+		kpi.setTotalColona(totalColona);
+		
+	    int percentLogisticColonaRemomt = (int) (100*((double)totalWork/(double)(totalWork+totalStops+totalRemont+totalColona)));
+	    int percentLogisticNoStops  = (int) (100*((double)totalWork/(double)(totalWork+totalStops)));
+	    
+	    kpi.setPercentLogisticColonaRemomt(percentLogisticColonaRemomt);
+	    kpi.setPercentLogisticNoStops(percentLogisticNoStops);
+		
+		return kpi;
 	}
-		
 
 	
-	   private static VariantsHtml calculateTheVariant(double cityLongitude, double cityLatitude, int cityCity, String cityName, DataBaseController base, int needPriceForKm, String oblast, String city, double longitude, double latitude){
-			
-			GoogleLogic google = new GoogleLogic();
-			
-	        VariantsHtml variant = new VariantsHtml();
-			
-			variant.setFinishPoint(City.KYIV_NAME); //not change
-			variant.setFinishPrice((int) Math.round(cityCity*google.correctkilometr*needPriceForKm));
-			List<Client> nextClients = base.getListOfClientsByOblastFtomAndOblastTo(cityName, City.KYIV_NAME);
-			variant.setListNextClients(nextClients);
-			List<Client> startClients = base.getListOfClientsByOblastFtomAndOblastTo(oblast, cityName);
-			variant.setListStartClients(startClients);
-			variant.setNextClients(nextClients.size());
-			variant.setNextPoint(cityName);
-			
-			int distanceOfVariant = google.calculateDistanceInKmBetweenCoordinates(longitude, latitude, cityLongitude, cityLatitude);
-			int priceOfVariant = distanceOfVariant*needPriceForKm;
-			
-			variant.setNextPrice(priceOfVariant);
-			variant.setStartAddress(city+", "+oblast);
-			variant.setStartClients(startClients.size());
-			
-			return variant;
-		}
-
 }

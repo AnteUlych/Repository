@@ -17,8 +17,8 @@ public class HistoryHTML {
 	private int totalStops;
 	private int totalColona;
 	private int totalRemont;
-	private int totalWork; //check if no problems with that
-	private int avarageKmDay; //created only that field + getter and setter
+	private int totalWork;
+	private int avarageKmDay;
 	
 	public String getTracktor() {
 		return tracktor;

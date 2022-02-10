@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import box.model.Route;
 
@@ -14,6 +15,26 @@ public class CalendarLogic {
 
 	String pattern = "yyyy-MM-dd";
 	DateFormat df = new SimpleDateFormat(pattern);
+	
+	public int calculateWorkingDaysBetweenDates(String start, String finish){
+		
+		try {
+		 Date firstDate  = df.parse(start);	
+		 Date secondDate = df.parse(finish);
+				
+
+		 long diffInMillies = Math.abs(secondDate.getTime() - firstDate.getTime());
+		 long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+		 int days = (int) diff;
+		 
+		 return days;
+		 
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
+	}
 	
 	public List<String> convertRoutesCircle(List<Route> routes){
 		
