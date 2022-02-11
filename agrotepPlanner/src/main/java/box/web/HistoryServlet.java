@@ -17,6 +17,7 @@ import box.logic.CalendarLogic;
 import box.logic.Constants;
 import box.logic.DataBaseController;
 import box.logic.RuptelaLogic;
+import box.logic.SecurityAccess;
 import box.model.HistoryHTML;
 import box.model.Route;
 import box.model.Truck;
@@ -31,6 +32,11 @@ public class HistoryServlet {
 		
 		HttpSession session = request.getSession();
 		String name = (String) session.getAttribute("name");
+		
+		SecurityAccess security = new SecurityAccess();
+		if(security.isAccessNotAllowForManagerId((Integer) session.getAttribute("id"))){
+			return "notallow";
+		}
 		
         CalendarLogic calendar = new CalendarLogic();	
 		String start = calendar.getNeedoneDayForDataBasePlusDays(-6);

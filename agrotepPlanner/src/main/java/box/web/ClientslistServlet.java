@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import box.logic.DataBaseController;
+import box.logic.SecurityAccess;
 import box.model.Client;
 
 @Controller
@@ -22,6 +23,12 @@ public class ClientslistServlet {
 		
 		HttpSession session = request.getSession();
 		String name = (String) session.getAttribute("name");
+		
+		SecurityAccess security = new SecurityAccess();
+		if(security.isAccessNotAllowForManagerId((Integer) session.getAttribute("id"))){
+			return "notallow";
+		}
+				
 		
 		DataBaseController base = new DataBaseController(); 
 		

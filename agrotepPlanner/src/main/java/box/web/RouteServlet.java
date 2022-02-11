@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import box.logic.Constants;
 import box.logic.DataBaseController;
+import box.logic.SecurityAccess;
 import box.model.Client;
 import box.model.ClientForRouteHTML;
 import box.model.Direction;
@@ -36,6 +37,11 @@ public class RouteServlet {
 		int id = (Integer) session.getAttribute("id");
 		int status = (Integer) session.getAttribute("status");
 		String name = (String) session.getAttribute("name");
+		
+		SecurityAccess security = new SecurityAccess();
+		if(security.isAccessNotAllowForManagerId((Integer) session.getAttribute("id"))){
+			return "notallow";
+		}
 		
 	    String cell [] = cellForNewRoute.split("&");
 		

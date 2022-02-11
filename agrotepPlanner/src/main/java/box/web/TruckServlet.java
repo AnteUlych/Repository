@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import box.logic.Constants;
 import box.logic.DataBaseController;
+import box.logic.SecurityAccess;
 import box.model.Manager;
 import box.model.Truck;
 
@@ -29,6 +30,11 @@ public class TruckServlet {
 		
 		HttpSession session = request.getSession();
 		String name = (String) session.getAttribute("name");
+		
+		SecurityAccess security = new SecurityAccess();
+		if(security.isAccessNotAllowForManagerId((Integer) session.getAttribute("id"))){
+			return "notallow";
+		}
 		
 		DataBaseController base = new DataBaseController(); 
 		

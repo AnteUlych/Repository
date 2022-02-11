@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import box.logic.Constants;
 import box.logic.DataBaseController;
+import box.logic.SecurityAccess;
 import box.model.Client;
 import box.model.Direction;
 
@@ -28,6 +29,11 @@ public class ClientServlet {
 		
         HttpSession session = request.getSession();
 		int id = (Integer) session.getAttribute("id");
+		
+		SecurityAccess security = new SecurityAccess();
+		if(security.isAccessNotAllowForManagerId((Integer) session.getAttribute("id"))){
+			return "notallow";
+		}
 		
 		int idOfClient = Integer.parseInt(clientid);
 		
