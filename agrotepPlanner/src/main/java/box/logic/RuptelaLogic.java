@@ -53,5 +53,41 @@ public class RuptelaLogic {
 		}
 		
 	}
+	
+	public String getLocation(String truckKey) {
+		
+		try {
+		String requestUrl = "https://api.fm-track.com/object-coordinates-stream?version=3&object_id="+truckKey+"&api_key=A82MBFH6QijEY1RnKTkDL-u3uqdm9nJS";
+		
+		URL url = new URL(requestUrl);
+		URLConnection connection = url.openConnection();
+		BufferedReader in = new BufferedReader(new InputStreamReader(
+				connection.getInputStream()));
+		String inputLine = in.readLine();
+
+		//	System.out.println(inputLine); //test
+			
+			String deleteTextBefore = inputLine.substring(inputLine.indexOf("region\":")+9);
+			String region = deleteTextBefore.substring(0, deleteTextBefore.indexOf("\""));
+			
+			if(region.length()==0) {
+				
+				deleteTextBefore = inputLine.substring(inputLine.indexOf(",\"county\":")+11);
+				region = deleteTextBefore.substring(0, deleteTextBefore.indexOf("\""));
+				
+			};
+			
+		//	String deleteTextBefore1 = inputLine.substring(inputLine.indexOf(",\"county\":")+11);
+		//	String oblast = deleteTextBefore1.substring(0, deleteTextBefore1.indexOf("\""));
+
+		//	System.out.println(region+" "+oblast); //test
+
+		in.close();
+	
+		return region;
+		} catch (Exception e){
+			return "";
+		}
+	}
 
 }

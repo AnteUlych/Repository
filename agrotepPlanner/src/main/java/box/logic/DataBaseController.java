@@ -121,6 +121,10 @@ public class DataBaseController {
 	//maplink
 	
 	//truck
+	public void editTruckLocation(int id, String location) {
+		truckService.editTruckLocation(id, location);
+	}
+	
 	public List<Truck> getListOfReadyTrucksByManagerId(int managerid) {
 		return truckService.getListOfReadyTrucksByManagerId(managerid);
 	}

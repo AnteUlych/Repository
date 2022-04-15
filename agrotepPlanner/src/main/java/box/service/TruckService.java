@@ -89,4 +89,8 @@ public class TruckService {
 	public void editTruckNoremontdaysById(int id, int noremontdays) {
 		dao.editTruckNoremontdaysById(id, noremontdays);
 	}
+	
+	public void editTruckLocation(int id, String location) {
+		dao.editTruckLocation(id, location);
+	}
 }

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import box.logic.CalendarLogic;
 import box.logic.Constants;
 import box.logic.DataBaseController;
+import box.logic.RuptelaLogic;
 import box.model.CalendarTruckHtml;
 import box.model.Route;
 import box.model.Truck;
@@ -198,10 +199,11 @@ public class TimetableServlet {
 			if(base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), firstDay, secondDay)){
 				htmlTruck.setFromOblastStatusStyle("color:green");
 				htmlTruck.setFromLastOblast(base.getLastRouteByTruckId(truck.getId(), secondDay).getFromCity()+" -> "+base.getLastRouteByTruckId(truck.getId(), secondDay).getToCity());
-			//	htmlTruck.setFromLastOblast("-> "+base.getLastRouteByTruckId(truck.getId(), secondDay).getAddressFrom());
+			
 			}else{
 				htmlTruck.setFromOblastStatusStyle("color:red");
 				htmlTruck.setFromLastOblast(base.getLastRouteByTruckId(truck.getId(), secondDay).getToCity());
+			
 			}
 			
 		     //test from to Oblasts
@@ -344,6 +346,8 @@ public class TimetableServlet {
 				htmlTruck.setDay3Link(day3Link);
 				htmlTruck.setDay3(day3);
 			}
+			
+			/**
 			//fourth
 			if(base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), fourthDay, fifthDay)){
 				Route route = base.getLastRouteBetweenDatesByTruckId(truck.getId(), fourthDay, fifthDay);
@@ -436,7 +440,7 @@ public class TimetableServlet {
 				htmlTruck.setDay5Link(day5Link);
 				htmlTruck.setDay5(day5);
 			}
-			
+			*/
 			
 			htmlTrucks.add(htmlTruck);
 			
@@ -714,10 +718,11 @@ public class TimetableServlet {
 			if(base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), firstDay, secondDay)){
 				htmlTruck.setFromOblastStatusStyle("color:green");
 				htmlTruck.setFromLastOblast(base.getLastRouteByTruckId(truck.getId(), secondDay).getFromCity()+" -> "+base.getLastRouteByTruckId(truck.getId(), secondDay).getToCity());
-				//htmlTruck.setFromLastOblast("-> "+base.getLastRouteByTruckId(truck.getId(), secondDay).getAddressFrom());
+			
 			}else{
 				htmlTruck.setFromOblastStatusStyle("color:red");
 				htmlTruck.setFromLastOblast(base.getLastRouteByTruckId(truck.getId(), secondDay).getToCity());
+				
 			}
 			
 		     //test from to Oblasts
@@ -859,6 +864,7 @@ public class TimetableServlet {
 				htmlTruck.setDay3Link(day3Link);
 				htmlTruck.setDay3(day3);
 			}
+			/**
 			//fourth
 			if(base.isListOfRoutesBetweenDatesByTruckIdExist(truck.getId(), fourthDay, fifthDay)){
 				Route route = base.getLastRouteBetweenDatesByTruckId(truck.getId(), fourthDay, fifthDay);
@@ -951,7 +957,7 @@ public class TimetableServlet {
 				htmlTruck.setDay5Link(day5Link);
 				htmlTruck.setDay5(day5);
 			}
-			
+			*/
 			
 			htmlTrucks.add(htmlTruck);
 			
