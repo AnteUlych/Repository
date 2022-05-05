@@ -85,7 +85,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
   <form method="post">
-    <h5><b><i class="fa fa-line-chart w3-text-red"></i>  Середні показники та автодні за період</b> &nbsp;<input type="date" name="start" value="${start}" min="2021-08-01" max="${finish}"  required> &nbsp; - &nbsp; <input type="date" name="finish" value="${finish}" min="${start}" required> &nbsp; <button type="submit"  class="w3-button w3-xlarge w3-circle w3-white"><i class="fa fa-check" style="width:30px"></i></button></h5>
+    <h5><b><i class="fa fa-line-chart w3-text-red"></i>  Середні показники та автодні за період</b> &nbsp;<input type="date" name="start" value="${start}" min="2022-04-15" max="${finish}"  required> &nbsp; - &nbsp; <input type="date" name="finish" value="${finish}" min="2022-04-15" required> &nbsp; <button type="submit"  class="w3-button w3-xlarge w3-circle w3-white"><i class="fa fa-check" style="width:30px"></i></button></h5>
   </form>
   </header>
  <div class="w3-panel">

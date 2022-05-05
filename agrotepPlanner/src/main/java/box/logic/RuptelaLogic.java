@@ -9,6 +9,7 @@ public class RuptelaLogic {
 	
 	public int getKmFromRuptela(String dateStart, String dateFinish, String truckKey){
 		
+		
 		int startKm = this.getMileageFromRuptela(dateStart, truckKey);
 		int finishKm = this.getMileageFromRuptela(dateFinish, truckKey);
 		
