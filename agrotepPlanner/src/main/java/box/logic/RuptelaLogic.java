@@ -43,7 +43,9 @@ public class RuptelaLogic {
 			in.close();
 			
 
-			String deleteTextBefore = text.substring(text.indexOf("virtual_gps_odometer\":")+22);
+			//String deleteTextBefore = text.substring(text.indexOf("virtual_gps_odometer\":")+22);
+			//String deleteTextBefore = text.substring(text.indexOf("virtual_odometer\":")+18); //fix 21/06/2022
+			String deleteTextBefore = text.substring(text.indexOf("mileage\":")+9);
 			String resultText = deleteTextBefore.substring(0, deleteTextBefore.indexOf("."));
 			
 			int km = Integer.parseInt(resultText); 

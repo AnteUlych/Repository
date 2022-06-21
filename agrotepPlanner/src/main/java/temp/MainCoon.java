@@ -50,7 +50,7 @@ public class MainCoon {
 
 	public static void main(String[] args) {
 		
-		String r = new RuptelaLogic().getLocation("7085cc1a-1dc7-11e7-b992-bf0f96eabafc");
+		int r = new RuptelaLogic().getKmFromRuptela("2022-06-01", "2022-06-21", "70d9acb8-1dc7-11e7-a83c-ef93fff3fb1f");
 		System.out.println(r);
 	//	String answer = r.getLocation("5d42733a-1e1e-11e8-bd6a-8326186e25a0");
 		//String answer = r.getLocation("70dd5a98-1dc7-11e7-b131-a3a8f7f0e4d9");
