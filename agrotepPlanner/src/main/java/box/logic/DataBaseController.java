@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -121,6 +122,10 @@ public class DataBaseController {
 	//maplink
 	
 	//truck
+	public void editTruckLocation(int id, String location) {
+		truckService.editTruckLocation(id, location);
+	}
+	
 	public List<Truck> getListOfReadyTrucksByManagerId(int managerid) {
 		return truckService.getListOfReadyTrucksByManagerId(managerid);
 	}
@@ -369,6 +374,15 @@ public class DataBaseController {
 		Date tomorrow = c1.getTime();
 		Date mounthAgo = c.getTime();
 		
+		//temp fix calculate from 15-04-2022
+		Calendar tempFixFrom15042022 = Calendar.getInstance();
+		tempFixFrom15042022.setTime(today);
+		tempFixFrom15042022.set(2022, Calendar.APRIL, 15);
+		if(c.before(tempFixFrom15042022)) {
+			mounthAgo = tempFixFrom15042022.getTime();
+		}
+		//temp fix calculate from 15-04-2022
+		
 		Format formatter = new SimpleDateFormat("yyyy-MM-dd");
 		String start = formatter.format(mounthAgo);
 		String finish = formatter.format(tomorrow);
@@ -403,6 +417,15 @@ public class DataBaseController {
 		//c1.add(Calendar.DATE, 0);  // today
 		Date tomorrow = c1.getTime();
 		Date mounthAgo = c.getTime();
+		
+		//temp fix calculate from 15-04-2022
+		Calendar tempFixFrom15042022 = Calendar.getInstance();
+		tempFixFrom15042022.setTime(today);
+		tempFixFrom15042022.set(2022, Calendar.APRIL, 15);
+		if(c.before(tempFixFrom15042022)) {
+			mounthAgo = tempFixFrom15042022.getTime();
+		}
+		//temp fix calculate from 15-04-2022
 		
 		Format formatter = new SimpleDateFormat("yyyy-MM-dd");
 		String start = formatter.format(mounthAgo);

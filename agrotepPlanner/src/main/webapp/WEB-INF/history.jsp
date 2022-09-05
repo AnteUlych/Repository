@@ -90,7 +90,7 @@ th, td {
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <form method="post">
-    <h5><b><i class="fa fa-hourglass-3   w3-text-yellow"></i> Історія по ТЗ</b> &nbsp; <input type="date" name="start" value="${start}" min="2021-08-01" max="${finish}" required> &nbsp; - &nbsp; <input type="date" name="finish" min="2021-08-01" max="${finish}" value="${finish}" required> &nbsp; <button type="submit"  class="w3-button w3-xlarge w3-circle w3-white"><i class="fa fa-check" style="width:30px"></i></button>
+    <h5><b><i class="fa fa-hourglass-3   w3-text-yellow"></i> Історія по ТЗ</b> &nbsp; <input type="date" name="start" value="${start}" min="2022-04-15" max="${finish}" required> &nbsp; - &nbsp; <input type="date" name="finish" min="2022-04-15"  value="${finish}" required> &nbsp; <button type="submit"  class="w3-button w3-xlarge w3-circle w3-white"><i class="fa fa-check" style="width:30px"></i></button>
     &nbsp;<a href="/planner/historyexcel/${start}&_${finish}" style="text-decoration: none"><i class="fa fa-file-excel-o"></i>&nbsp;</a>
     </h5>
       </form>

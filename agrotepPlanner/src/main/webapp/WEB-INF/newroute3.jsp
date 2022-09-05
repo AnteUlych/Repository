@@ -132,12 +132,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <br>
 
 <div class="align-left">
-<button type="submit" class="w3-button w3-round-xxlarge w3-teal " name="repeat" formnovalidate><i class="fa fa-thumbs-up"></i></button>
+<button type="submit" id="repeat" onclick="hideButtons()"   class="w3-button w3-round-xxlarge w3-teal " name="repeat" formnovalidate><i class="fa fa-thumbs-up"></i></button>
 </div>
 <div class="align-right">
-<button type="submit" class="w3-button w3-round-xxlarge w3-red" name="wait" formnovalidate><i class="fa fa-hourglass-end"></i></button>&nbsp;
-<button type="submit" class="w3-button w3-round-xxlarge w3-blue" name="remont" formnovalidate><i class="fa fa-wrench"></i></button>&nbsp;
-<button type="submit" class="w3-button w3-round-xxlarge w3-purple" name="colona" formnovalidate><i class="fa fa-suitcase"></i></button></div>
+<button type="submit" id="wait" onclick="hideButtons()"   class="w3-button w3-round-xxlarge w3-red" name="wait" formnovalidate><i class="fa fa-hourglass-end"></i></button>&nbsp;
+<button type="submit" id="remont" onclick="hideButtons()"   class="w3-button w3-round-xxlarge w3-blue" name="remont" formnovalidate><i class="fa fa-wrench"></i></button>&nbsp;
+<button type="submit" id="colona" onclick="hideButtons()"  class="w3-button w3-round-xxlarge w3-purple" name="colona" formnovalidate><i class="fa fa-suitcase"></i></button></div>
 
 <br>
 	<br>
@@ -225,6 +225,13 @@ var componentForm3 = {
 		country: 'long_name',
 		postal_code: 'short_name'
 	};
+	
+function hideButtons(){
+	document.getElementById('repeat').style['display'] = 'none'
+	document.getElementById('wait').style['display'] = 'none'
+	document.getElementById('remont').style['display'] = 'none'
+	document.getElementById('colona').style['display'] = 'none'
+}
 
 function initAutocomplete() {
 	autocomplete = new google.maps.places.Autocomplete(

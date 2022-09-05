@@ -40,7 +40,7 @@ public class DocumentsServlet {
 		//very bad code!!!!!!!!!!
 		List<Manager> managers = new ArrayList();
 		for(Manager m:managers1){
-			if(m.getName().equals("Діма")||m.getName().equals("Влад")||m.getName().equals("Лёша")||m.getName().equals("Саша")){
+			if(m.getName().equals("Ілля")||m.getName().equals("Рома")||m.getName().equals("Лёша")||m.getName().equals("Саша")){
 				managers.add(m);
 			}
 		}
@@ -198,7 +198,7 @@ public class DocumentsServlet {
 		//very bad code!!!!!!!!!!
 		List<Manager> managers = new ArrayList();
 		for(Manager m:managers1){
-			if(m.getName().equals("Діма")||m.getName().equals("Влад")||m.getName().equals("Лёша")||m.getName().equals("Саша")){
+			if(m.getName().equals("Ілля")||m.getName().equals("Рома")||m.getName().equals("Лёша")||m.getName().equals("Саша")){
 				managers.add(m);
 			}
 		}

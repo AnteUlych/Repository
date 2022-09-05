@@ -104,11 +104,15 @@ public class StatisticServlet {
 			histories.setTotalColona(totalColona);
 			histories.setTotalRemont(totalRemont);
 			
-			int workdays = days-totalStops-totalColona-totalRemont;
+			//int workdays = days-totalStops-totalColona-totalRemont;
+			int workdays = days-totalColona-totalRemont;
+			
+			int kmday; 
 			if(workdays==0){
-				workdays=-1;
+				kmday=0;
+			}else{
+			kmday = totalKm/workdays;
 			}
-			int kmday = totalKm/workdays;
 			histories.setAvarageKmDay(kmday);
 			histories.setTotalWork(workdays);
 			
@@ -242,11 +246,15 @@ public class StatisticServlet {
 				histories.setTotalColona(totalColona);
 				histories.setTotalRemont(totalRemont);
 				
-				int workdays = days-totalStops-totalColona-totalRemont;
+				//int workdays = days-totalStops-totalColona-totalRemont;
+				int workdays = days-totalColona-totalRemont;
+				
+				int kmday; 
 				if(workdays==0){
-					workdays=-1;
+					kmday=0;
+				}else{
+				kmday = totalKm/workdays;
 				}
-				int kmday = totalKm/workdays;
 				histories.setAvarageKmDay(kmday);
 				histories.setTotalWork(workdays);
 				
@@ -365,7 +373,7 @@ public class StatisticServlet {
 
 		kpi.setTrucks(trucksHTML.size());
 		
-		if(km==0||days==0||trucksHTML.size()-notConnectedTrucks==0){
+		if(km==0||days==0||trucksHTML.size()-notConnectedTrucks<=0){
 			
 			kpi.setKm(0);
 			kpi.setUahkm(0);
@@ -377,6 +385,10 @@ public class StatisticServlet {
 			kpi.setUahkm((int)(Math.round(((double)uahkm/(double)(trucksHTML.size()-notConnectedTrucks)) * 100))/100.0);
 			kpi.setKmday(kmday/(trucksHTML.size()-notConnectedTrucks)); 
 		
+		}
+		
+		if(totalWork<0) {
+			totalWork=0;
 		}
 		
 		kpi.setTotalWork(totalWork);

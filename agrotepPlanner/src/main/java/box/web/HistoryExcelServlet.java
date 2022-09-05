@@ -85,7 +85,8 @@ public class HistoryExcelServlet {
 			histories.setTotalColona(totalColona);
 			histories.setTotalRemont(totalRemont);
 			
-			int workdays = days-totalStops-totalColona-totalRemont;
+			//int workdays = days-totalStops-totalColona-totalRemont;
+			int workdays = days-totalColona-totalRemont;
 			if(workdays==0){
 				workdays=-1;
 			}

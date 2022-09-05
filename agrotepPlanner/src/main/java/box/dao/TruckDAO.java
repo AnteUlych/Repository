@@ -114,6 +114,18 @@ public class TruckDAO {
 
 	}
 	
+	@Transactional
+	public void editTruckLocation(int id, String location) {
+		
+		Truck truck = (Truck) em.find(Truck.class, id);
+		truck.setStatusTruck(location);
+		
+		Truck transaction = em.merge(truck);
+		em.persist(transaction);
+		em.close();
+
+	}
+	
 	public Truck getTruckbyId(int id) {
 		return em.find(Truck.class, id);	
 

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import box.logic.Constants;
 import box.logic.DataBaseController;
+import box.logic.RuptelaLogic;
 import box.model.Manager;
 import box.model.Truck;
 
@@ -50,6 +51,7 @@ public class LoginServlet {
 		String todayAsString = df.format(today);
 		
 		List <Truck> trucksUrgent = base.getListOfReadyTrucksSortedByManager();
+		RuptelaLogic ruptela = new RuptelaLogic();
 		for(Truck truck:trucksUrgent){
 			
 			int mounthKm = base.getMounthKm(truck.getTruckKey());
@@ -59,6 +61,10 @@ public class LoginServlet {
 			//days after remont
 			int noremontdays = base.getHowManyDaysAgoTruckWasInService(truck.getId(), todayAsString);
 			base.editTruckNoremontdaysById(truck.getId(), noremontdays);
+			
+			//fact address
+			String location = ruptela.getLocation(truck.getTruckKey());
+			base.editTruckLocation(truck.getId(), location);
 			
 		}
 

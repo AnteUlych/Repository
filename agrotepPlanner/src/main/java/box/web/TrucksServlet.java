@@ -153,7 +153,7 @@ public class TrucksServlet {
 		newTruck.setNotReady(Constants.TRUCK_READY);
 		newTruck.setPhone(phone);
 		newTruck.setPriority(Constants.TRUCK_PRIORITY_REGULAR);
-		newTruck.setStatusTruck("Київська область");
+		newTruck.setStatusTruck("нове авто");
 		newTruck.setTracktor(tracktor);
 		newTruck.setTrailer(trailor);
 		newTruck.setType(typetruck);
