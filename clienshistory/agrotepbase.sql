@@ -16,6 +16,43 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `calculates`
+--
+
+DROP TABLE IF EXISTS `calculates`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `calculates` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `company` varchar(100) DEFAULT NULL,
+  `companyid` int(11) DEFAULT NULL,
+  `manager` varchar(45) DEFAULT NULL,
+  `managerid` int(11) DEFAULT NULL,
+  `comments` varchar(500) DEFAULT NULL,
+  `weight` int(11) DEFAULT NULL,
+  `dateofcalculate` datetime DEFAULT NULL,
+  `freight` varchar(45) DEFAULT NULL,
+  `truck` varchar(45) DEFAULT NULL,
+  `temperature` varchar(45) DEFAULT NULL,
+  `dangerous` int(11) DEFAULT NULL,
+  `addressfrom` varchar(100) DEFAULT NULL,
+  `addressto` varchar(45) DEFAULT NULL,
+  `countryfrom` varchar(45) DEFAULT NULL,
+  `countryto` varchar(45) DEFAULT NULL,
+  `customsfrom` varchar(45) DEFAULT NULL,
+  `customsto` varchar(45) DEFAULT NULL,
+  `calculateonadate` varchar(45) DEFAULT NULL,
+  `budget` varchar(45) DEFAULT NULL,
+  `rate` varchar(45) DEFAULT NULL,
+  `exportimport` varchar(45) DEFAULT NULL,
+  `cityfrom` varchar(45) DEFAULT NULL,
+  `cityto` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `client`
 --
 
@@ -41,7 +78,7 @@ CREATE TABLE `client` (
   `edrpo` varchar(20) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=685 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -59,7 +96,7 @@ CREATE TABLE `manager` (
   `mail` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,7 +112,7 @@ CREATE TABLE `product` (
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +133,7 @@ CREATE TABLE `records` (
   `funel` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10168 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,4 +149,4 @@ CREATE TABLE `records` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-12  9:53:58
+-- Dump completed on 2022-09-05 17:05:10

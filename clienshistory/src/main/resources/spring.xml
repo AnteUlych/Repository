@@ -59,11 +59,13 @@
 	 <bean id="managerDAO" class="box.dao.ManagerDAO" />
 	 <bean id="productDAO" class="box.dao.ProductDAO" />
 	 <bean id="recordsDAO" class="box.dao.RecordsDAO" />
+	 <bean id="calculatesDAO" class="box.dao.CalculatesDAO" />
 		 
      <bean id="clientService" class="box.service.ClientService" />
 	 <bean id="managerService" class="box.service.ManagerService" />
 	 <bean id="productService" class="box.service.ProductService" />
 	 <bean id="recordsService" class="box.service.RecordsService" />
+	 <bean id="calculatesService" class="box.service.CalculatesService" />
      	 
 
 </beans>
