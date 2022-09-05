@@ -9,10 +9,12 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import box.model.Calculates;
 import box.model.Client;
 import box.model.Manager;
 import box.model.Product;
 import box.model.Records;
+import box.service.CalculatesService;
 import box.service.ClientService;
 import box.service.ManagerService;
 import box.service.ProductService;
@@ -29,6 +31,13 @@ public class DataBaseController {
 			.getBean("productService");
 	ClientService clientService = (ClientService) ctx.getBean("clientService");
 	RecordsService recordsService = (RecordsService)ctx.getBean("recordsService");
+	CalculatesService calculatesService = (CalculatesService)ctx.getBean("calculatesService");
+	
+	//test
+	public List<Calculates> getListOfCalculates(){
+		return calculatesService.getListOfCalculates();
+	}
+	//test
 
 	public void closeConnection() {
 		((AbstractApplicationContext) ctx).close();
