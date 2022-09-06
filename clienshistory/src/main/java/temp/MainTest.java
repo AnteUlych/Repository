@@ -1,5 +1,6 @@
 package temp;
 
+import java.util.Date;
 import java.util.List;
 
 import box.logic.DataBaseController;
@@ -10,11 +11,8 @@ public class MainTest {
 	public static void main(String[] args) {
 		
 		DataBaseController base = new DataBaseController();
-		List<Calculates> cs = base.getListOfCalculates();
 		
-		for(Calculates c:cs){
-			System.out.println(c.getCompany());
-		}
+			System.out.println(base.getCalculatesById(2).getCompany());
 		
 	}
 

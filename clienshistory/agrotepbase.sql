@@ -35,8 +35,6 @@ CREATE TABLE `calculates` (
   `truck` varchar(45) DEFAULT NULL,
   `temperature` varchar(45) DEFAULT NULL,
   `dangerous` int(11) DEFAULT NULL,
-  `addressfrom` varchar(100) DEFAULT NULL,
-  `addressto` varchar(45) DEFAULT NULL,
   `countryfrom` varchar(45) DEFAULT NULL,
   `countryto` varchar(45) DEFAULT NULL,
   `customsfrom` varchar(45) DEFAULT NULL,
@@ -49,7 +47,7 @@ CREATE TABLE `calculates` (
   `cityto` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -149,4 +147,4 @@ CREATE TABLE `records` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-05 17:05:10
+-- Dump completed on 2022-09-06 12:37:35

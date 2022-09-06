@@ -34,10 +34,13 @@ ${menuForHead}
 
   <div class="w3-bar-block">
     <a href="/clientshisory/plan" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
-    <a href="/clientshisory/plan" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar"></i>&nbsp; Графік дзвінків</a>
-     <a href="/clientshisory/addclient" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-user-plus"></i>&nbsp; Додати клієнта</a>
-    <a href="/clientshisory/find" class="w3-bar-item w3-button w3-padding"><i class="fa fa-search"></i>&nbsp; Пошук </a>
-    <a href="/clientshisory/report" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bar-chart"></i>&nbsp; Звіт</a>
+    <a href="/clientshisory/plan" class="w3-bar-item w3-button w3-padding "><i class="fa fa-calendar w3-text-blue"></i>&nbsp; Графік дзвінків</a>
+    <a href="/clientshisory/calculates" class="w3-bar-item w3-button w3-padding "><i class="fa fa-book w3-text-pink"></i>&nbsp; Запити</a>
+    <a href="/clientshisory/archive" class="w3-bar-item w3-button w3-padding "><i class="fa fa-archive w3-text-orange"></i>&nbsp; Архів запитів</a>
+     <a href="/clientshisory/addclient" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-plus w3-text-green"></i>&nbsp; Додати клієнта</a>
+    <a href="/clientshisory/find" class="w3-bar-item w3-button w3-padding"><i class="fa fa-search w3-text-red"></i>&nbsp; Пошук компаній</a>
+    <a href="/clientshisory/findconnents" class="w3-bar-item w3-button w3-padding"><i class="fa fa-comment w3-text-purple"></i>&nbsp; Пошук в коментарях</a>
+    <a href="/clientshisory/report" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bar-chart w3-text-gray"></i>&nbsp; Звіт</a>
   </div>
 
   <hr>

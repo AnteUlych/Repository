@@ -38,10 +38,6 @@ public class Calculates {
 	@Column
 	private int dangerous; 
 	@Column
-	private String addressfrom;
-	@Column
-	private String addressto; 
-	@Column
 	private String countryfrom; 
 	@Column
 	private String countryto; 
@@ -133,18 +129,6 @@ public class Calculates {
 	}
 	public void setDangerous(int dangerous) {
 		this.dangerous = dangerous;
-	}
-	public String getAddressfrom() {
-		return addressfrom;
-	}
-	public void setAddressfrom(String addressfrom) {
-		this.addressfrom = addressfrom;
-	}
-	public String getAddressto() {
-		return addressto;
-	}
-	public void setAddressto(String addressto) {
-		this.addressto = addressto;
 	}
 	public String getCountryfrom() {
 		return countryfrom;

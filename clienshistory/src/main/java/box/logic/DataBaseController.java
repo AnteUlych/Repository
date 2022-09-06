@@ -30,17 +30,51 @@ public class DataBaseController {
 	ProductService productService = (ProductService) ctx
 			.getBean("productService");
 	ClientService clientService = (ClientService) ctx.getBean("clientService");
-	RecordsService recordsService = (RecordsService)ctx.getBean("recordsService");
-	CalculatesService calculatesService = (CalculatesService)ctx.getBean("calculatesService");
-	
-	//test
-	public List<Calculates> getListOfCalculates(){
+	RecordsService recordsService = (RecordsService) ctx
+			.getBean("recordsService");
+	CalculatesService calculatesService = (CalculatesService) ctx
+			.getBean("calculatesService");
+
+	// test
+	public List<Calculates> getListOfCalculates() {
 		return calculatesService.getListOfCalculates();
 	}
-	//test
+
+	// test
 
 	public void closeConnection() {
 		((AbstractApplicationContext) ctx).close();
+	}
+
+	// Calculates
+	public void addCalculates(Calculates calculates) {
+		calculatesService.addCalculates(calculates);
+	}
+
+	public List<Calculates> getListOfCalculatesFromDate(String startDate) {
+		return calculatesService.getListOfCalculatesFromDate(startDate);
+	}
+
+	public List<Calculates> getListOfCalculatesFromDateByManagerId(
+			String startDate, int managerid) {
+		return calculatesService.getListOfCalculatesFromDateByManagerId(
+				startDate, managerid);
+	}
+	
+	public Calculates getCalculatesById(int id){
+		return calculatesService.getCalculatesById(id);
+	}
+
+	public void editCalculatesById(int id, String budget, String cityfrom,
+			String cityto, String comments, String company, int companyid,
+			String countryfrom, String countryto, String customsfrom,
+			String customsto, int dangerous, String calculateonadate,
+			String exportimport, String freight, String rate,
+			String temperature, String truck, int weight) {
+		calculatesService.editCalculatesById(id, budget, cityfrom, cityto,
+				comments, company, companyid, countryfrom, countryto,
+				customsfrom, customsto, dangerous, calculateonadate,
+				exportimport, freight, rate, temperature, truck, weight);
 	}
 
 	// Manager
@@ -55,197 +89,214 @@ public class DataBaseController {
 	public List<Manager> getListOfManagers() {
 		return managerService.getListOfManagers();
 	}
-	
-	public List<Manager> getListOfNotAdminManagers(){
+
+	public List<Manager> getListOfNotAdminManagers() {
 		return managerService.getListOfNotAdminManagers();
 	}
-	
-	public Manager getManagerById(int id){
+
+	public Manager getManagerById(int id) {
 		return managerService.getManagerById(id);
 	}
-	
-	public void firedManagerById(int id){
+
+	public void firedManagerById(int id) {
 		managerService.firedManagerById(id);
 	}
-	
+
 	public void deleteManager(int id) {
 		managerService.deleteManager(id);
 	}
-	
-	public void addManager(Manager manager){
+
+	public void addManager(Manager manager) {
 		managerService.addManager(manager);
 	}
-	
-public String generateCodeForManager(){
-		
+
+	public String generateCodeForManager() {
+
 		String code;
-				
-		for(;;){
-			
+
+		for (;;) {
+
 			int min = 10000;
 			int max = 99999;
-	
+
 			Random random = new Random();
-			int i = random.nextInt((max-min)+1)+ min;
-			code = i+"";
-		
-			if(!managerService.isManagerExisByCode(code)){
+			int i = random.nextInt((max - min) + 1) + min;
+			code = i + "";
+
+			if (!managerService.isManagerExisByCode(code)) {
 				return code;
 			}
 		}
-		
+
 	}
 
-    public void editManagerById(int id, String name, String mail, String code, int rank) {
-    	managerService.editManagerById(id, name, mail, code, rank);
-    }
+	public void editManagerById(int id, String name, String mail, String code,
+			int rank) {
+		managerService.editManagerById(id, name, mail, code, rank);
+	}
 
 	// Manager
 
 	// Client
-	public void editClientById(int id, int funel, String company, String edrpo, String freight,
-			String lpr, String mail, String manager, int managerid,
-			String mobile, String othercontact, String phone, String  products){
-		clientService.editClientById(id, funel, company, edrpo, freight, lpr, mail, manager, managerid, mobile, othercontact, phone, products);
+	public void editClientById(int id, int funel, String company, String edrpo,
+			String freight, String lpr, String mail, String manager,
+			int managerid, String mobile, String othercontact, String phone,
+			String products) {
+		clientService
+				.editClientById(id, funel, company, edrpo, freight, lpr, mail,
+						manager, managerid, mobile, othercontact, phone,
+						products);
 	}
-	
-	public void editNectcallAndLastrecordAndFunekOfClientById(int id, Date nextcall, int funel, String lastrecord){
-		clientService.editNectcallAndLastrecordAndFunekOfClientById(id, nextcall, funel, lastrecord);
+
+	public void editNectcallAndLastrecordAndFunekOfClientById(int id,
+			Date nextcall, int funel, String lastrecord) {
+		clientService.editNectcallAndLastrecordAndFunekOfClientById(id,
+				nextcall, funel, lastrecord);
 	}
-	
-	public void addClient(Client client){
+
+	public void addClient(Client client) {
 		clientService.addClient(client);
 	}
-	
+
 	public List<Client> getClientsByManagerIdSortedByNexcall(int managerid) {
 		return clientService.getClientsByManagerIdSortedByNexcall(managerid);
 	}
-	
+
 	public List<Client> getClientsSortedByNextcall() {
 		return clientService.getClientsSortedByNextcall();
 	}
-	
-	public List<Client> getClientsByCodeOrCompany(String word){
+
+	public List<Client> getClientsByCodeOrCompany(String word) {
 		List<Client> allClients = clientService.getListOfClients();
 		List<Client> filtrClients = new ArrayList();
-		
-		for(Client client:allClients){
-			if(client.getCompany().toLowerCase().contains(word.toLowerCase())||client.getEdrpo().contains(word)){
+
+		for (Client client : allClients) {
+			if (client.getCompany().toLowerCase().contains(word.toLowerCase())
+					|| client.getEdrpo().contains(word)) {
 				filtrClients.add(client);
 			}
 		}
-		
+
 		return filtrClients;
 	}
-	
-	public List<Client> getClientsByManagerIdAndProductSortedByNexcall(int managerid, String product) {
-		
-		 List<Client> clients = clientService.getClientsByManagerIdSortedByNexcall(managerid);
-		 List<Client> productClients = new ArrayList();
-		 
-		 for(Client c:clients){
-			 if(c.getProducts().contains(product)){
-				 productClients.add(c);
-			 }
-		 }
-		 
-		 return productClients;
+
+	public List<Client> getClientsByManagerIdAndProductSortedByNexcall(
+			int managerid, String product) {
+
+		List<Client> clients = clientService
+				.getClientsByManagerIdSortedByNexcall(managerid);
+		List<Client> productClients = new ArrayList();
+
+		for (Client c : clients) {
+			if (c.getProducts().contains(product)) {
+				productClients.add(c);
+			}
+		}
+
+		return productClients;
 	}
-	
+
 	public List<Client> getClientsByProductSortedByNextcall(String product) {
 		List<Client> clients = clientService.getClientsSortedByNextcall();
-		 List<Client> productClients = new ArrayList();
-		 
-		 for(Client c:clients){
-			 if(c.getProducts().contains(product)){
-				 productClients.add(c);
-			 }
-		 }
-		 
-		 return productClients;
+		List<Client> productClients = new ArrayList();
+
+		for (Client c : clients) {
+			if (c.getProducts().contains(product)) {
+				productClients.add(c);
+			}
+		}
+
+		return productClients;
 	}
-	
-	public boolean isEDRPOExist(String edrpo){
+
+	public boolean isEDRPOExist(String edrpo) {
 		List<Client> clients = clientService.getListOfClients();
-		
-		for(Client client:clients){
-			if(client.getEdrpo().equals(edrpo)){
+
+		for (Client client : clients) {
+			if (client.getEdrpo().equals(edrpo)) {
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	public Client getClientByERDPO(String edrpo) {
 		return clientService.getClientByERDPO(edrpo);
 	}
-	
-	public Client getClientById(int id){
+
+	public Client getClientById(int id) {
 		return clientService.getClientById(id);
 	}
 
 	public int getNumberOfClientsByManagerid(int managerid) {
 		return clientService.getNumberOfClientsByManagerid(managerid);
 	}
-	
-	public List<Client> getClientsByFunelAndOpenProduct(int funel, String product){
+
+	public List<Client> getClientsByFunelAndOpenProduct(int funel,
+			String product) {
 		return clientService.getClientsByFunelAndOpenProduct(funel, product);
 	}
-	
-	public List<Client> getClientsByManagerIdBetweenDates(int managerid, String start, String finish){
-		return clientService.getClientsByManagerIdBetweenDates(managerid, start, finish);
+
+	public List<Client> getClientsByManagerIdBetweenDates(int managerid,
+			String start, String finish) {
+		return clientService.getClientsByManagerIdBetweenDates(managerid,
+				start, finish);
 	}
+
 	// Client
 
-	//Product
+	// Product
 	public List<Product> getListOfOpenProducts() {
 		return productService.getListOfOpenProducts();
 	}
-	
-	public Product getProductById(int productid){
+
+	public Product getProductById(int productid) {
 		return productService.getProductById(productid);
 	}
-	
-	public void addProduct(Product product){
+
+	public void addProduct(Product product) {
 		productService.addProduct(product);
 	}
-	
-	public void hideProduct(int id){
+
+	public void hideProduct(int id) {
 		productService.hideProduct(id);
 	}
-	
-	public void openProduct(int id){
+
+	public void openProduct(int id) {
 		productService.openProduct(id);
 	}
-	
+
 	public List<Product> getListOfProducts() {
 		return productService.getListOfProducts();
 	}
-	
+
 	public boolean isProductsExis(String product) {
 		return productService.isProductsExis(product);
 	}
-	//Product
-	
-	//Records
-	public void addRecords(Records record){
+
+	// Product
+
+	// Records
+	public void addRecords(Records record) {
 		recordsService.addRecords(record);
 	}
-	
+
 	public List<Records> getListOfRecordsByClientId(int clientid) {
 		return recordsService.getListOfRecordsByClientId(clientid);
 	}
-	
-	public List<Records> getListOfRecordsByManagerIdIdAndStatusBetweenDates(int managerid, int recordstatus, String start, String finish) {
-		return recordsService.getListOfRecordsByManagerIdIdAndStatusBetweenDates(managerid, recordstatus, start, finish);
+
+	public List<Records> getListOfRecordsByManagerIdIdAndStatusBetweenDates(
+			int managerid, int recordstatus, String start, String finish) {
+		return recordsService
+				.getListOfRecordsByManagerIdIdAndStatusBetweenDates(managerid,
+						recordstatus, start, finish);
 	}
-	
-	public List<Records> getListOfRecordsByManagerIdsBetweenDates(int managerid, String start, String finish) {
-		return recordsService.getListOfRecordsByManagerIdsBetweenDates(managerid, start, finish);
+
+	public List<Records> getListOfRecordsByManagerIdsBetweenDates(
+			int managerid, String start, String finish) {
+		return recordsService.getListOfRecordsByManagerIdsBetweenDates(
+				managerid, start, finish);
 	}
-	
-	
-	
 
 }
