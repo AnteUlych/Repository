@@ -1,19 +1,21 @@
 package temp;
 
-import java.util.Date;
+import java.text.ParseException;
 import java.util.List;
 
 import box.logic.DataBaseController;
-import box.model.Calculates;
+import box.model.Client;
+
 
 public class MainTest {
 
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) throws ParseException {
+  
 		DataBaseController base = new DataBaseController();
+		List<Client> clients = base.getClientsSortedByName();
 		
-			System.out.println(base.getCalculatesById(2).getCompany());
-		
+		for(Client c:clients){
+			System.out.println(c.getCompany());
+		}
 	}
-
 }

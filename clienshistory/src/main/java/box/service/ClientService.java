@@ -29,6 +29,10 @@ public class ClientService {
 	
 	@Autowired
 	private ClientDAO dao;
+	
+	public List<Client> getClientsSortedByName() {
+		return dao.getClientsSortedByName();
+	}
 
 	public List<Client> getClientsByManagerIdSortedByNexcall(int managerid) {
 		return dao.getClientsByManagerIdSortedByNexcall(managerid);

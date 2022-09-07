@@ -36,15 +36,11 @@ public class Calculates {
 	@Column
 	private String temperature;
 	@Column
-	private int dangerous; 
+	private String dangerous; 
 	@Column
 	private String countryfrom; 
 	@Column
 	private String countryto; 
-	@Column
-	private String customsfrom; 
-	@Column
-	private String customsto; 
 	@Column
 	private String calculateonadate;
 	@Column
@@ -124,12 +120,6 @@ public class Calculates {
 	public void setTemperature(String temperature) {
 		this.temperature = temperature;
 	}
-	public int getDangerous() {
-		return dangerous;
-	}
-	public void setDangerous(int dangerous) {
-		this.dangerous = dangerous;
-	}
 	public String getCountryfrom() {
 		return countryfrom;
 	}
@@ -142,18 +132,7 @@ public class Calculates {
 	public void setCountryto(String countryto) {
 		this.countryto = countryto;
 	}
-	public String getCustomsfrom() {
-		return customsfrom;
-	}
-	public void setCustomsfrom(String customsfrom) {
-		this.customsfrom = customsfrom;
-	}
-	public String getCustomsto() {
-		return customsto;
-	}
-	public void setCustomsto(String customsto) {
-		this.customsto = customsto;
-	}
+
 	public String getCalculateonadate() {
 		return calculateonadate;
 	}
@@ -189,6 +168,12 @@ public class Calculates {
 	}
 	public void setCityto(String cityto) {
 		this.cityto = cityto;
+	}
+	public String getDangerous() {
+		return dangerous;
+	}
+	public void setDangerous(String dangerous) {
+		this.dangerous = dangerous;
 	}
 
 }

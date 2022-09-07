@@ -33,6 +33,13 @@ public class ClientDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
+	public List<Client> getClientsSortedByName() {
+		return em.createQuery(
+				"from Client order by company")
+				.getResultList();	
+	}
+	
+	@SuppressWarnings("unchecked")
 	public List<Client> getListOfClients(){
 		return em.createQuery("from Client").getResultList();
 	}

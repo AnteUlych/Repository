@@ -36,12 +36,12 @@ public class CalculatesService {
 
 	public void editCalculatesById(int id, String budget, String cityfrom,
 			String cityto, String comments, String company, int companyid,
-			String countryfrom, String countryto, String customsfrom,
-			String customsto, int dangerous, String calculateonadate,
+			String countryfrom, String countryto,
+			String dangerous, String calculateonadate,
 			String exportimport, String freight, String rate,
 			String temperature, String truck, int weight) {
 		dao.editCalculatesById(id, budget, cityfrom, cityto, comments, company,
-				companyid, countryfrom, countryto, customsfrom, customsto,
+				companyid, countryfrom, countryto,
 				dangerous, calculateonadate, exportimport, freight, rate,
 				temperature, truck, weight);
 	}

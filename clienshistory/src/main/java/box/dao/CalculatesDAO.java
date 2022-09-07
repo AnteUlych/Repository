@@ -52,8 +52,8 @@ public class CalculatesDAO {
 	@Transactional
 	public void editCalculatesById(int id, String budget, String cityfrom,
 			String cityto, String comments, String company, int companyid,
-			String countryfrom, String countryto, String customsfrom,
-			String customsto, int dangerous, String calculateonadate,
+			String countryfrom, String countryto,
+			String dangerous, String calculateonadate,
 			String exportimport, String freight, String rate,
 			String temperature, String truck, int weight) {
 
@@ -67,8 +67,6 @@ public class CalculatesDAO {
 		calculates.setCompanyid(companyid);
 		calculates.setCountryfrom(countryfrom);
 		calculates.setCountryto(countryto);
-		calculates.setCustomsfrom(customsfrom);
-		calculates.setCustomsto(customsto);
 		calculates.setDangerous(dangerous);
 		calculates.setCalculateonadate(calculateonadate);
 		calculates.setExportimport(exportimport);
