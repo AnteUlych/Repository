@@ -11,11 +11,7 @@ public class MainTest {
 
 	public static void main(String[] args) throws ParseException {
   
-		DataBaseController base = new DataBaseController();
-		List<Client> clients = base.getClientsSortedByName();
-		
-		for(Client c:clients){
-			System.out.println(c.getCompany());
-		}
+	String nose=null;
+	System.out.println(nose==null);
 	}
 }

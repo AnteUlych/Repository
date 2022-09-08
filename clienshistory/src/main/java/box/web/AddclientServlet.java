@@ -95,8 +95,7 @@ public class AddclientServlet {
 	     if(isClientAlreadyExist){
 	    	 messagealert =  "alert(\""+" л≥Їнт з ™ƒ–ѕќ” "+edrpo+" вже ≥снуЇ в систем≥!"+"\");";
 	     }
-		 
-	//	 base.closeConnection();
+	
 		 
 		 model.addAttribute("name", name);
 		 model.addAttribute("products", products);

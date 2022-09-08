@@ -107,8 +107,8 @@ ${menuForHead}
 <td>${calc.truck}</td>
 <td>${calc.temperature}</td>
 <td><b style="color:red">${calc.dangerous}</b></td>
-<td>${calc.countryfrom}</td>
 <td>${calc.cityfrom}</td>
+<td>${calc.countryfrom}</td>
 <td>${calc.cityto}</td>
 <td>${calc.countryto}</td>
 <td>${calc.calculateonadate}</td>
@@ -148,8 +148,8 @@ ${menuForHead}
 <td>${calc.truck}</td>
 <td>${calc.temperature}</td>
 <td><b style="color:red">${calc.dangerous}</b></td>
-<td>${calc.countryfrom}</td>
 <td>${calc.cityfrom}</td>
+<td>${calc.countryfrom}</td>
 <td>${calc.cityto}</td>
 <td>${calc.countryto}</td>
 <td>${calc.calculateonadate}</td>
@@ -189,8 +189,8 @@ ${menuForHead}
 <td>${calc.truck}</td>
 <td>${calc.temperature}</td>
 <td><b style="color:red">${calc.dangerous}</b></td>
-<td>${calc.countryfrom}</td>
 <td>${calc.cityfrom}</td>
+<td>${calc.countryfrom}</td>
 <td>${calc.cityto}</td>
 <td>${calc.countryto}</td>
 <td>${calc.calculateonadate}</td>
@@ -230,8 +230,8 @@ ${menuForHead}
 <td>${calc.truck}</td>
 <td>${calc.temperature}</td>
 <td><b style="color:red">${calc.dangerous}</b></td>
-<td>${calc.countryfrom}</td>
 <td>${calc.cityfrom}</td>
+<td>${calc.countryfrom}</td>
 
 <td>${calc.cityto}</td>
 <td>${calc.countryto}</td>
@@ -272,8 +272,8 @@ ${menuForHead}
 <td>${calc.truck}</td>
 <td>${calc.temperature}</td>
 <td><b style="color:red">${calc.dangerous}</b></td>
-<td>${calc.countryfrom}</td>
 <td>${calc.cityfrom}</td>
+<td>${calc.countryfrom}</td>
 
 <td>${calc.cityto}</td>
 <td>${calc.countryto}</td>
@@ -314,8 +314,8 @@ ${menuForHead}
 <td>${calc.truck}</td>
 <td>${calc.temperature}</td>
 <td><b style="color:red">${calc.dangerous}</b></td>
-<td>${calc.countryfrom}</td>
 <td>${calc.cityfrom}</td>
+<td>${calc.countryfrom}</td>
 
 <td>${calc.cityto}</td>
 <td>${calc.countryto}</td>
@@ -356,8 +356,8 @@ ${menuForHead}
 <td>${calc.truck}</td>
 <td>${calc.temperature}</td>
 <td><b style="color:red">${calc.dangerous}</b></td>
-<td>${calc.countryfrom}</td>
 <td>${calc.cityfrom}</td>
+<td>${calc.countryfrom}</td>
 
 <td>${calc.cityto}</td>
 <td>${calc.countryto}</td>
@@ -387,7 +387,7 @@ ${menuForHead}
 <br><br><br>
   
   </div>
-
+<form method="POST">
 <div id="subscribe" class="w3-modal">
   <div class="w3-modal-content  w3-padding-large">
     <div class="w3-container w3-white w3-center">
@@ -405,11 +405,11 @@ ${menuForHead}
 		 </p>
 		 	     <p>
 	
-	     <input pattern="[^\\/`\/\x22]+" name="cityfrom" class="w3-input w3-quarter" type="text" placeholder="Ã≤—“Œ ¬≤ƒœ–¿¬ »" maxlength="40">
-	     <input style="text-transform:uppercase" pattern="[^\\/`\/\x22]+" name="countryfrom" class="w3-input w3-quarter" type="text" placeholder=" ‡øÌ‡ ‚≥‰Ô‡‚ÍË" minlength="2" maxlength="2">
+	     <input pattern="[^\\/`\/\x22]+" name="cityfrom" class="w3-input w3-quarter" type="text" placeholder="Ã≤—“Œ ¬≤ƒœ–¿¬ »" maxlength="40" required>
+	     <input style="text-transform:uppercase" pattern="[^\\/`\/\x22]+" name="countryfrom" class="w3-input w3-quarter" type="text" placeholder=" ‡øÌ‡ ‚≥‰Ô‡‚ÍË" minlength="2" maxlength="2" required>
 	  
-	     <input pattern="[^\\/`\/\x22]+" name="cityto" class="w3-input w3-quarter" type="text" placeholder="Ã≤—“Œ ƒŒ—“¿¬ »" maxlength="40">
-	     <input style="text-transform:uppercase" pattern="[^\\/`\/\x22]+" name="countryto" class="w3-input w3-quarter" type="text" placeholder=" ‡øÌ‡ ‰ÓÒÚ‡‚ÍË" minlength="2" maxlength="2">
+	     <input pattern="[^\\/`\/\x22]+" name="cityto" class="w3-input w3-quarter" type="text" placeholder="Ã≤—“Œ ƒŒ—“¿¬ »" maxlength="40" required>
+	     <input style="text-transform:uppercase" pattern="[^\\/`\/\x22]+" name="countryto" class="w3-input w3-quarter" type="text" placeholder=" ‡øÌ‡ ‰ÓÒÚ‡‚ÍË" minlength="2" maxlength="2" required>
 	     </p>
 		 <p>	 
 	     <input pattern="[^\\/`\/\x22]+" name="freight" class="w3-input w3-third" type="text" placeholder="¬‡ÌÚ‡Ê" maxlength="40" required>
@@ -428,7 +428,7 @@ ${menuForHead}
 	     <br>
 	     <br>
 	     <p><input pattern="[^\\/`\/\x22]+" name="calculateonadate" class="w3-input w3-border" type="text" placeholder="√ÓÚÓ‚Ì≥ÒÚ¸ ‚‡ÌÚ‡ÊÛ" maxlength="40" required></p>
-	     <p><input pattern="[^\\/`\/\x22]+" name="comments" class="w3-input w3-border" type="text" placeholder="≤Ì¯‡ ≥ÌÙÓÏ‡ˆ≥ˇ" maxlength="450" required></p>
+	     <p><input pattern="[^\\/`\/\x22]+" name="comments" class="w3-input w3-border" type="text" placeholder="≤Ì¯‡ ≥ÌÙÓÏ‡ˆ≥ˇ" maxlength="450" ></p>
 	   <br>
 	    
 	     “ËÔ –—:&nbsp;
@@ -449,6 +449,7 @@ ${menuForHead}
     </div>
   </div>
 </div>
+</form>
   </div>
 
 <script>
