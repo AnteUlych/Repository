@@ -35,18 +35,21 @@ public class DataBaseController {
 	CalculatesService calculatesService = (CalculatesService) ctx
 			.getBean("calculatesService");
 
-	// test
-	public List<Calculates> getListOfCalculates() {
-		return calculatesService.getListOfCalculates();
-	}
-
-	// test
+	
 
 	public void closeConnection() {
 		((AbstractApplicationContext) ctx).close();
 	}
 
 	// Calculates
+	public List<Calculates> getListOfCalculates() {
+		return calculatesService.getListOfCalculates();
+	}
+
+	public List<Calculates> getListOfCalculatesByManagerid(int managerid) {
+	    return 	calculatesService.getListOfCalculatesByManagerid(managerid);
+	}
+	
 	public void addCalculates(Calculates calculates) {
 		calculatesService.addCalculates(calculates);
 	}

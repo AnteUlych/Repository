@@ -14,10 +14,16 @@ public class CalculatesDAO {
 	@PersistenceContext
 	private EntityManager em;
 
-	// test
+	
 	@SuppressWarnings("unchecked")
 	public List<Calculates> getListOfCalculates() {
-		return em.createQuery("from Calculates").getResultList();
+		return em.createQuery("from Calculates order by id desc").getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Calculates> getListOfCalculatesByManagerid(int managerid) {
+		return em.createQuery("from Calculates where managerid='" + managerid
+						+ "' order by id desc").getResultList();
 	}
 
 	@SuppressWarnings("unchecked")

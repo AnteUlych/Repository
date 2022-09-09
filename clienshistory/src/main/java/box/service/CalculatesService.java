@@ -12,9 +12,13 @@ public class CalculatesService {
 	@Autowired
 	private CalculatesDAO dao;
 
-	// test
+	
 	public List<Calculates> getListOfCalculates() {
 		return dao.getListOfCalculates();
+	}
+	
+	public List<Calculates> getListOfCalculatesByManagerid(int managerid) {
+		return dao.getListOfCalculatesByManagerid(managerid);
 	}
 
 	public List<Calculates> getListOfCalculatesFromDate(String startDate) {
