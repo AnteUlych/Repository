@@ -34,11 +34,9 @@ CREATE TABLE `calculates` (
   `freight` varchar(45) DEFAULT NULL,
   `truck` varchar(45) DEFAULT NULL,
   `temperature` varchar(45) DEFAULT NULL,
-  `dangerous` int(11) DEFAULT NULL,
+  `dangerous` varchar(10) DEFAULT NULL,
   `countryfrom` varchar(45) DEFAULT NULL,
   `countryto` varchar(45) DEFAULT NULL,
-  `customsfrom` varchar(45) DEFAULT NULL,
-  `customsto` varchar(45) DEFAULT NULL,
   `calculateonadate` varchar(45) DEFAULT NULL,
   `budget` varchar(45) DEFAULT NULL,
   `rate` varchar(45) DEFAULT NULL,
@@ -47,7 +45,7 @@ CREATE TABLE `calculates` (
   `cityto` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,4 +145,4 @@ CREATE TABLE `records` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-06 12:37:35
+-- Dump completed on 2022-09-09 10:36:01

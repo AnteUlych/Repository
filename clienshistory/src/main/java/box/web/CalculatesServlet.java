@@ -161,7 +161,6 @@ public class CalculatesServlet {
 		
 		 DataBaseController base = new DataBaseController();
 		 
-		 String messagealert = "";
 		 String menuForHead = "";
 		 
 		 if(rank == constant.MANAGER_RANK_MANAGER){
