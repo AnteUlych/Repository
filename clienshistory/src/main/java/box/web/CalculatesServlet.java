@@ -170,7 +170,7 @@ public class CalculatesServlet {
 			 menuForHead = constant.MENU_FOR_HEAD;
 		 }
 		
-		 List<Product> products = base.getListOfOpenProducts();
+		    List<Product> products = base.getListOfOpenProducts();
 		 
 		    String requestEnc = "ISO-8859-1";
 			String clientEnc = request.getParameter("charset");

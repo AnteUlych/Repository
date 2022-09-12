@@ -21,6 +21,12 @@ public class CalculatesDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
+	public List<Calculates> getListOfCalculatesByCompanyid(int companyid) {
+		return em.createQuery("from Calculates where companyid='" + companyid
+						+ "' order by id desc").getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
 	public List<Calculates> getListOfCalculatesByManagerid(int managerid) {
 		return em.createQuery("from Calculates where managerid='" + managerid
 						+ "' order by id desc").getResultList();

@@ -42,6 +42,10 @@ public class DataBaseController {
 	}
 
 	// Calculates
+	public List<Calculates> getListOfCalculatesByCompanyid(int companyid) {
+		return calculatesService.getListOfCalculatesByCompanyid(companyid);
+	}
+	
 	public List<Calculates> getListOfCalculates() {
 		return calculatesService.getListOfCalculates();
 	}

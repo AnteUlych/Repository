@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import box.logic.Constants;
 import box.logic.DataBaseController;
 import box.logic.DecoderDBtoHTML;
+import box.model.Calculates;
 import box.model.Client;
 import box.model.Product;
 import box.model.Records;
@@ -84,6 +85,7 @@ public class ClientServlet {
 		 String othercontact = rejected;
 		 
 		 List<Records> records = new ArrayList();
+		 List<Calculates> calculates = new ArrayList();
 		 
 		 if((id==responsibleManager)||(rank!=constant.MANAGER_RANK_MANAGER)){
 			 lpr = client.getLpr();
@@ -93,6 +95,7 @@ public class ClientServlet {
 			 othercontact = client.getOthercontact();
 			 
 			 records = base.getListOfRecordsByClientId(idOfClient);
+			 calculates = base.getListOfCalculatesByCompanyid(idOfClient);
 			 
 			 addRecord = "<button class=\"w3-button \" onclick=\"document.getElementById('add').style.display='block'\"><i class=\"fa fa-comments-o\"> </i></button>";
 			 editClient =  "<a href=\"/clientshisory/editclient/"+clientid+"\" class=\"w3-button\"><i class=\"fa fa-edit\"></i></a>";
@@ -126,6 +129,7 @@ public class ClientServlet {
 		 model.addAttribute("products", products);
 		 model.addAttribute("menuForHead", menuForHead);
 		 
+		 model.addAttribute("idOfClient", idOfClient);
 		 model.addAttribute("edrpo", edrpo);
 		 model.addAttribute("company", company);
 		 model.addAttribute("freight", freight);
@@ -139,6 +143,7 @@ public class ClientServlet {
 		 model.addAttribute("mail", mail);
 		 model.addAttribute("othercontact", othercontact);
 		 model.addAttribute("records", records);
+		 model.addAttribute("calculates", calculates);
 		 
 		 model.addAttribute("addRecord", addRecord);
 		 
@@ -210,6 +215,7 @@ public class ClientServlet {
 		 String othercontact = rejected;
 		 
 		 List<Records> records = new ArrayList();
+		 List<Calculates> calculates = new ArrayList();
 		 
 		 if((id==responsibleManager)||(rank!=constant.MANAGER_RANK_MANAGER)){
 			 lpr = client.getLpr();
@@ -219,6 +225,7 @@ public class ClientServlet {
 			 othercontact = client.getOthercontact();
 			 
 			 records = base.getListOfRecordsByClientId(idOfClient);
+			 calculates = base.getListOfCalculatesByCompanyid(idOfClient);
 			 
 			 addRecord = "<button class=\"w3-button \" onclick=\"document.getElementById('add').style.display='block'\"><i class=\"fa fa-comments-o\"> </i></button>";
 			 editClient =  "<a href=\"/clientshisory/editclient/"+clientid+" class=\"w3-button\"><i class=\"fa fa-edit\"></i></a>";
@@ -250,6 +257,7 @@ public class ClientServlet {
 		 model.addAttribute("products", products);
 		 model.addAttribute("menuForHead", menuForHead);
 		 
+		 model.addAttribute("idOfClient", idOfClient);
 		 model.addAttribute("edrpo", edrpo);
 		 model.addAttribute("company", company);
 		 model.addAttribute("freight", freight);
@@ -263,6 +271,7 @@ public class ClientServlet {
 		 model.addAttribute("mail", mail);
 		 model.addAttribute("othercontact", othercontact);
 		 model.addAttribute("records", records);
+		 model.addAttribute("calculates", calculates);
 		 
 		 model.addAttribute("addRecord", addRecord);
 		 

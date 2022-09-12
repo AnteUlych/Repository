@@ -17,6 +17,10 @@ public class CalculatesService {
 		return dao.getListOfCalculates();
 	}
 	
+	public List<Calculates> getListOfCalculatesByCompanyid(int companyid) {
+		return dao.getListOfCalculatesByCompanyid(companyid);
+	}
+	
 	public List<Calculates> getListOfCalculatesByManagerid(int managerid) {
 		return dao.getListOfCalculatesByManagerid(managerid);
 	}

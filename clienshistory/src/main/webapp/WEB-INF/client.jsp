@@ -100,8 +100,36 @@ ${menuForHead}
 
 <div class="w3-container">
 <h5>
-${addRecord}<br> 
+${addRecord} &nbsp;
+<button class="w3-button" onclick="location.href='/clientshisory/addcalculate/${idOfClient}';"><i class="fa fa-book"> </i></button>
+
 </h5>
+
+    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+	
+		<c:forEach items="${calculates}" var="calc" varStatus="theCount">
+<tr class="">
+<td>${calc.dateofcalculate}</td>
+<td>${calc.manager}</td>
+<td>${calc.weight}</td>
+<td>${calc.freight}</td>
+<td>${calc.truck}</td>
+<td>${calc.temperature}</td>
+<td><b style="color:red">${calc.dangerous}</b></td>
+<td>${calc.cityfrom}, ${calc.countryfrom}</td>
+<td>${calc.cityto}, ${calc.countryto}</td>
+<td>${calc.calculateonadate}</td>
+<td>${calc.budget}</td>
+<td>${calc.rate}</td>
+<td>${calc.comments}</td>
+
+</tr>
+
+
+</c:forEach>
+
+</table>
+<br>
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
 	
 		<c:forEach items="${records}" var="rec" varStatus="theCount">
