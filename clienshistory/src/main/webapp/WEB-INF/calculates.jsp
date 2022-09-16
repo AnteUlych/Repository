@@ -85,9 +85,7 @@ ${menuForHead}
 <th></th>
 <th></th>
 <th></th>
-<th></th>
-<th></th>
-<th></th>
+
 <th></th>
 <th></th>
 <th></th>
@@ -99,7 +97,7 @@ ${menuForHead}
 	
 <c:forEach items="${listCalculates0}" var="calc" varStatus="theCount">		
 <tr class="">
-<td>${theCount.index+1}</td>
+<td><a href="/clientshisory/editcalculates/${calc.id}"><i class="fa fa-pencil"></i></a></td>
 <td><a href="/clientshisory/client/${calc.companyid}">${calc.company}</a></td>
 <td>${calc.manager}</td>
 <td>${calc.weight}</td>
@@ -107,15 +105,15 @@ ${menuForHead}
 <td>${calc.truck}</td>
 <td>${calc.temperature}</td>
 <td><b style="color:red">${calc.dangerous}</b></td>
-<td>${calc.cityfrom}</td>
-<td>${calc.countryfrom}</td>
-<td>${calc.cityto}</td>
-<td>${calc.countryto}</td>
+<td>${calc.cityfrom}, ${calc.countryfrom}</td>
+
+<td>${calc.cityto}, ${calc.countryto}</td>
+
 <td>${calc.calculateonadate}</td>
 <td>${calc.budget}</td>
 <td>${calc.rate}</td>
 <td>${calc.comments}</td>
-<td><a href="/clientshisory/editcalculates/${calc.id}"><i class="fa fa-pencil"></i></a></td>
+
 </tr>
 </c:forEach>
 <tr  style="background-color:pink">	
@@ -126,9 +124,7 @@ ${menuForHead}
 <th></th>
 <th></th>
 <th></th>
-<th></th>
-<th></th>
-<th></th>
+
 <th></th>
 <th></th>
 <th></th>
@@ -140,7 +136,7 @@ ${menuForHead}
 	
 <c:forEach items="${listCalculates1}" var="calc" varStatus="theCount">		
 <tr class="">
-<td>${theCount.index+1}</td>
+<td><a href="/clientshisory/editcalculates/${calc.id}"><i class="fa fa-pencil"></i></a></td>
 <td><a href="/clientshisory/client/${calc.companyid}">${calc.company}</a></td>
 <td>${calc.manager}</td>
 <td>${calc.weight}</td>
@@ -148,15 +144,14 @@ ${menuForHead}
 <td>${calc.truck}</td>
 <td>${calc.temperature}</td>
 <td><b style="color:red">${calc.dangerous}</b></td>
-<td>${calc.cityfrom}</td>
-<td>${calc.countryfrom}</td>
-<td>${calc.cityto}</td>
-<td>${calc.countryto}</td>
+<td>${calc.cityfrom}, ${calc.countryfrom}</td>
+
+<td>${calc.cityto}, ${calc.countryto}</td>
+
 <td>${calc.calculateonadate}</td>
 <td>${calc.budget}</td>
 <td>${calc.rate}</td>
 <td>${calc.comments}</td>
-<td><a href="/clientshisory/editcalculates/${calc.id}"><i class="fa fa-pencil"></i></a></td>
 </tr>
 </c:forEach>
 <tr  style="background-color:pink">	
@@ -167,9 +162,7 @@ ${menuForHead}
 <th></th>
 <th></th>
 <th></th>
-<th></th>
-<th></th>
-<th></th>
+
 <th></th>
 <th></th>
 <th></th>
@@ -181,7 +174,7 @@ ${menuForHead}
 	
 <c:forEach items="${listCalculates2}" var="calc" varStatus="theCount">		
 <tr class="">
-<td>${theCount.index+1}</td>
+<td><a href="/clientshisory/editcalculates/${calc.id}"><i class="fa fa-pencil"></i></a></td>
 <td><a href="/clientshisory/client/${calc.companyid}">${calc.company}</a></td>
 <td>${calc.manager}</td>
 <td>${calc.weight}</td>
@@ -189,15 +182,14 @@ ${menuForHead}
 <td>${calc.truck}</td>
 <td>${calc.temperature}</td>
 <td><b style="color:red">${calc.dangerous}</b></td>
-<td>${calc.cityfrom}</td>
-<td>${calc.countryfrom}</td>
-<td>${calc.cityto}</td>
-<td>${calc.countryto}</td>
+<td>${calc.cityfrom}, ${calc.countryfrom}</td>
+
+<td>${calc.cityto}, ${calc.countryto}</td>
+
 <td>${calc.calculateonadate}</td>
 <td>${calc.budget}</td>
 <td>${calc.rate}</td>
 <td>${calc.comments}</td>
-<td><a href="/clientshisory/editcalculates/${calc.id}"><i class="fa fa-pencil"></i></a></td>
 </tr>
 </c:forEach>
 <tr  style="background-color:pink">	
@@ -208,9 +200,7 @@ ${menuForHead}
 <th></th>
 <th></th>
 <th></th>
-<th></th>
-<th></th>
-<th></th>
+
 <th></th>
 <th></th>
 <th></th>
@@ -222,7 +212,7 @@ ${menuForHead}
 	
 <c:forEach items="${listCalculates3}" var="calc" varStatus="theCount">		
 <tr class="">
-<td>${theCount.index+1}</td>
+<td><a href="/clientshisory/editcalculates/${calc.id}"><i class="fa fa-pencil"></i></a></td>
 <td><a href="/clientshisory/client/${calc.companyid}">${calc.company}</a></td>
 <td>${calc.manager}</td>
 <td>${calc.weight}</td>
@@ -230,16 +220,14 @@ ${menuForHead}
 <td>${calc.truck}</td>
 <td>${calc.temperature}</td>
 <td><b style="color:red">${calc.dangerous}</b></td>
-<td>${calc.cityfrom}</td>
-<td>${calc.countryfrom}</td>
+<td>${calc.cityfrom}, ${calc.countryfrom}</td>
 
-<td>${calc.cityto}</td>
-<td>${calc.countryto}</td>
+<td>${calc.cityto}, ${calc.countryto}</td>
+
 <td>${calc.calculateonadate}</td>
 <td>${calc.budget}</td>
 <td>${calc.rate}</td>
 <td>${calc.comments}</td>
-<td><a href="/clientshisory/editcalculates/${calc.id}"><i class="fa fa-pencil"></i></a></td>
 </tr>
 </c:forEach>
 <tr  style="background-color:pink">	
@@ -250,9 +238,7 @@ ${menuForHead}
 <th></th>
 <th></th>
 <th></th>
-<th></th>
-<th></th>
-<th></th>
+
 <th></th>
 <th></th>
 <th></th>
@@ -264,7 +250,7 @@ ${menuForHead}
 	
 <c:forEach items="${listCalculates4}" var="calc" varStatus="theCount">		
 <tr class="">
-<td>${theCount.index+1}</td>
+<td><a href="/clientshisory/editcalculates/${calc.id}"><i class="fa fa-pencil"></i></a></td>
 <td><a href="/clientshisory/client/${calc.companyid}">${calc.company}</a></td>
 <td>${calc.manager}</td>
 <td>${calc.weight}</td>
@@ -272,16 +258,14 @@ ${menuForHead}
 <td>${calc.truck}</td>
 <td>${calc.temperature}</td>
 <td><b style="color:red">${calc.dangerous}</b></td>
-<td>${calc.cityfrom}</td>
-<td>${calc.countryfrom}</td>
+<td>${calc.cityfrom}, ${calc.countryfrom}</td>
 
-<td>${calc.cityto}</td>
-<td>${calc.countryto}</td>
+<td>${calc.cityto}, ${calc.countryto}</td>
+
 <td>${calc.calculateonadate}</td>
 <td>${calc.budget}</td>
 <td>${calc.rate}</td>
 <td>${calc.comments}</td>
-<td><a href="/clientshisory/editcalculates/${calc.id}"><i class="fa fa-pencil"></i></a></td>
 </tr>
 </c:forEach>
 <tr  style="background-color:pink">	
@@ -292,9 +276,7 @@ ${menuForHead}
 <th></th>
 <th></th>
 <th></th>
-<th></th>
-<th></th>
-<th></th>
+
 <th></th>
 <th></th>
 <th></th>
@@ -306,7 +288,7 @@ ${menuForHead}
 	
 <c:forEach items="${listCalculates5}" var="calc" varStatus="theCount">		
 <tr class="">
-<td>${theCount.index+1}</td>
+<td><a href="/clientshisory/editcalculates/${calc.id}"><i class="fa fa-pencil"></i></a></td>
 <td><a href="/clientshisory/client/${calc.companyid}">${calc.company}</a></td>
 <td>${calc.manager}</td>
 <td>${calc.weight}</td>
@@ -314,16 +296,14 @@ ${menuForHead}
 <td>${calc.truck}</td>
 <td>${calc.temperature}</td>
 <td><b style="color:red">${calc.dangerous}</b></td>
-<td>${calc.cityfrom}</td>
-<td>${calc.countryfrom}</td>
+<td>${calc.cityfrom}, ${calc.countryfrom}</td>
 
-<td>${calc.cityto}</td>
-<td>${calc.countryto}</td>
+<td>${calc.cityto}, ${calc.countryto}</td>
+
 <td>${calc.calculateonadate}</td>
 <td>${calc.budget}</td>
 <td>${calc.rate}</td>
 <td>${calc.comments}</td>
-<td><a href="/clientshisory/editcalculates/${calc.id}"><i class="fa fa-pencil"></i></a></td>
 </tr>
 </c:forEach>
 <tr  style="background-color:pink">	
@@ -334,9 +314,7 @@ ${menuForHead}
 <th></th>
 <th></th>
 <th></th>
-<th></th>
-<th></th>
-<th></th>
+
 <th></th>
 <th></th>
 <th></th>
@@ -348,7 +326,7 @@ ${menuForHead}
 	
 <c:forEach items="${listCalculates6}" var="calc" varStatus="theCount">		
 <tr class="">
-<td>${theCount.index+1}</td>
+<td><a href="/clientshisory/editcalculates/${calc.id}"><i class="fa fa-pencil"></i></a></td>
 <td><a href="/clientshisory/client/${calc.companyid}">${calc.company}</a></td>
 <td>${calc.manager}</td>
 <td>${calc.weight}</td>
@@ -356,16 +334,14 @@ ${menuForHead}
 <td>${calc.truck}</td>
 <td>${calc.temperature}</td>
 <td><b style="color:red">${calc.dangerous}</b></td>
-<td>${calc.cityfrom}</td>
-<td>${calc.countryfrom}</td>
+<td>${calc.cityfrom}, ${calc.countryfrom}</td>
 
-<td>${calc.cityto}</td>
-<td>${calc.countryto}</td>
+<td>${calc.cityto}, ${calc.countryto}</td>
+
 <td>${calc.calculateonadate}</td>
 <td>${calc.budget}</td>
 <td>${calc.rate}</td>
 <td>${calc.comments}</td>
-<td><a href="/clientshisory/editcalculates/${calc.id}"><i class="fa fa-pencil"></i></a></td>
 </tr>
 </c:forEach>
 
