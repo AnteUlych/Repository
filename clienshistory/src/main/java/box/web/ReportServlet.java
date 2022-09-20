@@ -108,14 +108,14 @@ public class ReportServlet {
 				 int kpiLpr = base.getListOfRecordsByManagerIdIdAndStatusBetweenDates(m.getId(), constant.RECORDS_RECORDSTATUS_COMUNICATION_WITH_LPR, mondayText, saturdayText).size();
 				 int kpiContract = base.getListOfRecordsByManagerIdIdAndStatusBetweenDates(m.getId(), constant.RECORDS_RECORDSTATUS_CONTRACT_DEALING, mondayText, saturdayText).size();
 				 int kpiClient = base.getListOfRecordsByManagerIdIdAndStatusBetweenDates(m.getId(), constant.RECORDS_RECORDSTATUS_BECAME_CLIENT, mondayText, saturdayText).size();
-				// int newClients = base.getClientsByManagerIdBetweenDates(m.getId(), mondayText, saturdayText).size();
+				 int kpiCalculates = base.getClientsByManagerIdBetweenDates(m.getId(), mondayText, saturdayText).size();
 				 String managername = m.getName();
 				 
 				 mr.setKpiClient(kpiClient);
 				 mr.setKpiContract(kpiContract);
 				 mr.setKpiLpr(kpiLpr);
 				 mr.setManagerName(managername);
-				// mr.setNewClients(newClients);
+				 mr.setKpiCalculates(kpiCalculates);
 				 mr.setManagerid(m.getId());
 				 
 				 managerReports.add(mr);
@@ -182,6 +182,7 @@ public class ReportServlet {
 			 int prodContract = base.getClientsByFunelAndOpenProduct(constant.CLIENT_FUNEL_CONTRACT_DEALING, prod.getProduct()).size();
 			 int prodNewClient = base.getClientsByFunelAndOpenProduct(constant.CLIENT_FUNEL_BECAME_CLIENT, prod.getProduct()).size();
 			 
+			 
 			 p.setNewClients(prodCold);
 			 p.setKpiLpr(prodLpr);
 			 p.setKpiContract(prodContract);
@@ -205,14 +206,14 @@ public class ReportServlet {
 			 int kpiLpr = base.getListOfRecordsByManagerIdIdAndStatusBetweenDates(m.getId(), constant.RECORDS_RECORDSTATUS_COMUNICATION_WITH_LPR, mondayText, saturdayText).size();
 			 int kpiContract = base.getListOfRecordsByManagerIdIdAndStatusBetweenDates(m.getId(), constant.RECORDS_RECORDSTATUS_CONTRACT_DEALING, mondayText, saturdayText).size();
 			 int kpiClient = base.getListOfRecordsByManagerIdIdAndStatusBetweenDates(m.getId(), constant.RECORDS_RECORDSTATUS_BECAME_CLIENT, mondayText, saturdayText).size();
-			// int newClients = base.getClientsByManagerIdBetweenDates(m.getId(), mondayText, saturdayText).size();
+			 int kpiCalculates = base.getClientsByManagerIdBetweenDates(m.getId(), mondayText, saturdayText).size();
 			 String managername = m.getName();
 			 
 			 mr.setKpiClient(kpiClient);
 			 mr.setKpiContract(kpiContract);
 			 mr.setKpiLpr(kpiLpr);
 			 mr.setManagerName(managername);
-			// mr.setNewClients(newClients);
+		     mr.setKpiCalculates(kpiCalculates);
 			 mr.setManagerid(m.getId());
 			 
 			 managerReports.add(mr);

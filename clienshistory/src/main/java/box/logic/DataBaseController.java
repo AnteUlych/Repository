@@ -46,6 +46,11 @@ public class DataBaseController {
 		return calculatesService.getListOfCalculatesByCompanyid(companyid);
 	}
 	
+	public List<Calculates> getListOfCalculatesBetweenDatesByManagerId(
+			String start, String finish, int managerid){
+        return calculatesService.getListOfCalculatesBetweenDatesByManagerId(start, finish, managerid);	
+    }
+	
 	public List<Calculates> getListOfCalculates() {
 		return calculatesService.getListOfCalculates();
 	}

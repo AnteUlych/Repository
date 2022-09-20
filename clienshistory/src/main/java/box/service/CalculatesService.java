@@ -17,6 +17,11 @@ public class CalculatesService {
 		return dao.getListOfCalculates();
 	}
 	
+	public List<Calculates> getListOfCalculatesBetweenDatesByManagerId(
+			String start, String finish, int managerid) {
+	    return dao.getListOfCalculatesBetweenDatesByManagerId(start, finish, managerid);
+	}
+	
 	public List<Calculates> getListOfCalculatesByCompanyid(int companyid) {
 		return dao.getListOfCalculatesByCompanyid(companyid);
 	}

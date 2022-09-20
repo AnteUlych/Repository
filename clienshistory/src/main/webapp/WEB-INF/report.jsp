@@ -80,6 +80,7 @@ ${menuForHead}
 <tr>	
 	<th>Менеджер</th>
 <th><i class="fa fa-user-secret w3-text-purple"></i></th>
+<th><i class="fa fa-book w3-text-red"></i></th>
 <th><i class="fa fa-flag-checkered"></i></th>
 <th><i class="fa fa-check w3-text-green"></i></th>
 </tr>	
@@ -91,6 +92,7 @@ ${menuForHead}
 <td><a href="/clientshisory/managerreport/${mr.managerid}&_${mondayText}&_${saturdayText}" style="text-decoration: none" target="_blank">${mr.managerName}</a></td>
 
 <td><a href="/clientshisory/reportwithclients/m&_${mr.managerid}&_1&_${mondayText}&_${saturdayText}" style="text-decoration: none" target="_blank">${mr.kpiLpr}</a></td>
+<td>${mr.kpiCalculates}</td>
 <td><a href="/clientshisory/reportwithclients/m&_${mr.managerid}&_2&_${mondayText}&_${saturdayText}" style="text-decoration: none" target="_blank">${mr.kpiContract}</a></td>
 <td><a href="/clientshisory/reportwithclients/m&_${mr.managerid}&_3&_${mondayText}&_${saturdayText}" style="text-decoration: none" target="_blank">${mr.kpiClient}</a></td>
 </tr>

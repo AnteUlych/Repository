@@ -47,6 +47,15 @@ public class CalculatesDAO {
 						+ "' and dateofcalculate >=' " + startDate
 						+ "' order by id desc").getResultList();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Calculates> getListOfCalculatesBetweenDatesByManagerId(
+			String start, String finish, int managerid) {
+		return em.createQuery(
+				"from Calculates where managerid='" + managerid
+						+ "' and dateofcalculate >=' " + start
+						+ "' and dateofcalculate <=' " + finish + "' order by id desc").getResultList();
+	}
 
 	@Transactional
 	public void persist(Calculates calculates) {

@@ -8,6 +8,7 @@ public class ManagerReport {
 	private int kpiClient;
 	private int newClients;
 	private int managerid;
+	private int kpiCalculates;
 	
 
 	public int getKpiLpr() {
@@ -46,6 +47,12 @@ public class ManagerReport {
 	}
 	public void setManagerid(int managerid) {
 		this.managerid = managerid;
+	}
+	public int getKpiCalculates() {
+		return kpiCalculates;
+	}
+	public void setKpiCalculates(int kpiCalculates) {
+		this.kpiCalculates = kpiCalculates;
 	}
 
 
