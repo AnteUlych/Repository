@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import box.logic.Constants;
+import box.logic.Countries;
 import box.logic.DataBaseController;
 import box.model.Calculates;
 import box.model.Client;
@@ -53,6 +54,10 @@ public class AddcalculateServlet {
 		Client client = base.getClientById(idOfClient);
 
 		base.closeConnection();
+		
+		Countries eu = new Countries();
+		List <String> countries = eu.getListOfEuropeCountries();
+		model.addAttribute("countries", countries);
 
 		model.addAttribute("name", name);
 		model.addAttribute("products", products);

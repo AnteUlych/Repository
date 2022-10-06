@@ -13,6 +13,14 @@
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+</head>
+
+
 <body class="w3-light-grey">
 
 <!-- Top container -->
@@ -80,10 +88,16 @@ ${menuForHead}
 		 	     <p>
 	
 	     <input pattern="[^\\/`\/\x22]+" name="cityfrom" class="w3-input w3-quarter" type="text" placeholder="МІСТО ВІДПРАВКИ"  maxlength="40" required>
-	     <input style="text-transform:uppercase" pattern="[^\\/`\/\x22]+" name="countryfrom" class="w3-input w3-quarter" type="text"  placeholder="Країна відправки" minlength="2" maxlength="2" required>
+	    <!--  <input style="text-transform:uppercase" pattern="[^\\/`\/\x22]+" name="countryfrom" class="w3-input w3-quarter" type="text"  placeholder="Країна відправки" minlength="2" maxlength="2" required>--> 
+	    <input  name="countryfrom" class="w3-input w3-quarter" list="eu"  placeholder="Країна відправки" autocomplete="off"  required>
+	    <datalist id="eu">
+        <c:forEach items="${countries}" var="c" >	
+        <option value="${c}">
+        </c:forEach>
+        </datalist>
 	  
 	     <input pattern="[^\\/`\/\x22]+" name="cityto" class="w3-input w3-quarter" type="text" placeholder="МІСТО ДОСТАВКИ"  maxlength="40" required>
-	     <input style="text-transform:uppercase" pattern="[^\\/`\/\x22]+" name="countryto" class="w3-input w3-quarter" type="text"  placeholder="Країна доставки" minlength="2" maxlength="2" required>
+	     <input name="countryto" class="w3-input w3-quarter" list="eu"  placeholder="Країна доставки" autocomplete="off" required>
 	     </p>
 		 <p>	 
 	     <input pattern="[^\\/`\/\x22]+" name="freight" class="w3-input w3-third" type="text" placeholder="Вантаж"  maxlength="40" required>
@@ -126,6 +140,11 @@ ${menuForHead}
 
 
 <script>
+$(document).ready(function () {
+    $('select').selectize({
+        sortField: 'text'
+    });
+});
 
 
 // Get the Sidebar

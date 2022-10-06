@@ -3,17 +3,20 @@ package temp;
 import java.text.ParseException;
 import java.util.List;
 
+import box.logic.Countries;
 import box.logic.DataBaseController;
 import box.model.Calculates;
+import box.model.Client;
 
 public class MainTest {
 
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args)  {
 
-		DataBaseController b = new DataBaseController();
-		List<Calculates> cs = b.getListOfCalculatesBetweenDatesByManagerId(
-				"2022-09-08", "2022-09-09", 7);
-
-		System.out.println();
+		Countries co = new Countries();
+		List<String> cs = co.getListOfEuropeCountries();
+		
+		for(String c:cs) {
+		System.out.println(c);
+		}
 	}
 }
