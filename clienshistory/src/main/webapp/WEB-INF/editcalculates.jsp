@@ -13,6 +13,13 @@
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+</head>
+
 <body class="w3-light-grey">
 
 <!-- Top container -->
@@ -39,7 +46,7 @@ ${menuForHead}
     <a href="/clientshisory/archive" class="w3-bar-item w3-button w3-padding "><i class="fa fa-archive w3-text-orange"></i>&nbsp; Архів запитів</a>
      <a href="/clientshisory/addclient" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-plus w3-text-green"></i>&nbsp; Додати клієнта</a>
     <a href="/clientshisory/find" class="w3-bar-item w3-button w3-padding"><i class="fa fa-search w3-text-red"></i>&nbsp; Пошук компаній</a>
-
+ <a href="/clientshisory/weeklyreminderlist" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullhorn w3-text-purple"></i>&nbsp; Нагадування</a>
     <a href="/clientshisory/report" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bar-chart w3-text-gray"></i>&nbsp; Звіт</a>
   </div>
 
@@ -87,10 +94,15 @@ ${menuForHead}
 		 	     <p>
 	
 	     <input pattern="[^\\/`\/\x22]+" name="cityfrom" class="w3-input w3-quarter" type="text" placeholder="МІСТО ВІДПРАВКИ" value="${calculate.cityfrom}" maxlength="40" required>
-	     <input style="text-transform:uppercase" pattern="[^\\/`\/\x22]+" name="countryfrom" class="w3-input w3-quarter" type="text" value="${calculate.countryfrom}" placeholder="Країна відправки" minlength="2" maxlength="2" required>
+	          <input  name="countryfrom" class="w3-input w3-quarter" list="eu"  placeholder="Країна відправки" autocomplete="off" value="${calculate.countryfrom}"  required>
+	    <datalist id="eu">
+        <c:forEach items="${countries}" var="c" >	
+        <option value="${c}">
+        </c:forEach>
+        </datalist>
 	  
 	     <input pattern="[^\\/`\/\x22]+" name="cityto" class="w3-input w3-quarter" type="text" placeholder="МІСТО ДОСТАВКИ" value="${calculate.cityto}" maxlength="40" required>
-	     <input style="text-transform:uppercase" pattern="[^\\/`\/\x22]+" name="countryto" class="w3-input w3-quarter" type="text" value="${calculate.countryto}" placeholder="Країна доставки" minlength="2" maxlength="2" required>
+	     <input name="countryto" class="w3-input w3-quarter" list="eu"  placeholder="Країна доставки" autocomplete="off" value="${calculate.countryto}"  required>
 	     </p>
 		 <p>	 
 	     <input pattern="[^\\/`\/\x22]+" name="freight" class="w3-input w3-third" type="text" placeholder="Вантаж" value="${calculate.freight}" maxlength="40" required>
@@ -133,6 +145,11 @@ ${menuForHead}
 
 
 <script>
+$(document).ready(function () {
+    $('select').selectize({
+        sortField: 'text'
+    });
+});
 
 
 // Get the Sidebar

@@ -26,5 +26,8 @@ public class Constants {
 	public int RECORDS_RECORDSTATUS_ADD_CHANGINGS = 5;
 	public int RECORDS_RECORDSTATUS_HEAD_ORDER = 6;
 	
+	public int CHECKED_WEEKLYREMINDER = 0;
+	public int UNCHECKED_WEEKLYREMINDER = 1;
+	
 	
 }

@@ -1,19 +1,21 @@
 package temp;
 
-import java.text.ParseException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import box.logic.DataBaseController;
-import box.model.Calculates;
+import box.model.Weeklyreminder;
 
 public class MainTest {
 
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args)  {
 
-		DataBaseController b = new DataBaseController();
-		List<Calculates> cs = b.getListOfCalculatesBetweenDatesByManagerId(
-				"2022-09-08", "2022-09-09", 7);
-
-		System.out.println();
+		Calendar c = Calendar.getInstance();
+		c.setTime(new Date());
+		int todayDayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+		
+		System.out.println(todayDayOfWeek);
+		
 	}
 }

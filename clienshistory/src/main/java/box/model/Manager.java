@@ -11,11 +11,11 @@ public class Manager {
 	@Id
 	@Column
 	private int id;
-	@Column
+	@Column (name = "\"name\"")
 	private String name;
-	@Column
+	@Column (name = "\"code\"")
 	private String code;
-	@Column
+	@Column (name = "\"rank\"")
 	private int rank;
 	@Column
 	private String mail;

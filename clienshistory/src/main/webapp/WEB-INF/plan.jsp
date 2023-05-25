@@ -39,7 +39,7 @@ ${menuForHead}
     <a href="/clientshisory/archive" class="w3-bar-item w3-button w3-padding "><i class="fa fa-archive w3-text-orange"></i>&nbsp; Архів запитів</a>
      <a href="/clientshisory/addclient" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-plus w3-text-green"></i>&nbsp; Додати клієнта</a>
     <a href="/clientshisory/find" class="w3-bar-item w3-button w3-padding"><i class="fa fa-search w3-text-red"></i>&nbsp; Пошук компаній</a>
-
+ <a href="/clientshisory/weeklyreminderlist" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullhorn w3-text-purple"></i>&nbsp; Нагадування</a>
     <a href="/clientshisory/report" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bar-chart w3-text-gray"></i>&nbsp; Звіт</a>
   </div>
 
@@ -72,8 +72,24 @@ ${menuForHead}
   
 <br>
 <div class="w3-container">
+ <form method="POST">
+    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable">
+	
+		<c:forEach items="${reminders}" var="rem" varStatus="theCount">
+<tr style="background-color:rgb(255, 255, 175)">
+<td><i class="fa fa-exclamation" style="color:red"></i></td>
+<td>${rem.dayofweekname}</td>
+<td><a href="/clientshisory/client/${rem.clientid}">${rem.clientname}</a></td>
+<td>${rem.textreminder}</td>
+<td><button type="submit" name="check${rem.id}" class="w3-button w3-tiny"><i class="fa fa-check"></i></button></td>
+</tr>
 
- 
+
+</c:forEach>
+</table>
+</form>
+
+ <br>
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
 	
 		<c:forEach items="${clients}" var="cli" varStatus="theCount">

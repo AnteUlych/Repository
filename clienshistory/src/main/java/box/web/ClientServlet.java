@@ -26,6 +26,7 @@ import box.model.Calculates;
 import box.model.Client;
 import box.model.Product;
 import box.model.Records;
+import box.model.Weeklyreminder;
 
 @Controller
 public class ClientServlet {
@@ -121,6 +122,7 @@ public class ClientServlet {
 			 check4 = checked;
 		 }
 		 
+		 List <Weeklyreminder> reminders = base.getListOfWeeklyreminderByClientid(idOfClient);
 		 
 		 
 		 base.closeConnection();
@@ -157,6 +159,8 @@ public class ClientServlet {
 		 model.addAttribute("check2", check2);
 		 model.addAttribute("check3", check3);
 		 model.addAttribute("check4", check4);
+		 
+		 model.addAttribute("reminders", reminders);
 		    	
     	 return "client";
     }
@@ -195,6 +199,8 @@ public class ClientServlet {
 		 String productsOfClient = client.getProducts();
 		 String manager = client.getManager();
 		 String edrpo = client.getEdrpo();
+		 
+		 List <Weeklyreminder> reminders = base.getListOfWeeklyreminderByClientid(idOfClient);
 		 
 		 
 		 
@@ -285,6 +291,8 @@ public class ClientServlet {
 		 model.addAttribute("check2", check2);
 		 model.addAttribute("check3", check3);
 		 model.addAttribute("check4", check4);
+		 
+		 model.addAttribute("reminders", reminders);
 		 
 		 String requestEnc = "ISO-8859-1";
 			String clientEnc = request.getParameter("charset");

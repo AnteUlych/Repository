@@ -49,7 +49,7 @@ ${menuForHead}
     <a href="/clientshisory/archive" class="w3-bar-item w3-button w3-padding "><i class="fa fa-archive w3-text-orange"></i>&nbsp; Архів запитів</a>
      <a href="/clientshisory/addclient" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-plus w3-text-green"></i>&nbsp; Додати клієнта</a>
     <a href="/clientshisory/find" class="w3-bar-item w3-button w3-padding"><i class="fa fa-search w3-text-red"></i>&nbsp; Пошук компаній</a>
-
+ <a href="/clientshisory/weeklyreminderlist" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullhorn w3-text-purple"></i>&nbsp; Нагадування</a>
     <a href="/clientshisory/report" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bar-chart w3-text-gray"></i>&nbsp; Звіт</a>
   </div>
 
@@ -101,10 +101,26 @@ ${menuForHead}
 <div class="w3-container">
 <h5>
 ${addRecord} &nbsp;
-<button class="w3-button" onclick="location.href='/clientshisory/addcalculate/${idOfClient}';"><i class="fa fa-book"> </i></button>
-
+<button class="w3-button" onclick="location.href='/clientshisory/addcalculate/${idOfClient}';"><i class="fa fa-book"> </i></button> &nbsp;
+<button class="w3-button" onclick="location.href='/clientshisory/addweeklyreminder/${idOfClient}';"><i class="fa fa-bullhorn"> </i></button>
 </h5>
 
+<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+	
+		<c:forEach items="${reminders}" var="rem" varStatus="theCount">
+<tr style="background-color:rgb(255, 255, 175)" class="">
+
+<td>${rem.dayofweekname}</td>
+<td>${rem.manager}</td>
+<td>${rem.textreminder}</td>
+
+
+</tr>
+
+
+</c:forEach>
+</table>
+<br>
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
 	
 		<c:forEach items="${calculates}" var="calc" varStatus="theCount">

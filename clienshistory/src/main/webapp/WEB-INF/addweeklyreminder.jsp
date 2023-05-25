@@ -13,6 +13,14 @@
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+</head>
+
+
 <body class="w3-light-grey">
 
 <!-- Top container -->
@@ -64,42 +72,62 @@ ${menuForHead}
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <h5>
-    <b><i class="fa fa-child"></i> ${nameOfManager}</b>
+    <b><i class="fa fa-bullhorn"></i> Нове нагадування </b>
      
     
     </h5>
   </header>
   
 <br>
-<div class="w3-container">
+<div class="w3-modal-content  w3-padding-large">
+<div class="w3-container w3-white w3-center">
 
+ <form method="POST">
  
-    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+<p><b>${client}</b></p>
+		 	     <p>
 	
-		<c:forEach items="${clients}" var="cli" varStatus="theCount">
-<tr class="">
 
-<td>${dates[theCount.index]}</td>
-<td><i class="${icons[theCount.index]}"></i></td>
-<td><a href="/clientshisory/client/${cli.id}">${cli.company}</a></td>
-<td>${cli.manager}</td>
-<td>${cli.lastrecord}</td>
+           
+	     <p><input pattern="[^\\/`\/\x22]+" name="textreminder" class="w3-input w3-border" type="text" placeholder="Нагадування"  maxlength="450" required></p>
+	   <br>
+	    
+	     День тижня:&nbsp;
+	     <input type="radio" id="mon" name="dayofweek" value="2"  required>
+         <label for="mon">понеділок</label>
+         <input type="radio" id="tue" name="dayofweek" value="3" >
+         <label for="tue">вівторок</label>
+         <input type="radio" id="wed" name="dayofweek" value="4" >
+         <label for="wed">середа</label>
+         <input type="radio" id="thu" name="dayofweek" value="5">
+         <label for="thu">четвер</label>
+         <input type="radio" id="fri" name="dayofweek" value="6" >
+         <label for="fri">п'ятниця</label>
+         <input type="radio" id="sat" name="dayofweek" value="7" >
+         <label for="sat">субота</label>
+         <input type="radio" id="sun" name="dayofweek" value="1" >
+         <label for="sun">неділя</label>
+         
+         &nbsp; &nbsp;
+         <br>
+	     <br>
+		  <p><button name="add" type="submit" class="w3-button w3-padding-large w3-green w3-margin-bottom">Додати</button></p>
 
-</tr>
-
-
-</c:forEach>
-</table>
-
-<br><br><br>
-  
+ </form> 
   </div>
-
+</div>
   </div>
 
 
 
 <script>
+$(document).ready(function () {
+    $('select').selectize({
+        sortField: 'text'
+    });
+});
+
+
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
 

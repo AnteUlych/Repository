@@ -13,6 +13,14 @@
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+</head>
+
+
 <body class="w3-light-grey">
 
 <!-- Top container -->
@@ -64,7 +72,7 @@ ${menuForHead}
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
     <h5>
-    <b><i class="fa fa-child"></i> ${nameOfManager}</b>
+    <b><i class="fa fa-bullhorn"></i> Нагадування </b>
      
     
     </h5>
@@ -73,33 +81,46 @@ ${menuForHead}
 <br>
 <div class="w3-container">
 
- 
-    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+ <form method="POST">
+    <table class="w3-table w3-striped w3-bordered w3-border w3-white">
 	
-		<c:forEach items="${clients}" var="cli" varStatus="theCount">
+<th>№</th>
+<th>Клієнт</th>
+<th>День тижня</th>
+<th>Нагадування</th>
+<th>&nbsp;</th>
+	
+	
+		<c:forEach items="${reminders}" var="rem" varStatus="theCount">
 <tr class="">
 
-<td>${dates[theCount.index]}</td>
-<td><i class="${icons[theCount.index]}"></i></td>
-<td><a href="/clientshisory/client/${cli.id}">${cli.company}</a></td>
-<td>${cli.manager}</td>
-<td>${cli.lastrecord}</td>
+<td>${theCount.index+1}</td>
+<td><a href="/clientshisory/client/${rem.clientid}">${rem.clientname}</a></td>
 
+<td>${rem.dayofweekname}</td>
+<td>${rem.textreminder}</td>
+<td><button type="submit" name="delete${rem.id}" class="w3-button w3-text-red"><i class="fa fa-eraser"></i></button></td>
 </tr>
 
 
 </c:forEach>
 </table>
-
+</form>
 <br><br><br>
   
   </div>
-
   </div>
 
 
 
 <script>
+$(document).ready(function () {
+    $('select').selectize({
+        sortField: 'text'
+    });
+});
+
+
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
 

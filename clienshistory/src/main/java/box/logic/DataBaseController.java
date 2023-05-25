@@ -14,11 +14,13 @@ import box.model.Client;
 import box.model.Manager;
 import box.model.Product;
 import box.model.Records;
+import box.model.Weeklyreminder;
 import box.service.CalculatesService;
 import box.service.ClientService;
 import box.service.ManagerService;
 import box.service.ProductService;
 import box.service.RecordsService;
+import box.service.WeeklyreminderService;
 
 public class DataBaseController {
 
@@ -34,12 +36,50 @@ public class DataBaseController {
 			.getBean("recordsService");
 	CalculatesService calculatesService = (CalculatesService) ctx
 			.getBean("calculatesService");
+	WeeklyreminderService weeklyreminderService = (WeeklyreminderService) ctx
+			.getBean("weeklyreminderService");
 
 	
 
 	public void closeConnection() {
 		((AbstractApplicationContext) ctx).close();
 	}
+	
+	
+	//Weeklyreminder
+	
+	public void editWeeklyreminderCheckById(int id, int isitnotchecked) {
+		weeklyreminderService.editWeeklyreminderCheckById(id, isitnotchecked);
+	}
+	
+	public List<Weeklyreminder> getListOfWeeklyreminderByClientid(int clientid) {
+		return weeklyreminderService.getListOfWeeklyreminderByClientid(clientid);
+	}
+		
+	public void addWeeklyReminder(Weeklyreminder weeklyreminder) {
+		weeklyreminderService.addWeeklyReminder(weeklyreminder);
+	}
+	
+	public List<Weeklyreminder> getListOfWeeklyreminderByManagerId(int managerid) {
+		return weeklyreminderService.getListOfWeeklyreminderByManagerId(managerid);
+	}
+	
+	public List<Weeklyreminder> getListOfUncheckedWeeklyreminderByManagerIdAndDayofweek(int managerid, int dayofweek) {
+		return weeklyreminderService.getListOfUncheckedWeeklyreminderByManagerIdAndDayofweek(managerid, dayofweek);
+	}
+	
+	public void deleteWeeklyreminderById(int id) {
+		weeklyreminderService.deleteWeeklyreminderById(id);
+	}
+	
+	public void editWeeklyreminderById(int id, String color, int isitnotchecked, Date bobdate) {
+		weeklyreminderService.editWeeklyreminderById(id, color, isitnotchecked, bobdate);
+	}
+	
+	public int getNumberOfUncheckedWeeklyreminderByManagerIdAndDayofweek(int managerid, int dayofweek) {
+		return weeklyreminderService.getNumberOfUncheckedWeeklyreminderByManagerIdAndDayofweek(managerid, dayofweek);
+	}
+	
 
 	// Calculates
 	public List<Calculates> getListOfCalculatesByCompanyid(int companyid) {
